@@ -55,11 +55,11 @@ class Collection {
     }
 
     public boolean validateDeck(String deckName) {
-
+        return true;
     }
 
     public boolean selectDeck(String deckName) {
-
+        return true;
     }
 
     public void showAllDecks() {

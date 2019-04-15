@@ -1,5 +1,7 @@
 class Hero extends Card {
 
+
+
     Item[][] itemCheck = new Item[4][];
 
     public void attack() {

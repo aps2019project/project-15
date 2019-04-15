@@ -14,15 +14,15 @@ public class Shop {
     }
 
     public int searchInShop(String name) {
-
+return 0;
     }
 
     public int searchInCollection(String name) {
-
+return 0;
     }
 
     public boolean isBought(String name) {
-
+return true;
     }
 
     public void buy(String name) {
@@ -42,7 +42,7 @@ public class Shop {
     }
 
     public boolean isSold(String name) {
-
+return true;
     }
 
     public void showMenu() {

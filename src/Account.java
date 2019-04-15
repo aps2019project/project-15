@@ -8,7 +8,6 @@ public class Account {
 
     Game game;
 
-
     int money = 15000;
     String username;
     String password;

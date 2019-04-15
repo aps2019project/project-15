@@ -9,8 +9,6 @@ enum specialPowerActivation {
 }
 
 class Minion extends Card {
-    int x;
-    int y;
 
     Spell specialPower;
     String name;
@@ -22,12 +20,12 @@ class Minion extends Card {
 
     private Flag myFlag;
 
-    public void getFlag( Flag flag) {
+    public void getFlag(Flag flag) {
 
     }
 
     public boolean specialPowerActivated() {
-
+        return true;
     }
 
     public Spell getSpecialPower() {

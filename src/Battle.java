@@ -39,6 +39,7 @@ public class Battle {
     }
 
     public boolean attackComboPossible(String... opponentCardId) {
+        return true;
 
     }
 

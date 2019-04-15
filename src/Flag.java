@@ -4,7 +4,7 @@ public class Flag extends Item {
     Card card;
 
     public Card condition() {
-
+        return null;
     }
 
     public void flag(int x, int y) {
@@ -20,4 +20,8 @@ public class Flag extends Item {
         return y;
     }
 
+    @Override
+    public void calling(Item item) {
+
+    }
 }

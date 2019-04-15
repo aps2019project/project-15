@@ -19,10 +19,10 @@ class Deck {
 
     }
     public boolean validateDeck(){
-
+return true;
     }
     public Hand returnHand(){
-
+return null;
     }
 
 }

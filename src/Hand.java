@@ -8,7 +8,7 @@ public class Hand {
     }
 
     public ArrayList<Card> returnHand() {
-
+return null;
     }
     public void addToHand() {
 

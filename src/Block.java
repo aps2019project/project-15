@@ -4,6 +4,7 @@ class Block {
     private boolean holy;
     private boolean isEmpty;
     Card card;
+
     int x;
     int y;
 
@@ -13,7 +14,7 @@ class Block {
     }
 
     public Card cardContain() {
-
+        return null;
     }
 
     public boolean isEmpty() {
