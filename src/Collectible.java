@@ -35,6 +35,11 @@ public class Collectible extends Item {
                     exir();
                     break;
                 }
+                case ("nooshdaru"):{
+                    nooshdaru();
+                    break;
+
+                }
 
             }
         }
@@ -66,6 +71,10 @@ public class Collectible extends Item {
     }
 
     public void nefrinMarg() {
+
+    }
+
+    public void nooshdaru() {
 
     }
 
