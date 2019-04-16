@@ -13,7 +13,7 @@ public class Usable extends Item {
     }
 
     @Override
-    public void calling(Item item) {
+    public void calling() {
 
     }
 

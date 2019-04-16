@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 enum TypeOfCollectible {
-    joonBaw, tir3shakh, exir
+    joonBaw, TIR_3_SHAKH, exir
 }
 
 public class Collectible extends Item {
@@ -14,15 +14,20 @@ public class Collectible extends Item {
 
     TypeOfCollectible mode;
 
-    public Collectible(Item item) {
-        String itemName = item.returnItemName();
-
+    public Collectible() {
     }
 
     @Override
-    public void calling(Item item) {
-        if (itemName != null && item.isUsing()) {
-            switch (itemName) {
+    public void calling() {
+        if (this.itemName != null && this.isUsing()) {
+            TypeOfCollectible type = TypeOfCollectible.joonBaw;
+            switch (type) {
+                case exir:
+                    break;
+                case TIR_3_SHAKH:
+                    break;
+            }
+            switch (this.itemName) {
                 case ("joonBaw"): {
                     joonBaw();
                     break;
@@ -31,11 +36,11 @@ public class Collectible extends Item {
                     tir3shakh();
                     break;
                 }
-                case("exir") :{
+                case ("exir"): {
                     exir();
                     break;
                 }
-                case ("nooshdaru"):{
+                case ("nooshdaru"): {
                     nooshdaru();
                     break;
 
@@ -50,43 +55,43 @@ public class Collectible extends Item {
         return this;
     }*/
 
-    public void joonBaw() {
+    public static void joonBaw() {
+        View.printIncrementHealth(3);
+    }
+
+    public static void tir3shakh() {
 
     }
 
-    public void tir3shakh() {
+    public static void exir() {
+        View.printIncrementHealth(3);
+    }
+
+    public static void majoonMp() {
 
     }
 
-    public void exir() {
+    public static void majoonRoointani() {
 
     }
 
-    public void majoonMp() {
+    public static void nefrinMarg() {
 
     }
 
-    public void majoonRoointani() {
+    public static void nooshdaru() {
 
     }
 
-    public void nefrinMarg() {
+    public static void randomDamage() {
 
     }
 
-    public void nooshdaru() {
+    public static void bladesOfAgility() {
 
     }
 
-    public void randomDamage() {
-
-    }
-
-    public void bladesOfAgility() {
-
-    }
-
-    public void shamshirChini() {
+    public static void shamshirChini() {
 
     }
 

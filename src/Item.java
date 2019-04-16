@@ -8,21 +8,24 @@ enum typeOfItem {
 public abstract class Item {
     String itemName;
 
+    static ArrayList<Item> items = new ArrayList<>();
     String id;
     int x;
     int y;
     boolean collected;
     boolean using = false;
 
+
+    public static void addToItems(Item item) {
+        items.add(item);
+    }
+
+    public abstract void calling();
+
     public boolean isUsing() {
         return using;
     }
 
-    ArrayList<Item> items;
-
-    public Item() {
-
-    }
 
     public String returnItemName() {
         if (items.contains(this)) {
@@ -30,8 +33,6 @@ public abstract class Item {
         }
         return null;
     }
-
-    public abstract void calling(Item item);
 
     public void showCollectables() {
 

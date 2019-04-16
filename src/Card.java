@@ -21,6 +21,8 @@ abstract class Card {
     int Hp;
     int Ap;
 
+
+
     public String returnCardName() {
         if (cards.contains(this)) {
             return this.cardName;

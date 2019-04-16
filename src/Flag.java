@@ -20,8 +20,9 @@ public class Flag extends Item {
         return y;
     }
 
+
     @Override
-    public void calling(Item item) {
+    public void calling() {
 
     }
 }
