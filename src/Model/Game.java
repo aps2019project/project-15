@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 
 enum ModeOfGame {
@@ -15,7 +17,7 @@ class Game {
     Game() {
         Account player1 = new Account();
         setPlayers();
-        map = Controller.getMap();
+        map = Control.getMap();
     }
 
     private GameType gameType;

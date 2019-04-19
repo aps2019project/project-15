@@ -1,4 +1,7 @@
+package Model;
+
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Account {
 
@@ -7,6 +10,7 @@ public class Account {
     }
 
     Game game;
+    Shop shop;
 
     int money = 15000;
     String username;
@@ -27,6 +31,31 @@ public class Account {
 
         }
     }
+
+    public void choosePartسOfMenu() {
+
+        View.View.printMainMenuOfGame();
+
+        int numOfMenuPart = Controller.Main.getScanner().nextInt();
+        switch (numOfMenuPart) {
+            case (1): {
+                break;
+            }
+            case (2): {
+                break;
+            }
+            case (3): {
+                break;
+            }
+            case (4): {
+                break;
+            }
+            case (5): {
+                break;
+            }
+        }
+    }
+
 
     public int getNumOfWins() {
         return numOfWins;

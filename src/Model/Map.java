@@ -1,3 +1,8 @@
+package Model;
+
+import Model.Block;
+import Model.Collectible;
+
 import java.util.ArrayList;
 
 class Map {

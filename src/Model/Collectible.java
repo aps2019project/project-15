@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 
 enum TypeOfCollectible {
@@ -51,12 +53,12 @@ public class Collectible extends Item {
     }
 
 
-    /*public Collectible getCollectible() {
+    /*public Model.Collectible getCollectible() {
         return this;
     }*/
 
     public static void joonBaw() {
-        View.printIncrementHealth(3);
+        View.View.printIncrementHealth(3);
     }
 
     public static void tir3shakh() {
@@ -64,7 +66,7 @@ public class Collectible extends Item {
     }
 
     public static void exir() {
-        View.printIncrementHealth(3);
+        View.View.printIncrementHealth(3);
     }
 
     public static void majoonMp() {

@@ -1,3 +1,5 @@
+package Model;
+
 public class Battle {
 
 
@@ -10,7 +12,7 @@ public class Battle {
 
     Map map;
     private Battle() {
-        map = Controller.getMap();
+        map = Control.getMap();
     }
 
     public void showMyMinions() {
@@ -61,5 +63,9 @@ public class Battle {
     public void endTurn() {
 
     }
-
+    public void help() {
+        Control.view.showMinionsYouCanMove();
+        Control.view.showMinionsYouCanAttack();
+        Control.view.showMinionsYouCanAttack();
+    }
 }
