@@ -58,7 +58,7 @@ public class Collectible extends Item {
     }*/
 
     public static void joonBaw() {
-        View.View.printIncrementHealth(3);
+        Control.view.printIncrementHealth(3);
     }
 
     public static void tir3shakh() {
@@ -66,7 +66,7 @@ public class Collectible extends Item {
     }
 
     public static void exir() {
-        View.View.printIncrementHealth(3);
+        Control.view.printIncrementHealth(3);
     }
 
     public static void majoonMp() {

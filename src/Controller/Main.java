@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Control;
+
 import java.util.Scanner;
 
 public class Main {
@@ -19,9 +21,9 @@ public class Main {
             Model.Item.addToItems(collectible);
             collectible.setUsing(true);
             collectible.calling();
-            View.View.printEnterCollectibleID();
+            Model.Control.view.printEnterCollectibleID();
             collectible.setId(scanner.nextLine());
-            View.View.printCollectibleID(collectible);
+            Control.view.printCollectibleID(collectible);
         }
     }
 }

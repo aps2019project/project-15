@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class Control {
-    static View view = new View();
+    public static View view = new View();
 
     private static Map map = new Map();
     ArrayList<Account> players;
