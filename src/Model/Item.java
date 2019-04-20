@@ -55,8 +55,6 @@ public abstract class Item {
         items.add(item);
     }
 
-    public abstract void calling();
-
     public boolean isUsing() {
         return using;
     }

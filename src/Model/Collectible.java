@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.Controller;
+
 import java.util.ArrayList;
 
 enum TypeOfCollectible {
@@ -19,37 +21,18 @@ public class Collectible extends Item {
     public Collectible() {
     }
 
-    @Override
-    public void calling() {
-        if (this.itemName != null && this.isUsing()) {
-            TypeOfCollectible type = TypeOfCollectible.joonBaw;
-            switch (type) {
-                case exir:
-                    break;
-                case TIR_3_SHAKH:
-                    break;
-            }
-            switch (this.itemName) {
-                case ("joonBaw"): {
-                    joonBaw();
-                    break;
-                }
-                case ("tir3shakh"): {
-                    tir3shakh();
-                    break;
-                }
-                case ("exir"): {
-                    exir();
-                    break;
-                }
-                case ("nooshdaru"): {
-                    nooshdaru();
-                    break;
+    private static void addCollectibleToAllCollectibles() {
+        Model.Collectible collectible = new Model.Collectible();
 
-                }
-
-            }
-        }
+        collectible.setItemName(Controller.scanner.nextLine());
+        Model.Item.addToItems(collectible);
+        collectible.setUsing(true);
+        Controller.view.printEnterCollectibleID();
+        collectible.setId(Controller.scanner.nextLine());
+        Controller.view.printCollectibleID(collectible);
+        Controller.view.printEnterCollectibleID();
+        collectible.setId(Controller.scanner.nextLine());
+        Controller.view.printCollectibleID(collectible);
     }
 
 
@@ -58,7 +41,7 @@ public class Collectible extends Item {
     }*/
 
     public static void joonBaw() {
-        Control.view.printIncrementHealth(3);
+        Controller.view.printIncrementHealth(3);
     }
 
     public static void tir3shakh() {
@@ -66,7 +49,7 @@ public class Collectible extends Item {
     }
 
     public static void exir() {
-        Control.view.printIncrementHealth(3);
+        Controller.view.printIncrementHealth(3);
     }
 
     public static void majoonMp() {

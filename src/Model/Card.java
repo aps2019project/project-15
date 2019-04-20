@@ -61,7 +61,6 @@ abstract class Card {
         return using;
     }
 
-
     public void move() {
 
     }

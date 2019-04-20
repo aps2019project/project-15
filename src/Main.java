@@ -1,4 +1,6 @@
 import Controller.Controller;
+import Model.Account;
+import View.View;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,27 +8,25 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Scanner getScanner() {
-        return scanner;
-    }
-
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        while (true) {
-
-            Model.Collectible collectible = new Model.Collectible();
-
-            collectible.setItemName(Controller.scanner.nextLine());
-            Model.Item.addToItems(collectible);
-            collectible.setUsing(true);
-            collectible.calling();
-            Controller.view.printEnterCollectibleID();
-            collectible.setId(Controller.scanner.nextLine());
-            Controller.view.printCollectibleID(collectible);
-            Controller.view.printEnterCollectibleID();
-            collectible.setId(scanner.nextLine());
-            Controller.view.printCollectibleID(collectible);
+        System.out.println("1.Sign in!");
+        System.out.println("2.No account? Sign Up!");
+        while (!Controller.quit) {
+            Model.Account account = new Account();
+            switch (Integer.parseInt(Controller.scanner.nextLine())) {
+                case (1) :{
+                    Controller.view.loginFunction();
+                    break;
+                }
+                case (2):{
+                    Controller.view.register();
+                    break;
+                }
+            }
+            account.choosePartsOfMenu();
         }
     }
+
 }

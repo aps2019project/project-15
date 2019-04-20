@@ -25,8 +25,4 @@ public class Flag extends Item {
     }
 
 
-    @Override
-    public void calling() {
-
-    }
 }

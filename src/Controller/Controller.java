@@ -10,17 +10,23 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class Controller {
-    public static View view = new View();
-    Account account = new Account();
 
-    public static Scanner getScanner() {
-        return scanner;
+    public static boolean quit = false;
+    public static ArrayList<Account> players = new ArrayList<>();
+    public static ArrayList<String> usernames = new ArrayList<>();
+
+    public static View view = new View();
+    public static Account account = new Account();
+
+
+    public ArrayList<Account> getPlayers() {
+        return players;
     }
+
 
     public static Scanner scanner = new Scanner(System.in);
 
     private static Map map = new Map();
-    ArrayList<Account> players;
 
     public void startGame() {
         while (true) {
@@ -40,7 +46,4 @@ public class Controller {
 
     }
 
-    public static int getNumber() {
-        return scanner.nextInt();
-    }
 }

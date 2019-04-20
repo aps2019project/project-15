@@ -12,13 +12,24 @@ public class Account {
 
     }
 
+    public void setUserAndPass() {
+        System.out.print("username: ");
+        this.setUsername(Controller.scanner.nextLine());
+        System.out.print("password: ");
+        this.setPassword(Controller.scanner.nextLine());
+    }
+
     Game game;
     Shop shop;
 
-    int money = 15000;
-    String username;
-    String password;
-    boolean isSelected;
+    private int money = 15000;
+
+    private String username;
+    private String password;
+    private boolean isSelected;
+
+
+    boolean loggedIn = false;
     Collection myCollection;
     int numOfWins;
     ArrayList<Deck> myDecks;
@@ -27,6 +38,14 @@ public class Account {
     ArrayList<History> historyGames;
     private boolean startGame = false;
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
     public void setNewGame() {
         if (startGame) {
             Game game = new Game();
@@ -34,25 +53,69 @@ public class Account {
         }
     }
 
-    public void choosePartسOfMenu() {
+    public String getPassword() {
+        return password;
+    }
 
-        Control.view.printMainMenuOfGame();
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-        int numOfMenuPart = Controller.scanner.nextInt();
+    public int getMoney() {
+        return money;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
+
+    public void choosePartsOfMenu() {
+
+        Controller.view.printMainMenuOfGame();
+
+        int numOfMenuPart = Integer.parseInt(Controller.scanner.nextLine());
         switch (numOfMenuPart) {
             case (1): {
+                System.out.println("you entered Collection!");
                 break;
             }
             case (2): {
+                System.out.println("you entered Shop!");
                 break;
             }
             case (3): {
+                System.out.println("you entered Battle!");
+                Battle battle = new Battle();
+                battle.chooseBattleType();
                 break;
             }
             case (4): {
+                System.out.println("you entered Exit");
+                this.setLoggedIn(false);
+                System.out.println("you logged out");
+                Controller.quit = true;
                 break;
             }
             case (5): {
+                System.out.println("you entered help!");
+                Controller.view.printMainMenuOfGame();
                 break;
             }
         }

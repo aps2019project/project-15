@@ -4,7 +4,20 @@ import Controller.Controller;
 
 public class Battle {
 
+    public void chooseBattleType() {
+        System.out.println("1.Single player");
+        System.out.println("2.Multi player");
+        int number = Integer.parseInt(Controller.scanner.nextLine());
+        if (number == 1) {
+            System.out.println("Singke player mode!");
+        } else if (number == 2) {
+            System.out.println("Multi player mode!!");
+            Account account2 = new Account();
+            account2.setUserAndPass();
+            System.out.println("game is between " + Controller.account.getUsername() + " and " + account2.getUsername() );
+        }
 
+    }
 
     private static Battle ourInstance = new Battle();
 
@@ -13,7 +26,8 @@ public class Battle {
     }
 
     Map map;
-    private Battle() {
+
+    Battle() {
         map = Controller.getMap();
     }
 
@@ -38,7 +52,7 @@ public class Battle {
     }
 
 
-    public void attack(Card myCard , Card opponentCard) {
+    public void attack(Card myCard, Card opponentCard) {
 
     }
 
@@ -51,20 +65,22 @@ public class Battle {
 
     }
 
-    public void useSpecialPower(int x , int y) {
+    public void useSpecialPower(int x, int y) {
 
     }
 
     public void showhand() {
 
     }
-    public void insert(String CardId , int x , int y) {
+
+    public void insert(String CardId, int x, int y) {
 
     }
 
     public void endTurn() {
 
     }
+
     public void help() {
 
         Controller.view.showMinionsYouCanMove();

@@ -1,5 +1,7 @@
 package Model;
 
+import Controller.Controller;
+
 import java.util.ArrayList;
 
 public class Shop {
@@ -36,7 +38,7 @@ public class Shop {
     }
 
     public void help() {
-        Control.view.printShopHelpMenu();
+        Controller.view.printShopHelpMenu();
     }
 
     public void sell(String name) {
