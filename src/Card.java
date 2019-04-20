@@ -15,6 +15,7 @@ abstract class Card {
     int cardIdInGame;
     private int x;
     private int y;
+
     private boolean using = false;
     TypeOfCard type;
     int Mp;
