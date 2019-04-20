@@ -1,5 +1,4 @@
 import Controller.Controller;
-import com.google.gson.Gson;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,13 +21,12 @@ public class Main {
             Model.Item.addToItems(collectible);
             collectible.setUsing(true);
             collectible.calling();
-            View.View.printEnterCollectibleID();
+            Controller.view.printEnterCollectibleID();
             collectible.setId(Controller.scanner.nextLine());
-            View.View.printCollectibleID(collectible);
-            Model.Control.view.printEnterCollectibleID();
+            Controller.view.printCollectibleID(collectible);
+            Controller.view.printEnterCollectibleID();
             collectible.setId(scanner.nextLine());
-            Control.view.printCollectibleID(collectible);
+            Controller.view.printCollectibleID(collectible);
         }
     }
 }
-
