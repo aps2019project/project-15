@@ -1,3 +1,5 @@
+package Model;
+
 public class Menu {
 
     public void showMenu() {

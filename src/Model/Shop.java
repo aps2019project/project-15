@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 
 public class Shop {
@@ -14,15 +16,15 @@ public class Shop {
     }
 
     public int searchInShop(String name) {
-return 0;
+        return 0;
     }
 
     public int searchInCollection(String name) {
-return 0;
+        return 0;
     }
 
     public boolean isBought(String name) {
-return true;
+        return true;
     }
 
     public void buy(String name) {
@@ -34,7 +36,7 @@ return true;
     }
 
     public void help() {
-
+        Control.view.printShopHelpMenu();
     }
 
     public void sell(String name) {
@@ -42,7 +44,7 @@ return true;
     }
 
     public boolean isSold(String name) {
-return true;
+        return true;
     }
 
     public void showMenu() {

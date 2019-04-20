@@ -1,3 +1,5 @@
+package Model;
+
 class Block {
     private boolean poison;
     private boolean fire;

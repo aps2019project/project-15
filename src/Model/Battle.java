@@ -1,3 +1,7 @@
+package Model;
+
+import Controller.Controller;
+
 public class Battle {
 
 
@@ -61,5 +65,10 @@ public class Battle {
     public void endTurn() {
 
     }
+    public void help() {
 
+        Controller.view.showMinionsYouCanMove();
+        Controller.view.showMinionsYouCanAttack();
+        Controller.view.showMinionsYouCanAttack();
+    }
 }

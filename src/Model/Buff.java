@@ -1,3 +1,5 @@
+package Model;
+
 enum TypesOfBuff {
     Holy , Power , Poison , weakness , stun , disarm
 }

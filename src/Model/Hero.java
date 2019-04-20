@@ -1,3 +1,5 @@
+package Model;
+
 class Hero extends Card {
 
 

@@ -1,3 +1,7 @@
+package Model;
+
+import Controller.Controller;
+
 import java.util.ArrayList;
 
 class Collection {
@@ -71,7 +75,7 @@ class Collection {
     }
 
     public void help() {
-
+        Controller.view.printCollectionHelpMenu();
     }
 
     public void save() {

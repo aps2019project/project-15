@@ -1,6 +1,11 @@
+package Model;
+
+import Model.Block;
+import Model.Collectible;
+
 import java.util.ArrayList;
 
-class Map {
+public class Map {
     int row = 5;
     int column = 9;
     private ArrayList<Block> blocks = new ArrayList<>();

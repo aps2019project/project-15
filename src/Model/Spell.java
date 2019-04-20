@@ -1,3 +1,8 @@
+package Model;
+
+import Model.Buff;
+import Model.Card;
+
 class Spell extends Card {
 
     String name;

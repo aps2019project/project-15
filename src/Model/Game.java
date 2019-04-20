@@ -1,3 +1,7 @@
+package Model;
+
+import Controller.Controller;
+
 import java.util.ArrayList;
 
 enum ModeOfGame {
