@@ -36,7 +36,7 @@ public class Account {
 
     public void choosePartسOfMenu() {
 
-        View.View.printMainMenuOfGame();
+        Control.view.printMainMenuOfGame();
 
         int numOfMenuPart = Controller.scanner.nextInt();
         switch (numOfMenuPart) {

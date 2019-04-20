@@ -7,8 +7,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static Scanner getScanner() {
+        return scanner;
+    }
 
+    public static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
         while (true) {
 
             Model.Collectible collectible = new Model.Collectible();
@@ -20,6 +25,9 @@ public class Main {
             View.View.printEnterCollectibleID();
             collectible.setId(Controller.scanner.nextLine());
             View.View.printCollectibleID(collectible);
+            Model.Control.view.printEnterCollectibleID();
+            collectible.setId(scanner.nextLine());
+            Control.view.printCollectibleID(collectible);
         }
     }
 }
