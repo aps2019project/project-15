@@ -1,5 +1,8 @@
 package Model;
 
+import Controller.Controller;
+import com.sun.tools.javac.Main;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -28,7 +31,6 @@ public class Account {
         if (startGame) {
             Game game = new Game();
             game.players.add(this);
-
         }
     }
 
@@ -36,7 +38,7 @@ public class Account {
 
         View.View.printMainMenuOfGame();
 
-        int numOfMenuPart = Controller.Main.getScanner().nextInt();
+        int numOfMenuPart = Controller.scanner.nextInt();
         switch (numOfMenuPart) {
             case (1): {
                 break;

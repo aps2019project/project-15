@@ -1,14 +1,23 @@
-package Model;
+package Controller;
 
+import Model.Account;
 import Model.Map;
 import View.View;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Scanner;
 
-public class Control {
-    static View view = new View();
+public class Controller {
+    public static View view = new View();
+    Account account = new Account();
+
+    public static Scanner getScanner() {
+        return scanner;
+    }
+
+    public static Scanner scanner = new Scanner(System.in);
 
     private static Map map = new Map();
     ArrayList<Account> players;
@@ -29,5 +38,9 @@ public class Control {
 
     public void save() {
 
+    }
+
+    public static int getNumber() {
+        return scanner.nextInt();
     }
 }
