@@ -1,46 +1,32 @@
 package controller;
 
+import com.sun.tools.javac.Main;
 import model.Account;
 import model.Map;
+import model.menu.AccountMenu;
+import model.menu.Menu;
+import view.InputException;
 import view.Request;
+import view.View;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Controller {
 
+    DataCenter dataCenter = new DataCenter();
+    Menu currentMenu = new AccountMenu();
 
-    public static boolean quit = false;
-    public static ArrayList<Account> players = new ArrayList<>();
-    public static ArrayList<String> usernames = new ArrayList<>();
+    public void main() {
 
-    //public View view = new View();
-    public Request request = new Request();
-    public static Account account = new Account();
-
-
-    public ArrayList<Account> getPlayers() {
-        return players;
-    }
-
-
-
-
-    public void startGame() {
         while (true) {
-
+            Request request = new Request();
+            try {
+                  request.handleRequest(currentMenu , dataCenter);
+            }
+            catch (InputException e){
+                View.getInstance().printError(e);
+            }
         }
-    }
-
-    public void sortRankings() {
-        Collections.sort(players, Comparator.comparing(Account::getNumOfWins).reversed());
-    }
-
-
-    public void save() {
-
     }
 
 }

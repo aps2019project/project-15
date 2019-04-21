@@ -15,24 +15,8 @@ public class Account {
 
     }
 
-    public void loginFunction() {
-        while (!account.isLoggedIn()) {
-            System.out.println("enter your username: ");
-            account.setUsername(this.scanner.nextLine().toLowerCase().trim());
-            System.out.println("enter your password: ");
-            String password = this.scanner.nextLine().trim();
-            if (Controller.usernames.contains(account.getUsername())) {
-                if (account.getPassword().equals(password)) {
-                    System.out.println("logged in!");
-                    account.setLoggedIn(true);
-                } else {
-                    System.out.println("your password is incorrect!");
-                }
-            } else {
-                System.out.println("username is not valid!");
-            }
-        }
-    }
+
+
 
     public boolean checkUserAndPass() {
         return AddSecondPlayer();
@@ -87,7 +71,7 @@ public class Account {
     public void setNewGame() {
         if (startGame) {
             Game game = new Game();
-            game.players.add(this);
+            game.accounts.add(this);
         }
     }
 

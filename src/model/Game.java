@@ -19,13 +19,13 @@ class Game {
 
     Game() {
         Account player1 = new Account();
-        setPlayers();;
+        setaccounts();;
     }
 
     private GameType gameType;
     private ModeOfGame Mode;
     GameType type;
-    ArrayList<Account> players;
+    ArrayList<Account> accounts;
     ArrayList<Card> cardsInGame;
     ArrayList<Card> graveYard;
     int turn = (int) (Math.random() % 2 + 1);
@@ -37,7 +37,7 @@ class Game {
     }
 
 
-    public Account setPlayers() {
+    public Account setaccounts() {
         if (this.gameType.equals(GameType.MultiPlayer)) {
             Account player2 = new Account();
             return player2;

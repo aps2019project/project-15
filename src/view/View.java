@@ -23,6 +23,9 @@ public class View {
         System.out.println("5.Help");
     }
 
+    public void printError(InputException e) {
+        System.out.println(e.getMessage());
+    }
     public void printCollectibleID(Collectible collectible) {
         System.out.println("collectible Id: " + collectible.getId());
     }

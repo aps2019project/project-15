@@ -3,6 +3,7 @@ package model;
 import controller.Controller;
 
 import java.util.ArrayList;
+import View.*;
 
 class Collection {
     private ArrayList<Card> myCards;
@@ -75,7 +76,7 @@ class Collection {
     }
 
     public void help() {
-        Controller.view.printCollectionHelpMenu();
+        view.printCollectionHelpMenu();
     }
 
     public void save() {
