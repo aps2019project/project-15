@@ -5,16 +5,15 @@ import Controller.Controller;
 public class Battle {
 
     public void chooseBattleType() {
-        System.out.println("1.Single player");
-        System.out.println("2.Multi player");
-        int number = Integer.parseInt(Controller.scanner.nextLine());
+        Controller.view.playerOptions();
+        int number = Controller.view.enteredNum();
         if (number == 1) {
-            System.out.println("Singke player mode!");
+            Controller.view.singlePlayerChosen();
         } else if (number == 2) {
-            System.out.println("Multi player mode!!");
+            Controller.view.multiPlayerChosen();
             Account account2 = new Account();
             account2.setUserAndPass();
-            System.out.println("game is between " + Controller.account.getUsername() + " and " + account2.getUsername() );
+            Controller.view.gameDeclaration(account2);
         }
 
     }

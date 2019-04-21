@@ -1,7 +1,6 @@
 package Model;
 
 import Controller.Controller;
-import com.sun.tools.javac.Main;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,10 +12,7 @@ public class Account {
     }
 
     public void setUserAndPass() {
-        System.out.print("username: ");
-        this.setUsername(Controller.scanner.nextLine());
-        System.out.print("password: ");
-        this.setPassword(Controller.scanner.nextLine());
+        Controller.view.setAccount(this);
     }
 
     Game game;
@@ -90,31 +86,31 @@ public class Account {
 
         Controller.view.printMainMenuOfGame();
 
-        int numOfMenuPart = Integer.parseInt(Controller.scanner.nextLine());
+        int numOfMenuPart = Controller.view.enteredNum();
         switch (numOfMenuPart) {
             case (1): {
-                System.out.println("you entered Collection!");
+                Controller.view.enterCllection();
                 break;
             }
             case (2): {
-                System.out.println("you entered Shop!");
+                Controller.view.enterShop();
                 break;
             }
             case (3): {
-                System.out.println("you entered Battle!");
+                Controller.view.enterBattle();
                 Battle battle = new Battle();
                 battle.chooseBattleType();
                 break;
             }
             case (4): {
-                System.out.println("you entered Exit");
+                Controller.view.exitMessage();
                 this.setLoggedIn(false);
-                System.out.println("you logged out");
+                Controller.view.logOutMessage();
                 Controller.quit = true;
                 break;
             }
             case (5): {
-                System.out.println("you entered help!");
+                Controller.view.enteredHelp();
                 Controller.view.printMainMenuOfGame();
                 break;
             }
@@ -129,6 +125,7 @@ public class Account {
     public void login(String username, String password) {
 
     }
+
 
     public void addMoney() {
 

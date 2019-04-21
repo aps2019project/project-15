@@ -105,4 +105,44 @@ public class View {
         System.out.println("To sell your item , please type 'sell [item id]' ");
         System.out.println("To show all cards and items in shop , please type 'show' ");
     }
+    public void setAccount(Account account){
+        System.out.print("username: ");
+        account.setUsername(Controller.scanner.nextLine());
+        System.out.print("password: ");
+        account.setPassword(Controller.scanner.nextLine());
+    }
+    public void enterCllection(){
+        System.out.println("you entered Collection!");
+    }
+    public void enterShop(){
+        System.out.println("you entered Shop!");
+    }
+    public void enterBattle(){
+        System.out.println("you entered Battle!");
+    }
+    public void exitMessage(){
+        System.out.println("you entered Exit");
+    }
+    public void logOutMessage(){
+        System.out.println("you logged out");
+    }
+    public void enteredHelp(){
+        System.out.println("you entered help!");
+    }
+    public int enteredNum(){
+        return Integer.parseInt(Controller.scanner.nextLine());
+    }
+    public void playerOptions(){
+        System.out.println("1.Single player");
+        System.out.println("2.Multi player");
+    }
+    public void singlePlayerChosen(){
+        System.out.println("Singke player mode!");
+    }
+    public void multiPlayerChosen(){
+        System.out.println("Multi player mode!!");
+    }
+    public void gameDeclaration(Account account2){
+        System.out.println("game is between " + Controller.account.getUsername() + " and " + account2.getUsername() );
+    }
 }
