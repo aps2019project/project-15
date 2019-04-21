@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Controller.Controller;
+import controller.Controller;
 
 import java.util.ArrayList;
 
@@ -14,12 +14,12 @@ enum GameType {
 
 class Game {
 
-    Map map;
+    private Map map = new Map();
+
 
     Game() {
         Account player1 = new Account();
-        setPlayers();
-        map = Controller.getMap();
+        setPlayers();;
     }
 
     private GameType gameType;
@@ -31,6 +31,11 @@ class Game {
     int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;
+
+    public Map getMap() {
+        return map;
+    }
+
 
     public Account setPlayers() {
         if (this.gameType.equals(GameType.MultiPlayer)) {

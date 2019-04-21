@@ -1,12 +1,18 @@
-package View;
+package view;
+import controller.Controller;
+import model.*;
 
-import Controller.Controller;
-import Model.Account;
-import Model.Collectible;
 
 public class View {
+    private static View ourInstance = new View();
 
-    Account account = new Account() ;
+    public static View getInstance() {
+        return ourInstance;
+    }
+
+    private View() {
+    }
+
 
     public void printMainMenuOfGame() {
         System.out.println("Menu: ");
@@ -15,36 +21,6 @@ public class View {
         System.out.println("3.Battle");
         System.out.println("4.Exit");
         System.out.println("5.Help");
-    }
-
-    public void loginFunction() {
-        while (!account.isLoggedIn()) {
-            System.out.println("enter your username: ");
-            account.setUsername(Controller.scanner.nextLine());
-            System.out.println("enter your password: ");
-            String password = Controller.scanner.nextLine();
-            if (Controller.usernames.contains(account.getUsername())) {
-                if (account.getPassword().equals(password)) {
-                    System.out.println("logged in!");
-                    account.setLoggedIn(true);
-                } else {
-                    System.out.println("your password is incorrect!");
-                }
-            } else {
-                System.out.println("username is not valid!");
-            }
-        }
-    }
-
-    public void register() {
-        System.out.print("your username: ");
-        String username = Controller.scanner.nextLine();
-        account.setUsername(username);
-
-        System.out.print("your password: ");
-        account.setPassword(Controller.scanner.nextLine());
-        System.out.println("welcome!!!");
-        account.setLoggedIn(true);
     }
 
     public void printCollectibleID(Collectible collectible) {
@@ -105,4 +81,5 @@ public class View {
         System.out.println("To sell your item , please type 'sell [item id]' ");
         System.out.println("To show all cards and items in shop , please type 'show' ");
     }
+
 }

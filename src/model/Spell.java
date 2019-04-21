@@ -1,7 +1,4 @@
-package Model;
-
-import Model.Buff;
-import Model.Card;
+package model;
 
 class Spell extends Card {
 

@@ -1,22 +1,60 @@
-package Model;
+package model;
 
-import Controller.Controller;
-import com.sun.tools.javac.Main;
+import controller.Controller;
+import view.Request;
+import view.View;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class Account {
 
+    Battle battle = new Battle();
+
     public Account() {
 
     }
 
-    public void setUserAndPass() {
+    public void loginFunction() {
+        while (!account.isLoggedIn()) {
+            System.out.println("enter your username: ");
+            account.setUsername(this.scanner.nextLine().toLowerCase().trim());
+            System.out.println("enter your password: ");
+            String password = this.scanner.nextLine().trim();
+            if (Controller.usernames.contains(account.getUsername())) {
+                if (account.getPassword().equals(password)) {
+                    System.out.println("logged in!");
+                    account.setLoggedIn(true);
+                } else {
+                    System.out.println("your password is incorrect!");
+                }
+            } else {
+                System.out.println("username is not valid!");
+            }
+        }
+    }
+
+    public boolean checkUserAndPass() {
+        return AddSecondPlayer();
+    }
+    private boolean AddSecondPlayer() {
+        Account account2 = new Account();
         System.out.print("username: ");
-        this.setUsername(Controller.scanner.nextLine());
-        System.out.print("password: ");
-        this.setPassword(Controller.scanner.nextLine());
+        boolean accepted;
+        this.setUsername(this.scanner.nextLine().toLowerCase().trim());
+        if (!Controller.usernames.contains(this.getUsername())) {
+            System.out.println("username is not valid!");
+            accepted = false;
+        } else {
+            System.out.print("password: ");
+            if (!this.getPassword().equals(this.scanner.nextLine().trim())) {
+                System.out.println("wrong password!");
+                accepted = false;
+            } else {
+                accepted = true;
+            }
+        }
+        return accepted;
     }
 
     Game game;
@@ -87,35 +125,35 @@ public class Account {
 
 
     public void choosePartsOfMenu() {
+        View view = View.getInstance();
+        view.printMainMenuOfGame();
+        Request request = new Request();
 
-        Controller.view.printMainMenuOfGame();
-
-        int numOfMenuPart = Integer.parseInt(Controller.scanner.nextLine());
-        switch (numOfMenuPart) {
-            case (1): {
+        String menuPart = request.scanner.nextLine().toLowerCase().trim();
+        switch (menuPart) {
+            case ("enter collection"): {
                 System.out.println("you entered Collection!");
                 break;
             }
-            case (2): {
+            case ("enter shop"): {
                 System.out.println("you entered Shop!");
                 break;
             }
-            case (3): {
+            case ("enter battle"): {
                 System.out.println("you entered Battle!");
-                Battle battle = new Battle();
-                battle.chooseBattleType();
+                this.battle.chooseBattleType();
                 break;
             }
-            case (4): {
+            case ("exit"): {
                 System.out.println("you entered Exit");
                 this.setLoggedIn(false);
                 System.out.println("you logged out");
                 Controller.quit = true;
                 break;
             }
-            case (5): {
+            case ("help"): {
                 System.out.println("you entered help!");
-                Controller.view.printMainMenuOfGame();
+                view.printMainMenuOfGame();
                 break;
             }
         }

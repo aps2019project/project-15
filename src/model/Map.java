@@ -1,7 +1,4 @@
-package Model;
-
-import Model.Block;
-import Model.Collectible;
+package model;
 
 import java.util.ArrayList;
 

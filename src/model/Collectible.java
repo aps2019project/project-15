@@ -1,6 +1,6 @@
-package Model;
+package model;
 
-import Controller.Controller;
+import controller.Controller;
 
 import java.util.ArrayList;
 
@@ -21,22 +21,22 @@ public class Collectible extends Item {
     public Collectible() {
     }
 
-    private static void addCollectibleToAllCollectibles() {
-        Model.Collectible collectible = new Model.Collectible();
+    /*private static void addCollectibleToAllCollectibles() {
+        model.Collectible collectible = new model.Collectible();
 
-        collectible.setItemName(Controller.scanner.nextLine());
-        Model.Item.addToItems(collectible);
+        collectible.setItemName(.scanner.nextLine().toLowerCase().trim());
+        model.Item.addToItems(collectible);
         collectible.setUsing(true);
         Controller.view.printEnterCollectibleID();
-        collectible.setId(Controller.scanner.nextLine());
+        collectible.setId(Controller.scanner.nextLine().toLowerCase().trim());
         Controller.view.printCollectibleID(collectible);
         Controller.view.printEnterCollectibleID();
-        collectible.setId(Controller.scanner.nextLine());
+        collectible.setId(Controller.scanner.nextLine().toLowerCase().trim());
         Controller.view.printCollectibleID(collectible);
-    }
+    }*/
 
 
-    /*public Model.Collectible getCollectible() {
+    /*public model.Collectible getCollectible() {
         return this;
     }*/
 

@@ -1,6 +1,4 @@
-package Model;
-
-import Model.Card;
+package model;
 
 public class Flag extends Item {
     private int x;

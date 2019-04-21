@@ -1,22 +1,35 @@
-package Model;
+package model;
 
-import Controller.Controller;
+import controller.Controller;
 
 public class Battle {
 
     public void chooseBattleType() {
+        Game game = new Game();
         System.out.println("1.Single player");
         System.out.println("2.Multi player");
-        int number = Integer.parseInt(Controller.scanner.nextLine());
-        if (number == 1) {
-            System.out.println("Singke player mode!");
-        } else if (number == 2) {
-            System.out.println("Multi player mode!!");
-            Account account2 = new Account();
-            account2.setUserAndPass();
-            System.out.println("game is between " + Controller.account.getUsername() + " and " + account2.getUsername() );
-        }
+        String command = Controller.getCommand();
+        if (command.equals("single player")) {
+            GameType gameType = GameType.SinglePlayer;
+            System.out.println("Single player mode!");
+            System.out.println("1.Story Mode!");
+            System.out.println("2.Custom Game!");
+            if (Controller.getCommand().equals("story mode")) {
+                System.out.println("you chose Story Mode!");
 
+            }
+            else if(Controller.scanner.nextLine().toLowerCase().trim().equals("custom game")){
+                System.out.println("you chose Custom Game!");
+            }
+        } else if (command.equals("multi player")) {
+            System.out.println("Multi player mode!!");
+            GameType gameType = GameType.MultiPlayer;
+            Account account2 = new Account();
+            if (account2.checkUserAndPass()) {
+                    System.out.println("game is between " + Controller.view.account.getUsername() + " and " + account2.getUsername());
+                System.out.println("battle started!");
+            }
+        }
     }
 
     private static Battle ourInstance = new Battle();
