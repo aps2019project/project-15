@@ -11,6 +11,7 @@ public enum RequestType {
     LOGIN("^login (//w+)$"),
     HELP("help$"),
     SHOW_LEADER_BOARD("^show leader board$"),
+    SELECT_USER("^select user (\\w+)$") ,
 
 
 

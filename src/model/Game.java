@@ -147,4 +147,7 @@ class Game {
         }
     }
 
+    public int getTurn() {
+        return turn;
+    }
 }

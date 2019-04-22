@@ -12,7 +12,7 @@ public class AccountMenu extends Menu {
         return accountMenu;
     }
 
-    public void register(String username, String password, DataCenter dataCenter) {
+    public Account register(String username, String password, DataCenter dataCenter) {
         Account account = new Account();
         account.setUsername(username);
         account.setPassword(password);
@@ -20,7 +20,7 @@ public class AccountMenu extends Menu {
 
         dataCenter.getAccounts().putIfAbsent(username, account);
         System.out.println("welcome!!!");
-
+        return account;
     }
 
     public void loginFunction() {

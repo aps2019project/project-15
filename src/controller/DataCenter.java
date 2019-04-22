@@ -1,12 +1,24 @@
 package controller;
 
 import model.Account;
+import view.View;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 
 public class DataCenter {
+    private static DataCenter ourInstance = new DataCenter();
+
+    public static DataCenter getInstance() {
+        return ourInstance;
+    }
+
+    private DataCenter() {
+
+    }
+
 
     private Account onlineAccount;
     private HashMap<String, Account> accounts = new HashMap<>();
@@ -24,4 +36,6 @@ public class DataCenter {
     public HashMap<String, Account> getAccounts() {
         return accounts;
     }
+
+
 }

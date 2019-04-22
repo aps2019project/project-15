@@ -17,6 +17,8 @@ abstract class Card {
     int cardIdInGame;
     private int x;
     private int y;
+    boolean stuned = false;
+    boolean disarmed = false;
 
     private boolean using = false;
     TypeOfCard type;

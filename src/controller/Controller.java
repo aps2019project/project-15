@@ -13,8 +13,9 @@ import java.util.*;
 
 public class Controller {
 
-    DataCenter dataCenter = new DataCenter();
-    Menu currentMenu = new AccountMenu();
+    private DataCenter dataCenter = DataCenter.getInstance();
+    private Menu currentMenu = new AccountMenu();
+
 
     public void main() {
 

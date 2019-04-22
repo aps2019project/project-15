@@ -1,14 +1,16 @@
 package model;
 
 import controller.Controller;
+import view.Request;
 
 public class Battle {
 
     public void chooseBattleType() {
+        Request request = new Request();
         Game game = new Game();
         System.out.println("1.Single player");
+        request.getNewCommand();
         System.out.println("2.Multi player");
-        String command = Controller.getCommand();
         if (command.equals("single player")) {
             GameType gameType = GameType.SinglePlayer;
             System.out.println("Single player mode!");
@@ -17,8 +19,7 @@ public class Battle {
             if (Controller.getCommand().equals("story mode")) {
                 System.out.println("you chose Story Mode!");
 
-            }
-            else if(Controller.scanner.nextLine().toLowerCase().trim().equals("custom game")){
+            } else if (Controller.scanner.nextLine().toLowerCase().trim().equals("custom game")) {
                 System.out.println("you chose Custom Game!");
             }
         } else if (command.equals("multi player")) {
@@ -26,22 +27,26 @@ public class Battle {
             GameType gameType = GameType.MultiPlayer;
             Account account2 = new Account();
             if (account2.checkUserAndPass()) {
-                    System.out.println("game is between " + Controller.view.account.getUsername() + " and " + account2.getUsername());
+                System.out.println("game is between " + Controller.view.account.getUsername() + " and " + account2.getUsername());
                 System.out.println("battle started!");
+            }
+            Controller.view.playerOptions();
+            int number = Controller.view.enteredNum();
+            if (number == 1) {
+                Controller.view.singlePlayerChosen();
+            } else if (number == 2) {
+                Controller.view.multiPlayerChosen();
+                Account account3 = new Account();
+                account2.setUserAndPass();
+                Controller.view.gameDeclaration(account2);
             }
         }
     }
 
-    private static Battle ourInstance = new Battle();
-
-    public static Battle getInstance() {
-        return ourInstance;
-    }
-
     Map map;
 
-    Battle() {
-        map = Controller.getMap();
+    public Battle() {
+
     }
 
     public void showMyMinions() {
