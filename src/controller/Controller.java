@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.tools.javac.Main;
 import model.Account;
 import model.Map;
 import model.menu.AccountMenu;
@@ -15,7 +14,7 @@ public class Controller {
 
     private DataCenter dataCenter = DataCenter.getInstance();
     private Menu currentMenu = new AccountMenu();
-
+    public static Account currentAccount = new Account();
 
     public void main() {
 

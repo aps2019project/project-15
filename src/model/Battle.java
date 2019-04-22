@@ -2,6 +2,7 @@ package model;
 
 import controller.Controller;
 import view.Request;
+import view.View;
 
 public class Battle {
 
@@ -9,17 +10,17 @@ public class Battle {
         Request request = new Request();
         Game game = new Game();
         System.out.println("1.Single player");
-        request.getNewCommand();
+        String command = request.getNewCommand();
         System.out.println("2.Multi player");
         if (command.equals("single player")) {
             GameType gameType = GameType.SinglePlayer;
             System.out.println("Single player mode!");
             System.out.println("1.Story Mode!");
             System.out.println("2.Custom Game!");
-            if (Controller.getCommand().equals("story mode")) {
+            if (request.getNewCommand().equals("story mode")) {
                 System.out.println("you chose Story Mode!");
 
-            } else if (Controller.scanner.nextLine().toLowerCase().trim().equals("custom game")) {
+            } else if (request.getNewCommand().toLowerCase().trim().equals("custom game")) {
                 System.out.println("you chose Custom Game!");
             }
         } else if (command.equals("multi player")) {
@@ -27,18 +28,18 @@ public class Battle {
             GameType gameType = GameType.MultiPlayer;
             Account account2 = new Account();
             if (account2.checkUserAndPass()) {
-                System.out.println("game is between " + Controller.view.account.getUsername() + " and " + account2.getUsername());
+                System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
                 System.out.println("battle started!");
             }
-            Controller.view.playerOptions();
-            int number = Controller.view.enteredNum();
+            View.getInstance().playerOptions();
+            int number = View.getInstance().enteredNum();
             if (number == 1) {
-                Controller.view.singlePlayerChosen();
+                View.getInstance().singlePlayerChosen();
             } else if (number == 2) {
-                Controller.view.multiPlayerChosen();
+                View.getInstance().multiPlayerChosen();
                 Account account3 = new Account();
                 account2.setUserAndPass();
-                Controller.view.gameDeclaration(account2);
+                View.getInstance().gameDeclaration(account2);
             }
         }
     }
@@ -101,8 +102,8 @@ public class Battle {
 
     public void help() {
 
-        Controller.view.showMinionsYouCanMove();
-        Controller.view.showMinionsYouCanAttack();
-        Controller.view.showMinionsYouCanAttack();
+        View.getInstance().showMinionsYouCanMove();
+        View.getInstance().showMinionsYouCanAttack();
+        View.getInstance().showMinionsYouCanAttack();
     }
 }
