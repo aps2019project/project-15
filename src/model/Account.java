@@ -4,7 +4,6 @@ import controller.Controller;
 import controller.DataCenter;
 import view.Request;
 import view.View;
-import Controller.Controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,6 +11,7 @@ import java.util.Collection;
 public class Account {
 
     Battle battle = new Battle();
+    private View view = View.getInstance();
 
     public Account() {
 
@@ -27,51 +27,46 @@ public class Account {
         return null;
     }
 
-        public boolean checkUserAndPass () {
-            return AddSecondPlayer();
-        }
+/*    public boolean checkUserAndPass() {
+        return AddSecondPlayer();
+    }*/
 
-        private boolean AddSecondPlayer () {
-            System.out.print("username: ");
-            boolean accepted;
-            this.setUsername(this.scanner.nextLine().toLowerCase().trim());
-            if (!Controller.usernames.contains(this.getUsername())) {
-                System.out.println("username is not valid!");
+    /*private boolean AddSecondPlayer() {
+        System.out.print("username: ");
+        boolean accepted;
+        this.setUsername(this.scanner.nextLine().toLowerCase().trim());
+        if (!Controller.usernames.contains(this.getUsername())) {
+            System.out.println("username is not valid!");
+            accepted = false;
+        } else {
+            System.out.print("password: ");
+            if (!this.getPassword().equals(this.scanner.nextLine().trim())) {
+                System.out.println("wrong password!");
                 accepted = false;
             } else {
-                System.out.print("password: ");
-                if (!this.getPassword().equals(this.scanner.nextLine().trim())) {
-                    System.out.println("wrong password!");
-                    accepted = false;
-                } else {
-                    accepted = true;
-                }
+                accepted = true;
             }
-            return accepted;
         }
-
-        public void setUserAndPass () {
-            Controller.view.setAccount(this);
-        }
-
-        Game game;
-        Shop shop;
-
-        private int money = 15000;
-
-        private String username;
-        private String password;
-        private boolean isSelected;
+        return accepted;
+    }*/
 
 
-        private boolean loggedIn = false;
-        Collection myCollection;
-        private int numOfWins;
-        ArrayList<Deck> myDecks;
-        Deck mainDeck;
-        ArrayList<Card> graveYard;
-        ArrayList<History> historyGames;
-        private boolean startGame = false;
+    Game game;
+    Shop shop;
+
+    private String username;
+    private String password;
+    private int money = 15000;
+    private boolean isSelected;
+
+    private boolean loggedIn = false;
+    Collection myCollection;
+    private int numOfWins;
+    ArrayList<Deck> myDecks;
+    Deck mainDeck;
+    ArrayList<Card> graveYard;
+    ArrayList<History> historyGames;
+    private boolean startGame = false;
 
     public void setUsername(String username) {
         this.username = username;
