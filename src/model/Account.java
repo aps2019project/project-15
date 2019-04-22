@@ -17,7 +17,7 @@ public class Account {
 
     }
 
-    public Account returnAccountByName(String username) {
+    public static Account returnAccountByName(String username) {
         DataCenter dataCenter = DataCenter.getInstance();
         for (Account account : dataCenter.getAccounts().values()) {
             if (account.getUsername().equals(username)) {
@@ -27,11 +27,11 @@ public class Account {
         return null;
     }
 
-/*    public boolean checkUserAndPass() {
+   public boolean checkUserAndPass() {
         return AddSecondPlayer();
-    }*/
+    }
 
-    /*private boolean AddSecondPlayer() {
+    private boolean AddSecondPlayer() {
         System.out.print("username: ");
         boolean accepted;
         this.setUsername(this.scanner.nextLine().toLowerCase().trim());
@@ -48,7 +48,7 @@ public class Account {
             }
         }
         return accepted;
-    }*/
+    }
 
 
     Game game;

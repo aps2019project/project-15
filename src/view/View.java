@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import controller.DataCenter;
 import model.*;
 
 
@@ -127,5 +128,13 @@ public class View {
 
     public void gameDeclaration(Account account2) {
         System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
+    }
+    public void listAccounts(){
+        for(String item : DataCenter.getInstance().getAccounts().keySet()){
+            System.out.println(item);
+        }
+    }
+    public void invaidAccountSelected(){
+        System.out.println("invalid username entered");
     }
 }

@@ -19,6 +19,9 @@ public class Request {
         return command = scanner.nextLine().toLowerCase().trim();
     }
 
+    public int enteredNum(){
+        return Integer.parseInt(scanner.nextLine().trim());
+    }
     public void handleRequest(Menu currentMenu, DataCenter dataCenter) throws InputException {
         if (currentMenu.equals(AccountMenu.getInstance())) {
             accountMenuRequest(dataCenter);

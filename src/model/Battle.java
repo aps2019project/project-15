@@ -26,20 +26,25 @@ public class Battle {
         } else if (command.equals("multi player")) {
             System.out.println("Multi player mode!!");
             GameType gameType = GameType.MultiPlayer;
-            Account account2 = new Account();
-            if (account2.checkUserAndPass()) {
-                System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
-                System.out.println("battle started!");
-            }
-            View.getInstance().playerOptions();
-            int number = View.getInstance().enteredNum();
-            if (number == 1) {
-                View.getInstance().singlePlayerChosen();
-            } else if (number == 2) {
-                View.getInstance().multiPlayerChosen();
-                Account account3 = new Account();
-                account2.setUserAndPass();
-                View.getInstance().gameDeclaration(account2);
+            View.getInstance().listAccounts();
+            Account account2 = Account.returnAccountByName(request.getNewCommand());
+            if (account2.equals(null)) {
+                View.getInstance().invaidAccountSelected();
+            } else {
+                if (account2.checkUserAndPass()) {
+                    System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
+                    System.out.println("battle started!");
+                }
+                View.getInstance().playerOptions();
+                int number = request.enteredNum();
+                if (number == 1) {
+                    View.getInstance().singlePlayerChosen();
+                } else if (number == 2) {
+                    View.getInstance().multiPlayerChosen();
+                    Account account3 = new Account();
+                    account2.setUserAndPass();
+                    View.getInstance().gameDeclaration(account2);
+                }
             }
         }
     }
