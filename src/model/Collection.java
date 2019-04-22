@@ -1,14 +1,16 @@
 package model;
 
 import controller.Controller;
+import view.View;
 
 import java.util.ArrayList;
-import View.*;
 
 class Collection {
     private ArrayList<Card> myCards;
     private ArrayList<Item> myItems;
     private ArrayList<Deck> myDecks;
+
+    View view = View.getInstance();
 
     public void exitCollection() {
 

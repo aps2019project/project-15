@@ -97,6 +97,7 @@ public class View {
 
     public void enterBattle() {
         System.out.println("you entered Battle!");
+        System.out.println("choose your battleType!");
     }
 
     public void exitMessage() {
@@ -109,10 +110,6 @@ public class View {
 
     public void enteredHelp() {
         System.out.println("you entered help!");
-    }
-
-    public int enteredNum() {
-        return Integer.parseInt(Controller.scanner.nextLine());
     }
 
     public void playerOptions() {
@@ -129,6 +126,6 @@ public class View {
     }
 
     public void gameDeclaration(Account account2) {
-        System.out.println("game is between " + Controller.account.getUsername() + " and " + account2.getUsername());
+        System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
     }
 }

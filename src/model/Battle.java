@@ -2,15 +2,13 @@ package model;
 
 import controller.Controller;
 import view.Request;
+import view.View;
 
 public class Battle {
 
-    public void chooseBattleType() {
+    private View view = View.getInstance();
+    public void chooseBattleType(String command) {
         Request request = new Request();
-        Game game = new Game();
-        System.out.println("1.Single player");
-        request.getNewCommand();
-        System.out.println("2.Multi player");
         if (command.equals("single player")) {
             GameType gameType = GameType.SinglePlayer;
             System.out.println("Single player mode!");
@@ -30,15 +28,15 @@ public class Battle {
                 System.out.println("game is between " + Controller.view.account.getUsername() + " and " + account2.getUsername());
                 System.out.println("battle started!");
             }
-            Controller.view.playerOptions();
-            int number = Controller.view.enteredNum();
+            view.playerOptions();
+            int number = view.enteredNum();
             if (number == 1) {
-                Controller.view.singlePlayerChosen();
+                view.singlePlayerChosen();
             } else if (number == 2) {
-                Controller.view.multiPlayerChosen();
+                view.multiPlayerChosen();
                 Account account3 = new Account();
                 account2.setUserAndPass();
-                Controller.view.gameDeclaration(account2);
+                view.gameDeclaration(account2);
             }
         }
     }

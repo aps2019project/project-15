@@ -6,7 +6,7 @@ enum TypeOfCard {
     Minion, Spell, Hero
 }
 
-abstract class Card {
+public abstract class Card {
     public String getCardName() {
         return cardName;
     }

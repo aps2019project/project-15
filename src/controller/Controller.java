@@ -15,7 +15,7 @@ public class Controller {
 
     private DataCenter dataCenter = DataCenter.getInstance();
     private Menu currentMenu = new AccountMenu();
-
+    public static Account currentAccount = new Account();
 
     public void main() {
 

@@ -23,7 +23,7 @@ public class AccountMenu extends Menu {
         return account;
     }
 
-    public void loginFunction() {
+    /*public void loginFunction() {
         while (!account.isLoggedIn()) {
             System.out.println("enter your username: ");
             account.setUsername(this.scanner.nextLine().toLowerCase().trim());
@@ -40,6 +40,6 @@ public class AccountMenu extends Menu {
                 System.out.println("username is not valid!");
             }
         }
-    }
+    }*/
 
 }

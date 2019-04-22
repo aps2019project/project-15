@@ -35,13 +35,13 @@ public class Request {
             String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
             System.out.print("your password: ");
             getNewCommand();
-            Account account = accountMenu.register(username, command, dataCenter);
+            Controller.currentAccount = accountMenu.register(username, command, dataCenter);
             getNewCommand();
             if (command.equals("help")) {
                 view.printMainMenuOfGame();
             }
             getNewCommand();
-            choosePartsOfMenu(account, command);
+            choosePartsOfMenu(Controller.currentAccount , command);
         }
     }
 
@@ -67,7 +67,8 @@ public class Request {
             case ("enter battle"): {
                 Battle battle = new Battle();
                 view.enterBattle();
-                battle.chooseBattleType();
+                getNewCommand();
+                battle.chooseBattleType(command);
                 break;
             }
             case ("exit"): {
