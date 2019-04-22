@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.tools.javac.Main;
 import model.Account;
 import model.Map;
 import model.menu.AccountMenu;

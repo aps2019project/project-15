@@ -10,8 +10,21 @@ public class Battle {
 
     /*public void chooseBattleType(String command) {
         Request request = new Request();
+        Game game = new Game();
+        System.out.println("1.Single player");
+        String command = request.getNewCommand();
+        System.out.println("2.Multi player");
         if (command.equals("single player")) {
             GameType gameType = GameType.SinglePlayer;
+            System.out.println("Single player mode!");
+            System.out.println("1.Story Mode!");
+            System.out.println("2.Custom Game!");
+            if (request.getNewCommand().equals("story mode")) {
+                System.out.println("you chose Story Mode!");
+
+            } else if (request.getNewCommand().toLowerCase().trim().equals("custom game")) {
+                System.out.println("you chose Custom Game!");
+            }
         } else if (command.equals("multi player")) {
             System.out.println("Multi player mode!!");
             GameType gameType = GameType.MultiPlayer;

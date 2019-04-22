@@ -1,6 +1,5 @@
 package view;
 
-import com.sun.tools.javac.Main;
 import controller.Controller;
 import controller.DataCenter;
 import model.Account;
@@ -15,10 +14,13 @@ public class Request {
     private String command;
     private View view = View.getInstance();
 
-    public void getNewCommand() {
-        command = scanner.nextLine().toLowerCase().trim();
+    public String getNewCommand() {
+        return command = scanner.nextLine().toLowerCase().trim();
     }
 
+    public int enteredNum(){
+        return Integer.parseInt(scanner.nextLine().trim());
+    }
     public void handleRequest(Menu currentMenu, DataCenter dataCenter) throws InputException {
         if (currentMenu.equals(AccountMenu.getInstance())) {
             accountMenuRequest(dataCenter);
