@@ -7,15 +7,16 @@ public enum RequestType {
 
     //accountMenu
 
-    CREATE_ACCOUNT("^create account (\\w+)$"),
+    CREATE_ACCOUNT("^create account (//w+)$"),
     LOGIN("^login (//w+)$"),
     HELP("help$"),
     SHOW_LEADER_BOARD("^show leader board$"),
-    SELECT_USER("^select user (\\w+)$") ,
+    SAVE("^save$"),
+    LOGOUT("^logout$"),
 
 
-
-    ;
+    //battleMenu,
+    SELECT_USER("^select user (\\w+)$");
     private Pattern pattern;
     private Matcher matcher;
 
@@ -27,7 +28,6 @@ public enum RequestType {
     public Matcher getMatcher() {
         return matcher;
     }
-
 
     RequestType(String pattern) {
         this.pattern = Pattern.compile(pattern);

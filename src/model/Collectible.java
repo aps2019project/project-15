@@ -1,6 +1,7 @@
 package model;
 
 import controller.Controller;
+import view.View;
 
 import java.util.ArrayList;
 
@@ -9,6 +10,8 @@ enum TypeOfCollectible {
 }
 
 public class Collectible extends Item {
+
+    private View view = View.getInstance();
 
     private static ArrayList<Collectible> allCollectibles;
 
@@ -40,17 +43,11 @@ public class Collectible extends Item {
         return this;
     }*/
 
-    public static void joonBaw() {
-        Controller.view.printIncrementHealth(3);
-    }
 
     public static void tir3shakh() {
 
     }
 
-    public static void exir() {
-        Controller.view.printIncrementHealth(3);
-    }
 
     public static void majoonMp() {
 

@@ -27,7 +27,6 @@ public abstract class Card {
     int Ap;
 
 
-
     public String returnCardName() {
         if (cards.contains(this)) {
             return this.cardName;
@@ -65,6 +64,15 @@ public abstract class Card {
 
     public void move() {
 
+    }
+
+    public Card returnCardByName(String name) {
+        for (Card card  : Shop.allCards ) {
+            if (card.cardName.equals(name)) {
+                return card;
+            }
+        }
+        return null;
     }
 
 }

@@ -1,13 +1,16 @@
 package model;
 
 import controller.Controller;
+import view.View;
 
 import java.util.ArrayList;
 
 public class Shop {
-    ArrayList<Card> allCards;
-    ArrayList<Usable> allUsables;
-    ArrayList<Hero> allHeroes;
+    static ArrayList<Card> allCards;
+    static ArrayList<Usable> allUsables;
+    static ArrayList<Hero> allHeroes;
+
+    private View view = View.getInstance();
 
     public void exitShop() {
 
@@ -22,6 +25,13 @@ public class Shop {
     }
 
     public int searchInCollection(String name) {
+        Collection myCollection = new Collection();
+        for (Card card : allCards
+        ) {
+            if (card.getCardName().equals(name)) {
+                return 1;
+            }
+        }
         return 0;
     }
 
@@ -38,7 +48,7 @@ public class Shop {
     }
 
     public void help() {
-        Controller.view.printShopHelpMenu();
+        view.printShopHelpMenu();
     }
 
     public void sell(String name) {

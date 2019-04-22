@@ -14,7 +14,12 @@ import java.util.*;
 public class Controller {
 
     private DataCenter dataCenter = DataCenter.getInstance();
-    private Menu currentMenu = new AccountMenu();
+    public static Menu currentMenu = new Menu();
+
+    public static void setCurrentMenu() {
+        currentMenu = AccountMenu.getInstance();
+    }
+
     public static Account currentAccount = new Account();
 
     public void main() {
@@ -22,7 +27,8 @@ public class Controller {
         while (true) {
             Request request = new Request();
             try {
-                  request.handleRequest(currentMenu , dataCenter);
+                setCurrentMenu();
+                request.handleRequest(currentMenu , dataCenter);
             }
             catch (InputException e){
                 View.getInstance().printError(e);

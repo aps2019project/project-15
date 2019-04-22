@@ -1,7 +1,13 @@
 package view;
 
 import controller.Controller;
+import controller.DataCenter;
 import model.*;
+import model.menu.BattleMenu;
+import model.menu.CollectionMenu;
+import model.menu.ShopMenu;
+
+import java.util.Comparator;
 
 
 public class View {
@@ -88,15 +94,18 @@ public class View {
     }
 
     public void enterCollection() {
+        Controller.currentMenu = CollectionMenu.getInstance();
         System.out.println("you entered Collection!");
     }
 
     public void enterShop() {
+        Controller.currentMenu = ShopMenu.getInstance();
         System.out.println("you entered Shop!");
     }
 
     public void enterBattle() {
         System.out.println("you entered Battle!");
+        Controller.currentMenu = BattleMenu.getInstance();
         System.out.println("choose your battleType!");
     }
 
@@ -127,5 +136,13 @@ public class View {
 
     public void gameDeclaration(Account account2) {
         System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
+    }
+
+    void showLeaderBoard(DataCenter dataCenter) {
+        int num = 1;
+        for (Account account : dataCenter.getAccounts().values()) {
+            System.out.println(num + "-UserName : " + account.getUsername() + "-Wins : " + account.getNumOfWins());
+            num++;
+        }
     }
 }

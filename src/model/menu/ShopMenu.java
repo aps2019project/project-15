@@ -1,4 +1,9 @@
 package model.menu;
 
-public class ShopMenu {
+public class ShopMenu extends Menu {
+    private static ShopMenu shopMenu = new ShopMenu();
+
+    public static ShopMenu getInstance() {
+        return shopMenu;
+    }
 }

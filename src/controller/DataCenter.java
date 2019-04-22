@@ -28,6 +28,15 @@ public class DataCenter {
         this.onlineAccount = onlineAccount;
     }
 
+    public Account getAccountByName(String name) {
+        for (Account account : accounts.values()
+             ) {
+            if (account.getUsername().equals(name)) {
+                return account;
+            }
+        }
+        return null;
+    }
 
     public Account getOnlineAccount() {
         return onlineAccount;

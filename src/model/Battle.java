@@ -7,25 +7,17 @@ import view.View;
 public class Battle {
 
     private View view = View.getInstance();
-    public void chooseBattleType(String command) {
+
+    /*public void chooseBattleType(String command) {
         Request request = new Request();
         if (command.equals("single player")) {
             GameType gameType = GameType.SinglePlayer;
-            System.out.println("Single player mode!");
-            System.out.println("1.Story Mode!");
-            System.out.println("2.Custom Game!");
-            if (Controller.getCommand().equals("story mode")) {
-                System.out.println("you chose Story Mode!");
-
-            } else if (Controller.scanner.nextLine().toLowerCase().trim().equals("custom game")) {
-                System.out.println("you chose Custom Game!");
-            }
         } else if (command.equals("multi player")) {
             System.out.println("Multi player mode!!");
             GameType gameType = GameType.MultiPlayer;
             Account account2 = new Account();
             if (account2.checkUserAndPass()) {
-                System.out.println("game is between " + Controller.view.account.getUsername() + " and " + account2.getUsername());
+                System.out.println("game is between " + Controller.currentAccount + " and " + account2.getUsername());
                 System.out.println("battle started!");
             }
             view.playerOptions();
@@ -39,7 +31,7 @@ public class Battle {
                 view.gameDeclaration(account2);
             }
         }
-    }
+    }*/
 
     Map map;
 
@@ -99,8 +91,8 @@ public class Battle {
 
     public void help() {
 
-        Controller.view.showMinionsYouCanMove();
-        Controller.view.showMinionsYouCanAttack();
-        Controller.view.showMinionsYouCanAttack();
+        view.showMinionsYouCanMove();
+        view.showMinionsYouCanAttack();
+        view.showMinionsYouCanAttack();
     }
 }

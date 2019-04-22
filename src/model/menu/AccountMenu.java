@@ -23,23 +23,20 @@ public class AccountMenu extends Menu {
         return account;
     }
 
-    /*public void loginFunction() {
-        while (!account.isLoggedIn()) {
-            System.out.println("enter your username: ");
-            account.setUsername(this.scanner.nextLine().toLowerCase().trim());
-            System.out.println("enter your password: ");
-            String password = this.scanner.nextLine().trim();
-            if (Controller.usernames.contains(account.getUsername())) {
+    public void loginFunction(String username, String password, DataCenter dataCenter) {
+        Account account = dataCenter.getAccountByName(username);
+        if (account != null) {
+            if (!account.isLoggedIn()) {
                 if (account.getPassword().equals(password)) {
-                    System.out.println("logged in!");
-                    account.setLoggedIn(true);
+                    System.out.println(account.getUsername() + " logged in!");
                 } else {
                     System.out.println("your password is incorrect!");
                 }
             } else {
-                System.out.println("username is not valid!");
+                System.out.println("you have already logged in!");
             }
+        } else {
+            System.out.println("username is not valid");
         }
-    }*/
-
+    }
 }
