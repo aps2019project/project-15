@@ -17,6 +17,16 @@ public abstract class Item {
     }
 
     String itemName;
+    String desc;
+    int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
 
     static ArrayList<Item> items = new ArrayList<>();
 

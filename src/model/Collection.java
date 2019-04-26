@@ -1,6 +1,6 @@
 package model;
 
-import controller.Controller;
+import view.Request;
 import view.View;
 
 import java.util.ArrayList;
@@ -11,17 +11,30 @@ class Collection {
     private ArrayList<Deck> myDecks;
 
     View view = View.getInstance();
-
+    Request request = new Request();
     public void exitCollection() {
 
     }
 
     public void showCollection() {
-
+        view.heroeDeclarationInCollection();
+        view.itemDeclarationInCollection();
+        view.minionAndSpellDeclarationInCollection();
     }
 
-    public void searchInCollection(String cardNumber) {
-
+    public void searchInCollection() {
+        String name = request.getNewCommand();
+        Card card = Card.returnCardName(name);
+        if(!card.equals(null)){
+            view.printCardId(card);
+            return;
+        }
+        Collectible collectible = Collectible.returnItemName(name);
+        if(!collectible.equals(null)){
+            view.printCollectibleID(collectible);
+            return;
+        }
+        view.notFoundInCollection();
     }
 
     public void createDeck(String name) {

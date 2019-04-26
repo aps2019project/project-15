@@ -1,9 +1,10 @@
 package model;
 
-class Hero extends Card {
+import java.util.ArrayList;
 
-
-
+public class Hero extends Card {
+    static ArrayList<Hero> heroes = new ArrayList<>();
+    Buff buff;
     Item[][] itemCheck = new Item[4][];
 
     public void attack() {
@@ -32,4 +33,9 @@ class Hero extends Card {
     public Flag getMyFlag() {
         return myFlag;
     }
+
+    public static ArrayList<Hero> getHeroes() {
+        return heroes;
+    }
+
 }
