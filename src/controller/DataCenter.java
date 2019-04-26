@@ -15,6 +15,9 @@ public class DataCenter {
         return ourInstance;
     }
 
+
+    public View view = View.getInstance();
+
     private DataCenter() {
 
     }

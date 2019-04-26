@@ -7,12 +7,16 @@ public enum RequestType {
 
     //accountMenu
 
-    CREATE_ACCOUNT("^create account (//w+)$"),
-    LOGIN("^login (//w+)$"),
-    HELP("help$"),
+    CREATE_ACCOUNT("^create account (\\w+)$"),
+    LOGIN("^login (\\w+)$"),
+    HELP("^help$"),
     SHOW_LEADER_BOARD("^show leader board$"),
     SAVE("^save$"),
     LOGOUT("^logout$"),
+    ENTER_COLLECTION("^enter collection$"),
+    ENTER_SHOP("^enter shop$"),
+    ENTER_BATTLE("^enter battle$"),
+    EXIT("^exit$"),
 
 
     //battleMenu,

@@ -23,11 +23,11 @@ public class View {
 
     public void printMainMenuOfGame() {
         System.out.println("Menu: ");
-        System.out.println("1.Collection");
-        System.out.println("2.Shop");
-        System.out.println("3.Battle");
-        System.out.println("4.Exit");
-        System.out.println("5.Help");
+        System.out.println("Collection");
+        System.out.println("Shop");
+        System.out.println("Battle");
+        System.out.println("Exit");
+        System.out.println("Help");
     }
 
     public void printError(InputException e) {
@@ -137,20 +137,19 @@ public class View {
     public void gameDeclaration(Account account2) {
         System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
     }
-    public void listAccounts(){
-        for(String item : DataCenter.getInstance().getAccounts().keySet()){
+
+    public void listAccounts() {
+        for (String item : DataCenter.getInstance().getAccounts().keySet()) {
             System.out.println(item);
         }
     }
-    public void invaidAccountSelected(){
+
+    public void invalidAccountSelected() {
         System.out.println("invalid username entered");
     }
 
-    void showLeaderBoard(DataCenter dataCenter) {
-        int num = 1;
-        for (Account account : dataCenter.getAccounts().values()) {
-            System.out.println(num + "-UserName : " + account.getUsername() + "-Wins : " + account.getNumOfWins());
-            num++;
-        }
+
+    public void showLeaderBoard(Account account, int num) {
+        System.out.println(num + "-UserName : " + account.getUsername() + "-Wins : " + account.getNumOfWins());
     }
 }

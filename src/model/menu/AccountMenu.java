@@ -12,7 +12,8 @@ public class AccountMenu extends Menu {
         return accountMenu;
     }
 
-    public Account register(String username, String password, DataCenter dataCenter) {
+    public Account register(String username, String password) {
+        DataCenter dataCenter = DataCenter.getInstance();
         Account account = new Account();
         account.setUsername(username);
         account.setPassword(password);

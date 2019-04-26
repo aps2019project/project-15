@@ -27,10 +27,13 @@ public class Account {
         return null;
     }
 
+/*
    public boolean checkUserAndPass() {
         return AddSecondPlayer();
     }
+*/
 
+/*
     private boolean AddSecondPlayer() {
         System.out.print("username: ");
         boolean accepted;
@@ -49,6 +52,7 @@ public class Account {
         }
         return accepted;
     }
+*/
 
 
     Game game;
