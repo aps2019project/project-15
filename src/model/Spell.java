@@ -1,7 +1,9 @@
 package model;
 
-class Spell extends Card {
+import java.util.ArrayList;
 
+public class Spell extends Card {
+    static ArrayList<Spell> spells = new ArrayList<>();
     String name;
     Buff buff;
 
@@ -12,5 +14,8 @@ class Spell extends Card {
 
     public void effect() {
 
+    }
+    public static ArrayList<Spell> getSpells(){
+        return spells;
     }
 }

@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-enum typeOfMinion {
+enum typeOfCounterAttack {
     ranged, melee, hybrid
 }
 
@@ -10,13 +10,13 @@ enum specialPowerActivation {
     onRespawn, Passive, onDeath, onAttack, onDefend
 }
 
-class Minion extends Card {
-
+public class Minion extends Card {
+    static ArrayList<Minion> minions = new ArrayList<>();
     Spell specialPower;
     String name;
     ArrayList<Block> range;
     specialPowerActivation type;
-    typeOfMinion minionType;
+    typeOfCounterAttack minionType;
 
     private boolean hasFlag = false;
 
@@ -48,5 +48,12 @@ class Minion extends Card {
 
     public Flag getMyFlag() {
         return myFlag;
+    }
+    public static ArrayList<Minion> getMinions(){
+        return minions;
+    }
+
+    public typeOfCounterAttack getMinionType() {
+        return minionType;
     }
 }

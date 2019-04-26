@@ -11,14 +11,16 @@ public abstract class Card {
         return cardName;
     }
 
-    ArrayList<Card> cards;
+    static ArrayList<Card> cards ;
     private String cardName;
+    String desc;
     int cardID;
     int cardIdInGame;
     private int x;
     private int y;
     boolean stuned = false;
     boolean disarmed = false;
+    int price;
 
     private boolean using = false;
     TypeOfCard type;
@@ -27,9 +29,11 @@ public abstract class Card {
     int Ap;
 
 
-    public String returnCardName() {
-        if (cards.contains(this)) {
-            return this.cardName;
+    public static Card returnCardName(String name) {
+        for(Card item : cards) {
+            if (item.cardName.equals(name)) {
+                return item;
+            }
         }
         return null;
     }
@@ -75,4 +79,23 @@ public abstract class Card {
         return null;
     }
 
+    public static ArrayList<Card> getCards() {
+        return cards;
+    }
+
+    public TypeOfCard getType() {
+        return type;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public int getCardID() {
+        return cardID;
+    }
 }

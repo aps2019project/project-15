@@ -76,5 +76,13 @@ public class Collectible extends Item {
     public static void shamshirChini() {
 
     }
+    public static Collectible returnItemName(String name) {
+        for(Collectible item : allCollectibles) {
+            if (item.itemName.equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
 
 }

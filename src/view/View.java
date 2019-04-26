@@ -6,8 +6,10 @@ import model.*;
 import model.menu.BattleMenu;
 import model.menu.CollectionMenu;
 import model.menu.ShopMenu;
+import model.Hero;
 
 import java.util.Comparator;
+import java.util.regex.Matcher;
 
 
 public class View {
@@ -41,7 +43,7 @@ public class View {
     }
 
     public void printCollectibleID(Collectible collectible) {
-        System.out.println("collectible Id: " + collectible.getId());
+        System.out.println(collectible.getId());
     }
 
     public void printIncrementHealth(int number) {
@@ -157,5 +159,47 @@ public class View {
 
     public void showLeaderBoard(Account account, int num) {
         System.out.println(num + "-UserName : " + account.getUsername() + "-Wins : " + account.getNumOfWins());
+    }
+    public void heroeDeclarationInCollection(){
+        System.out.println("Heroes:");
+        int i= 1;
+        for(Hero item : Hero.getHeroes()){
+            System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
+                            " : %d\n", i, item.getCardName(), item.getAp(), item.getHp(), itemmmm,
+                    item.getDesc(), item.getPrice());
+            i++;
+        }
+    }
+    public void itemDeclarationInCollection(){
+        System.out.println("Items : ");
+        int i = 1;
+        for(Collectible item : Collectible.getAllCollectibles()){
+            System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),
+                    item.getPrice());
+            i++;
+        }
+    }
+    public void minionAndSpellDeclarationInCollection(){
+        System.out.println("Cards : ");
+        int i = 1;
+        for(Spell item : Spell.getSpells()){
+            System.out.printf("\t  %d : Type : %s _ Name : %s _ MP : %d _ Desc : %s _ Sell cost : %d\n", i, item.getType(),
+                    item.getCardName(), item.getMp(), item.getDesc(), item.getPrice());
+            i++;
+        }
+        minionDeclaration(i);
+    }
+    private void minionDeclaration(int i){
+        for(Minion item : Minion.getMinions()){
+            System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
+                    "Special power : %s _ Sell cost : %d\n", i, item.getType(), item.getCardName(), item.getMinionType()
+            , item.getAp(), item.getHp(), item.getMp(), item.getDesc(), item.getPrice());
+        }
+    }
+    public void printCardId(Card card){
+        System.out.println(card.getCardID());
+    }
+    public void notFoundInCollection(){
+        System.out.println("No such card or item exists in collection");
     }
 }
