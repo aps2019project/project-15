@@ -113,7 +113,6 @@ public class View {
 
     public void enterBattle() {
         System.out.println("you entered Battle!");
-        Controller.currentMenu = BattleMenu.getInstance();
         System.out.println("choose your battleType!");
     }
 
@@ -160,46 +159,52 @@ public class View {
     public void showLeaderBoard(Account account, int num) {
         System.out.println(num + "-UserName : " + account.getUsername() + "-Wins : " + account.getNumOfWins());
     }
-    public void heroeDeclarationInCollection(){
+
+    public void heroDeclarationInCollection() {
         System.out.println("Heroes:");
-        int i= 1;
-        for(Hero item : Hero.getHeroes()){
+        int i = 1;
+        for (Hero item : Hero.getHeroes()) {
             System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                            " : %d\n", i, item.getCardName(), item.getAp(), item.getHp(), itemmmm,
+                            " : %d\n", i, item.getCardName(), item.getAp(), item.getHp(), item,
                     item.getDesc(), item.getPrice());
             i++;
         }
     }
-    public void itemDeclarationInCollection(){
+
+    public void itemDeclarationInCollection() {
         System.out.println("Items : ");
         int i = 1;
-        for(Collectible item : Collectible.getAllCollectibles()){
+        for (Collectible item : Collectible.getAllCollectibles()) {
             System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),
                     item.getPrice());
             i++;
         }
     }
-    public void minionAndSpellDeclarationInCollection(){
+
+    public void minionAndSpellDeclarationInCollection() {
         System.out.println("Cards : ");
         int i = 1;
-        for(Spell item : Spell.getSpells()){
+        for (Spell item : Spell.getSpells()) {
             System.out.printf("\t  %d : Type : %s _ Name : %s _ MP : %d _ Desc : %s _ Sell cost : %d\n", i, item.getType(),
                     item.getCardName(), item.getMp(), item.getDesc(), item.getPrice());
             i++;
         }
         minionDeclaration(i);
     }
-    private void minionDeclaration(int i){
-        for(Minion item : Minion.getMinions()){
+
+    private void minionDeclaration(int i) {
+        for (Minion item : Minion.getMinions()) {
             System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
-                    "Special power : %s _ Sell cost : %d\n", i, item.getType(), item.getCardName(), item.getMinionType()
-            , item.getAp(), item.getHp(), item.getMp(), item.getDesc(), item.getPrice());
+                            "Special power : %s _ Sell cost : %d\n", i, item.getType(), item.getCardName(), item.getMinionType()
+                    , item.getAp(), item.getHp(), item.getMp(), item.getDesc(), item.getPrice());
         }
     }
-    public void printCardId(Card card){
+
+    public void printCardId(Card card) {
         System.out.println(card.getCardID());
     }
-    public void notFoundInCollection(){
+
+    public void notFoundInCollection() {
         System.out.println("No such card or item exists in collection");
     }
 }
