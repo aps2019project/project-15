@@ -21,6 +21,8 @@ public enum RequestType {
 
     //battleMenu,
     SELECT_USER("^select user (\\w+)$");
+
+
     private Pattern pattern;
     private Matcher matcher;
 

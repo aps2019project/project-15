@@ -18,7 +18,7 @@ public class Controller {
     private View view = View.getInstance();
     public static Menu currentMenu = new AccountMenu();
 
-    public static void setCurrentMenu() {
+    private static void setCurrentMenu() {
         Controller.currentMenu = AccountMenu.getInstance();
     }
 
@@ -95,18 +95,25 @@ public class Controller {
     }
 
 
-    public void battleMenuRequest(String command, DataCenter dataCenter) {
-
+    private void battleMenuRequest(String command, DataCenter dataCenter) {
+        BattleMenu battleMenu = new BattleMenu();
+        if (currentMenu.equals(battleMenu)) {
+            System.out.println("welcome to battle menu!");
+        }
     }
 
-    public void collectionMenuRequest(String command, DataCenter dataCenter) {
+    private void collectionMenuRequest(String command, DataCenter dataCenter) {
         CollectionMenu collectionMenu = CollectionMenu.getInstance();
         if (currentMenu.equals(collectionMenu)) {
             System.out.println("welcome to collection");
         }
     }
 
-    public void shopMenuRequest(String command, DataCenter dataCenter) {
+    private void shopMenuRequest(String command, DataCenter dataCenter) {
+        ShopMenu shopMenu = new ShopMenu();
+        if (currentMenu.equals(shopMenu)) {
+            System.out.println("welcome to shop menu!");
+        }
     }
 
     private void leaderBoard(DataCenter dataCenter) {
