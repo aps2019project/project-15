@@ -207,10 +207,4 @@ public class View {
     public void notFoundInCollection() {
         System.out.println("No such card or item exists in collection");
     }
-
-    public void printCardDetails(Card card) {
-        if (Card.getCards().contains(card)) {
-            System.out.println("card Id: " + card.getCardID());
-        }
-    }
 }

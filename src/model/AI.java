@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AI {
     private ArrayList<Card> AICards;
-    private ArrayList<Deck> AIDecks;
+    private ArrayList<deck> AIDecks;
 
 
     public void move() {
@@ -18,7 +18,7 @@ public class AI {
         return AICards;
     }
 
-    public ArrayList<Deck> getAIDecks() {
+    public ArrayList<deck> getAIDecks() {
         return AIDecks;
     }
 }

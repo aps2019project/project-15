@@ -30,7 +30,7 @@ public abstract class Card {
     int Ap;
 
 
-    public static Card returnCardName(String name) {
+    public static Card returnCardItemName(String name) {
         for(Card item : cards) {
             if (item.cardName.equals(name)) {
                 return item;
