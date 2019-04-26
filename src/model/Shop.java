@@ -1,7 +1,18 @@
 package model;
 
 import controller.Controller;
+import view.Request;
 import view.View;
+
+import controller.Controller;
+import model.menu.Menu;
+import view.Request;
+import view.View;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+
 
 import java.util.ArrayList;
 
@@ -9,8 +20,9 @@ public class Shop {
     static ArrayList<Card> allCards;
     static ArrayList<Usable> allUsables;
     static ArrayList<Hero> allHeroes;
-
+    Collection collection = new Collection();
     private View view = View.getInstance();
+
 
     public void exitShop() {
 
@@ -21,7 +33,19 @@ public class Shop {
     }
 
     public int searchInShop(String name) {
+       if(Card.returnCardByName(name)== null)
+       {
+           if(Card.returnCardItemName(name)==null);
+           {
+               //show this card dosen't exist
+           }
+           else
+               //show id item
+       }
+       //show id card(minion or spell or hero)
+
         return 0;
+
     }
 
     public int searchInCollection(String name) {
@@ -36,6 +60,7 @@ public class Shop {
     }
 
     public boolean isBought(String name) {
+        if (Card.)
         return true;
     }
 
