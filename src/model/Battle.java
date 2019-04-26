@@ -8,9 +8,10 @@ public class Battle {
 
     private View view = View.getInstance();
 
-    /*public void chooseBattleType(String command) {
+/*
+    public void chooseBattleType(String command) {
         Request request = new Request();
-        Game game = new Game();
+
         System.out.println("1.Single player");
         String command = request.getNewCommand();
         System.out.println("2.Multi player");
@@ -44,7 +45,8 @@ public class Battle {
                 view.gameDeclaration(account2);
             }
         }
-    }*/
+    }
+*/
 
     Map map;
 

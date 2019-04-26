@@ -17,6 +17,7 @@ public class Controller {
     private Request request = new Request();
     private View view = View.getInstance();
     public static Menu currentMenu = new AccountMenu();
+    private boolean finishGame = false;
 
     private static void setCurrentMenu() {
         Controller.currentMenu = AccountMenu.getInstance();
@@ -29,7 +30,7 @@ public class Controller {
     public void main() {
         Request request = new Request();
         setCurrentMenu();
-        while (true) {
+        while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
             } catch (InputException e) {
@@ -44,7 +45,9 @@ public class Controller {
 
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
-        if (currentMenu.equals(AccountMenu.getInstance())) {
+        if (currentMenu.equals(Menu.getInstance())) {
+            mainMenuRequest(command);
+        } else if (currentMenu.equals(AccountMenu.getInstance())) {
             accountMenuRequest(command);
         } else if (currentMenu.equals(BattleMenu.getInstance())) {
             battleMenuRequest(command, dataCenter);
@@ -55,64 +58,99 @@ public class Controller {
         }
     }
 
+    private void mainMenuRequest(String command) throws InputException {
+        System.out.println("you entered mainMenu");
+        Menu mainMenu = Menu.getInstance();
+        if (RequestType.SAVE.setMatcher(command).find()) {
+            System.out.println("you saved everything!");
+        } else if (RequestType.LOGOUT.setMatcher(command).find()) {
+            Account account = Controller.currentAccount;
+            account.setLoggedIn(false);
+            System.out.println("you logged out!");
+        } else if (RequestType.HELP.setMatcher(command).find()) {
+            view.printMainMenuOfGame();
+        } else if (RequestType.ENTER_COLLECTION.setMatcher(command).find()) {
+            view.enterCollection();
+        } else if (RequestType.ENTER_SHOP.setMatcher(command).find()) {
+            view.enterShop();
+        } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
+            Battle battle = new Battle();
+            view.enterBattle();
+            request.getNewCommand();
+        } else if (RequestType.EXIT.setMatcher(command).find()) {
+            view.exitMessage();
+            currentAccount.setLoggedIn(false);
+            view.logOutMessage();
+            currentMenu = AccountMenu.getInstance();
+        } else {
+            throw new InputException("invalid command");
+        }
+    }
+
     private void accountMenuRequest(String command) {
         AccountMenu accountMenu = AccountMenu.getInstance();
         if (Controller.currentMenu.equals(accountMenu)) {
             if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
                 String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
-                System.out.print("your password: ");
-                request.getNewCommand();
-                Controller.currentAccount = accountMenu.register(username, command);
+                while (true) {
+                    if (!dataCenter.getAccounts().keySet().contains(username)) {
+                        System.out.print("enter your password: ");
+                        command = request.getNewCommand();
+                        if (command.length() >= 4) {
+                            Controller.currentAccount = accountMenu.register(username, command);
+                            currentMenu = Menu.getInstance();
+                            break;
+                        } else {
+                            System.out.println("password is too short! try again.");
+                        }
+                    } else {
+                        System.out.println("username is not valid!");
+                        break;
+                    }
+                }
             } else if (RequestType.LOGIN.setMatcher(command).find()) {
                 String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
                 System.out.println("enter your password: ");
-                request.getNewCommand();
+                command = request.getNewCommand();
                 accountMenu.loginFunction(username, command, dataCenter);
+                currentMenu = Menu.getInstance();
             } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
                 leaderBoard(dataCenter);
-            } else if (RequestType.SAVE.setMatcher(command).find()) {
-                System.out.println("you saved everything!");
-            } else if (RequestType.LOGOUT.setMatcher(command).find()) {
-                Account account = Controller.currentAccount;
-                account.setLoggedIn(false);
-                System.out.println("you logged out!");
-            } else if (RequestType.HELP.setMatcher(command).find()) {
-                view.printMainMenuOfGame();
-            } else if (RequestType.ENTER_COLLECTION.setMatcher(command).find()) {
-                view.enterCollection();
-            } else if (RequestType.ENTER_SHOP.setMatcher(command).find()) {
-                view.enterShop();
-            } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
-                Battle battle = new Battle();
-                view.enterBattle();
-                request.getNewCommand();
-            } else if(RequestType.EXIT.setMatcher(command).find()) {
+            }
+            else if (RequestType.HELP.setMatcher(command).find()) {
+                view.printAccountMenuOfGame();
+            } else if (RequestType.EXIT.setMatcher(command).find()) {
                 view.exitMessage();
-                currentAccount.setLoggedIn(false);
-                view.logOutMessage();
+                finishGame = true;
             }
         }
     }
 
-
-    private void battleMenuRequest(String command, DataCenter dataCenter) {
+    private void battleMenuRequest(String command, DataCenter dataCenter) throws InputException {
         BattleMenu battleMenu = new BattleMenu();
         if (currentMenu.equals(battleMenu)) {
             System.out.println("welcome to battle menu!");
+            battleMenu.chooseBattleType(request.getNewCommand());
+        } else {
+            throw new InputException("invalid command");
         }
     }
 
-    private void collectionMenuRequest(String command, DataCenter dataCenter) {
+    private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
         CollectionMenu collectionMenu = CollectionMenu.getInstance();
         if (currentMenu.equals(collectionMenu)) {
             System.out.println("welcome to collection");
+        } else {
+            throw new InputException("invalid command");
         }
     }
 
-    private void shopMenuRequest(String command, DataCenter dataCenter) {
+    private void shopMenuRequest(String command, DataCenter dataCenter) throws InputException {
         ShopMenu shopMenu = new ShopMenu();
         if (currentMenu.equals(shopMenu)) {
             System.out.println("welcome to shop menu!");
+        } else {
+            throw new InputException("invalid command");
         }
     }
 

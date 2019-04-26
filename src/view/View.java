@@ -30,6 +30,12 @@ public class View {
         System.out.println("Help");
     }
 
+    public void printAccountMenuOfGame() {
+        System.out.println("Sign up");
+        System.out.println("Login");
+        System.out.println("Show leaderboard");
+    }
+
     public void printError(InputException e) {
         System.out.println(e.getMessage());
     }

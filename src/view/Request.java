@@ -11,11 +11,11 @@ import java.util.Scanner;
 
 public class Request {
     private Scanner scanner = new Scanner(System.in);
-    private String command;
+    public String command;
     private View view = View.getInstance();
 
     public String getNewCommand() {
-        return command = scanner.nextLine().toLowerCase().trim();
+        return this.command = scanner.nextLine().toLowerCase().trim();
     }
 
     public int enteredNum(){

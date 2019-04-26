@@ -10,11 +10,7 @@ class Hero extends Card {
 
     }
 
-
-
-    private boolean hasFlag = false;
-
-
+    private boolean hasFlag;
 
     private Flag myFlag;
 

@@ -12,12 +12,12 @@ enum GameType {
     SinglePlayer, MultiPlayer
 }
 
-class Game {
+public class Game {
 
     private Map map = new Map();
 
 
-    Game() {
+    public Game() {
         Account player1 = new Account();
         setaccounts();;
     }

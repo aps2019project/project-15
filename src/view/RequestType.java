@@ -5,22 +5,25 @@ import java.util.regex.Pattern;
 
 public enum RequestType {
 
-    //accountMenu
+    //main menu
+    ENTER_COLLECTION("^enter collection$"),
+    ENTER_SHOP("^enter shop$"),
+    ENTER_BATTLE("^enter battle$"),
 
+    //accountMenu
     CREATE_ACCOUNT("^create account (\\w+)$"),
     LOGIN("^login (\\w+)$"),
     HELP("^help$"),
     SHOW_LEADER_BOARD("^show leader board$"),
     SAVE("^save$"),
     LOGOUT("^logout$"),
-    ENTER_COLLECTION("^enter collection$"),
-    ENTER_SHOP("^enter shop$"),
-    ENTER_BATTLE("^enter battle$"),
     EXIT("^exit$"),
 
 
     //battleMenu,
-    SELECT_USER("^select user (\\w+)$");
+    SELECT_USER("^select user (\\w+)$"),
+    SINGLE_PLAYER("^single player$"),
+    MULTI_PLAYER("^multi player$");
 
 
     private Pattern pattern;
