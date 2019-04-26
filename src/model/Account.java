@@ -1,8 +1,6 @@
 package model;
 
-import controller.Controller;
 import controller.DataCenter;
-import view.Request;
 import view.View;
 
 import java.util.ArrayList;
@@ -66,8 +64,8 @@ public class Account {
     private boolean loggedIn = false;
     Collection myCollection;
     private int numOfWins;
-    ArrayList<Deck> myDecks;
-    Deck mainDeck;
+    ArrayList<deck> myDecks;
+    deck mainDeck;
     ArrayList<Card> graveYard;
     ArrayList<History> historyGames;
     private boolean startGame = false;
@@ -135,5 +133,8 @@ public class Account {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+    public void setMainDeck(deck deck){
+        this.mainDeck = deck;
     }
 }
