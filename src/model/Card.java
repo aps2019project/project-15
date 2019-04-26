@@ -19,6 +19,7 @@ public abstract class Card {
     private int x;
     private int y;
     boolean stuned = false;
+    boolean owned = false;
     boolean disarmed = false;
     int price;
 
@@ -29,7 +30,7 @@ public abstract class Card {
     int Ap;
 
 
-    public static Card returnCardName(String name) {
+    public static Card returnCardItemName(String name) {
         for(Card item : cards) {
             if (item.cardName.equals(name)) {
                 return item;
@@ -70,14 +71,7 @@ public abstract class Card {
 
     }
 
-    public Card returnCardByName(String name) {
-        for (Card card  : Shop.allCards ) {
-            if (card.cardName.equals(name)) {
-                return card;
-            }
-        }
-        return null;
-    }
+
 
     public static ArrayList<Card> getCards() {
         return cards;
@@ -91,6 +85,15 @@ public abstract class Card {
         return price;
     }
 
+    public static Card returnCardByName(String name){
+        for (Card card: Shop.allCards) {
+            if (card.getCardName().equals(name)) {
+                return card;
+            }
+        }
+        return null;
+
+    }
     public String getDesc() {
         return desc;
     }
