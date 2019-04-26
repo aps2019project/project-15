@@ -1,6 +1,9 @@
 package model.menu;
 
+import model.Account;
 import model.Game;
+import view.Request;
+import view.RequestType;
 
 public class BattleMenu extends Menu {
 
@@ -9,13 +12,24 @@ public class BattleMenu extends Menu {
         return battleMenu;
     }
 
+    Request request = new Request();
+
     public void chooseBattleType(String command) {
         Game game = new Game();
-        if (command.equals("single player")) {
+        if (RequestType.SINGLE_PLAYER.setMatcher(command).find()) {
             System.out.println("single player mode!");
         }
-        else if (command.equals("multi player")) {
+        else if (RequestType.MULTI_PLAYER.setMatcher(command).find()) {
             System.out.println("multi player mode!");
+            String secondUsername = request.getNewCommand();
+
         }
+    }
+
+    public void addSecondPLayer(String secondUsername) {
+        Account secondPlayer = new Account();
+        secondPlayer.setUsername(secondUsername);
+        secondPlayer.setPassword(request.getNewCommand());
+
     }
 }

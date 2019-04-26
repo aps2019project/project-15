@@ -14,7 +14,7 @@ public enum RequestType {
     CREATE_ACCOUNT("^create account (\\w+)$"),
     LOGIN("^login (\\w+)$"),
     HELP("^help$"),
-    SHOW_LEADER_BOARD("^show leader board$"),
+    SHOW_LEADER_BOARD("^show leaderboard$"),
     SAVE("^save$"),
     LOGOUT("^logout$"),
     EXIT("^exit$"),

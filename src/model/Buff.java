@@ -1,7 +1,7 @@
 package model;
 
 enum TypesOfBuff {
-    Holy , Power , Poison , weakness , stun , disarm
+    Holy, Power, Poison, weakness, stun, disarm
 }
 
 
@@ -28,19 +28,20 @@ public class Buff {
     public void effect() {
 
     }
+
     //todo a buff being activated for a card
-    public void buffEffect(Card card){
+    public void buffEffect(Card card) {
         //todo check if they are still activated
-        switch (this.type){
+        switch (this.type) {
             case Holy:
                 //todo check if the card was attacked in last turn
                 card.Hp++;
                 break;
             case Power:
-                if(hpEffected){
+                if (hpEffected) {
                     card.Hp++;
                 }
-                if(apEffected){
+                if (apEffected) {
                     card.Ap++;
                 }
                 break;
@@ -48,15 +49,15 @@ public class Buff {
                 card.Hp--;
                 break;
             case weakness:
-                if(hpEffected){
+                if (hpEffected) {
                     card.Hp--;
                 }
-                if(apEffected){
+                if (apEffected) {
                     card.Ap--;
                 }
                 break;
             case stun:
-                card.stuned = true;
+                card.stunned = true;
                 break;
             case disarm:
                 card.disarmed = true;

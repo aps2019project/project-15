@@ -54,13 +54,15 @@ public class Controller {
             collectionMenuRequest(command, dataCenter);
         } else if (currentMenu.equals(ShopMenu.getInstance())) {
             shopMenuRequest(command, dataCenter);
+        } else {
+            throw new InputException("invalid command");
         }
+
     }
 
     private void mainMenuRequest(String command) throws InputException {
         Menu mainMenu = MainMenu.getInstance();
         if (Controller.currentMenu.equals(mainMenu)) {
-            System.out.println("you entered mainMenu");
             if (RequestType.SAVE.setMatcher(command).find()) {
                 System.out.println("you saved everything!");
             } else if (RequestType.LOGOUT.setMatcher(command).find()) {
@@ -75,9 +77,8 @@ public class Controller {
                 view.enterShop();
             } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
                 Battle battle = new Battle();
-                currentMenu = BattleMenu.getInstance();
                 view.enterBattle();
-                request.getNewCommand();
+                currentMenu = BattleMenu.getInstance();
             } else if (RequestType.EXIT.setMatcher(command).find()) {
                 view.exitMessage();
                 currentAccount.setLoggedIn(false);
@@ -92,7 +93,7 @@ public class Controller {
     private void accountMenuRequest(String command) throws InputException {
         AccountMenu accountMenu = AccountMenu.getInstance();
         if (Controller.currentMenu.equals(accountMenu)) {
-            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find() && RequestType.CREATE_ACCOUNT.getMatcher().group(1) != null) {
+            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find() && !RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
                 String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
                 while (true) {
                     if (!dataCenter.getAccounts().keySet().contains(username)) {
@@ -124,8 +125,7 @@ public class Controller {
                 view.exitMessage();
                 finishGame = true;
             }
-        }
-        else {
+        } else {
             throw new InputException("invalid command");
 
         }

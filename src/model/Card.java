@@ -18,7 +18,8 @@ public abstract class Card {
     int cardIdInGame;
     private int x;
     private int y;
-    boolean stuned = false;
+    boolean owned = false;
+    boolean stunned = false;
     boolean disarmed = false;
     int price;
 

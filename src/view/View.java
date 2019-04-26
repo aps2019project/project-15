@@ -157,7 +157,7 @@ public class View {
 
 
     public void showLeaderBoard(Account account, int num) {
-        System.out.println(num + "-UserName : " + account.getUsername() + "-Wins : " + account.getNumOfWins());
+        System.out.println(num + "-UserName : " + account.getUsername() + " -Wins : " + account.getNumOfWins());
     }
 
     public void heroDeclarationInCollection() {
@@ -206,5 +206,11 @@ public class View {
 
     public void notFoundInCollection() {
         System.out.println("No such card or item exists in collection");
+    }
+
+    public void printCardDetails(Card card) {
+        if (Card.getCards().contains(card)) {
+            System.out.println("card Id: " + card.getCardID());
+        }
     }
 }
