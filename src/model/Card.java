@@ -11,7 +11,7 @@ public abstract class Card {
         return cardName;
     }
 
-    static ArrayList<Card> cards ;
+    static ArrayList<Card> cards;
     private String cardName;
     String desc;
     int cardID;
@@ -31,7 +31,7 @@ public abstract class Card {
 
 
     public static Card returnCardItemName(String name) {
-        for(Card item : cards) {
+        for (Card item : cards) {
             if (item.cardName.equals(name)) {
                 return item;
             }
@@ -71,8 +71,17 @@ public abstract class Card {
 
     }
 
-    public Card returnCardByName(String name) {
-        for (Card card  : Shop.allCards ) {
+    public static String returnCardName(Card card) {
+        for (Card card1 : Card.getCards()
+             ) {
+            if (card.equals(card1)) return card1.getCardName();
+        }
+        return null;
+    }
+
+
+    public static Card returnCardByName(String name) {
+        for (Card card : Shop.allCards) {
             if (card.cardName.equals(name)) {
                 return card;
             }

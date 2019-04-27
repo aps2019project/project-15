@@ -26,7 +26,7 @@ class Collection {
 
     public void searchInCollection() {
         String name = request.getNewCommand();
-        Card card = Card.returnCardName(name);
+        Card card = Card.returnCardByName(name);
         if(!card.equals(null)){
             view.printCardId(card);
             return;

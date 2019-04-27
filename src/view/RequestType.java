@@ -23,7 +23,15 @@ public enum RequestType {
     //battleMenu,
     SELECT_USER("^select user (\\w+)$"),
     SINGLE_PLAYER("^single player$"),
-    MULTI_PLAYER("^multi player$");
+    MULTI_PLAYER("^multi player$"),
+
+    //shopMenu
+    SHOW_COLLECTION("^show collection$"),
+    SEARCH("^search (\\w+)$") ,
+    SEARCH_COLLECTION("^search collection (\\w+)$") ,
+    BUY("^buy (\\w+)$") ,
+    SELL("^sell (\\w+)$") ,
+    SHOW("^show$") ;
 
 
     private Pattern pattern;
@@ -41,4 +49,4 @@ public enum RequestType {
     RequestType(String pattern) {
         this.pattern = Pattern.compile(pattern);
     }
-}
+    }

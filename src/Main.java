@@ -8,10 +8,9 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
+    private  static Controller controller = new Controller();
 
     public static void main(String[] args) {
-        Controller controller = new Controller();
-
         controller.main();
     }
 

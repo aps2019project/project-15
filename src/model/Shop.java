@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-
 import java.util.ArrayList;
 
 public class Shop {
@@ -32,21 +31,24 @@ public class Shop {
 
     }
 
+/*
     public int searchInShop(String name) {
-       if(Card.returnCardByName(name)== null)
-       {
-           if(Card.returnCardItemName(name)==null);
-           {
-               //show this card dosen't exist
-           }
-           else
-               //show id item
-       }
-       //show id card(minion or spell or hero)
+        if (Card.returnCardByName(name) == null) {
+            if (Card.returnCardItemName(name) == null) ;
+            {
+                //show this card dosen't exist
+            }
+           else{
+
+            }
+            //show id item
+        }
+        //show id card(minion or spell or hero)
 
         return 0;
 
     }
+*/
 
     public int searchInCollection(String name) {
         Collection myCollection = new Collection();
@@ -60,8 +62,11 @@ public class Shop {
     }
 
     public boolean isBought(String name) {
-        if (Card.)
-        return true;
+        Card card = Card.returnCardByName(name);
+        if (card != null) {
+            return card.owned;
+        }
+        return false;
     }
 
     public void buy(String name) {

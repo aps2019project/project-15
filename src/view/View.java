@@ -193,6 +193,7 @@ public class View {
     }
 
     private void minionDeclaration(int i) {
+        System.out.println("minions: ");
         for (Minion item : Minion.getMinions()) {
             System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                             "Special power : %s _ Sell cost : %d\n", i, item.getType(), item.getCardName(), item.getMinionType()
@@ -206,5 +207,42 @@ public class View {
 
     public void notFoundInCollection() {
         System.out.println("No such card or item exists in collection");
+    }
+
+    public void deckAlreadyExists(){
+        System.out.println("A deck already exists with this name");
+    }
+    public void cardNotInCollection(){
+        System.out.println("card is not in your collection");
+    }
+    public void cardIsAlreadyInDeck(){
+        System.out.println("card is already in deck");
+    }
+    public void deckIsNotInCollection(){
+        System.out.println("deck with such name does not exist in collection");
+    }
+    public void tooManyCardsInDeck(){
+        System.out.println("there are already 20 cards in deck");
+    }
+    public void heroInDeck(){
+        System.out.println("A hero is already in deck");
+    }
+    public void itemNotInCollection(){
+        System.out.println("Item is not in your collection");
+    }
+    public void itemIsAlreadyInDeck(){
+        System.out.println("item is already in deck");
+    }
+    public void tooManyItems(){
+        System.out.println("there is already an item in this deck");
+    }
+    public void cardIsNotInDeck(){
+        System.out.println("selected card is not in this deck");
+    }
+    public void itemIsNotInDeck(){
+        System.out.println("selected item is not in this deck");
+    }
+    public void tooManyItemsInCollection() {
+        System.out.println("collection includes more than three items");
     }
 }

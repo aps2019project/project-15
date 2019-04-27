@@ -19,7 +19,7 @@ public class Controller {
     private boolean finishGame = false;
 
     private static void setCurrentMenu() {
-        Controller.currentMenu = AccountMenu.getInstance();
+        currentMenu = AccountMenu.getInstance();
     }
 
     private static DataCenter dataCenter = DataCenter.getInstance();
@@ -38,10 +38,6 @@ public class Controller {
         }
     }
 
-/*    public void handler(String command) {
-        dataCenter;
-    }*/
-
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
         if (currentMenu.equals(MainMenu.getInstance())) {
@@ -49,20 +45,19 @@ public class Controller {
         } else if (currentMenu.equals(AccountMenu.getInstance())) {
             accountMenuRequest(command);
         } else if (currentMenu.equals(BattleMenu.getInstance())) {
-            battleMenuRequest(command, dataCenter);
+            battleMenuRequest(command);
         } else if (currentMenu.equals(CollectionMenu.getInstance())) {
             collectionMenuRequest(command, dataCenter);
         } else if (currentMenu.equals(ShopMenu.getInstance())) {
-            shopMenuRequest(command, dataCenter);
+            shopMenuRequest(command);
         } else {
             throw new InputException("invalid command");
         }
-
     }
 
     private void mainMenuRequest(String command) throws InputException {
         Menu mainMenu = MainMenu.getInstance();
-        if (Controller.currentMenu.equals(mainMenu)) {
+        if (currentMenu.equals(mainMenu)) {
             if (RequestType.SAVE.setMatcher(command).find()) {
                 System.out.println("you saved everything!");
             } else if (RequestType.LOGOUT.setMatcher(command).find()) {
@@ -127,15 +122,13 @@ public class Controller {
             }
         } else {
             throw new InputException("invalid command");
-
         }
     }
 
-    private void battleMenuRequest(String command, DataCenter dataCenter) throws InputException {
-        BattleMenu battleMenu = new BattleMenu();
+    private void battleMenuRequest(String command) throws InputException {
+        BattleMenu battleMenu = BattleMenu.getInstance();
         if (currentMenu.equals(battleMenu)) {
-            System.out.println("welcome to battle menu!");
-            battleMenu.chooseBattleType(request.getNewCommand());
+            battleMenu.chooseBattleType(command);
         } else {
             throw new InputException("invalid command");
         }
@@ -150,10 +143,28 @@ public class Controller {
         }
     }
 
-    private void shopMenuRequest(String command, DataCenter dataCenter) throws InputException {
-        ShopMenu shopMenu = new ShopMenu();
+    private void shopMenuRequest(String command) throws InputException {
+        ShopMenu shopMenu = ShopMenu.getInstance();
         if (currentMenu.equals(shopMenu)) {
             System.out.println("welcome to shop menu!");
+            if (RequestType.SELL.setMatcher(command).find()) {
+
+            }
+            else if (RequestType.BUY.setMatcher(command).find()) {
+
+            }
+            else if (RequestType.SEARCH.setMatcher(command).find()) {
+
+            }
+            else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
+
+            }
+            else if (RequestType.SHOW.setMatcher(command).find()) {
+                view.minionAndSpellDeclarationInCollection();
+            }
+            else if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
+
+            }
         } else {
             throw new InputException("invalid command");
         }
