@@ -19,7 +19,34 @@ class Collection {
     }
 
     public void showCollection() {
-
+        view.heroStats();
+        int i=1;
+        for(Card item : myCards){
+            if(item.getTypeOfAttack().equals(TypeOfCard.Hero)){
+                item.printStats(i);
+                i++;
+            }
+        }
+        view.itemStats();
+        i = 1;
+        for(Item item : myItems){
+            view.printItemStats(item, i);
+            i++;
+        }
+        i = 1;
+        view.cardStats();
+        for(Card item : myCards){
+            if(item.getTypeOfAttack().equals(TypeOfCard.Spell)){
+                item.printStats(i);
+                i++;
+            }
+        }
+        for(Card item : myCards){
+            if(item.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                item.printStats(i);
+                i++;
+            }
+        }
     }
 
     public void searchInCollection() {
@@ -181,11 +208,50 @@ class Collection {
     }
 
     public void showAllDecks() {
-
+        int i = 1;
+        for(deck deckItem : myDecks){
+            view.printDeckName(i, deckItem.getName());
+            this.showDeck(deckItem.getName());
+            i++;
+        }
     }
 
     public void showDeck(String deckName) {
-
+        deck deck = new deck("");
+        for(model.deck item : myDecks){
+            if(item.getName().equals(deckName)){
+                deck = item;
+                break;
+            }
+        }
+        if(deck.getName().equals("")){
+            view.deckIsNotInCollection();
+            return;
+        }
+        int i = 1;
+        for(Card item : deck.getCards()){
+            if(item.getTypeOfAttack().equals(TypeOfCard.Hero)){
+                item.printStats(i);
+                i++;
+            }
+        }
+        view.itemStats();
+        i = 1;
+        view.printItemStats(deck.getItem(), i);
+        i = 1;
+        view.cardStats();
+        for(Card item : deck.getCards()){
+            if(item.getTypeOfAttack().equals(TypeOfCard.Spell)){
+                item.printStats(i);
+                i++;
+            }
+        }
+        for(Card item : deck.getCards()){
+            if(item.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                item.printStats(i);
+                i++;
+            }
+        }
     }
 
     public void help() {

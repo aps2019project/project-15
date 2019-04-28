@@ -161,7 +161,7 @@ public class View {
         int i = 1;
         for (Hero item : Hero.getHeroes()) {
             System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                            " : %d\n", i, item.getName(), item.getAttackPower(), item.getHealthLevel(), item,
+                            " : %d\n", i, item.getName(), item.getAttackPower(), item.getHealthLevel(), item.getTypeOfAttack(),
                     item.getDescription(), item.getPrice());
             i++;
         }
@@ -243,7 +243,7 @@ public class View {
     }
     public void printHeroStats(Hero hero, int i){
         System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel(), item,
+                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel(), hero.getTypeOfAttack(),
                 hero.getDescription(), hero.getPrice());
     }
     public void printSpellStats(Spell spell, int i){
@@ -254,5 +254,21 @@ public class View {
         System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
                 , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
+    }
+    public void printItemStats(Item item, int i){
+        System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),
+                item.getPrice());
+    }
+    public void heroStats(){
+        System.out.println("Heroes : ");
+    }
+    public void itemStats(){
+        System.out.println("Items : ");
+    }
+    public void cardStats(){
+        System.out.println("Cards : ");
+    }
+    public void printDeckName(int i, String deckName){
+        System.out.printf("%d : %s : \n", i, deckName);
     }
 }

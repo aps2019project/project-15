@@ -83,4 +83,21 @@ public abstract class Card {
     public int getCardID() {
         return cardID;
     }
+    public void printStats(int i){ }
+
+    public void setCardID(int cardID) {
+        this.cardID = cardID;
+    }
+
+    public void setMp(int mp) {
+        Mp = mp;
+    }
+
+    public void setAp(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public void setHp(int healthLevel) {
+        this.healthLevel = healthLevel;
+    }
 }

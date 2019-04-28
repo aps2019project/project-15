@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Hero extends Card {
     static ArrayList<Hero> heroes = new ArrayList<>();
     Buff buff;
+    TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
 
     public void attack() {
@@ -34,6 +35,11 @@ public class Hero extends Card {
 
     public static ArrayList<Hero> getHeroes() {
         return heroes;
+    }
+
+    @Override
+    public TypeOfCard getTypeOfAttack() {
+        return super.getTypeOfAttack();
     }
 
     @Override
