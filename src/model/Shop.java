@@ -72,6 +72,10 @@ public class Shop {
 
     }
 
+    public void search(String name) {
+
+    }
+
     public void help() {
         view.printShopHelpMenu();
     }
@@ -87,5 +91,6 @@ public class Shop {
     public void showMenu() {
 
     }
+
 
 }

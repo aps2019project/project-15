@@ -8,8 +8,9 @@ import view.Request;
 import view.RequestType;
 import view.View;
 
-public class Controller {
+import java.util.Iterator;
 
+public class Controller {
 
     private Request request = new Request();
     private View view = View.getInstance();
@@ -169,8 +170,34 @@ public class Controller {
 
     private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
         CollectionMenu collectionMenu = CollectionMenu.getInstance();
+        Collection collection = new Collection();
         if (currentMenu.equals(collectionMenu)) {
-            System.out.println("welcome to collection");
+            System.out.println("Collection menu:");
+            if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
+                view.showCollection();
+            } else if (RequestType.EXIT_COLLECTION.setMatcher(command).find()) {
+                collection.exitCollection();
+            } else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
+                collection.searchInCollection();
+            } else if (RequestType.SAVE_COLLECTION.setMatcher(command).find()) {
+                collection.save();
+            } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
+                collection.addCardToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1), RequestType.ADD_COLLECTION.getMatcher().group(2));
+            } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
+                collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
+            } else if (RequestType.CREATE_DECK.setMatcher(command).find()) {
+                collection.createDeck(RequestType.CREATE_DECK.getMatcher().group(1));
+            } else if (RequestType.DELETE_DECK.setMatcher(command).find()) {
+                collection.deleteDeck(RequestType.DELETE_DECK.getMatcher().group(1));
+            } else if (RequestType.VALIDATE.setMatcher(command).find()) {
+                collection.validateDeck(RequestType.VALIDATE.getMatcher().group(1));
+            } else if (RequestType.SELECT_DECK.setMatcher(command).find()) {
+                collection.selectDeck(RequestType.SELECT_DECK.getMatcher().group(1));
+            } else if (RequestType.SHOW_ALL_DECKS.setMatcher(command).find()) {
+                collection.showAllDecks();
+            } else if (RequestType.SHOW_DECK.setMatcher(command).find()) {
+                collection.showDeck(RequestType.SHOW_DECK.getMatcher().group(1));
+            }
         } else {
             throw new InputException("invalid command");
         }
@@ -178,20 +205,21 @@ public class Controller {
 
     private void shopMenuRequest(String command) throws InputException {
         ShopMenu shopMenu = ShopMenu.getInstance();
+        Shop shop = new Shop();
         if (currentMenu.equals(shopMenu)) {
-            System.out.println("welcome to shop menu!");
+            System.out.println("Shop menu:");
             if (RequestType.SELL.setMatcher(command).find()) {
-
+                shop.sell(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.BUY.setMatcher(command).find()) {
-
+                shop.buy(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.SEARCH.setMatcher(command).find()) {
-
-            } else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
-
+                shop.search(RequestType.SELL.getMatcher().group(1));
+            } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
+                shop.searchInCollection(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {
                 view.allMinionAndSpellDeclaration();
-            } else if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
-
+            } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
+                shop.showCollection();
             }
         } else {
             throw new InputException("invalid command");
