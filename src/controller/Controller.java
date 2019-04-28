@@ -122,23 +122,28 @@ public class Controller {
     private void accountMenuRequest(String command) throws InputException {
         AccountMenu accountMenu = AccountMenu.getInstance();
         if (Controller.currentMenu.equals(accountMenu)) {
-            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find() && !RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
-                String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
-                while (true) {
-                    if (!dataCenter.getAccounts().keySet().contains(username)) {
-                        System.out.print("enter your password: ");
-                        command = request.getNewCommand();
-                        if (command.length() >= 4) {
-                            Controller.currentAccount = accountMenu.register(username, command);
-                            currentMenu = MainMenu.getInstance();
-                            break;
+            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find() ) {
+                if ( !RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
+                    String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
+                    while (true) {
+                        if (!dataCenter.getAccounts().keySet().contains(username)) {
+                            System.out.print("enter your password: ");
+                            command = request.getNewCommand();
+                            if (command.length() >= 4) {
+                                Controller.currentAccount = accountMenu.register(username, command);
+                                currentMenu = MainMenu.getInstance();
+                                break;
+                            } else {
+                                System.out.println("password is too short! try again.");
+                            }
                         } else {
-                            System.out.println("password is too short! try again.");
+                            System.out.println("username is not valid!");
+                            break;
                         }
-                    } else {
-                        System.out.println("username is not valid!");
-                        break;
                     }
+                }
+                else {
+                    System.out.println("Username is empty!");
                 }
             } else if (RequestType.LOGIN.setMatcher(command).find()) {
                 String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
