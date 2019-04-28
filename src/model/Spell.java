@@ -1,5 +1,7 @@
 package model;
 
+import view.View;
+
 import java.util.ArrayList;
 
 public class Spell extends Card {
@@ -21,5 +23,10 @@ public class Spell extends Card {
 
     public static ArrayList<Spell> getSpells() {
         return spells;
+    }
+
+    @Override
+    public void printStats(int i) {
+        View.getInstance().printSpellStats(this, i);
     }
 }

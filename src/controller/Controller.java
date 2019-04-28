@@ -8,9 +8,6 @@ import view.Request;
 import view.RequestType;
 import view.View;
 
-import java.io.*;
-import java.util.ArrayList;
-
 public class Controller {
 
 
@@ -192,7 +189,7 @@ public class Controller {
             } else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
 
             } else if (RequestType.SHOW.setMatcher(command).find()) {
-                view.minionAndSpellDeclarationInCollection();
+                view.allMinionAndSpellDeclaration();
             } else if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
 
             }

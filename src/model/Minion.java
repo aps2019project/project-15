@@ -1,5 +1,7 @@
 package model;
 
+import view.View;
+
 import java.util.ArrayList;
 
 
@@ -57,5 +59,10 @@ public class Minion extends Card {
 
     public TypeOfCounterAttack getMinionType() {
         return attackType;
+    }
+
+    @Override
+    public void printStats(int i) {
+        View.getInstance().printMinionStats(this, i);
     }
 }

@@ -5,6 +5,10 @@ enum TypeOfCard {
 }
 
 public abstract class Card {
+    public String getName() {
+        return name;
+    }
+
     private String name;
     String description;
     private int cardID;
@@ -39,18 +43,13 @@ public abstract class Card {
         return attackPower;
     }
 
-    public String getName() {
-        return name;
+    public int getX() {
+        return x;
     }
 
-
-//    public int getX() {
-//        return x;
-//    }
-//
-//    public int getY() {
-//        return y;
-//    }
+    public int getY() {
+        return y;
+    }
 
     public boolean isUsing() {
         return using;
@@ -83,29 +82,5 @@ public abstract class Card {
 
     public int getCardID() {
         return cardID;
-    }
-
-    public void setMp(int mp) {
-        Mp = mp;
-    }
-
-    public void setHp(int hp) {
-        healthLevel = hp;
-    }
-
-    public void setAp(int ap) {
-        attackPower = ap;
-    }
-
-    public void setCardID(int id) {
-        this.cardID = id;
-    }
-
-    public Block getCurrentBlcok() {
-        return currentBlcok;
-    }
-
-    public void setCurrentBlcok(Block currentBlcok) {
-        this.currentBlcok = currentBlcok;
     }
 }
