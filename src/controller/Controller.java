@@ -122,8 +122,8 @@ public class Controller {
     private void accountMenuRequest(String command) throws InputException {
         AccountMenu accountMenu = AccountMenu.getInstance();
         if (Controller.currentMenu.equals(accountMenu)) {
-            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find() ) {
-                if ( !RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
+            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
+                if (!RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
                     String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
                     while (true) {
                         if (!dataCenter.getAccounts().keySet().contains(username)) {
@@ -141,8 +141,7 @@ public class Controller {
                             break;
                         }
                     }
-                }
-                else {
+                } else {
                     System.out.println("Username is empty!");
                 }
             } else if (RequestType.LOGIN.setMatcher(command).find()) {
