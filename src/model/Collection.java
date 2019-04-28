@@ -19,9 +19,7 @@ class Collection {
     }
 
     public void showCollection() {
-        view.heroDeclarationInCollection();
-        view.itemDeclarationInCollection();
-        view.minionAndSpellDeclarationInCollection();
+
     }
 
     public void searchInCollection() {

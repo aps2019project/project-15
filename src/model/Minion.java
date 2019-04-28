@@ -1,5 +1,7 @@
 package model;
 
+import view.View;
+
 import java.util.ArrayList;
 
 enum typeOfCounterAttack {
@@ -55,5 +57,10 @@ public class Minion extends Card {
 
     public typeOfCounterAttack getMinionType() {
         return minionType;
+    }
+
+    @Override
+    public void printStats(int i) {
+        View.getInstance().printMinionStats(this, i);
     }
 }

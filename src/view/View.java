@@ -156,7 +156,7 @@ public class View {
         System.out.println(num + "-UserName : " + account.getUsername() + " -Wins : " + account.getNumOfWins());
     }
 
-    public void heroDeclarationInCollection() {
+    public void allHeroDeclaration() {
         System.out.println("Heroes:");
         int i = 1;
         for (Hero item : Hero.getHeroes()) {
@@ -167,7 +167,7 @@ public class View {
         }
     }
 
-    public void itemDeclarationInCollection() {
+    public void allItemDeclaration() {
         System.out.println("Items : ");
         int i = 1;
         for (Collectible item : Collectible.getAllCollectibles()) {
@@ -177,7 +177,7 @@ public class View {
         }
     }
 
-    public void minionAndSpellDeclarationInCollection() {
+    public void allMinionAndSpellDeclaration() {
         System.out.println("Cards : ");
         int i = 1;
         for (Spell item : Spell.getSpells()) {
@@ -240,5 +240,19 @@ public class View {
     }
     public void tooManyItemsInCollection() {
         System.out.println("collection includes more than three items");
+    }
+    public void printHeroStats(Hero hero, int i){
+        System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
+                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel(), item,
+                hero.getDescription(), hero.getPrice());
+    }
+    public void printSpellStats(Spell spell, int i){
+        System.out.printf("\t  %d : Type : %s _ Name : %s _ MP : %d _ Desc : %s _ Sell cost : %d\n", i, spell.getTypeOfAttack(),
+                spell.getName(), spell.getMp(), spell.getDescription(), spell.getPrice());
+    }
+    public void printMinionStats(Minion minion, int i){
+        System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
+                        "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
+                , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
     }
 }
