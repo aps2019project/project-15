@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class Controller {
 
+
     private Request request = new Request();
     private View view = View.getInstance();
     public static Menu currentMenu = new AccountMenu();

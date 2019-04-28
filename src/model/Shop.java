@@ -1,6 +1,18 @@
 package model;
 
+import controller.Controller;
+import view.Request;
 import view.View;
+
+import controller.Controller;
+import model.menu.Menu;
+import view.Request;
+import view.View;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+
 
 import java.util.ArrayList;
 
@@ -22,17 +34,15 @@ public class Shop {
 
 /*
     public int searchInShop(String name) {
-        if (Card.returnCardByName(name) == null) {
-            if (Card.returnCardItemName(name) == null) ;
-            {
-                //show this card dosen't exist
-            }
-           else{
-
-            }
-            //show id item
-        }
-        //show id card(minion or spell or hero)
+       if(Card.returnCardByName(name)== null)
+       {
+           if(Card.returnCardItemName(name)==null);
+           {
+               //show this card dosen't exist
+           }
+               //show id item
+       }
+       //show id card(minion or spell or hero)
 
         return 0;
 
@@ -51,11 +61,7 @@ public class Shop {
     }
 
     public boolean isBought(String name) {
-        Card card = Card.returnCardByName(name);
-        if (card != null) {
-            return card.owned;
-        }
-        return false;
+        return true;
     }
 
     public void buy(String name) {

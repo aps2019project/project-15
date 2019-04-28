@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public class Spell extends Card {
     static ArrayList<Spell> spells = new ArrayList<>();
-    String name;
     Buff buff;
 
+
+    public Spell(int hp) {
+        this.setHp(hp);
+    }
 
     public void addToHp(int number) {
 
@@ -15,7 +18,8 @@ public class Spell extends Card {
     public void effect() {
 
     }
-    public static ArrayList<Spell> getSpells(){
+
+    public static ArrayList<Spell> getSpells() {
         return spells;
     }
 }
