@@ -14,11 +14,11 @@ public class Spell extends Card {
     }
 
     public void addToHp(int number) {
-
+        this.healthLevel += number;
     }
 
-    public void effect() {
-
+    public void effect(Card card) {
+        this.buff.buffEffect(card);
     }
 
     public static ArrayList<Spell> getSpells() {

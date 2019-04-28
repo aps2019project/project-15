@@ -85,7 +85,7 @@ public abstract class Item {
     }
 
     public void showCollectables() {
-
+        //graphics to be added
     }
 
     public void selectCollectable(String collectableId) {
