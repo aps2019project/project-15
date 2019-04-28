@@ -114,5 +114,9 @@ public abstract class Card {
         return cardID;
     }
 
+    public Block getCurrentBlock() {
+        return currentBlock;
+    }
+
     public abstract void printStats(int i);
 }

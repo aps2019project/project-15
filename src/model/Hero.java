@@ -16,18 +16,18 @@ public class Hero extends Card {
 
     }
 
-    private boolean hasFlag;
+    private boolean hasFlag = false;
 
     private Flag myFlag;
 
-    public void getFlag(Flag flag) {
-
+    public void getFlag( Flag flag) {
+        hasFlag = true;
+        flag.card = this;
     }
 
-    public void keepFlag(Flag flag) {
-
+    public void keepFlag( Flag flag) {
+        flag.setCurrentBlock(this.getCurrentBlock());
     }
-
     public boolean getHasFlag() {
         return hasFlag;
     }
