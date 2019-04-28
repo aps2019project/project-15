@@ -167,6 +167,8 @@ public class View {
         }
     }
 
+
+
     public void allItemDeclaration() {
         System.out.println("Items : ");
         int i = 1;
@@ -243,7 +245,7 @@ public class View {
     }
     public void printHeroStats(Hero hero, int i){
         System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel(), item,
+                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel() ,
                 hero.getDescription(), hero.getPrice());
     }
     public void printSpellStats(Spell spell, int i){
@@ -254,5 +256,13 @@ public class View {
         System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
                 , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
+    }
+
+    public void showCollection() {
+
+    }
+
+
+    public void showAllDecks() {
     }
 }

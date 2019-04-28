@@ -6,4 +6,5 @@ public class ShopMenu extends Menu {
     public static ShopMenu getInstance() {
         return shopMenu;
     }
+
 }

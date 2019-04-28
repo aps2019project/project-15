@@ -7,13 +7,14 @@ import view.View;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-class Collection {
+public class Collection {
     private ArrayList<Card> myCards;
     private ArrayList<Item> myItems;
     private ArrayList<deck> myDecks;
 
     View view = View.getInstance();
     Request request = new Request();
+
     public void exitCollection() {
 
     }
@@ -25,12 +26,12 @@ class Collection {
     public void searchInCollection() {
         String name = request.getNewCommand();
         Card card = Card.returnCardByName(name);
-        if(!card.equals(null)){
+        if (!card.equals(null)) {
             view.printCardId(card);
             return;
         }
         Collectible collectible = Collectible.returnItemName(name);
-        if(!collectible.equals(null)){
+        if (!collectible.equals(null)) {
             view.printCollectibleID(collectible);
             return;
         }
@@ -38,8 +39,8 @@ class Collection {
     }
 
     public void createDeck(String name) {
-        for(deck item : myDecks){
-            if(item.getName().equals(name)){
+        for (deck item : myDecks) {
+            if (item.getName().equals(name)) {
                 view.deckAlreadyExists();
                 return;
             }
@@ -51,41 +52,42 @@ class Collection {
     public void deleteDeck(String name) {
         Iterator<deck> iter = myDecks.iterator();
         deck deck = new deck("");
-        while (iter.hasNext()){
+        while (iter.hasNext()) {
             deck = iter.next();
-            if(deck.getName().equals(name)){
+            if (deck.getName().equals(name)) {
                 iter.remove();
                 return;
             }
         }
     }
 
-    public void addCardToDeck(Card card, String deckName) {
-        if(!myCards.contains(card)){
+    public void addCardToDeck(String cardID ,String deckName) {
+        Card card = Card.returnCardByName(cardID);
+        if (card != null && !myCards.contains(card)) {
             view.cardNotInCollection();
             return;
         }
         deck deck = new deck("");
-        for(deck item : myDecks){
-            if(item.getName().equals(deckName)){
+        for (deck item : myDecks) {
+            if (item.getName().equals(deckName)) {
                 deck = item;
-                if(item.getCards().contains(card)){
+                if (item.getCards().contains(card)) {
                     view.cardIsAlreadyInDeck();
                     return;
                 }
             }
         }
-        if(deck.getName().equals("")){
+        if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
-        if(deck.numberOfCards() >= 20){
+        if (deck.numberOfCards() >= 20) {
             view.tooManyCardsInDeck();
             return;
         }
-        if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
-            for(Card item : deck.getCards()){
-                if(item.getTypeOfAttack().equals(TypeOfCard.Hero))
+        if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+            for (Card item : deck.getCards()) {
+                if (item.getTypeOfAttack().equals(TypeOfCard.Hero))
                     view.heroInDeck();
                 return;
             }
@@ -94,25 +96,25 @@ class Collection {
     }
 
     public void addItemToDeck(Item item, String deckName) {
-        if(!myItems.contains(item)){
+        if (!myItems.contains(item)) {
             view.itemNotInCollection();
             return;
         }
         deck deck = new deck("");
-        for(deck deckItem : myDecks){
-            if(deckItem.getName().equals(deckName)){
+        for (deck deckItem : myDecks) {
+            if (deckItem.getName().equals(deckName)) {
                 deck = deckItem;
-                if(deckItem.getItem().equals(item)){
+                if (deckItem.getItem().equals(item)) {
                     view.itemIsAlreadyInDeck();
                     return;
                 }
             }
         }
-        if(deck.getName().equals("")){
+        if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
-        if(!deck.getItem().equals(null)){
+        if (!deck.getItem().equals(null)) {
             view.tooManyItems();
             return;
         }
@@ -120,14 +122,15 @@ class Collection {
     }
 
 
-    public void removeCardFromDeck(Card card, String deckName) {
+    public void removeCardFromDeck(String cardID, String deckName) {
+        Card card = Card.returnCardByName(cardID);
         deck deck = new deck("");
-        for(deck deckItem : myDecks){
-            if(deckItem.getName().equals(deckName)){
+        for (deck deckItem : myDecks) {
+            if (deckItem.getName().equals(deckName)) {
                 deck = deckItem;
             }
         }
-        if(deck.getName().equals("")){
+        if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
@@ -136,12 +139,12 @@ class Collection {
 
     public void removeItemFromDeck(Item item, String deckName) {
         deck deck = new deck("");
-        for(deck deckItem : myDecks){
-            if(deckItem.getName().equals(deckName)){
+        for (deck deckItem : myDecks) {
+            if (deckItem.getName().equals(deckName)) {
                 deck = deckItem;
             }
         }
-        if(deck.getName().equals("")){
+        if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
@@ -154,12 +157,12 @@ class Collection {
 
     public boolean validateDeck(String deckName) {
         deck deck = new deck("");
-        for(deck deckItem : myDecks){
-            if(deckItem.getName().equals(deckName)){
+        for (deck deckItem : myDecks) {
+            if (deckItem.getName().equals(deckName)) {
                 deck = deckItem;
             }
         }
-        if(deck.getName().equals("")){
+        if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return false;
         }
@@ -168,12 +171,12 @@ class Collection {
 
     public void selectDeck(String deckName) {
         deck deck = new deck("");
-        for(deck deckItem : myDecks){
-            if(deckItem.getName().equals(deckName)){
+        for (deck deckItem : myDecks) {
+            if (deckItem.getName().equals(deckName)) {
                 deck = deckItem;
             }
         }
-        if(deck.getName().equals("")){
+        if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
@@ -181,7 +184,7 @@ class Collection {
     }
 
     public void showAllDecks() {
-
+view.showAllDecks();
     }
 
     public void showDeck(String deckName) {
@@ -213,7 +216,7 @@ class Collection {
     }
 
     public boolean addItemToCollection(Item item) {
-        if(myItems.size() >= 3){
+        if (myItems.size() >= 3) {
             view.tooManyItemsInCollection();
             return false;
         }

@@ -26,13 +26,26 @@ public enum RequestType {
     MULTI_PLAYER("^multi player$"),
 
     //shopMenu
-    SHOW_COLLECTION("^show collection$"),
-    SEARCH("^search (\\w+)$") ,
-    SEARCH_COLLECTION("^search collection (\\w+)$") ,
-    BUY("^buy (\\w+)$") ,
-    SELL("^sell (\\w+)$") ,
-    SHOW("^show$") ;
+    SHOW_COLLECTION_IN_SHOP("^show collection$"),
+    SEARCH("^search (\\w+)$"),
+    SEARCH_COLLECTION_IN_SHOW("^search collection (\\w+)$"),
+    BUY("^buy (\\w+)$"),
+    SELL("^sell (\\w+)$"),
+    SHOW("^show$"),
 
+    //collectionMenu
+    EXIT_COLLECTION("^exit$"),
+    SHOW_COLLECTION("^show$"),
+    SEARCH_COLLECTION("^search (\\w+)$"),
+    SAVE_COLLECTION("^save$"),
+    CREATE_DECK("^create deck (\\w+)$"),
+    DELETE_DECK("^delete deck (\\w+)$"),
+    ADD_COLLECTION("^add (\\w+) to deck (\\w+)$"),
+    REMOVE_COLLECTION("^remove (\\w+) from deck (\\w+)$"),
+    VALIDATE("^validate (\\w+)$"),
+    SELECT_DECK("^select deck (\\w+)$"),
+    SHOW_ALL_DECKS("^show all decks$"),
+    SHOW_DECK("^show deck (\\w+)$");
 
     private Pattern pattern;
     private Matcher matcher;
