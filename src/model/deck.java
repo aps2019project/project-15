@@ -3,7 +3,6 @@ package model;
 import view.View;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 class deck {
 
@@ -40,7 +39,7 @@ class deck {
         boolean oneHero = false;
         if(this.numberOfCards() == 20){
             for(Card item : cards){
-                if(item.getType().equals(TypeOfCard.Hero)){
+                if(item.getTypeOfAttack().equals(TypeOfCard.Hero)){
                     if(oneHero){
                         oneHero = false;
                     }

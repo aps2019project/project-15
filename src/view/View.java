@@ -3,13 +3,9 @@ package view;
 import controller.Controller;
 import controller.DataCenter;
 import model.*;
-import model.menu.BattleMenu;
 import model.menu.CollectionMenu;
 import model.menu.ShopMenu;
 import model.Hero;
-
-import java.util.Comparator;
-import java.util.regex.Matcher;
 
 
 public class View {
@@ -165,8 +161,8 @@ public class View {
         int i = 1;
         for (Hero item : Hero.getHeroes()) {
             System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                            " : %d\n", i, item.getCardName(), item.getAp(), item.getHp(), item,
-                    item.getDesc(), item.getPrice());
+                            " : %d\n", i, item.getName(), item.getAttackPower(), item.getHealthLevel(), item,
+                    item.getDescription(), item.getPrice());
             i++;
         }
     }
@@ -185,8 +181,8 @@ public class View {
         System.out.println("Cards : ");
         int i = 1;
         for (Spell item : Spell.getSpells()) {
-            System.out.printf("\t  %d : Type : %s _ Name : %s _ MP : %d _ Desc : %s _ Sell cost : %d\n", i, item.getType(),
-                    item.getCardName(), item.getMp(), item.getDesc(), item.getPrice());
+            System.out.printf("\t  %d : Type : %s _ Name : %s _ MP : %d _ Desc : %s _ Sell cost : %d\n", i, item.getTypeOfAttack(),
+                    item.getName(), item.getMp(), item.getDescription(), item.getPrice());
             i++;
         }
         minionDeclaration(i);
@@ -196,8 +192,8 @@ public class View {
         System.out.println("minions: ");
         for (Minion item : Minion.getMinions()) {
             System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
-                            "Special power : %s _ Sell cost : %d\n", i, item.getType(), item.getCardName(), item.getMinionType()
-                    , item.getAp(), item.getHp(), item.getMp(), item.getDesc(), item.getPrice());
+                            "Special power : %s _ Sell cost : %d\n", i, item.getTypeOfAttack(), item.getName(), item.getMinionType()
+                    , item.getAttackPower(), item.getHealthLevel(), item.getMp(), item.getDescription(), item.getPrice());
         }
     }
 

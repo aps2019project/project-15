@@ -1,15 +1,18 @@
 package controller;
 
-import model.Account;
+import model.*;
 import view.View;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
 public class DataCenter {
     private static DataCenter ourInstance = new DataCenter();
+    private ArrayList<Hero> heroes;
+    private ArrayList<Minion> minions;
+    private ArrayList<Spell> spells;
+    private ArrayList<Item> items;
+
 
     public static DataCenter getInstance() {
         return ourInstance;
@@ -22,6 +25,30 @@ public class DataCenter {
 
     }
 
+    public Card returnCardItemName(String name) {
+        for (Card item : heroes) {
+            if (item.getName().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Hero> getHeroes() {
+        return heroes;
+    }
+
+    public ArrayList<Minion> getMinions() {
+        return minions;
+    }
+
+    public ArrayList<Spell> getSpells() {
+        return spells;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 
     private Account onlineAccount;
     private HashMap<String, Account> accounts = new HashMap<>();

@@ -1,19 +1,16 @@
 package model;
 
-import java.util.ArrayList;
-
 enum TypeOfCard {
     Minion, Spell, Hero
 }
 
 public abstract class Card {
-    public String getCardName() {
-        return cardName;
+    public String getName() {
+        return name;
     }
 
-    static ArrayList<Card> cards;
-    private String cardName;
-    String desc;
+    private String name;
+    String description;
     int cardID;
     int cardIdInGame;
     private int x;
@@ -24,20 +21,10 @@ public abstract class Card {
     int price;
 
     private boolean using = false;
-    TypeOfCard type;
+    TypeOfCard typeOfAttack;
     int Mp;
-    int Hp;
-    int Ap;
-
-
-    public static Card returnCardItemName(String name) {
-        for (Card item : cards) {
-            if (item.cardName.equals(name)) {
-                return item;
-            }
-        }
-        return null;
-    }
+    int healthLevel;
+    int attackPower;
 
     public void call(Card card) {
         card.using = true;
@@ -47,12 +34,12 @@ public abstract class Card {
         return Mp;
     }
 
-    public int getHp() {
-        return Hp;
+    public int getHealthLevel() {
+        return healthLevel;
     }
 
-    public int getAp() {
-        return Ap;
+    public int getAttackPower() {
+        return attackPower;
     }
 
     public int getX() {
@@ -71,38 +58,25 @@ public abstract class Card {
 
     }
 
-    public static String returnCardName(Card card) {
-        for (Card card1 : Card.getCards()
-             ) {
-            if (card.equals(card1)) return card1.getCardName();
-        }
-        return null;
-    }
-
-
     public static Card returnCardByName(String name) {
         for (Card card : Shop.allCards) {
-            if (card.cardName.equals(name)) {
+            if (card.name.equals(name)) {
                 return card;
             }
         }
         return null;
     }
 
-    public static ArrayList<Card> getCards() {
-        return cards;
-    }
-
-    public TypeOfCard getType() {
-        return type;
+    public TypeOfCard getTypeOfAttack() {
+        return typeOfAttack;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
     public int getCardID() {

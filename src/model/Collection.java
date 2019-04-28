@@ -85,9 +85,9 @@ class Collection {
             view.tooManyCardsInDeck();
             return;
         }
-        if(card.getType().equals(TypeOfCard.Hero)){
+        if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
             for(Card item : deck.getCards()){
-                if(item.getType().equals(TypeOfCard.Hero))
+                if(item.getTypeOfAttack().equals(TypeOfCard.Hero))
                     view.heroInDeck();
                 return;
             }

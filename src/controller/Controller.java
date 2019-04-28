@@ -1,15 +1,15 @@
 package controller;
 
-import model.Account;
-import model.Battle;
+import com.google.gson.Gson;
+import model.*;
 import model.menu.*;
 import view.InputException;
 import view.Request;
 import view.RequestType;
 import view.View;
 
-import javax.xml.stream.events.EntityReference;
-import java.util.*;
+import java.io.*;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -17,17 +17,17 @@ public class Controller {
     private View view = View.getInstance();
     public static Menu currentMenu = new AccountMenu();
     private boolean finishGame = false;
+    private static DataCenter dataCenter = DataCenter.getInstance();
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
     }
 
-    private static DataCenter dataCenter = DataCenter.getInstance();
-
     public static Account currentAccount = new Account();
 
     public void main() {
         Request request = new Request();
+        //initEverything();
         setCurrentMenu();
         while (!finishGame) {
             try {
@@ -37,6 +37,41 @@ public class Controller {
             }
         }
     }
+
+/*
+    private void initEverything() {
+        try {
+            final String[] paths = {
+                    "../HeroNames"
+            };
+            for (String path : paths) {
+                File directory = new File(path);
+                File[] files = directory.listFiles();
+                if (files != null) {
+                    for (File file : files) {
+                        if (path.contains("Hero")) {
+                            addCard(file, Hero.class, dataCenter.getHeroes());
+                        } else if (path.contains("Item")) {
+                            addCard(file, Item.class, dataCenter.getItems());
+                        } else if (path.contains("Minion")) {
+                            addCard(file, Minion.class, dataCenter.getMinions());
+                        } else if (path.contains("Spell")) {
+                            addCard(file, Spell.class, dataCenter.getSpells());
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        T card = new Gson().fromJson(reader, classOfT);
+        list.add(card);
+    }
+*/
 
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
@@ -149,20 +184,15 @@ public class Controller {
             System.out.println("welcome to shop menu!");
             if (RequestType.SELL.setMatcher(command).find()) {
 
-            }
-            else if (RequestType.BUY.setMatcher(command).find()) {
+            } else if (RequestType.BUY.setMatcher(command).find()) {
 
-            }
-            else if (RequestType.SEARCH.setMatcher(command).find()) {
+            } else if (RequestType.SEARCH.setMatcher(command).find()) {
 
-            }
-            else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
+            } else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
 
-            }
-            else if (RequestType.SHOW.setMatcher(command).find()) {
+            } else if (RequestType.SHOW.setMatcher(command).find()) {
                 view.minionAndSpellDeclarationInCollection();
-            }
-            else if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
+            } else if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
 
             }
         } else {

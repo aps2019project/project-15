@@ -1,17 +1,6 @@
 package model;
 
-import controller.Controller;
-import view.Request;
 import view.View;
-
-import controller.Controller;
-import model.menu.Menu;
-import view.Request;
-import view.View;
-
-import java.util.ArrayList;
-import java.util.Objects;
-
 
 import java.util.ArrayList;
 
@@ -54,7 +43,7 @@ public class Shop {
         Collection myCollection = new Collection();
         for (Card card : allCards
         ) {
-            if (card.getCardName().equals(name)) {
+            if (card.getName().equals(name)) {
                 return 1;
             }
         }
