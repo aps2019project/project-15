@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 public class Hero extends Card {
     static ArrayList<Hero> heroes = new ArrayList<>();
+    int attackArea = 0;
     Buff buff;
+    int coolDown = 0;
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
 
@@ -18,13 +20,14 @@ public class Hero extends Card {
 
     private Flag myFlag;
 
-    public void getFlag( Flag flag) {
+    public void getFlag(Flag flag) {
 
     }
 
-    public void keepFlag( Flag flag) {
+    public void keepFlag(Flag flag) {
 
     }
+
     public boolean getHasFlag() {
         return hasFlag;
     }
@@ -45,5 +48,11 @@ public class Hero extends Card {
     @Override
     public void printStats(int i) {
         View.getInstance().printHeroStats(this, i);
+    }
+
+    @Override
+    public String toString() {
+        String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.healthLevel + "\n" + "AP: " + this.attackPower + "\n" + "typeOfAttack: " + this.typeOfAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.Mp + "\n" + "coolDown: " + this.coolDown + "\n";
+        return information;
     }
 }

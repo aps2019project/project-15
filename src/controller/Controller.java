@@ -8,7 +8,11 @@ import view.Request;
 import view.RequestType;
 import view.View;
 
-import java.util.Iterator;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -26,7 +30,8 @@ public class Controller {
 
     public void main() {
         Request request = new Request();
-        //initEverything();
+        Shop shop = new Shop();
+        initEverything();
         setCurrentMenu();
         while (!finishGame) {
             try {
@@ -37,7 +42,6 @@ public class Controller {
         }
     }
 
-/*
     private void initEverything() {
         try {
             final String[] paths = {
@@ -65,12 +69,11 @@ public class Controller {
         }
     }
 
-    private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException{
+    private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         T card = new Gson().fromJson(reader, classOfT);
         list.add(card);
     }
-*/
 
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
@@ -221,7 +224,8 @@ public class Controller {
             } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
                 shop.searchInCollection(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {
-                view.allMinionAndSpellDeclaration();
+                shop.show();
+                //view.allMinionAndSpellDeclaration();
             } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
                 shop.showCollection();
             } else if (RequestType.HELP.setMatcher(command).find()) {

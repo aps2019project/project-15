@@ -8,10 +8,10 @@ import java.util.HashMap;
 
 public class DataCenter {
     private static DataCenter ourInstance = new DataCenter();
-    private ArrayList<Hero> heroes;
-    private ArrayList<Minion> minions;
-    private ArrayList<Spell> spells;
-    private ArrayList<Item> items;
+    private ArrayList<Hero> heroes = new ArrayList<>();
+    private ArrayList<Minion> minions = new ArrayList<>();
+    private ArrayList<Spell> spells = new ArrayList<>();
+    private ArrayList<Item> items = new ArrayList<>();
 
 
     public static DataCenter getInstance() {

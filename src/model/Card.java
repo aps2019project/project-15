@@ -24,7 +24,6 @@ public abstract class Card {
     }
 
     private int x;
-
     private int y;
     private Block currentBlock;
     boolean owned = false;
@@ -33,9 +32,8 @@ public abstract class Card {
     int price;
     int Mp;
 
-    int Hp;
     int healthLevel;
-    int Ap;
+    int attackPower;
 
     private boolean using = false;
 
@@ -52,7 +50,7 @@ public abstract class Card {
     }
 
     public void setAp(int ap) {
-        Ap = ap;
+        attackPower = ap;
     }
 
     public void setHp(int healthLevel) {
@@ -72,7 +70,7 @@ public abstract class Card {
     }
 
     public int getAttackPower() {
-        return Ap;
+        return attackPower;
     }
 
     public int getX() {

@@ -1,6 +1,7 @@
 package model;
 
 import controller.Controller;
+import controller.DataCenter;
 import model.menu.AccountMenu;
 import model.menu.MainMenu;
 import view.Request;
@@ -13,7 +14,6 @@ import view.View;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
 
 
 import java.util.ArrayList;
@@ -72,7 +72,10 @@ public class Shop {
     }
 
     public void show() {
-
+        DataCenter dataCenter = DataCenter.getInstance();
+        for (Hero hero : dataCenter.getHeroes()) {
+            System.out.println(hero);
+        }
     }
 
     public void search(String name) {
