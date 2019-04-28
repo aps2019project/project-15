@@ -216,9 +216,9 @@ public class Controller {
             if (RequestType.SELL.setMatcher(command).find()) {
                 shop.sell(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.BUY.setMatcher(command).find()) {
-                shop.buy(RequestType.SELL.getMatcher().group(1));
+                shop.buy(RequestType.BUY.getMatcher().group(1));
             } else if (RequestType.SEARCH.setMatcher(command).find()) {
-                shop.search(RequestType.SELL.getMatcher().group(1));
+                shop.search(RequestType.SEARCH.getMatcher().group(1));
             } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
                 shop.searchInCollection(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {

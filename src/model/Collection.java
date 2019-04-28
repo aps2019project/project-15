@@ -90,7 +90,8 @@ public class Collection {
         }
     }
 
-    public void addCardToDeck(Card card, String deckName) {
+    public void addCardToDeck(String cardID, String deckName) {
+        Card card = Card.returnCardByName(cardID);
         if(!myCards.contains(card)){
             view.cardNotInCollection();
             return;
@@ -150,7 +151,8 @@ public class Collection {
     }
 
 
-    public void removeCardFromDeck(Card card, String deckName) {
+    public void removeCardFromDeck(String cardID, String deckName) {
+        Card card = Card.returnCardByName(cardID);
         deck deck = new deck("");
         for(deck deckItem : myDecks){
             if(deckItem.getName().equals(deckName)){
