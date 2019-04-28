@@ -1,6 +1,8 @@
 package model;
 
 import controller.Controller;
+import model.menu.AccountMenu;
+import model.menu.MainMenu;
 import view.Request;
 import view.View;
 
@@ -25,7 +27,8 @@ public class Shop {
 
 
     public void exitShop() {
-
+        System.out.println("you exited from shop!");
+        Controller.currentMenu = MainMenu.getInstance();
     }
 
     public void showCollection() {

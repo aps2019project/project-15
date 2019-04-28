@@ -172,9 +172,10 @@ public class Controller {
         CollectionMenu collectionMenu = CollectionMenu.getInstance();
         Collection collection = new Collection();
         if (currentMenu.equals(collectionMenu)) {
-            System.out.println("Collection menu:");
             if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
                 view.showCollection();
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                collection.help();
             } else if (RequestType.EXIT_COLLECTION.setMatcher(command).find()) {
                 collection.exitCollection();
             } else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
@@ -207,7 +208,6 @@ public class Controller {
         ShopMenu shopMenu = ShopMenu.getInstance();
         Shop shop = new Shop();
         if (currentMenu.equals(shopMenu)) {
-            System.out.println("Shop menu:");
             if (RequestType.SELL.setMatcher(command).find()) {
                 shop.sell(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.BUY.setMatcher(command).find()) {
@@ -220,6 +220,10 @@ public class Controller {
                 view.allMinionAndSpellDeclaration();
             } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
                 shop.showCollection();
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                shop.help();
+            } else if (RequestType.EXIT_SHOP.setMatcher(command).find()) {
+                shop.exitShop();
             }
         } else {
             throw new InputException("invalid command");

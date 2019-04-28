@@ -32,6 +32,7 @@ public enum RequestType {
     BUY("^buy (\\w+)$"),
     SELL("^sell (\\w+)$"),
     SHOW("^show$"),
+    EXIT_SHOP("^exit$"),
 
     //collectionMenu
     EXIT_COLLECTION("^exit$"),

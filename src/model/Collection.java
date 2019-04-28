@@ -1,6 +1,8 @@
 package model;
 
 import controller.Controller;
+import model.menu.AccountMenu;
+import model.menu.MainMenu;
 import view.Request;
 import view.View;
 
@@ -16,7 +18,8 @@ public class Collection {
     Request request = new Request();
 
     public void exitCollection() {
-
+        System.out.println("you exited from collection");
+        Controller.currentMenu = MainMenu.getInstance();
     }
 
     public void showCollection() {
