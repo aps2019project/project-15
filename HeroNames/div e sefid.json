@@ -1,1 +1,8 @@
-{"name":"div e sefid","price":8000,"healthLevel":50,"attackPower":4,"typeOfAttack":"melee","description":"applies a poweroff buff with 4 unit increment attack power on itself permanently"}
+{
+  "name": "div e sefid",
+  "price": 8000,
+  "healthLevel": 50,
+  "attackPower": 4,
+  "typeOfAttack": "melee",
+  "description": "applies a poweroff buff with 4 unit increment attack power on itself permanently"
+}

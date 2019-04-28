@@ -1,1 +1,11 @@
-{"name":"afsaneh","price":11000,"healthLevel":40,"attackPower":3,"typeOfAttack":"ranged","description":"dispel oneof enemy\u0027s forces","attackArea":3,"Mp":1,"coolDown":2}
+{
+  "name": "afsaneh",
+  "price": 11000,
+  "healthLevel": 40,
+  "attackPower": 3,
+  "typeOfAttack": "ranged",
+  "description": "dispel oneof enemy\u0027s forces",
+  "attackArea": 3,
+  "Mp": 1,
+  "coolDown": 2
+}

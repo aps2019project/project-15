@@ -1,1 +1,11 @@
-{"name":"esfandiyar","price":12000,"healthLevel":35,"attackPower":3,"typeOfAttack":"hybrid","description":"has 3 holy buffs continuosly","attackArea":3,"Mp":0,"coolDown":0}
+{
+  "name": "esfandiyar",
+  "price": 12000,
+  "healthLevel": 35,
+  "attackPower": 3,
+  "typeOfAttack": "hybrid",
+  "description": "has 3 holy buffs continuosly",
+  "attackArea": 3,
+  "Mp": 0,
+  "coolDown": 0
+}
