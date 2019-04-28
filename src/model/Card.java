@@ -83,4 +83,5 @@ public abstract class Card {
     public int getCardID() {
         return cardID;
     }
+    public void printStats(int i){ }
 }

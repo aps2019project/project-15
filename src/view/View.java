@@ -255,4 +255,20 @@ public class View {
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
                 , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
     }
+    public void printItemStats(Item item, int i){
+        System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),
+                item.getPrice());
+    }
+    public void heroStats(){
+        System.out.println("Heroes : ");
+    }
+    public void itemStats(){
+        System.out.println("Items : ");
+    }
+    public void cardStats(){
+        System.out.println("Cards : ");
+    }
+    public void printDeckName(int i, String deckName){
+        System.out.printf("%d : %s : \n", i, deckName);
+    }
 }
