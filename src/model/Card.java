@@ -11,53 +11,21 @@ public abstract class Card {
 
     private String name;
     String description;
-
     private int cardID;
-
     int cardIdInGame;
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    private int x;
-
-    private int y;
-    private Block currentBlock;
+    //    private int x;
+//    private int y;
+    private Block currentBlcok;
     boolean owned = false;
     boolean stunned = false;
     boolean disarmed = false;
     int price;
-    int Mp;
-
-    int Hp;
-    int healthLevel;
-    int Ap;
 
     private boolean using = false;
-
     TypeOfCard typeOfAttack;
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setMp(int mp) {
-        Mp = mp;
-    }
-
-    public void setCardID(int cardID) {
-        this.cardID = cardID;
-    }
-
-    public void setAp(int ap) {
-        Ap = ap;
-    }
-
-    public void setHp(int healthLevel) {
-        this.healthLevel = healthLevel;
-    }
+    int Mp;
+    int healthLevel;
+    int attackPower;
 
     public void call(Card card) {
         card.using = true;
@@ -72,16 +40,16 @@ public abstract class Card {
     }
 
     public int getAttackPower() {
-        return Ap;
+        return attackPower;
     }
 
-    public int getX() {
+    /*public int getX() {
         return x;
-    }
+    }*/
 
-    public int getY() {
+    /*public int getY() {
         return y;
-    }
+    }*/
 
     public boolean isUsing() {
         return using;
@@ -115,6 +83,21 @@ public abstract class Card {
     public int getCardID() {
         return cardID;
     }
+    public void printStats(int i){ }
 
-    public abstract void printStats(int i);
+    public void setCardID(int cardID) {
+        this.cardID = cardID;
+    }
+
+    public void setMp(int mp) {
+        Mp = mp;
+    }
+
+    public void setAp(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public void setHp(int healthLevel) {
+        this.healthLevel = healthLevel;
+    }
 }
