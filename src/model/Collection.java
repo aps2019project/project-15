@@ -7,7 +7,7 @@ import view.View;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-class Collection {
+public class Collection {
     private ArrayList<Card> myCards;
     private ArrayList<Item> myItems;
     private ArrayList<deck> myDecks;

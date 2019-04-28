@@ -42,7 +42,7 @@ public class Buff {
                     card.healthLevel++;
                 }
                 if (apEffected) {
-                    card.Ap++;
+                    card.attackPower++;
                 }
                 break;
             case Poison:
@@ -53,7 +53,7 @@ public class Buff {
                     card.healthLevel--;
                 }
                 if (apEffected) {
-                    card.Ap--;
+                    card.attackPower--;
                 }
                 break;
             case stun:
