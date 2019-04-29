@@ -14,12 +14,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+
         Gson gson;
         gson = new GsonBuilder().create();
-        Minion minion = new Minion(1, 1, 1, 1, "Danial", SpecialPowerActivation.onAttack, TypeOfCounterAttack.hybrid);
+        Minion minion = new Minion(001, 6, 4, 2, "AecherPersian", null, TypeOfCounterAttack.ranged);
 
         try {
-            FileWriter writer = new FileWriter("cards.json");
+            FileWriter writer = new FileWriter("AecherPersian.json");
             writer.write(gson.toJson(minion));
             writer.close();
 

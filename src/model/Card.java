@@ -24,6 +24,7 @@ public abstract class Card {
     }
 
     private int x;
+
     private int y;
     private Block currentBlock;
     boolean owned = false;
@@ -32,10 +33,23 @@ public abstract class Card {
     int price;
     int Mp;
 
+    int Hp;
     int healthLevel;
-    int attackPower;
+    int Ap;
 
     private boolean using = false;
+
+   /* public void setX(int x) {
+        this.x = x;
+    }
+
+    */
+
+   /* public void setY(int y) {
+        this.y = y;
+    }
+
+    */
 
     TypeOfCard typeOfAttack;
     public void setName(String name) {
@@ -50,7 +64,7 @@ public abstract class Card {
     }
 
     public void setAp(int ap) {
-        attackPower = ap;
+        Ap = ap;
     }
 
     public void setHp(int healthLevel) {
@@ -70,7 +84,7 @@ public abstract class Card {
     }
 
     public int getAttackPower() {
-        return attackPower;
+        return Ap;
     }
 
     public int getX() {
@@ -112,10 +126,6 @@ public abstract class Card {
 
     public int getCardID() {
         return cardID;
-    }
-
-    public Block getCurrentBlock() {
-        return currentBlock;
     }
 
     public abstract void printStats(int i);

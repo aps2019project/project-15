@@ -161,7 +161,7 @@ public class View {
         int i = 1;
         for (Hero item : Hero.getHeroes()) {
             System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                            " : %d\n", i, item.getName(), item.getAttackPower(), item.getHealthLevel(), item.getTypeOfAttack(),
+                            " : %d\n", i, item.getName(), item.getAttackPower(), item.getHp(), item.getTypeOfAttack(),
                     item.getDescription(), item.getPrice());
             i++;
         }
@@ -193,7 +193,7 @@ public class View {
         for (Minion item : Minion.getMinions()) {
             System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                             "Special power : %s _ Sell cost : %d\n", i, item.getTypeOfAttack(), item.getName(), item.getMinionType()
-                    , item.getAttackPower(), item.getHealthLevel(), item.getMp(), item.getDescription(), item.getPrice());
+                    , item.getAttackPower(), item.getHp(), item.getMp(), item.getDescription(), item.getPrice());
         }
     }
 
@@ -243,7 +243,7 @@ public class View {
     }
     public void printHeroStats(Hero hero, int i){
         System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
-                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel(), hero.getTypeOfAttack(),
+                        " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHp(), hero.getTypeOfAttack(),
                 hero.getDescription(), hero.getPrice());
     }
     public void printSpellStats(Spell spell, int i){
@@ -253,7 +253,7 @@ public class View {
     public void printMinionStats(Minion minion, int i){
         System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
-                , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
+                , minion.getAttackPower(), minion.getHp(), minion.getMp(), minion.getDescription(), minion.getPrice());
     }
     public void printItemStats(Item item, int i){
         System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),

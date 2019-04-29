@@ -1,0 +1,12 @@
+{
+  "name": "Div e Siah",
+  "id": "013",
+  "price": 300,
+  "mp": 9,
+  "Hp": 14,
+  "Ap": 10,
+  "attackType": "hybrid",
+  "range": "7",
+  "activationType": "",
+  "activationTime": ""
+}

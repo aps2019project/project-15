@@ -52,7 +52,7 @@ public class Hero extends Card {
 
     @Override
     public String toString() {
-        String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.healthLevel + "\n" + "AP: " + this.attackPower + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.Mp + "\n" + "coolDown: " + this.coolDown + "\n";
+        String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.healthLevel + "\n" + "AP: " + this.Ap + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.Mp + "\n" + "coolDown: " + this.coolDown + "\n";
         return information;
     }
 }

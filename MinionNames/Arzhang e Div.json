@@ -1,0 +1,12 @@
+{
+  "name": "Arzhang e Div",
+  "id": "040",
+  "price": 600,
+  "mp": 3,
+  "Hp": 6,
+  "Ap": 6,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "Combo",
+  "activationTime": "combo"
+}

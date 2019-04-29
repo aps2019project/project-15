@@ -35,25 +35,25 @@ public class Buff {
         switch (this.type) {
             case Holy:
                 //todo check if the card was attacked in last turn
-                card.healthLevel++;
+                card.Hp++;
                 break;
             case Power:
                 if (hpEffected) {
-                    card.healthLevel++;
+                    card.Hp++;
                 }
                 if (apEffected) {
-                    card.attackPower++;
+                    card.Ap++;
                 }
                 break;
             case Poison:
-                card.healthLevel--;
+                card.Hp--;
                 break;
             case weakness:
                 if (hpEffected) {
-                    card.healthLevel--;
+                    card.Hp--;
                 }
                 if (apEffected) {
-                    card.attackPower--;
+                    card.Ap--;
                 }
                 break;
             case stun:
