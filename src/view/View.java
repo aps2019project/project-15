@@ -29,7 +29,7 @@ public class View {
     }
 
     public void printAccountMenuOfGame() {
-        System.out.println("Sign up");
+        System.out.println("Create account");
         System.out.println("Login");
         System.out.println("Show leaderboard");
     }
@@ -95,6 +95,12 @@ public class View {
         System.out.println("To sell your card , please type 'sell [card id]' ");
         System.out.println("To sell your item , please type 'sell [item id]' ");
         System.out.println("To show all cards and items in shop , please type 'show' ");
+    }
+
+    public void accountMenuHelp() {
+        System.out.println("To create account , enter 'create account [username]' ");
+        System.out.println("To login , enter 'login [username]' ");
+        System.out.println("To see leaderboard , type 'enter leaderboard' ");
     }
 
     public void enterCollection() {
@@ -312,4 +318,12 @@ public class View {
     }
 
 
+    public void mainMenuHelp() {
+        System.out.println("To enter collection, type 'enter collection' ");
+        System.out.println("To enter shop, type 'enter shop' ");
+        System.out.println("To enter battle, type 'enter battle' ");
+        System.out.println("To exit, type 'exit' ");
+        System.out.println("To logout, type 'logout' ");
+        System.out.println("To save everything, type 'save' ");
+    }
 }

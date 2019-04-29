@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.sun.tools.javac.Main;
 import model.*;
 import model.menu.*;
 import view.InputException;
@@ -30,11 +31,8 @@ public class Controller {
 
     public void main() {
         Request request = new Request();
-        Shop shop = new Shop();
         initEverything();
         setCurrentMenu();
-        shop.show();
-
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -103,12 +101,14 @@ public class Controller {
                 view.logOutMessage();
                 Account account = Controller.currentAccount;
                 account.setLoggedIn(false);
-            } else if (RequestType.HELP.setMatcher(command).find()) {
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
                 view.printMainMenuOfGame();
             } else if (RequestType.ENTER_COLLECTION.setMatcher(command).find()) {
                 view.enterCollection();
             } else if (RequestType.ENTER_SHOP.setMatcher(command).find()) {
                 view.enterShop();
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                view.mainMenuHelp();
             } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
                 Battle battle = new Battle();
                 view.enterBattle();
@@ -157,11 +157,13 @@ public class Controller {
                 currentMenu = MainMenu.getInstance();
             } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
                 leaderBoard(dataCenter);
-            } else if (RequestType.HELP.setMatcher(command).find()) {
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
                 view.printAccountMenuOfGame();
             } else if (RequestType.EXIT.setMatcher(command).find()) {
                 view.exitMessage();
                 finishGame = true;
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                currentAccount.showMenu();
             }
         } else {
             throw new InputException("invalid command");

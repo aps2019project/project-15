@@ -137,4 +137,8 @@ public class Account {
     public void setMainDeck(deck deck){
         this.mainDeck = deck;
     }
+
+    public void showMenu() {
+        view.accountMenuHelp();
+    }
 }
