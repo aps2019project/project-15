@@ -18,6 +18,7 @@ public enum RequestType {
     SAVE("^save$"),
     LOGOUT("^logout$"),
     EXIT("^exit$"),
+    SHOW_MENU("^show menu$"),
 
 
     //battleMenu,
