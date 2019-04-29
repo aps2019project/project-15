@@ -8,9 +8,11 @@ import java.util.ArrayList;
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Spell specialPower;
-    ArrayList<Block> range = new ArrayList<>();
+    //ArrayList<Block> range = new ArrayList<>();
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
+    String activationTime;
+
     private boolean hasFlag = false;
     private Flag myFlag;
 
@@ -24,6 +26,7 @@ public class Minion extends Card {
         this.attackType = attackType;
     }
 
+    int id = this.getCardID();
 
     public void getFlag(Flag flag) {
 
@@ -64,5 +67,11 @@ public class Minion extends Card {
     @Override
     public void printStats(int i) {
         View.getInstance().printMinionStats(this, i);
+    }
+
+    @Override
+    public String toString() {
+        String info = "name:" + this.getName() + "\n" + "id: " + this.id + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "Hp:" + this.Hp + "\n" + "Ap:" + this.Ap + "\n" + "attackType: " + this.attackType + "\n" + "range: " + this.range + "\n" + "activationType: " + this.activationType + "\n" + "activationTime: " + this.activationTime + "\n";
+        return info;
     }
 }

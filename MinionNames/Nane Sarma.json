@@ -1,1 +1,12 @@
-{"name":"Nane Sarma","id":"036","price":500,"mp":3,"Hp":3,"Ap":4,"attackType":"ranged","range":"5","activationType":"enemy minions in 8 neighbour blocks are stuned for 1 turn","activationTime":"On Spawn"}
+{
+  "name": "Nane Sarma",
+  "id": "036",
+  "price": 500,
+  "mp": 3,
+  "Hp": 3,
+  "Ap": 4,
+  "attackType": "ranged",
+  "range": "5",
+  "activationType": "enemy minions in 8 neighbour blocks are stuned for 1 turn",
+  "activationTime": "On Spawn"
+}

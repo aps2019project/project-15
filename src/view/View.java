@@ -303,6 +303,8 @@ public class View {
     }
 
     public void showMinions() {
+        System.out.println("Minions: ");
+        System.out.println();
         DataCenter dataCenter = DataCenter.getInstance();
         for (Minion minion : dataCenter.getMinions()){
             System.out.println(minion);

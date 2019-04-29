@@ -1,1 +1,12 @@
-{"name":"Gorzdar e Torani","id":"011","price":450,"mp":2,"Hp":3,"Ap":10,"attackType":"melee","range":"","activationType":"","activationTime":""}
+{
+  "name": "Gorzdar e Torani",
+  "id": "011",
+  "price": 450,
+  "mp": 2,
+  "Hp": 3,
+  "Ap": 10,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "",
+  "activationTime": ""
+}

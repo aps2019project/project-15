@@ -1,1 +1,12 @@
-{"name":"Shamshirzan e Fars","id":"002","price":400,"mp":2,"Hp":6,"Ap":4,"attackType":"melee","range":"","activationType":"stun","activationTime":"On Attack"}
+{
+  "name": "Shamshirzan e Fars",
+  "id": "002",
+  "price": 400,
+  "mp": 2,
+  "Hp": 6,
+  "Ap": 4,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "stun",
+  "activationTime": "On Attack"
+}

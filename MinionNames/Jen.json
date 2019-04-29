@@ -1,1 +1,12 @@
-{"name":"Jen","id":"027","price":500,"mp":5,"Hp":10,"Ap":4,"attackType":"ranged","range":"4","activationType":"gives all self minion a ppower buff with 1 unit of ap continuesly","activationTime":"On Turn"}
+{
+  "name": "Jen",
+  "id": "027",
+  "price": 500,
+  "mp": 5,
+  "Hp": 10,
+  "Ap": 4,
+  "attackType": "ranged",
+  "range": "4",
+  "activationType": "gives all self minion a power buff with 1 unit of ap continuesly",
+  "activationTime": "On Turn"
+}

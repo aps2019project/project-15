@@ -1,1 +1,12 @@
-{"name":"Shahzade e Torani","id":"012","price":800,"mp":6,"Hp":6,"Ap":10,"attackType":"melee","range":"","activationType":"combo","activationTime":"combo"}
+{
+  "name": "Shahzade e Torani",
+  "id": "012",
+  "price": 800,
+  "mp": 6,
+  "Hp": 6,
+  "Ap": 10,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "combo",
+  "activationTime": "combo"
+}

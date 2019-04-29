@@ -33,6 +33,8 @@ public abstract class Card {
     boolean disarmed = false;
     int price;
     int Mp;
+    String range;
+    int mp = this.Mp;
 
     int Hp;
     int healthLevel;

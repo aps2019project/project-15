@@ -1,1 +1,12 @@
-{"name":"Ghool e Takcheshm","id":"017","price":500,"mp":7,"Hp":12,"Ap":11,"attackType":"hybrid","range":"3","activationType":"When it dies, it strikes the minions of the 8 blocks around it","activationTime":"On Death"}
+{
+  "name": "Ghool e Takcheshm",
+  "id": "017",
+  "price": 500,
+  "mp": 7,
+  "Hp": 12,
+  "Ap": 11,
+  "attackType": "hybrid",
+  "range": "3",
+  "activationType": "When it dies, it strikes the minions of the 8 blocks around it",
+  "activationTime": "On Death"
+}

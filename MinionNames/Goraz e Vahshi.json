@@ -1,1 +1,12 @@
-{"name":"Goraz e Vahshi","id":"028","price":500,"mp":6,"Hp":10,"Ap":14,"attackType":"melee","range":"","activationType":"can not be disarmed","activationTime":"On Defend"}
+{
+  "name": "Goraz e Vahshi",
+  "id": "028",
+  "price": 500,
+  "mp": 6,
+  "Hp": 10,
+  "Ap": 14,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "can not be disarmed",
+  "activationTime": "On Defend"
+}

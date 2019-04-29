@@ -1,1 +1,12 @@
-{"name":"Folad Zereh","id":"036","price":650,"mp":3,"Hp":1,"Ap":1,"attackType":"melee","range":"","activationType":"has 12 holy buffs countinuesly","activationTime":"Passive"}
+{
+  "name": "Folad Zereh",
+  "id": "036",
+  "price": 650,
+  "mp": 3,
+  "Hp": 1,
+  "Ap": 1,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "has 12 holy buffs countinuesly",
+  "activationTime": "Passive"
+}

@@ -1,1 +1,12 @@
-{"name":"Shir e Darande","id":"020","price":600,"mp":2,"Hp":1,"Ap":8,"attackType":"melee","range":"","activationType":"The holy buff does not affect ATTAC, and ATTAC does not reduce power","activationTime":"On Attack"}
+{
+  "name": "Shir e Darande",
+  "id": "020",
+  "price": 600,
+  "mp": 2,
+  "Hp": 1,
+  "Ap": 8,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "The holy buff does not affect ATTAC, and ATTAC does not reduce power",
+  "activationTime": "On Attack"
+}

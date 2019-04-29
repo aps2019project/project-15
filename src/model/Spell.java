@@ -8,8 +8,6 @@ public class Spell extends Card {
     static ArrayList<Spell> spells = new ArrayList<>();
     Buff buff;
 
-    int mp = this.Mp;
-    String range;
     public Spell(int hp) {
         this.setHp(hp);
     }

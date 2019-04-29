@@ -35,6 +35,7 @@ public class Controller {
         Request request = new Request();
         initEverything();
         setCurrentMenu();
+        view.showMinions();
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -47,7 +48,7 @@ public class Controller {
     private void initEverything() {
         try {
             final String[] paths = {
-                    "../HeroNames", "../ItemNames", "../SpellNames",
+                    "../HeroNames", "../ItemNames", "../SpellNames", "../MinionNames" ,
             };
             for (String path : paths) {
                 File directory = new File(path);

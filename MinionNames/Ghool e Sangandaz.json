@@ -1,1 +1,12 @@
-{"name":"Ghool e Sangandaz","id":"014","price":300,"mp":9,"Hp":12,"Ap":12,"attackType":"ranged","range":"7","activationType":"","activationTime":""}
+{
+  "name": "Ghool e Sangandaz",
+  "id": "014",
+  "price": 300,
+  "mp": 9,
+  "Hp": 12,
+  "Ap": 12,
+  "attackType": "ranged",
+  "range": "7",
+  "activationType": "",
+  "activationTime": ""
+}

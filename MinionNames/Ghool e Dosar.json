@@ -1,1 +1,12 @@
-{"name":"Ghool e Dosar","id":"035","price":550,"mp":4,"Hp":10,"Ap":4,"attackType":"melee","range":"","activationType":"the attacked force will lose all positive effects","activationTime":"ON Attack"}
+{
+  "name": "Ghool e Dosar",
+  "id": "035",
+  "price": 550,
+  "mp": 4,
+  "Hp": 10,
+  "Ap": 4,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "the attacked force will lose all positive effects",
+  "activationTime": "ON Attack"
+}

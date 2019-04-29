@@ -1,1 +1,12 @@
-{"name":"Asbsavar e Fars","id":"004","price":200,"mp":4,"Hp":10,"Ap":6,"attackType":"melee","range":"","activationType":"","activationTime":""}
+{
+  "name": "Asbsavar e Fars",
+  "id": "004",
+  "price": 200,
+  "mp": 4,
+  "Hp": 10,
+  "Ap": 6,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "",
+  "activationTime": ""
+}

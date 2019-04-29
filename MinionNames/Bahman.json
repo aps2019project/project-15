@@ -1,1 +1,12 @@
-{"name":"Bahman","id":"031","price":450,"mp":8,"Hp":16,"Ap":9,"attackType":"melee","range":"","activationType":"on random reduces 16 units from an enemy minion","activationTime":"On Spawn"}
+{
+  "name": "Bahman",
+  "id": "031",
+  "price": 450,
+  "mp": 8,
+  "Hp": 16,
+  "Ap": 9,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "on random reduces 16 units from an enemy minion",
+  "activationTime": "On Spawn"
+}

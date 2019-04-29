@@ -73,6 +73,7 @@ public class Shop {
     }
 
     public void show() {
+        view.showMinions();
         view.showSpells();
         view.showHeroesInShop();
     }

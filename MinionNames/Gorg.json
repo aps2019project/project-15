@@ -1,1 +1,12 @@
-{"name":"Gorg","id":"024","price":400,"mp":3,"Hp":6,"Ap":1,"attackType":"melee","range":"","activationType":"the minion loses 6 hp in the next turn","activationTime":"On Attack"}
+{
+  "name": "Gorg",
+  "id": "024",
+  "price": 400,
+  "mp": 3,
+  "Hp": 6,
+  "Ap": 1,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "the minion loses 6 hp in the next turn",
+  "activationTime": "On Attack"
+}

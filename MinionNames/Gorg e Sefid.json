@@ -1,1 +1,12 @@
-{"name":"Gorg e Sefid","id":"022","price":400,"mp":5,"Hp":8,"Ap":2,"attackType":"melee","range":"","activationType":"after attacking a minion loses 6 units of hp in the next turn and 4 units in the turn after that","activationTime":"On Attack"}
+{
+  "name": "Gorg e Sefid",
+  "id": "022",
+  "price": 400,
+  "mp": 5,
+  "Hp": 8,
+  "Ap": 2,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "after attacking a minion loses 6 units of hp in the next turn and 4 units in the turn after that",
+  "activationTime": "On Attack"
+}

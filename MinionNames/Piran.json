@@ -1,1 +1,12 @@
-{"name":"Piran","id":"029","price":400,"mp":8,"Hp":20,"Ap":12,"attackType":"melee","range":"","activationType":"can not be poisoned","activationTime":"On Defend"}
+{
+  "name": "Piran",
+  "id": "029",
+  "price": 400,
+  "mp": 8,
+  "Hp": 20,
+  "Ap": 12,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "can not be poisoned",
+  "activationTime": "On Defend"
+}

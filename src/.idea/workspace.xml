@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09c534e8-8099-49f8-89be-2b0edddc88ea" name="Default Changelist" comment="json files updated">
+    <list default="true" id="09c534e8-8099-49f8-89be-2b0edddc88ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Asbsavar e Fars.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Asbsavar e Fars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Ashkbos.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Ashkbos.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Bahman.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Bahman.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Div e Gorazsavar.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Div e Gorazsavar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Div e Siah.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Div e Siah.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Ezhde haye Atashandaz.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Ezhde haye Atashandaz.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Folad Zereh.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Folad Zereh.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Gholabsangdar e Torani.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Gholabsangdar e Torani.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Ghool e Bozorg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Ghool e Bozorg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Ghool e Dosar.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Ghool e Dosar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Ghool e Sangandaz.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Ghool e Sangandaz.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Ghool e Takcheshm.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Ghool e Takcheshm.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Giv.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Giv.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Goraz e Vahshi.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Goraz e Vahshi.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Gorg e Sefid.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Gorg e Sefid.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Gorg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Gorg.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Gorzdar e Torani.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Gorzdar e Torani.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Iraj.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Iraj.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Jadogar Azam.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Jadogar Azam.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Jadogar.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Jadogar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Jasos e Torani.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Jasos e Torani.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Jen.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Jen.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Kamandar e Fars.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Kamandar e Fars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Kamandar e Torani.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Kamandar e Torani.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Mar e Sami.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Mar e Sami.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Nane Sarma.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Nane Sarma.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Neizedar e Fars.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Neizedar e Fars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Neizedar e Torani.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Neizedar e Torani.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Oghab.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Oghab.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Pahlevan e Fars.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Pahlevan e Fars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Palang.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Palang.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Piran.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Piran.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Sepahsalar e Fars.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Sepahsalar e Fars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Shah Ghool.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Shah Ghool.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Shahzade e Torani.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Shahzade e Torani.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Shamshirzan e Fars.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Shamshirzan e Fars.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/Shir e Darande.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/Shir e Darande.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MinionNames/mar Ghoolpeikar.json" beforeDir="false" afterPath="$PROJECT_DIR$/../MinionNames/mar Ghoolpeikar.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Hero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Minion.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Minion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/Spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/view/View.java" afterDir="false" />
@@ -21,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1388">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="22">
+              <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#639#640#0" expanded="true" />
@@ -35,35 +74,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model/Spell.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="34" column="137" selection-start-line="34" selection-start-column="137" selection-end-line="34" selection-end-column="137" />
-              <folding>
-                <element signature="e#196#197#0" expanded="true" />
-                <element signature="e#226#227#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/menu/MainMenu.java">
+        <entry file="file://$PROJECT_DIR$/model/Shop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/RequestType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+            <state relative-caret-position="150">
+              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1395#1396#0" expanded="true" />
+                <element signature="e#1422#1423#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1403">
-              <caret line="304" column="16" selection-start-line="304" selection-start-column="16" selection-end-line="304" selection-end-column="16" />
+            <state relative-caret-position="171">
+              <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4333#4334#0" expanded="true" />
@@ -125,40 +153,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Card.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/Minion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-              <folding>
-                <element signature="e#1252#1253#0" expanded="true" />
-                <element signature="e#1277#1278#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/Shop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="75" column="19" selection-start-line="75" selection-end-line="76" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1395#1396#0" expanded="true" />
-                <element signature="e#1422#1423#0" expanded="true" />
-                <element signature="e#1594#1595#0" expanded="true" />
-                <element signature="e#1634#1635#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="275">
+              <caret line="73" column="81" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -169,8 +168,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Singleton" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -247,18 +246,19 @@
         <option value="$PROJECT_DIR$/model/menu/ShopMenu.java" />
         <option value="$PROJECT_DIR$/controller/DataCenter.java" />
         <option value="$PROJECT_DIR$/model/Buff.java" />
-        <option value="$PROJECT_DIR$/Main.java" />
-        <option value="$PROJECT_DIR$/model/Minion.java" />
         <option value="$PROJECT_DIR$/model/Collection.java" />
         <option value="$PROJECT_DIR$/view/RequestType.java" />
         <option value="$PROJECT_DIR$/model/menu/MainMenu.java" />
         <option value="$PROJECT_DIR$/model/Account.java" />
         <option value="$PROJECT_DIR$/model/Hero.java" />
-        <option value="$PROJECT_DIR$/view/View.java" />
-        <option value="$PROJECT_DIR$/model/Card.java" />
-        <option value="$PROJECT_DIR$/model/Shop.java" />
-        <option value="$PROJECT_DIR$/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/model/TypeOfActivationTime.java" />
         <option value="$PROJECT_DIR$/model/Spell.java" />
+        <option value="$PROJECT_DIR$/model/Card.java" />
+        <option value="$PROJECT_DIR$/Main.java" />
+        <option value="$PROJECT_DIR$/model/Shop.java" />
+        <option value="$PROJECT_DIR$/view/View.java" />
+        <option value="$PROJECT_DIR$/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/model/Minion.java" />
       </list>
     </option>
   </component>
@@ -322,9 +322,9 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556563684591" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556566852997" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$USER_HOME$/HeroNames" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MinionNames" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -380,7 +380,7 @@
       <workItem from="1556340188052" duration="8697000" />
       <workItem from="1556437461110" duration="16937000" />
       <workItem from="1556510729381" duration="4631000" />
-      <workItem from="1556534723673" duration="8846000" />
+      <workItem from="1556534723673" duration="12125000" />
     </task>
     <task id="LOCAL-00001" summary="some changes on View , Collection and Item">
       <created>1555779556064</created>
@@ -564,11 +564,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556536406271</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="json files updated">
+      <created>1556563723604</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1556563723604</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112421000" />
+    <option name="totallyTimeSpent" value="115700000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -581,7 +588,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="34" width="1853" height="1046" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="1" />
@@ -589,16 +595,16 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.21504773" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.44795322" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.12588236" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38705882" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18705882" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4882353" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.06235294" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.06235294" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.13411765" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -707,20 +713,13 @@
     <MESSAGE value="menus updated" />
     <MESSAGE value="Json added!!!!!&#10;heroes in json are available&#10;several accounts can be saved!&#10;various things has changed!" />
     <MESSAGE value="heroNames added" />
-    <MESSAGE value="json files updated" />
     <MESSAGE value="prints moved to view.clas" />
     <MESSAGE value="help menu updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="help menu updated" />
+    <MESSAGE value="json files updated" />
+    <MESSAGE value="Minions , Spells , Heroes are READY!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minions , Spells , Heroes are READY!!!" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/JsonReader.java" />
-    <entry file="file://$PROJECT_DIR$/model/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/util/Scanner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -925,13 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/io/File.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="377" column="18" selection-start-line="377" selection-start-column="18" selection-end-line="377" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/Collection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -939,20 +931,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/TypeOfCounterAttack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Minion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -1013,13 +991,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/menu/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -1030,24 +1001,137 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model/TypeOfActivationTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/TypeOfCounterAttack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/menu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding>
+            <element signature="e#118#119#0" expanded="true" />
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#914#915#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+            <element signature="e#1277#1278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/System.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
+          <folding>
+            <element signature="e#4624#4625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/ClassLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="252" selection-start-line="252" selection-end-line="252" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/Object.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/lang/String.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="173" selection-start-line="173" selection-end-line="173" />
+          <folding>
+            <element signature="e#5534#5535#0" expanded="true" />
+            <element signature="e#31761#31762#0" expanded="true" />
+            <element signature="e#31816#31817#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/io/UnixFileSystem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jrt:///usr/lib/jvm/java-11-openjdk-amd64!/java.base/java/io/File.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/Shop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="75" column="19" selection-start-line="75" selection-end-line="76" />
+        <state relative-caret-position="150">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1395#1396#0" expanded="true" />
             <element signature="e#1422#1423#0" expanded="true" />
-            <element signature="e#1594#1595#0" expanded="true" />
-            <element signature="e#1634#1635#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="method#battleMenuRequest#0;class#Controller#0" />
+            <element signature="method#collectionMenuRequest#0;class#Controller#0" />
+            <element signature="method#leaderBoard#0;class#Controller#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Spell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1403">
-          <caret line="304" column="16" selection-start-line="304" selection-start-column="16" selection-end-line="304" selection-end-column="16" />
+        <state relative-caret-position="171">
+          <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4333#4334#0" expanded="true" />
@@ -1098,47 +1182,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.java">
+    <entry file="file://$PROJECT_DIR$/model/Minion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="34" column="11" lean-forward="true" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
-          <folding>
-            <element signature="e#1252#1253#0" expanded="true" />
-            <element signature="e#1277#1278#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1388">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-            <element signature="method#battleMenuRequest#0;class#Controller#0" />
-            <element signature="method#collectionMenuRequest#0;class#Controller#0" />
-            <element signature="method#leaderBoard#0;class#Controller#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Spell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="34" column="137" selection-start-line="34" selection-start-column="137" selection-end-line="34" selection-end-column="137" />
-          <folding>
-            <element signature="e#196#197#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="275">
+          <caret line="73" column="81" selection-start-line="73" selection-start-column="81" selection-end-line="73" selection-end-column="81" />
         </state>
       </provider>
     </entry>

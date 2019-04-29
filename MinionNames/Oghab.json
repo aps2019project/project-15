@@ -1,1 +1,12 @@
-{"name":"Oghab","id":"015","price":200,"mp":2,"Hp":0,"Ap":2,"attackType":"ranged","range":"3","activationType":"power buff with hp increase for 10 units","activationTime":"passive"}
+{
+  "name": "Oghab",
+  "id": "015",
+  "price": 200,
+  "mp": 2,
+  "Hp": 0,
+  "Ap": 2,
+  "attackType": "ranged",
+  "range": "3",
+  "activationType": "power buff with hp increase for 10 units",
+  "activationTime": "passive"
+}

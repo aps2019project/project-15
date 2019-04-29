@@ -1,1 +1,12 @@
-{"name":"Ezhde haye Atashandaz","id":"019","price":250,"mp":5,"Hp":9,"Ap":5,"attackType":"ranged","range":"4","activationType":"","activationTime":""}
+{
+  "name": "Ezhde haye Atashandaz",
+  "id": "019",
+  "price": 250,
+  "mp": 5,
+  "Hp": 9,
+  "Ap": 5,
+  "attackType": "ranged",
+  "range": "4",
+  "activationType": "",
+  "activationTime": ""
+}

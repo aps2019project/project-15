@@ -1,1 +1,12 @@
-{"name":"Jasos e Torani","id":"010","price":700,"mp":4,"Hp":6,"Ap":6,"attackType":"melee","range":"","activationType":"Force the enemy for 1 round disarm and for 4 rounds Poisoning","activationTime":"On Attack"}
+{
+  "name": "Jasos e Torani",
+  "id": "010",
+  "price": 700,
+  "mp": 4,
+  "Hp": 6,
+  "Ap": 6,
+  "attackType": "melee",
+  "range": "",
+  "activationType": "Force the enemy for 1 round disarm and for 4 rounds Poisoning",
+  "activationTime": "On Attack"
+}

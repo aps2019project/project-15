@@ -1,1 +1,12 @@
-{"name":"Kamandar e Fars","id":"001","price":300,"mp":2,"Hp":6,"Ap":4,"attackType":"ranged","range":"7","activationType":"","activationTime":""}
+{
+  "name": "Kamandar e Fars",
+  "id": "001",
+  "price": 300,
+  "mp": 2,
+  "Hp": 6,
+  "Ap": 4,
+  "attackType": "ranged",
+  "range": "7",
+  "activationType": "",
+  "activationTime": ""
+}

@@ -1,1 +1,12 @@
-{"name":"Mar e Sami","id":"018","price":300,"mp":4,"Hp":5,"Ap":6,"attackType":"ranged","range":"4","activationType":"Up to 3 rounds of enemy force poisoned","activationTime":"On Attack"}
+{
+  "name": "Mar e Sami",
+  "id": "018",
+  "price": 300,
+  "mp": 4,
+  "Hp": 5,
+  "Ap": 6,
+  "attackType": "ranged",
+  "range": "4",
+  "activationType": "Up to 3 rounds of enemy force poisoned",
+  "activationTime": "On Attack"
+}
