@@ -33,6 +33,8 @@ public class Controller {
         Shop shop = new Shop();
         initEverything();
         setCurrentMenu();
+        shop.show();
+
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());

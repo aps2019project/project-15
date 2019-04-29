@@ -3,7 +3,7 @@
   "price": 8000,
   "healthLevel": 55,
   "attackPower": 7,
-  "typeOfAttack": "hybrid",
+  "counterAttack": "hybrid",
   "description": "",
   "attackArea": 4,
   "Mp": 0,

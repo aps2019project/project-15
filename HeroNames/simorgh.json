@@ -3,6 +3,6 @@
   "price": 9000,
   "healthLevel": 50,
   "attackPower": 4,
-  "typeOfAttack": "melee",
+  "counterAttack": "melee",
   "description": "stun all enemy\u0027s forces for 1 turn"
 }

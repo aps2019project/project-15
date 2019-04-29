@@ -3,7 +3,7 @@
   "price": 11000,
   "healthLevel": 40,
   "attackPower": 3,
-  "typeOfAttack": "ranged",
+  "counterAttack": "ranged",
   "description": "dispel oneof enemy\u0027s forces",
   "attackArea": 3,
   "Mp": 1,

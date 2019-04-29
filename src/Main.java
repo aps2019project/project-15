@@ -16,7 +16,7 @@ public class Main {
 
         Gson gson;
         gson = new GsonBuilder().create();
-        Minion minion = new Minion(1 , 1, 1, 1, "Danial", SpecialPowerActivation.onAttack, TypeOfCounterAttack.hybrid);
+        Minion minion = new Minion(1, 1, 1, 1, "Danial", SpecialPowerActivation.onAttack, TypeOfCounterAttack.hybrid);
 
         try {
             FileWriter writer = new FileWriter("cards.json");
@@ -24,10 +24,8 @@ public class Main {
             writer.close();
 
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
-
-
         Controller controller = new Controller();
         controller.main();
     }

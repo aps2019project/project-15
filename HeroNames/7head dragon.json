@@ -1,8 +1,8 @@
 {
   "name": "7head dragon",
   "price": 8000,
-  "healthLevel": 50,
-  "attackPower": 4,
-  "typeOfAttack": "melee",
+  "Hp": 50,
+  "Ap": 4,
+  "counterAttack": "melee",
   "description": "disarm 1 force"
 }

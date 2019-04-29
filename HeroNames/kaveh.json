@@ -3,5 +3,5 @@
   "price": 8000,
   "healthLevel": 50,
   "attackPower": 4,
-  "typeOfAttack": "melee"
+  "counterAttack": "melee"
 }

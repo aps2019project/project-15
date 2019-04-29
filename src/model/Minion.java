@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Spell specialPower;
-    ArrayList<Block> range;
+    ArrayList<Block> range = new ArrayList<>();
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
     private boolean hasFlag = false;

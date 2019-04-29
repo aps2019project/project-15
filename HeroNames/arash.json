@@ -3,7 +3,7 @@
   "price": 10000,
   "healthLevel": 30,
   "attackPower": 2,
-  "typeOfAttack": "ranged",
+  "counterAttack": "ranged",
   "description": "4 unit attack to all forces ich exist at hero\u0027s row",
   "attackArea": 6,
   "Mp": 2,
