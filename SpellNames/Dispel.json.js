@@ -1,0 +1,1 @@
+{"name":"Dispel","price":2100,"mp":0,"range":"one of self or enemy powers","description":"destroys negetive buffs for self and positive buffs for enemy"}
