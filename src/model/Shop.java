@@ -73,7 +73,8 @@ public class Shop {
     }
 
     public void show() {
-        view.showShop();
+        view.showSpells();
+        view.showHeroesInShop();
     }
 
     public void search(String name) {

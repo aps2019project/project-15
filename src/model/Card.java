@@ -8,6 +8,7 @@ public abstract class Card {
     public String getName() {
         return name;
     }
+    int attackArea;
 
     private String name;
     String description;

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class Hero extends Card {
     static ArrayList<Hero> heroes = new ArrayList<>();
-    int attackArea = 0;
     Buff buff;
     int coolDown = 0;
     TypeOfCounterAttack counterAttack;
@@ -25,9 +24,9 @@ public class Hero extends Card {
         flag.card = this;
     }
 
-    public void keepFlag( Flag flag) {
-        flag.setCurrentBlock(this.getCurrentBlock());
-    }
+/*    public void keepFlag( Flag flag) {
+        flag.setCurrentBlock(flag.getCurrentBlock());
+    }*/
     public boolean getHasFlag() {
         return hasFlag;
     }

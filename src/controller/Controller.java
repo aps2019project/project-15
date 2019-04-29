@@ -45,7 +45,7 @@ public class Controller {
     private void initEverything() {
         try {
             final String[] paths = {
-                    "../HeroNames"
+                    "../HeroNames", "../ItemNames", "../SpellNames",
             };
             for (String path : paths) {
                 File directory = new File(path);
@@ -92,6 +92,32 @@ public class Controller {
         }
     }
 
+    private void accountMenuRequest(String command) throws InputException {
+        AccountMenu accountMenu = AccountMenu.getInstance();
+        if (Controller.currentMenu.equals(accountMenu)) {
+            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
+                RegisterAccountFunction(accountMenu);
+            } else if (RequestType.LOGIN.setMatcher(command).find()) {
+                String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
+                view.enterPassword();
+                command = request.getNewCommand();
+                accountMenu.loginFunction(username, command, dataCenter);
+                currentMenu = MainMenu.getInstance();
+            } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
+                leaderBoard(dataCenter);
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
+                view.printAccountMenuOfGame();
+            } else if (RequestType.EXIT.setMatcher(command).find()) {
+                view.exitMessage();
+                finishGame = true;
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                currentAccount.showMenu();
+            }
+        } else {
+            throw new InputException("invalid command");
+        }
+    }
+
     private void mainMenuRequest(String command) throws InputException {
         Menu mainMenu = MainMenu.getInstance();
         if (currentMenu.equals(mainMenu)) {
@@ -121,52 +147,6 @@ public class Controller {
             } else {
                 throw new InputException("invalid command");
             }
-        }
-    }
-
-    private void accountMenuRequest(String command) throws InputException {
-        AccountMenu accountMenu = AccountMenu.getInstance();
-        if (Controller.currentMenu.equals(accountMenu)) {
-            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
-                if (!RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
-                    String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
-                    while (true) {
-                        if (!dataCenter.getAccounts().keySet().contains(username)) {
-                            view.enterPassword();
-                            command = request.getNewCommand();
-                            if (command.length() >= 4) {
-                                Controller.currentAccount = accountMenu.register(username, command);
-                                currentMenu = MainMenu.getInstance();
-                                break;
-                            } else {
-                                view.shortPassword();
-                            }
-                        } else {
-                            view.invalidUsername();
-                            break;
-                        }
-                    }
-                } else {
-                    view.emptyUsername();
-                }
-            } else if (RequestType.LOGIN.setMatcher(command).find()) {
-                String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
-                view.enterPassword();
-                command = request.getNewCommand();
-                accountMenu.loginFunction(username, command, dataCenter);
-                currentMenu = MainMenu.getInstance();
-            } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
-                leaderBoard(dataCenter);
-            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-                view.printAccountMenuOfGame();
-            } else if (RequestType.EXIT.setMatcher(command).find()) {
-                view.exitMessage();
-                finishGame = true;
-            } else if (RequestType.HELP.setMatcher(command).find()) {
-                currentAccount.showMenu();
-            }
-        } else {
-            throw new InputException("invalid command");
         }
     }
 
@@ -249,4 +229,30 @@ public class Controller {
             num++;
         }
     }
+
+    private void RegisterAccountFunction(AccountMenu accountMenu) {
+        String command;
+        if (!RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
+            String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
+            while (true) {
+                if (!dataCenter.getAccounts().keySet().contains(username)) {
+                    view.enterPassword();
+                    command = request.getNewCommand();
+                    if (command.length() >= 4) {
+                        Controller.currentAccount = accountMenu.register(username, command);
+                        currentMenu = MainMenu.getInstance();
+                        break;
+                    } else {
+                        view.shortPassword();
+                    }
+                } else {
+                    view.invalidUsername();
+                    break;
+                }
+            }
+        } else {
+            view.emptyUsername();
+        }
+    }
+
 }

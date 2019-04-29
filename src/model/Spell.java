@@ -8,7 +8,8 @@ public class Spell extends Card {
     static ArrayList<Spell> spells = new ArrayList<>();
     Buff buff;
 
-
+    int mp = this.Mp;
+    String range;
     public Spell(int hp) {
         this.setHp(hp);
     }
@@ -28,5 +29,10 @@ public class Spell extends Card {
     @Override
     public void printStats(int i) {
         View.getInstance().printSpellStats(this, i);
+    }
+
+    public String toString() {
+        String info = "name: " + this.getName() + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
+        return info;
     }
 }
