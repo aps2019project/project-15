@@ -17,7 +17,7 @@ public class Collection {
     View view = View.getInstance();
     Request request = new Request();
     public void exitCollection() {
-        System.out.println("you exited from collection");
+        view.exitCollection();
         Controller.currentMenu = MainMenu.getInstance();
     }
 

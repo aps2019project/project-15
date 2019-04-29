@@ -27,7 +27,7 @@ public class Shop {
 
 
     public void exitShop() {
-        System.out.println("you exited from shop!");
+        view.exitShop();
         Controller.currentMenu = MainMenu.getInstance();
     }
 
@@ -72,10 +72,7 @@ public class Shop {
     }
 
     public void show() {
-        DataCenter dataCenter = DataCenter.getInstance();
-        for (Hero hero : dataCenter.getHeroes()) {
-            System.out.println(hero);
-        }
+        view.showShop();
     }
 
     public void search(String name) {

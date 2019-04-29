@@ -98,11 +98,11 @@ public class Controller {
         Menu mainMenu = MainMenu.getInstance();
         if (currentMenu.equals(mainMenu)) {
             if (RequestType.SAVE.setMatcher(command).find()) {
-                System.out.println("you saved everything!");
+                view.saveEverything();
             } else if (RequestType.LOGOUT.setMatcher(command).find()) {
+                view.logOutMessage();
                 Account account = Controller.currentAccount;
                 account.setLoggedIn(false);
-                System.out.println("you logged out!");
             } else if (RequestType.HELP.setMatcher(command).find()) {
                 view.printMainMenuOfGame();
             } else if (RequestType.ENTER_COLLECTION.setMatcher(command).find()) {
@@ -132,26 +132,26 @@ public class Controller {
                     String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
                     while (true) {
                         if (!dataCenter.getAccounts().keySet().contains(username)) {
-                            System.out.print("enter your password: ");
+                            view.enterPassword();
                             command = request.getNewCommand();
                             if (command.length() >= 4) {
                                 Controller.currentAccount = accountMenu.register(username, command);
                                 currentMenu = MainMenu.getInstance();
                                 break;
                             } else {
-                                System.out.println("password is too short! try again.");
+                                view.shortPassword();
                             }
                         } else {
-                            System.out.println("username is not valid!");
+                            view.invalidUsername();
                             break;
                         }
                     }
                 } else {
-                    System.out.println("Username is empty!");
+                    view.emptyUsername();
                 }
             } else if (RequestType.LOGIN.setMatcher(command).find()) {
                 String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
-                System.out.println("enter your password: ");
+                view.enterPassword();
                 command = request.getNewCommand();
                 accountMenu.loginFunction(username, command, dataCenter);
                 currentMenu = MainMenu.getInstance();

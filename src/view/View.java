@@ -275,4 +275,41 @@ public class View {
     public void showCollection() {
 
     }
+
+    public void showShop() {
+        DataCenter dataCenter = DataCenter.getInstance();
+        for (Hero hero : dataCenter.getHeroes()) {
+            System.out.println(hero);
+        }
+    }
+
+    public void saveEverything() {
+        System.out.println("you saved everything!");
+    }
+
+    public void enterPassword() {
+        System.out.print("enter your password: ");
+    }
+
+    public void shortPassword() {
+        System.out.println("password is too short! try again.");
+    }
+
+    public void invalidUsername() {
+        System.out.println("username is not valid!");
+    }
+
+    public void emptyUsername() {
+        System.out.println("Username is empty!");
+    }
+
+    public void exitCollection() {
+        System.out.println("you exited from collection");
+    }
+
+    public void exitShop() {
+        System.out.println("you exited from shop!");
+    }
+
+
 }
