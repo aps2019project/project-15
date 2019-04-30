@@ -104,7 +104,8 @@ public class Account {
     public void setMoney(int money) {
         this.money = money;
     }
-    public void setMainDeck(Deck deck){
+
+    public void setMainDeck(Deck deck) {
         this.mainDeck = deck;
     }
 
@@ -114,5 +115,14 @@ public class Account {
 
     public model.Collection getMyCollection() {
         return myCollection;
+    }
+
+    public void sellCard(Card card) {
+        card.owned = false;
+        card.sold = true;
+    }
+
+    public boolean soldCard(Card card) {
+        return card.sold;
     }
 }

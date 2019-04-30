@@ -133,8 +133,13 @@ public class Shop {
         view.showItems();
     }
 
-    public void search(String name) {
-
+    public Card search(String name) {
+        for (Card card : shop.allCards) {
+            if (card.getName().equals(name)){
+                return card;
+            }
+        }
+        return null;
     }
 
     public void help() {
@@ -149,6 +154,7 @@ public class Shop {
             return;
         }
         if (!card.equals(null)) {
+            Controller.currentAccount.sellCard(card);
             Controller.currentAccount.getMyCollection().removeCardFromCollection(card);
             Controller.currentAccount.addMoney(card.getPrice());
             view.cardSold();
@@ -162,9 +168,8 @@ public class Shop {
     }
 
     public boolean isSold(String name) {
-
-
-        return true;
+        Card card = Card.returnCardByName(name);
+        return card != null && !Controller.currentAccount.getMyCollection().hasCard(card) && Controller.currentAccount.soldCard(card);
     }
 
     public void showMenu() {

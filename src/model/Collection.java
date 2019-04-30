@@ -51,6 +51,10 @@ public class Collection {
         }
     }
 
+    public boolean hasCard(Card card) {
+        if (this.getMyCards().contains(card)) return true;
+        return false;
+    }
     public void searchInCollection() {
         String name = request.getNewCommand();
         Card card = Card.returnCardByName(name);

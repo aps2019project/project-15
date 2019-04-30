@@ -12,11 +12,9 @@ public class DataCenter {
     private ArrayList<Spell> spells = new ArrayList<>();
     private ArrayList<Item> items = new ArrayList<>();
 
-
     public static DataCenter getInstance() {
         return ourInstance;
     }
-
 
     public View view = View.getInstance();
 

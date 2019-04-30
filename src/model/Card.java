@@ -17,6 +17,7 @@ public abstract class Card {
     private int cardID;
 
     int cardIdInGame;
+    boolean sold = false;
 
     public void setX(int x) {
         this.x = x;
