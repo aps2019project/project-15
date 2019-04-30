@@ -8,6 +8,15 @@ enum typeOfItem {
 }
 
 public abstract class Item {
+
+    String itemName;
+    String id;
+    String desc;
+    int price;
+
+
+
+
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
@@ -16,9 +25,6 @@ public abstract class Item {
         return itemName;
     }
 
-    String itemName;
-    String desc;
-    int price;
 
     public int getPrice() {
         return price;
@@ -34,7 +40,7 @@ public abstract class Item {
         return id;
     }
 
-    String id;
+
 
     public int getX() {
         return x;

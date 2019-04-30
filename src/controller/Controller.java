@@ -1,9 +1,10 @@
 package controller;
 
-import com.google.gson.Gson;
+
 /*
 import com.sun.tools.javac.Main;
 */
+import com.google.gson.Gson;
 import model.*;
 import model.menu.*;
 import view.InputException;
@@ -48,7 +49,7 @@ public class Controller {
     private void initEverything() {
         try {
             final String[] paths = {
-                    "../HeroNames", "../ItemNames", "../SpellNames", "../MinionNames" ,
+                    "HeroNames", "ItemNames", "SpellNames", "MinionNames" ,
             };
             for (String path : paths) {
                 File directory = new File(path);
@@ -77,6 +78,8 @@ public class Controller {
         T card = new Gson().fromJson(reader, classOfT);
         list.add(card);
     }
+
+
 
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
