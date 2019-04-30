@@ -24,12 +24,14 @@ public class AccountMenu extends Menu {
         return account;
     }
 
-    public void loginFunction(String username, String password, DataCenter dataCenter) {
+    public boolean loginFunction(String username, String password, DataCenter dataCenter) {
         Account account = dataCenter.getAccountByName(username);
+        boolean loggedIn = false;
         if (account != null) {
             if (!account.isLoggedIn()) {
                 if (account.getPassword().equals(password)) {
                     System.out.println(account.getUsername() + " logged in!");
+                    loggedIn = true;
                 } else {
                     System.out.println("your password is incorrect!");
                 }
@@ -39,5 +41,6 @@ public class AccountMenu extends Menu {
         } else {
             System.out.println("username is not valid");
         }
+        return loggedIn;
     }
 }

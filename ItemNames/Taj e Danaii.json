@@ -1,1 +1,6 @@
-{"itemName":"Taj e Danaii","id":"001","price":"300","desc":"in first 3 turns adds 1 unit to mp"}
+{
+  "itemName": "Taj e Danaii",
+  "id": "001",
+  "price": "300",
+  "desc": "in first 3 turns adds 1 unit to mp"
+}

@@ -7,15 +7,16 @@ enum typeOfItem {
     usable;
 }
 
-public abstract class Item {
+public class Item {
 
     String itemName;
     String id;
     String desc;
-    int price;
+    String price;
 
+    public Item() {
 
-
+    }
 
     public void setItemName(String itemName) {
         this.itemName = itemName;
@@ -26,7 +27,7 @@ public abstract class Item {
     }
 
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
@@ -39,7 +40,6 @@ public abstract class Item {
     public String getId() {
         return id;
     }
-
 
 
     public int getX() {
@@ -106,5 +106,9 @@ public abstract class Item {
 
     }
 
-
+    @Override
+    public String toString() {
+        String info = "itemName: " + this.getItemName() + "\n" + "ID: " + this.getId() + "\n" + "price: " + this.getPrice() + "\n" + "desc: " + this.getDesc() + "\n";
+        return info;
+    }
 }

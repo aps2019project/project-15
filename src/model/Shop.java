@@ -78,7 +78,7 @@ public class Shop {
             return;
         }
         if(!item.equals(null)){
-            Controller.currentAccount.reduceMoney(item.getPrice());
+            Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
             Controller.currentAccount.getMyCollection().addItemToCollection(item);
             view.itemBought();
         }
@@ -88,6 +88,7 @@ public class Shop {
         view.showMinions();
         view.showSpells();
         view.showHeroesInShop();
+        view.showItems();
     }
 
     public void search(String name) {
@@ -113,7 +114,7 @@ public class Shop {
         }
         if(!item.equals(null)){
             Controller.currentAccount.getMyCollection().removeItemFromCollection(item);
-            Controller.currentAccount.addMoney(item.getPrice());
+            Controller.currentAccount.addMoney(Integer.parseInt(item.getPrice()));
             view.itemSold();
         }
     }

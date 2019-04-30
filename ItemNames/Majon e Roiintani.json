@@ -1,1 +1,6 @@
-{"itemName":"Majon e Roiintani","id":"009","price":"collectible","desc":"active 10 holy buff for random self force for 2 turns"}
+{
+  "itemName": "Majon e Roiintani",
+  "id": "009",
+  "price": "collectible",
+  "desc": "active 10 holy buff for random self force for 2 turns"
+}

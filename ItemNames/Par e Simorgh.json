@@ -1,1 +1,6 @@
-{"itemName":"Par e Simorgh","id":"006","price":"3500","desc":"for hybrid and ranged decreases hero enemy ap by 2 units"}
+{
+  "itemName": "Par e Simorgh",
+  "id": "006",
+  "price": "3500",
+  "desc": "for hybrid and ranged decreases hero enemy ap by 2 units"
+}

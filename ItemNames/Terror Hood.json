@@ -1,1 +1,6 @@
-{"itemName":"Terror Hood","id":"012","price":"5000","desc":"When attacked, weakness buff will be applied with 2 decreases in attack power for an enemy\u0027s random power"}
+{
+  "itemName": "Terror Hood",
+  "id": "012",
+  "price": "5000",
+  "desc": "When attacked, weakness buff will be applied with 2 decreases in attack power for an enemy\u0027s random power"
+}

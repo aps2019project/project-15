@@ -1,1 +1,6 @@
-{"itemName":"Shamshir e Chini","id":"020","price":"collectible","desc":"get 5 units attack power to melee force"}
+{
+  "itemName": "Shamshir e Chini",
+  "id": "020",
+  "price": "collectible",
+  "desc": "get 5 units attack power to melee force"
+}

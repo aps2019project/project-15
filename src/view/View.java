@@ -374,4 +374,13 @@ public class View {
     public void itemSold(){
         System.out.println("Item is sold");
     }
+
+    public void showItems() {
+        System.out.println("Items: ");
+        DataCenter dataCenter = DataCenter.getInstance();
+        for (Item item : dataCenter.getItems()) {
+            System.out.println(item);
+        }
+        System.out.println("----------------------");
+    }
 }

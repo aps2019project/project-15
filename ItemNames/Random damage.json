@@ -1,1 +1,6 @@
-{"itemName":"Random damage","id":"011","price":"collectible","desc":"increses 2 attack power for random force in map"}
+{
+  "itemName": "Random damage",
+  "id": "011",
+  "price": "collectible",
+  "desc": "increses 2 attack power for random force in map"
+}

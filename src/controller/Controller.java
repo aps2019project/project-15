@@ -4,6 +4,7 @@ package controller;
 /*
 import com.sun.tools.javac.Main;
 */
+
 import com.google.gson.Gson;
 import model.*;
 import model.menu.*;
@@ -36,7 +37,6 @@ public class Controller {
         Request request = new Request();
         initEverything();
         setCurrentMenu();
-        view.showMinions();
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -49,7 +49,7 @@ public class Controller {
     private void initEverything() {
         try {
             final String[] paths = {
-                    "HeroNames", "ItemNames", "SpellNames", "MinionNames" ,
+                    "HeroNames", "ItemNames", "SpellNames", "MinionNames",
             };
             for (String path : paths) {
                 File directory = new File(path);
@@ -80,7 +80,6 @@ public class Controller {
     }
 
 
-
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
         if (currentMenu.equals(MainMenu.getInstance())) {
@@ -104,10 +103,13 @@ public class Controller {
             if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
                 RegisterAccountFunction(accountMenu);
             } else if (RequestType.LOGIN.setMatcher(command).find()) {
-                String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
+                boolean ok = false;
+                while (!ok) {
+                    String username = RequestType.LOGIN.getMatcher().group(1);
                 view.enterPassword();
                 command = request.getNewCommand();
-                accountMenu.loginFunction(username, command, dataCenter);
+                    ok = accountMenu.loginFunction(username, command, dataCenter);
+                }
                 currentMenu = MainMenu.getInstance();
             } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
                 leaderBoard(dataCenter);
@@ -163,8 +165,7 @@ public class Controller {
         if (currentMenu.equals(battleMenu)) {
             if (gameStarted) {
 
-            }
-            else {
+            } else {
                 battleMenu.chooseBattleType(command);
             }
 
