@@ -4,14 +4,14 @@ import view.View;
 
 import java.util.ArrayList;
 
-class deck {
+class Deck {
 
     ArrayList<Card> cards;
     ArrayList<Card> hand;
     Item item = new Collectible();
     String name;
     View view = View.getInstance();
-    public deck(String name){
+    public Deck(String name){
         this.name = name;
     }
 

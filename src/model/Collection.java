@@ -1,7 +1,6 @@
 package model;
 
 import controller.Controller;
-import model.menu.AccountMenu;
 import model.menu.MainMenu;
 import view.Request;
 import view.View;
@@ -12,7 +11,7 @@ import java.util.Iterator;
 public class Collection {
     private ArrayList<Card> myCards;
     private ArrayList<Item> myItems;
-    private ArrayList<deck> myDecks;
+    private ArrayList<Deck> myDecks;
 
     View view = View.getInstance();
     Request request = new Request();
@@ -68,19 +67,19 @@ public class Collection {
     }
 
     public void createDeck(String name) {
-        for(deck item : myDecks){
+        for(Deck item : myDecks){
             if(item.getName().equals(name)){
                 view.deckAlreadyExists();
                 return;
             }
         }
-        deck deck = new deck(name);
+        Deck deck = new Deck(name);
         myDecks.add(deck);
     }
 
     public void deleteDeck(String name) {
-        Iterator<deck> iter = myDecks.iterator();
-        deck deck = new deck("");
+        Iterator<Deck> iter = myDecks.iterator();
+        Deck deck = new Deck("");
         while (iter.hasNext()){
             deck = iter.next();
             if(deck.getName().equals(name)){
@@ -96,8 +95,8 @@ public class Collection {
             view.cardNotInCollection();
             return;
         }
-        deck deck = new deck("");
-        for(deck item : myDecks){
+        Deck deck = new Deck("");
+        for(Deck item : myDecks){
             if(item.getName().equals(deckName)){
                 deck = item;
                 if(item.getCards().contains(card)){
@@ -129,8 +128,8 @@ public class Collection {
             view.itemNotInCollection();
             return;
         }
-        deck deck = new deck("");
-        for(deck deckItem : myDecks){
+        Deck deck = new Deck("");
+        for(Deck deckItem : myDecks){
             if(deckItem.getName().equals(deckName)){
                 deck = deckItem;
                 if(deckItem.getItem().equals(item)){
@@ -153,8 +152,8 @@ public class Collection {
 
     public void removeCardFromDeck(String cardID, String deckName) {
         Card card = Card.returnCardByName(cardID);
-        deck deck = new deck("");
-        for(deck deckItem : myDecks){
+        Deck deck = new Deck("");
+        for(Deck deckItem : myDecks){
             if(deckItem.getName().equals(deckName)){
                 deck = deckItem;
             }
@@ -167,8 +166,8 @@ public class Collection {
     }
 
     public void removeItemFromDeck(Item item, String deckName) {
-        deck deck = new deck("");
-        for(deck deckItem : myDecks){
+        Deck deck = new Deck("");
+        for(Deck deckItem : myDecks){
             if(deckItem.getName().equals(deckName)){
                 deck = deckItem;
             }
@@ -185,8 +184,8 @@ public class Collection {
     }
 
     public boolean validateDeck(String deckName) {
-        deck deck = new deck("");
-        for(deck deckItem : myDecks){
+        Deck deck = new Deck("");
+        for(Deck deckItem : myDecks){
             if(deckItem.getName().equals(deckName)){
                 deck = deckItem;
             }
@@ -199,8 +198,8 @@ public class Collection {
     }
 
     public void selectDeck(String deckName) {
-        deck deck = new deck("");
-        for(deck deckItem : myDecks){
+        Deck deck = new Deck("");
+        for(Deck deckItem : myDecks){
             if(deckItem.getName().equals(deckName)){
                 deck = deckItem;
             }
@@ -214,7 +213,7 @@ public class Collection {
 
     public void showAllDecks() {
         int i = 1;
-        for(deck deckItem : myDecks){
+        for(Deck deckItem : myDecks){
             view.printDeckName(i, deckItem.getName());
             this.showDeck(deckItem.getName());
             i++;
@@ -222,8 +221,8 @@ public class Collection {
     }
 
     public void showDeck(String deckName) {
-        deck deck = new deck("");
-        for(model.deck item : myDecks){
+        Deck deck = new Deck("");
+        for(Deck item : myDecks){
             if(item.getName().equals(deckName)){
                 deck = item;
                 break;
@@ -275,7 +274,7 @@ public class Collection {
         return myItems;
     }
 
-    public ArrayList<deck> getMyDecks() {
+    public ArrayList<Deck> getMyDecks() {
         return myDecks;
     }
 
