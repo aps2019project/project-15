@@ -291,6 +291,7 @@ public class View {
         for (Hero hero : dataCenter.getHeroes()) {
             System.out.println(hero);
         }
+        System.out.println("-----------------------------");
     }
 
     public void showSpells() {
@@ -300,6 +301,7 @@ public class View {
         for (Spell spell: dataCenter.getSpells()) {
             System.out.println(spell);
         }
+        System.out.println("-----------------------------");
     }
 
     public void showMinions() {
@@ -309,6 +311,7 @@ public class View {
         for (Minion minion : dataCenter.getMinions()){
             System.out.println(minion);
         }
+        System.out.println("-----------------------------");
     }
     public void saveEverything() {
         System.out.println("you saved everything!");
@@ -346,5 +349,29 @@ public class View {
         System.out.println("To exit, type 'exit' ");
         System.out.println("To logout, type 'logout' ");
         System.out.println("To save everything, type 'save' ");
+    }
+    public void itemOrCardIsNotInShop(){
+        System.out.println("No card or item with this name exists in shop");
+    }
+    public void notEnoughMoney(){
+        System.out.println("You don't have enough money");
+    }
+    public void tooManyItemsInMyCollection(){
+        System.out.println("You already have 3 items in your collection");
+    }
+    public void itemBought(){
+        System.out.println("Item is bought!");
+    }
+    public void cardBought(){
+        System.out.println("Card is bought!");
+    }
+    public void notOwnThisCardOrItem(){
+        System.out.println("You don't own any card or item with this name");
+    }
+    public void cardSold(){
+        System.out.println("Card is sold");
+    }
+    public void itemSold(){
+        System.out.println("Item is sold");
     }
 }

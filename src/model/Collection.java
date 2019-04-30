@@ -291,4 +291,26 @@ public class Collection {
         this.myItems.add(item);
         return true;
     }
+    public Card findCardInCollection(String name){
+        for(Card card : myCards){
+            if(card.getName().equals(name)){
+                return card;
+            }
+        }
+        return null;
+    }
+    public Item findItemInCollection(String name){
+        for(Item item : myItems){
+            if(item.getItemName().equals(name)){
+                return item;
+            }
+        }
+        return null;
+    }
+    public void removeCardFromCollection(Card card){
+        myCards.remove(card);
+    }
+    public void removeItemFromCollection(Item item){
+        myItems.remove(item);
+    }
 }
