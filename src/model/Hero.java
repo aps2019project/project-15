@@ -19,7 +19,7 @@ public class Hero extends Card {
 
     private Flag myFlag;
 
-    public void getFlag( Flag flag) {
+    public void getFlag(Flag flag) {
         hasFlag = true;
         flag.card = this;
     }
@@ -27,6 +27,11 @@ public class Hero extends Card {
 /*    public void keepFlag( Flag flag) {
         flag.setCurrentBlock(flag.getCurrentBlock());
     }*/
+
+    public void death() {
+
+    }
+
     public boolean getHasFlag() {
         return hasFlag;
     }

@@ -8,6 +8,7 @@ public abstract class Card {
     public String getName() {
         return name;
     }
+
     int attackArea;
 
     private String name;
@@ -16,6 +17,7 @@ public abstract class Card {
     private int cardID;
 
     int cardIdInGame;
+
     public void setX(int x) {
         this.x = x;
     }
@@ -48,16 +50,20 @@ public abstract class Card {
 
     */
 
-   /* public void setY(int y) {
-        this.y = y;
-    }
+    /* public void setY(int y) {
+         this.y = y;
+     }
 
-    */
+     */
+
+
 
     TypeOfCard typeOfAttack;
+
     public void setName(String name) {
         this.name = name;
     }
+
     public void setMp(int mp) {
         Mp = mp;
     }
@@ -107,7 +113,8 @@ public abstract class Card {
     }
 
     public static Card returnCardByName(String name) {
-        for (Card card : Shop.allCards) {
+        Shop shop = Shop.getInstance();
+        for (Card card : shop.allCards) {
             if (card.name.equals(name)) {
                 return card;
             }

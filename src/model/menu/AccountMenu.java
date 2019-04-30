@@ -1,15 +1,13 @@
 package model.menu;
 
-import controller.Controller;
-import controller.DataCenter;
+import model.DataCenter;
 import model.Account;
-import view.Request;
 import view.View;
 
 public class AccountMenu extends Menu {
     private static AccountMenu accountMenu = new AccountMenu();
 
-    View view = View.getInstance();
+    private View view = View.getInstance();
 
     public static AccountMenu getInstance() {
         return accountMenu;
@@ -36,7 +34,7 @@ public class AccountMenu extends Menu {
                     System.out.println(account.getUsername() + " logged in!");
                     loggedIn = true;
                 } else {
-                   view.incorrectPassword();
+                    view.incorrectPassword();
                 }
             } else {
                 view.alreadyLoggedIn();

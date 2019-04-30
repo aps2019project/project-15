@@ -1,12 +1,7 @@
 package view;
 
-import controller.Controller;
-import controller.DataCenter;
-import model.Account;
-import model.Battle;
-import model.menu.*;
+import model.DataCenter;
 
-import java.util.Collection;
 import java.util.Scanner;
 
 public class Request {

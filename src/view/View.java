@@ -1,13 +1,11 @@
 package view;
 
 import controller.Controller;
-import controller.DataCenter;
+import model.DataCenter;
 import model.*;
 import model.menu.CollectionMenu;
 import model.menu.ShopMenu;
 import model.Hero;
-
-import javax.xml.crypto.Data;
 
 
 public class View {

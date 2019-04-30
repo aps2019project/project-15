@@ -21,6 +21,8 @@ public class Controller {
     public static Menu currentMenu = new AccountMenu();
     private boolean finishGame = false;
     private static DataCenter dataCenter = DataCenter.getInstance();
+    private Shop shop = Shop.getInstance();
+
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
@@ -31,7 +33,6 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
-        setCurrentMenu();
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -43,6 +44,7 @@ public class Controller {
 
     private void initEverything() {
         try {
+            setCurrentMenu();
             final String[] paths = {
                     "HeroNames", "ItemNames", "SpellNames", "MinionNames",
             };
@@ -63,6 +65,7 @@ public class Controller {
                     }
                 }
             }
+            shop.addCard();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,7 +76,6 @@ public class Controller {
         T card = new Gson().fromJson(reader, classOfT);
         list.add(card);
     }
-
 
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();

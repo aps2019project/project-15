@@ -1,10 +1,8 @@
 package model;
 
-import controller.DataCenter;
 import view.View;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Account {
 
