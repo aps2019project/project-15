@@ -1,10 +1,5 @@
 package controller;
 
-
-/*
-import com.sun.tools.javac.Main;
-*/
-
 import com.google.gson.Gson;
 import model.*;
 import model.menu.*;
@@ -106,8 +101,8 @@ public class Controller {
                 boolean ok = false;
                 while (!ok) {
                     String username = RequestType.LOGIN.getMatcher().group(1);
-                view.enterPassword();
-                command = request.getNewCommand();
+                    view.enterPassword();
+                    command = request.getNewCommand();
                     ok = accountMenu.loginFunction(username, command, dataCenter);
                 }
                 currentMenu = MainMenu.getInstance();
@@ -162,6 +157,7 @@ public class Controller {
 
         BattleMenu battleMenu = BattleMenu.getInstance();
         boolean gameStarted = false;
+
         if (currentMenu.equals(battleMenu)) {
             if (gameStarted) {
 
@@ -269,5 +265,10 @@ public class Controller {
             view.emptyUsername();
         }
     }
+
+
+}
+
+class Person {
 
 }

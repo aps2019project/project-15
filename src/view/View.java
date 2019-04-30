@@ -383,4 +383,18 @@ public class View {
         }
         System.out.println("----------------------");
     }
+
+    public void incorrectPassword() {
+        System.out.println("your password is incorrect!");
+
+    }
+
+    public void alreadyLoggedIn() {
+        System.out.println("you have already logged in!");
+    }
+
+    public void welcome() {
+        System.out.println("welcome!!!");
+
+    }
 }

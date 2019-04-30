@@ -4,9 +4,12 @@ import controller.Controller;
 import controller.DataCenter;
 import model.Account;
 import view.Request;
+import view.View;
 
 public class AccountMenu extends Menu {
     private static AccountMenu accountMenu = new AccountMenu();
+
+    View view = View.getInstance();
 
     public static AccountMenu getInstance() {
         return accountMenu;
@@ -20,7 +23,7 @@ public class AccountMenu extends Menu {
         account.setLoggedIn(true);
 
         dataCenter.getAccounts().putIfAbsent(username, account);
-        System.out.println("welcome!!!");
+        view.welcome();
         return account;
     }
 
@@ -33,13 +36,13 @@ public class AccountMenu extends Menu {
                     System.out.println(account.getUsername() + " logged in!");
                     loggedIn = true;
                 } else {
-                    System.out.println("your password is incorrect!");
+                   view.incorrectPassword();
                 }
             } else {
-                System.out.println("you have already logged in!");
+                view.alreadyLoggedIn();
             }
         } else {
-            System.out.println("username is not valid");
+            view.invalidUsername();
         }
         return loggedIn;
     }
