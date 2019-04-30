@@ -154,9 +154,17 @@ public class Controller {
     }
 
     private void battleMenuRequest(String command) throws InputException {
+
         BattleMenu battleMenu = BattleMenu.getInstance();
+        boolean gameStarted = false;
         if (currentMenu.equals(battleMenu)) {
-            battleMenu.chooseBattleType(command);
+            if (gameStarted) {
+
+            }
+            else {
+                battleMenu.chooseBattleType(command);
+            }
+
         } else {
             throw new InputException("invalid command");
         }
