@@ -1,9 +1,10 @@
 package controller;
 
-import com.google.gson.Gson;
+
 /*
 import com.sun.tools.javac.Main;
 */
+import com.google.gson.Gson;
 import model.*;
 import model.menu.*;
 import view.InputException;
@@ -77,6 +78,8 @@ public class Controller {
         T card = new Gson().fromJson(reader, classOfT);
         list.add(card);
     }
+
+
 
     private void handleRequest(Menu currentMenu, String command) throws InputException {
         DataCenter dataCenter = DataCenter.getInstance();
