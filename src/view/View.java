@@ -291,6 +291,7 @@ public class View {
         for (Hero hero : dataCenter.getHeroes()) {
             System.out.println(hero);
         }
+        System.out.println("-----------------------------");
     }
 
     public void showSpells() {
@@ -300,6 +301,7 @@ public class View {
         for (Spell spell: dataCenter.getSpells()) {
             System.out.println(spell);
         }
+        System.out.println("-----------------------------");
     }
 
     public void showMinions() {
@@ -309,6 +311,7 @@ public class View {
         for (Minion minion : dataCenter.getMinions()){
             System.out.println(minion);
         }
+        System.out.println("-----------------------------");
     }
     public void saveEverything() {
         System.out.println("you saved everything!");
