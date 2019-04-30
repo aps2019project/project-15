@@ -48,7 +48,7 @@ public class Controller {
     private void initEverything() {
         try {
             final String[] paths = {
-                    "../HeroNames", "../ItemNames", "../SpellNames", "../MinionNames" ,
+                    "HeroNames", "ItemNames", "SpellNames", "MinionNames" ,
             };
             for (String path : paths) {
                 File directory = new File(path);

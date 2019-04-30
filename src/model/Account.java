@@ -62,7 +62,7 @@ public class Account {
     private boolean isSelected;
 
     private boolean loggedIn = false;
-    Collection myCollection;
+    private model.Collection myCollection;
     private int numOfWins;
     ArrayList<deck> myDecks;
     deck mainDeck;
@@ -114,12 +114,12 @@ public class Account {
     }
 
 
-    public void addMoney() {
-
+    public void addMoney(int money) {
+        this.money += money;
     }
 
-    public void reduceMoney() {
-
+    public void reduceMoney(int money) {
+        this.money -= money;
     }
 
 
@@ -140,5 +140,9 @@ public class Account {
 
     public void showMenu() {
         view.accountMenuHelp();
+    }
+
+    public model.Collection getMyCollection() {
+        return myCollection;
     }
 }
