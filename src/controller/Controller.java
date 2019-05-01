@@ -23,7 +23,6 @@ public class Controller {
     private static DataCenter dataCenter = DataCenter.getInstance();
     private Shop shop = Shop.getInstance();
 
-
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
     }
@@ -33,6 +32,8 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
+        view.showCollectionMenu();
+
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -90,7 +91,7 @@ public class Controller {
         } else if (currentMenu.equals(ShopMenu.getInstance())) {
             shopMenuRequest(command);
         } else {
-            throw new InputException("invalid command");
+            throw new InputException("Invalid command");
         }
     }
 
@@ -117,9 +118,9 @@ public class Controller {
                 finishGame = true;
             } else if (RequestType.HELP.setMatcher(command).find()) {
                 currentAccount.showMenu();
+            } else {
+                throw new InputException("Invalid command");
             }
-        } else {
-            throw new InputException("invalid command");
         }
     }
 
@@ -150,7 +151,7 @@ public class Controller {
                 view.logOutMessage();
                 currentMenu = AccountMenu.getInstance();
             } else {
-                throw new InputException("invalid command");
+                throw new InputException("Invalid command");
             }
         }
     }
@@ -168,7 +169,7 @@ public class Controller {
             }
 
         } else {
-            throw new InputException("invalid command");
+            throw new InputException("Invalid command");
         }
     }
 
@@ -202,9 +203,10 @@ public class Controller {
                 collection.showAllDecks();
             } else if (RequestType.SHOW_DECK.setMatcher(command).find()) {
                 collection.showDeck(RequestType.SHOW_DECK.getMatcher().group(1));
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
             }
         } else {
-            throw new InputException("invalid command");
+            throw new InputException("Invalid command");
         }
     }
 
@@ -222,7 +224,6 @@ public class Controller {
                 shop.searchInCollection(RequestType.SELL.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {
                 shop.show();
-                //view.allMinionAndSpellDeclaration();
             } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
                 shop.showCollection();
             } else if (RequestType.HELP.setMatcher(command).find()) {
@@ -245,32 +246,22 @@ public class Controller {
 
     private void RegisterAccountFunction(AccountMenu accountMenu) {
         String command;
-        if (!RequestType.CREATE_ACCOUNT.getMatcher().group(1).equals("")) {
-            String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
-            while (true) {
-                if (!dataCenter.getAccounts().keySet().contains(username)) {
-                    view.enterPassword();
-                    command = request.getNewCommand();
-                    if (command.length() >= 4) {
-                        Controller.currentAccount = accountMenu.register(username, command);
-                        currentMenu = MainMenu.getInstance();
-                        break;
-                    } else {
-                        view.shortPassword();
-                    }
-                } else {
-                    view.invalidUsername();
+        String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
+        while (true) {
+            if (!dataCenter.getAccounts().keySet().contains(username)) {
+                view.enterPassword();
+                command = request.getNewCommand();
+                if (command.length() >= 4) {
+                    Controller.currentAccount = accountMenu.register(username, command);
+                    currentMenu = MainMenu.getInstance();
                     break;
+                } else {
+                    view.shortPassword();
                 }
+            } else {
+                view.invalidUsername();
+                break;
             }
-        } else {
-            view.emptyUsername();
         }
     }
-
-
-}
-
-class Person {
-
 }

@@ -34,6 +34,10 @@ public class View {
         System.out.println("Show leaderboard");
     }
 
+    public void showCollectionMenu() {
+        System.out.println("Exit\nShow\nSearch [card name]\nSearch [item name]\nSave\nCreate deck[deck name]\nDelete deck[deck name]\nAdd [card id | item id | hero id] to deck [deck name]\nRemove [card id | item id | hero id] from deck [deck name]\nValidate deck [deck name]\nSelect deck [deck name]\nShow all decks\nShow deck [deck name]\nHelp\n");
+    }
+
     public void printError(InputException e) {
         System.out.println(e.getMessage());
     }
@@ -302,6 +306,14 @@ public class View {
         System.out.println("-----------------------------");
     }
 
+    public void showItems() {
+        System.out.println("Items: ");
+        DataCenter dataCenter = DataCenter.getInstance();
+        for (Item item : dataCenter.getItems()) {
+            System.out.println(item);
+        }
+        System.out.println("-----------------------------");
+    }
     public void showMinions() {
         System.out.println("Minions: ");
         System.out.println();
@@ -311,6 +323,7 @@ public class View {
         }
         System.out.println("-----------------------------");
     }
+
     public void saveEverything() {
         System.out.println("you saved everything!");
     }
@@ -338,7 +351,6 @@ public class View {
     public void exitShop() {
         System.out.println("you exited from shop!");
     }
-
 
     public void mainMenuHelp() {
         System.out.println("To enter collection, type 'enter collection' ");
@@ -369,17 +381,9 @@ public class View {
     public void cardSold(){
         System.out.println("Card is sold");
     }
+
     public void itemSold(){
         System.out.println("Item is sold");
-    }
-
-    public void showItems() {
-        System.out.println("Items: ");
-        DataCenter dataCenter = DataCenter.getInstance();
-        for (Item item : dataCenter.getItems()) {
-            System.out.println(item);
-        }
-        System.out.println("----------------------");
     }
 
     public void incorrectPassword() {
@@ -395,4 +399,5 @@ public class View {
         System.out.println("welcome!!!");
 
     }
+
 }

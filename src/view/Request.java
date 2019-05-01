@@ -13,13 +13,9 @@ public class Request {
         return this.command = scanner.nextLine().toLowerCase().trim();
     }
 
-    public int enteredNum(){
+    public int enteredNum() {
         return Integer.parseInt(scanner.nextLine().trim());
     }
-
-
-
-
 
     public void chooseBattleType() {
         DataCenter dataCenter = DataCenter.getInstance();
@@ -33,6 +29,4 @@ public class Request {
             System.out.println("you chose Custom Game!");
         }
     }
-
-
 }

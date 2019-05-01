@@ -31,8 +31,6 @@ public class Shop {
     }
 
     public void showCollection() {
-
-
     }
 
     public ArrayList<Card> getAllCards() {
@@ -135,7 +133,7 @@ public class Shop {
 
     public Card search(String name) {
         for (Card card : shop.allCards) {
-            if (card.getName().equals(name)){
+            if (card.getName().equals(name)) {
                 return card;
             }
         }
