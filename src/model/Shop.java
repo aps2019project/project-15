@@ -21,7 +21,6 @@ public class Shop {
     private ArrayList<Spell> allSpells = new ArrayList<>();
     private ArrayList<Hero> allHeroes = new ArrayList<>();
     static ArrayList<Usable> allUsables = new ArrayList<>();
-    Collection collection = new Collection();
     private View view = View.getInstance();
 
 
@@ -82,7 +81,6 @@ public class Shop {
 */
 
     public int searchInCollection(String name) {
-        Collection myCollection = new Collection();
         for (Card card : this.allCards
         ) {
             if (card.getName().equals(name)) {

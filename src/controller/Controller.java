@@ -32,8 +32,6 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
-        view.showCollectionMenu();
-
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -175,7 +173,7 @@ public class Controller {
 
     private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
         CollectionMenu collectionMenu = CollectionMenu.getInstance();
-        Collection collection = new Collection();
+        Collection collection = Collection.getInstance();
         if (currentMenu.equals(collectionMenu)) {
             if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
                 view.showCollection();
