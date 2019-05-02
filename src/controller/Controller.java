@@ -167,14 +167,19 @@ public class Controller {
         BattleMenu battleMenu = BattleMenu.getInstance();
         boolean gameStarted = false;
 
-        if (currentMenu.equals(battleMenu)) {
-            if (gameStarted) {
+        try {
+            while (currentMenu.equals(battleMenu)) {
+                if (gameStarted) {
+                    System.out.println("GAME IS LOADING!!!!!!!!");
+                    break;
+                } else {
+                    battleMenu.chooseBattleType(command);
+                    gameStarted = true;
+                }
 
-            } else {
-                battleMenu.chooseBattleType(command);
             }
-
-        } else {
+        }
+        catch (InputException e) {
             throw new InputException("Invalid command");
         }
     }
