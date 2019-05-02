@@ -462,4 +462,7 @@ public class View {
     public void remainingMoney() {
         System.out.println("remaining money: " + Controller.currentAccount.getMoney());
     }
+    public void deckIsNotValid(){
+        System.out.println("deck is not valid");
+    }
 }
