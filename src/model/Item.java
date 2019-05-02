@@ -54,10 +54,19 @@ public class Item {
 
     int y;
 
-    static Item getItemById(String id){
-        for(Item item : Shop.getInstance().getAllItems()){
-            if(item.getId().equals(id)){
-                return  item;
+    static Item getItemById(String id) {
+        for (Item item : Shop.getInstance().getAllItems()) {
+            if (item.getId().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    static Item getItemByName(String name) {
+        for (Item item : Shop.getInstance().getAllItems()) {
+            if (item.getItemName().equals(name)) {
+                return item;
             }
         }
         return null;

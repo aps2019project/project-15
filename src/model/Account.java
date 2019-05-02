@@ -17,7 +17,7 @@ public class Account {
     private boolean isSelected;
 
     private boolean loggedIn = false;
-    private model.Collection myCollection = new Collection();
+    private Collection myCollection = new Collection();
     private int numOfWins;
     private Deck mainDeck;
     ArrayList<Card> graveYard = new ArrayList<>();
@@ -90,8 +90,6 @@ public class Account {
     }
 
 
-
-
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
@@ -123,6 +121,10 @@ public class Account {
 
     public boolean soldCard(Card card) {
         return card.sold;
+    }
+
+    public void addCardToMyCollection(Card card) {
+        myCollection.addCardToCollection(card);
     }
 
 }

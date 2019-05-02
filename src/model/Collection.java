@@ -282,9 +282,10 @@ public class Collection {
         return myDecks;
     }
 
-    void adCardToCollection(Card card) {
+    void addCardToCollection(Card card) {
         this.myCards.add(card);
     }
+
 
     boolean addItemToCollection(Item item) {
         if (myItems.size() >= 3) {
@@ -295,19 +296,19 @@ public class Collection {
         return true;
     }
 
-    Card findCardInCollection(String name) {
-        for (Card card : myCards) {
-            if (card.getName().equals(name)) {
-                return card;
+    Card findCardInCollection(Card card) {
+        for (Card card1 : myCards) {
+            if (card1 == card ) {
+                return card1;
             }
         }
         return null;
     }
 
-    Item findItemInCollection(String name) {
-        for (Item item : myItems) {
-            if (item.getItemName().equals(name)) {
-                return item;
+    Item findItemInCollection(Item item) {
+        for (Item item1 : myItems) {
+            if (item1 == item) {
+                return item1;
             }
         }
         return null;

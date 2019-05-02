@@ -109,7 +109,7 @@ public class Shop {
             }
             if (card != null) {
                 Controller.currentAccount.reduceMoney(card.getPrice());
-                Controller.currentAccount.getMyCollection().adCardToCollection(card);
+                Controller.currentAccount.getMyCollection().addCardToCollection(card);
                 view.cardBought();
                 view.remainingMoney();
                 return;
@@ -149,24 +149,27 @@ public class Shop {
     }
 
     public void sell(String name) {
-        Card card = Controller.currentAccount.getMyCollection().findCardInCollection(name);
-        Item item = Controller.currentAccount.getMyCollection().findItemInCollection(name);
-        if (card.equals(null) && item.equals(null)) {
+        Card card = Card.returnCardByName(name);
+        Item item = Item.getItemByName(name);
+        card = Controller.currentAccount.getMyCollection().findCardInCollection(card);
+        item = Controller.currentAccount.getMyCollection().findItemInCollection(item);
+        if (card == null && item == null) {
             view.notOwnThisCardOrItem();
+            view.remainingMoney();
             return;
         }
-        if (!card.equals(null)) {
+        if (card != null) {
             Controller.currentAccount.sellCard(card);
             Controller.currentAccount.getMyCollection().removeCardFromCollection(card);
             Controller.currentAccount.addMoney(card.getPrice());
             view.cardSold();
+            view.remainingMoney();
             return;
         }
-        if (!item.equals(null)) {
-            Controller.currentAccount.getMyCollection().removeItemFromCollection(item);
-            Controller.currentAccount.addMoney(Integer.parseInt(item.getPrice()));
-            view.itemSold();
-        }
+        Controller.currentAccount.getMyCollection().removeItemFromCollection(item);
+        Controller.currentAccount.addMoney(Integer.parseInt(item.getPrice()));
+        view.itemSold();
+        view.remainingMoney();
     }
 
     public boolean isSold(String name) {
