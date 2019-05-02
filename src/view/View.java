@@ -215,70 +215,89 @@ public class View {
         System.out.println("No such card or item exists in collection");
     }
 
-    public void deckAlreadyExists(){
+    public void deckAlreadyExists() {
         System.out.println("A deck already exists with this name");
     }
-    public void cardNotInCollection(){
+
+    public void cardNotInCollection() {
         System.out.println("card is not in your collection");
     }
-    public void cardIsAlreadyInDeck(){
+
+    public void cardIsAlreadyInDeck() {
         System.out.println("card is already in deck");
     }
-    public void deckIsNotInCollection(){
+
+    public void deckIsNotInCollection() {
         System.out.println("deck with such name does not exist in collection");
     }
-    public void tooManyCardsInDeck(){
+
+    public void tooManyCardsInDeck() {
         System.out.println("there are already 20 cards in deck");
     }
-    public void heroInDeck(){
+
+    public void heroInDeck() {
         System.out.println("A hero is already in deck");
     }
-    public void itemNotInCollection(){
+
+    public void itemNotInCollection() {
         System.out.println("Item is not in your collection");
     }
-    public void itemIsAlreadyInDeck(){
+
+    public void itemIsAlreadyInDeck() {
         System.out.println("item is already in deck");
     }
-    public void tooManyItems(){
+
+    public void tooManyItems() {
         System.out.println("there is already an item in this deck");
     }
-    public void cardIsNotInDeck(){
+
+    public void cardIsNotInDeck() {
         System.out.println("selected card is not in this deck");
     }
-    public void itemIsNotInDeck(){
+
+    public void itemIsNotInDeck() {
         System.out.println("selected item is not in this deck");
     }
+
     public void tooManyItemsInCollection() {
         System.out.println("collection includes more than three items");
     }
-    public void printHeroStats(Hero hero, int i){
+
+    public void printHeroStats(Hero hero, int i) {
         System.out.printf("\t  %d : Name : %s _ AP : %d _ HP : %d _ Class : %s _Special power : %s _ Sell cost" +
                         " : %d\n", i, hero.getName(), hero.getAttackPower(), hero.getHealthLevel(), hero.getTypeOfAttack(),
                 hero.getDescription(), hero.getPrice());
     }
-    public void printSpellStats(Spell spell, int i){
+
+    public void printSpellStats(Spell spell, int i) {
         System.out.printf("\t  %d : Type : %s _ Name : %s _ MP : %d _ Desc : %s _ Sell cost : %d\n", i, spell.getTypeOfAttack(),
                 spell.getName(), spell.getMp(), spell.getDescription(), spell.getPrice());
     }
-    public void printMinionStats(Minion minion, int i){
+
+    public void printMinionStats(Minion minion, int i) {
         System.out.printf("\t  %d Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
                 , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
     }
-    public void printItemStats(Item item, int i){
+
+    public void printItemStats(Item item, int i) {
         System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),
                 item.getPrice());
     }
-    public void heroStats(){
+
+    public void heroStats() {
         System.out.println("Heroes : ");
     }
-    public void itemStats(){
+
+    public void itemStats() {
         System.out.println("Items : ");
     }
-    public void cardStats(){
+
+    public void cardStats() {
         System.out.println("Cards : ");
     }
-    public void printDeckName(int i, String deckName){
+
+    public void printDeckName(int i, String deckName) {
         System.out.printf("%d : %s : \n", i, deckName);
     }
 
@@ -300,7 +319,7 @@ public class View {
         DataCenter dataCenter = DataCenter.getInstance();
         System.out.println("Spells: ");
         System.out.println();
-        for (Spell spell: dataCenter.getSpells()) {
+        for (Spell spell : dataCenter.getSpells()) {
             System.out.println(spell);
         }
         System.out.println("-----------------------------");
@@ -314,11 +333,22 @@ public class View {
         }
         System.out.println("-----------------------------");
     }
+
+    public void showItemsInDeck(String name) {
+        Deck deck = Deck.returnDeckByName(name);
+        if (deck != null) {
+            if (deck.getItem() != null) {
+                System.out.println("Item: ");
+                System.out.println(deck.getItem());
+            }
+        }
+    }
+
     public void showMinions() {
         System.out.println("Minions: ");
         System.out.println();
         DataCenter dataCenter = DataCenter.getInstance();
-        for (Minion minion : dataCenter.getMinions()){
+        for (Minion minion : dataCenter.getMinions()) {
             System.out.println(minion);
         }
         System.out.println("-----------------------------");
@@ -360,29 +390,36 @@ public class View {
         System.out.println("To logout, type 'logout' ");
         System.out.println("To save everything, type 'save' ");
     }
-    public void itemOrCardIsNotInShop(){
+
+    public void itemOrCardIsNotInShop() {
         System.out.println("No card or item with this name exists in shop");
     }
-    public void notEnoughMoney(){
+
+    public void notEnoughMoney() {
         System.out.println("You don't have enough money");
     }
-    public void tooManyItemsInMyCollection(){
+
+    public void tooManyItemsInMyCollection() {
         System.out.println("You already have 3 items in your collection");
     }
-    public void itemBought(){
+
+    public void itemBought() {
         System.out.println("Item is bought!");
     }
-    public void cardBought(){
+
+    public void cardBought() {
         System.out.println("Card is bought!");
     }
-    public void notOwnThisCardOrItem(){
+
+    public void notOwnThisCardOrItem() {
         System.out.println("You don't own any card or item with this name");
     }
-    public void cardSold(){
+
+    public void cardSold() {
         System.out.println("Card is sold");
     }
 
-    public void itemSold(){
+    public void itemSold() {
         System.out.println("Item is sold");
     }
 
@@ -398,6 +435,14 @@ public class View {
     public void welcome() {
         System.out.println("welcome!!!");
 
+    }
+
+    public void itemAdded() {
+        System.out.println("Item added to deck");
+    }
+
+    public void cardAdded() {
+        System.out.println("Card added to deck");
     }
 
 }

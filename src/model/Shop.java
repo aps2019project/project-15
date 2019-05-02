@@ -20,7 +20,7 @@ public class Shop {
     private ArrayList<Minion> allMinions = new ArrayList<>();
     private ArrayList<Spell> allSpells = new ArrayList<>();
     private ArrayList<Hero> allHeroes = new ArrayList<>();
-    static ArrayList<Usable> allUsables = new ArrayList<>();
+    private static ArrayList<Usable> allUsables = new ArrayList<>();
     private View view = View.getInstance();
 
 
@@ -46,6 +46,10 @@ public class Shop {
 
     public ArrayList<Hero> getAllHeroes() {
         return allHeroes;
+    }
+
+    public static ArrayList<Usable> getAllUsables() {
+        return allUsables;
     }
 
     public void addCard() {
