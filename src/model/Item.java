@@ -55,7 +55,7 @@ public class Item {
     int y;
 
     static Item getItemById(String id){
-        for(Item item : Shop.getInstance().getAllUsables()){
+        for(Item item : Shop.getInstance().getAllItems()){
             if(item.getId().equals(id)){
                 return  item;
             }

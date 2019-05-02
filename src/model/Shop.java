@@ -20,7 +20,6 @@ public class Shop {
     private ArrayList<Minion> allMinions = new ArrayList<>();
     private ArrayList<Spell> allSpells = new ArrayList<>();
     private ArrayList<Hero> allHeroes = new ArrayList<>();
-    private static ArrayList<Usable> allUsables = new ArrayList<>();
     private ArrayList<Item> allItems = new ArrayList<>();
     private View view = View.getInstance();
 
@@ -49,8 +48,8 @@ public class Shop {
         return allHeroes;
     }
 
-    public static ArrayList<Usable> getAllUsables() {
-        return allUsables;
+    public ArrayList<Item> getAllItems() {
+        return allItems;
     }
 
     public void addCard() {
@@ -105,27 +104,28 @@ public class Shop {
     }
 
     public void buy(String name) {
+        System.out.println("boz");
         Card card = Card.returnCardByName(name);
         Item item = findItemByName(name);
-        if (card.equals(null) && item.equals(null)) {
+        if (card == null && item == null) {
             view.itemOrCardIsNotInShop();
             return;
         }
-        if (!card.equals(null) && card.price > Controller.currentAccount.getMoney()) {
+        if (card != null && card.price > Controller.currentAccount.getMoney()) {
             view.notEnoughMoney();
             return;
         }
-        if (!item.equals(null) && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
+        if (item != null && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
             view.tooManyItemsInMyCollection();
             return;
         }
-        if (!card.equals(null)) {
+        if (card != null) {
             Controller.currentAccount.reduceMoney(card.getPrice());
             Controller.currentAccount.getMyCollection().adCardToCollection(card);
             view.cardBought();
             return;
         }
-        if (!item.equals(null)) {
+        if (item != null) {
             Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
             Controller.currentAccount.getMyCollection().addItemToCollection(item);
             view.itemBought();
@@ -183,7 +183,7 @@ public class Shop {
     }
 
     private Item findItemByName(String name) {
-        for (Item item : allUsables) {
+        for (Item item : allItems) {
             if (item.getItemName().equals(name)) {
                 return item;
             }
