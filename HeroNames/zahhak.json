@@ -1,7 +1,0 @@
-{
-  "name": "zahhak",
-  "price": 10000,
-  "healthLevel": 50,
-  "attackPower": 2,
-  "counterAttack": "melee"
-}

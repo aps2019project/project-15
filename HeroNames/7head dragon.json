@@ -1,8 +1,0 @@
-{
-  "name": "7head dragon",
-  "price": 8000,
-  "Hp": 50,
-  "Ap": 4,
-  "counterAttack": "melee",
-  "description": "disarm 1 force"
-}

@@ -1,11 +1,1 @@
-{
-  "name": "rakhsh",
-  "price": 8000,
-  "healthLevel": 50,
-  "attackPower": 4,
-  "counterAttack": "melee",
-  "description": "stun an enemy\u0027s force for 1 turn",
-  "attackArea": 0,
-  "Mp": 1,
-  "coolDown": 2
-}
+{"name":"Rakhsh","id":"104","price":8000,"Hp":50,"Ap":4,"counterAttack":"melee","attackArea":0,"description":"stun an enemy force for 1 turn","manaSpecialPower":1,"coolDown":2}
