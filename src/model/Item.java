@@ -115,8 +115,6 @@ public class Item {
 
     }
 
-
-
     @Override
     public String toString() {
         String info = "itemName: " + this.getItemName() + "\n" + "ID: " + this.getId() + "\n" + "price: " + this.getPrice() + "\n" + "desc: " + this.getDesc() + "\n";
