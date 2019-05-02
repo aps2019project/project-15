@@ -36,6 +36,7 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
+
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -70,6 +71,9 @@ public class Controller {
             }
             shop.addCard();
             shop.addItem();
+            for (Minion minion : shop.getAllMinions()) {
+                minion.setCardID(minion.id);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,7 +134,8 @@ public class Controller {
     private void mainMenuRequest(String command) throws InputException {
         Menu mainMenu = MainMenu.getInstance();
         if (currentMenu.equals(mainMenu)) {
-            if (RequestType.SAVE.setMatcher(command).find()) {
+            if (RequestType.SAVE.setMatcher(command).find()) {    int id;
+
                 view.saveEverything();
             } else if (RequestType.LOGOUT.setMatcher(command).find()) {
                 view.logOutMessage();

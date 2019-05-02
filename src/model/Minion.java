@@ -16,6 +16,7 @@ public class Minion extends Card {
     private boolean hasFlag = false;
     private Flag myFlag;
 
+    public int id;
 
     public Minion(int id, int hp, int ap, int mp, String name, SpecialPowerActivation activationType, TypeOfCounterAttack attackType) {
         this.setCardID(id);
@@ -24,9 +25,15 @@ public class Minion extends Card {
         this.setMp(mp);
         this.activationType = activationType;
         this.attackType = attackType;
+        this.id = id;
     }
 
     int id = this.getCardID();
+
+    public void setCardId() {
+        this.setCardID(this.id);
+        this.id = this.getCardID();
+    }
 
     public void getFlag(Flag flag) {
 

@@ -145,7 +145,7 @@ public abstract class Card {
     }
 
     public int getCardID() {
-        return cardID;
+        return this.cardID;
     }
 
     public abstract void printStats(int i);
