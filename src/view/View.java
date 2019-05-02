@@ -399,5 +399,11 @@ public class View {
         System.out.println("welcome!!!");
 
     }
+    public void itemAdded(){
+        System.out.println("Item added to deck");
+    }
+    public void cardAdded(){
+        System.out.println("Card added to deck");
+    }
 
 }

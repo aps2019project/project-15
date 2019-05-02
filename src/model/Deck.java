@@ -1,5 +1,6 @@
 package model;
 
+import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ class Deck {
 
     public void addCard(Card card){
         this.cards.add(card);
+        view.cardAdded();
     }
     public void deleteCard(Card card){
         if(!this.cards.contains(card)){
@@ -27,6 +29,7 @@ class Deck {
     }
     public void addItem(Item item){
         this.item = item;
+        view.itemAdded();
     }
     public void deleteItem(Item item){
         if(!this.item.equals(item)){
@@ -71,5 +74,13 @@ return null;
 
     public Item getItem() {
         return item;
+    }
+    public static Deck returnDeckByName(String name){
+        for(Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()){
+            if(deck.name.equals(name)){
+                return deck;
+            }
+        }
+        return null;
     }
 }

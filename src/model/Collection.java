@@ -232,14 +232,8 @@ public class Collection {
     }
 
     public void showDeck(String deckName) {
-        Deck deck = new Deck("");
-        for(Deck item : myDecks){
-            if(item.getName().equals(deckName)){
-                deck = item;
-                break;
-            }
-        }
-        if(deck.getName().equals("")){
+        Deck deck = Deck.returnDeckByName(deckName);
+        if(deck.equals(null)){
             view.deckIsNotInCollection();
             return;
         }
