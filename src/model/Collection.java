@@ -198,14 +198,13 @@ public class Collection {
     }
 
     public void selectDeck(String deckName) {
-        Deck deck = new Deck("");
-        for (Deck deckItem : myDecks) {
-            if (deckItem.getName().equals(deckName)) {
-                deck = deckItem;
-            }
-        }
-        if (deck.getName().equals("")) {
+        Deck deck = Deck.returnDeckByName(deckName);
+        if (deck == null) {
             view.deckIsNotInCollection();
+            return;
+        }
+        if(!deck.validateDeck()){
+            view.deckIsNotValid();
             return;
         }
         Controller.currentAccount.setMainDeck(deck);
