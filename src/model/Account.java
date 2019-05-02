@@ -61,7 +61,7 @@ public class Account {
         this.password = password;
     }
 
-    int getMoney() {
+    public int getMoney() {
         return money;
     }
 
@@ -81,7 +81,6 @@ public class Account {
 
     }
 
-
     public void addMoney(int money) {
         this.money += money;
     }
@@ -89,6 +88,8 @@ public class Account {
     public void reduceMoney(int money) {
         this.money -= money;
     }
+
+
 
 
     public void setLoggedIn(boolean loggedIn) {
