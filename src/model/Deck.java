@@ -5,11 +5,11 @@ import view.View;
 
 import java.util.ArrayList;
 
-class Deck {
+public class Deck {
 
     ArrayList<Card> cards;
     ArrayList<Card> hand;
-    Item item = new Collectible();
+    Item item;
     String name;
     View view = View.getInstance();
     public Deck(String name){
@@ -28,6 +28,7 @@ class Deck {
         cards.remove(card);
     }
     public void addItem(Item item){
+
         this.item = item;
         view.itemAdded();
     }
@@ -76,7 +77,7 @@ return null;
         return item;
     }
     public static Deck returnDeckByName(String name){
-        for(Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()){
+        for(Deck deck : Controller.currentAccount.myDecks){
             if(deck.name.equals(name)){
                 return deck;
             }

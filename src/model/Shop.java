@@ -20,7 +20,8 @@ public class Shop {
     private ArrayList<Minion> allMinions = new ArrayList<>();
     private ArrayList<Spell> allSpells = new ArrayList<>();
     private ArrayList<Hero> allHeroes = new ArrayList<>();
-    static ArrayList<Usable> allUsables = new ArrayList<>();
+    private static ArrayList<Usable> allUsables = new ArrayList<>();
+    private ArrayList<Item> allItems = new ArrayList<>();
     private View view = View.getInstance();
 
 
@@ -48,6 +49,10 @@ public class Shop {
         return allHeroes;
     }
 
+    public static ArrayList<Usable> getAllUsables() {
+        return allUsables;
+    }
+
     public void addCard() {
         for (Hero hero : dataCenter.getHeroes()) {
             this.allCards.add(hero);
@@ -63,7 +68,12 @@ public class Shop {
             this.allSpells.add(spell);
         }
     }
+
+    public void addItem() {
+        this.allItems.addAll(dataCenter.getItems());
+    }
 /*
+
     public int searchInShop(String name) {
        if(Card.returnCardByName(name)== null)
        {
@@ -180,4 +190,6 @@ public class Shop {
         }
         return null;
     }
+
+
 }

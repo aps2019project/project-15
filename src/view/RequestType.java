@@ -47,7 +47,8 @@ public enum RequestType {
     VALIDATE("^validate (\\w+)$"),
     SELECT_DECK("^select deck (\\w+)$"),
     SHOW_ALL_DECKS("^show all decks$"),
-    SHOW_DECK("^show deck (\\w+)$");
+    SHOW_DECK("^show deck (\\w+)$"),
+    ADD_ITEM_TO_DECK("^add (\\w+) to (\\w+)$");
 
     private Pattern pattern;
     private Matcher matcher;
