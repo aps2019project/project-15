@@ -23,16 +23,16 @@ public class Controller {
     private boolean finishGame = false;
     private static DataCenter dataCenter = DataCenter.getInstance();
     private Shop shop = Shop.getInstance();
+    public static Account currentAccount = new Account();
+    public static Account enemyAccount = new Account();
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
     }
 
-    public static Controller getInstance(){
+    public static Controller getInstance() {
         return controller;
     }
-    public static Account currentAccount = new Account();
-    public static Account enemyAccount = new Account();
 
     public void main() {
         Request request = new Request();
@@ -134,7 +134,8 @@ public class Controller {
     private void mainMenuRequest(String command) throws InputException {
         Menu mainMenu = MainMenu.getInstance();
         if (currentMenu.equals(mainMenu)) {
-            if (RequestType.SAVE.setMatcher(command).find()) {    int id;
+            if (RequestType.SAVE.setMatcher(command).find()) {
+                int id;
 
                 view.saveEverything();
             } else if (RequestType.LOGOUT.setMatcher(command).find()) {
@@ -179,8 +180,7 @@ public class Controller {
                 }
 
             }
-        }
-        catch (InputException e) {
+        } catch (InputException e) {
             throw new InputException("Invalid command");
         }
     }
@@ -200,7 +200,7 @@ public class Controller {
             } else if (RequestType.SAVE_COLLECTION.setMatcher(command).find()) {
                 collection.save();
             } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
-                collection.cardOrItemToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1),RequestType.ADD_COLLECTION.getMatcher().group(2));
+                collection.cardOrItemToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1), RequestType.ADD_COLLECTION.getMatcher().group(2));
                 //collection.addCardToDeck(card , RequestType.ADD_COLLECTION.getMatcher().group(2));
             } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
                 collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));

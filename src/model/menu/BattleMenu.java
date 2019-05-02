@@ -25,6 +25,7 @@ public class BattleMenu extends Menu {
             System.out.println("multi player mode!");
             System.out.println("enter second player username: ");
             String secondUsername = request.getNewCommand();
+            Controller.enemyAccount.setUsername(secondUsername);
             addSecondPLayer(secondUsername);
         }
         else {
@@ -37,7 +38,9 @@ public class BattleMenu extends Menu {
         Account secondPlayer = new Account();
         secondPlayer.setUsername(secondUsername);
         System.out.println("enter second player password: ");
-        secondPlayer.setPassword(request.getNewCommand());
+        String password = request.getNewCommand();
+        secondPlayer.setPassword(password);
+        Controller.enemyAccount.setPassword(password);
         System.out.println("game is between " + account.getUsername() + " & " + secondPlayer.getUsername());
     }
 }

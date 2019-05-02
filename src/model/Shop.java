@@ -81,11 +81,6 @@ public class Shop {
         }
         return 0;
     }
-
-    public boolean isBought(String name) {
-        return true;
-    }
-
     public void buy(String name) {
         try {
 

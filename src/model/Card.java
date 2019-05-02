@@ -22,17 +22,10 @@ public abstract class Card {
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
     private int x;
 
     private int y;
+
     private Block currentBlock;
     boolean owned = false;
     boolean stunned = false;
@@ -41,19 +34,26 @@ public abstract class Card {
     int Mp;
     String range;
     int mp = this.Mp;
-
     int Hp;
+
     int healthLevel;
     int Ap;
-
     private boolean using = false;
+
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
    /* public void setX(int x) {
         this.x = x;
     }
 
     */
-
     /* public void setY(int y) {
          this.y = y;
      }

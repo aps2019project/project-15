@@ -18,6 +18,7 @@ public class Account {
     private boolean loggedIn = false;
     private Collection myCollection = new Collection();
     private int numOfWins;
+
     private Deck mainDeck;
     ArrayList<Card> graveYard = new ArrayList<>();
     ArrayList<History> historyGames = new ArrayList<>();
@@ -58,6 +59,10 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Deck getMainDeck() {
+        return mainDeck;
     }
 
     public int getMoney() {

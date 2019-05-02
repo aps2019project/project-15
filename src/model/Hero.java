@@ -12,7 +12,7 @@ public class Hero extends Card {
     int coolDown = 0;
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
-
+    int manaSpecialPower;
     public void attack() {
 
     }
@@ -58,7 +58,7 @@ public class Hero extends Card {
 
     @Override
     public String toString() {
-        String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.healthLevel + "\n" + "AP: " + this.Ap + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.Mp + "\n" + "coolDown: " + this.coolDown + "\n";
+        String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.Hp + "\n" + "AP: " + this.getAttackPower() + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.manaSpecialPower + "\n" + "coolDown: " + this.coolDown + "\n";
         return information;
     }
 }
