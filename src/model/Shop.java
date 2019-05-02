@@ -73,9 +73,8 @@ public class Shop {
     }
 
     public int searchInCollection(String name) {
-        for (Card card : this.allCards
-        ) {
-            if (card.getName().equals(name)) {
+        for (Card card : this.allCards) {
+            if (card.getName().equalsIgnoreCase(name)) {
                 return 1;
             }
         }

@@ -235,7 +235,7 @@ public class Controller {
             } else if (RequestType.SEARCH.setMatcher(command).find()) {
                 shop.search(RequestType.SEARCH.getMatcher().group(1));
             } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
-                shop.searchInCollection(RequestType.SELL.getMatcher().group(1));
+                shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {
                 shop.show();
             } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
