@@ -157,6 +157,9 @@ public abstract class Card {
     public void removeDiactivatedBuffs(Buff buff){
         activatedBuffs.remove(buff);
     }
+    public void addActivatedBuff(Buff buff){
+        activatedBuffs.add(buff);
+    }
 
     public abstract void printStats(int i);
 }
