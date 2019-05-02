@@ -22,7 +22,7 @@ public class Collection {
         Controller.currentMenu = MainMenu.getInstance();
     }
 
-    public void showCollection() {
+    public void showCollection() { //todo
         view.heroStats();
         int i = 1;
         for (Card item : myCards) {
@@ -242,7 +242,6 @@ public class Collection {
                 }
             }
         }
-        view.itemStats();
         int i = 1;
         //view.printItemStats(deck.getItem(), i);
         view.showItemsInDeck(deckName);
