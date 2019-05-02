@@ -353,7 +353,13 @@ public class View {
         }
         System.out.println("-----------------------------");
     }
-
+    public void modeGame(){
+        System.out.println("Single player mode!");
+        System.out.println("Story Mode?");
+        System.out.println("Custom Game?");
+    }
+    public void choseStoryMode(){System.out.println("you chose Story Mode!");}
+    public void choseCustomGame(){System.out.println("you chose Custom Game!");}
     public void saveEverything() {
         System.out.println("you saved everything!");
     }
