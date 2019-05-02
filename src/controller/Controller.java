@@ -140,7 +140,6 @@ public class Controller {
             } else if (RequestType.HELP.setMatcher(command).find()) {
                 view.mainMenuHelp();
             } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
-                Battle battle = new Battle();
                 view.enterBattle();
                 currentMenu = BattleMenu.getInstance();
             } else if (RequestType.EXIT.setMatcher(command).find()) {
@@ -202,6 +201,7 @@ public class Controller {
             } else if (RequestType.SHOW_DECK.setMatcher(command).find()) {
                 collection.showDeck(RequestType.SHOW_DECK.getMatcher().group(1));
             } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
+                view.showCollectionMenu();
             }
         } else {
             throw new InputException("Invalid command");

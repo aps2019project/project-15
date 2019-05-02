@@ -56,7 +56,7 @@ public class Collection {
         }
     }
 
-    public boolean hasCard(Card card) {
+    boolean hasCard(Card card) {
         if (this.getMyCards().contains(card)) return true;
         return false;
     }
@@ -233,9 +233,9 @@ public class Collection {
 
     public void showDeck(String deckName) {
         Deck deck = new Deck("");
-        for(Deck item : myDecks){
-            if(item.getName().equals(deckName)){
-                deck = item;
+        for(Deck deck2 : myDecks){
+            if(deck2.getName().equals(deckName)){
+                deck = deck2;
                 break;
             }
         }
@@ -277,11 +277,11 @@ public class Collection {
 
     }
 
-    public ArrayList<Card> getMyCards() {
+    private ArrayList<Card> getMyCards() {
         return myCards;
     }
 
-    public ArrayList<Item> getMyItems() {
+    ArrayList<Item> getMyItems() {
         return myItems;
     }
 
@@ -289,11 +289,11 @@ public class Collection {
         return myDecks;
     }
 
-    public void adCardToCollection(Card card) {
+    void adCardToCollection(Card card) {
         this.myCards.add(card);
     }
 
-    public boolean addItemToCollection(Item item) {
+    boolean addItemToCollection(Item item) {
         if(myItems.size() >= 3){
             view.tooManyItemsInCollection();
             return false;
@@ -301,7 +301,7 @@ public class Collection {
         this.myItems.add(item);
         return true;
     }
-    public Card findCardInCollection(String name){
+    Card findCardInCollection(String name){
         for(Card card : myCards){
             if(card.getName().equals(name)){
                 return card;
@@ -309,7 +309,7 @@ public class Collection {
         }
         return null;
     }
-    public Item findItemInCollection(String name){
+    Item findItemInCollection(String name){
         for(Item item : myItems){
             if(item.getItemName().equals(name)){
                 return item;
@@ -317,10 +317,10 @@ public class Collection {
         }
         return null;
     }
-    public void removeCardFromCollection(Card card){
+    void removeCardFromCollection(Card card){
         myCards.remove(card);
     }
-    public void removeItemFromCollection(Item item){
+    void removeItemFromCollection(Item item){
         myItems.remove(item);
     }
 }

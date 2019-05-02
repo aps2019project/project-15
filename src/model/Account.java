@@ -20,10 +20,10 @@ public class Account {
     private boolean loggedIn = false;
     private model.Collection myCollection;
     private int numOfWins;
-    ArrayList<Deck> myDecks;
-    Deck mainDeck;
-    ArrayList<Card> graveYard;
-    ArrayList<History> historyGames;
+    ArrayList<Deck> myDecks = new ArrayList<>();
+    private Deck mainDeck;
+    ArrayList<Card> graveYard = new ArrayList<>();
+    ArrayList<History> historyGames = new ArrayList<>();
     private boolean startGame = false;
 
     public Account() {
@@ -63,7 +63,7 @@ public class Account {
         this.password = password;
     }
 
-    public int getMoney() {
+    int getMoney() {
         return money;
     }
 
