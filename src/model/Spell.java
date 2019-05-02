@@ -10,6 +10,8 @@ public class Spell extends Card {
 
     public Spell(int hp) {
         this.setHp(hp);
+        buff = new Buff(this.description);
+        buff.card = this;
     }
 
     public void addToHp(int number) {
