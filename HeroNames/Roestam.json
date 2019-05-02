@@ -1,1 +1,12 @@
-{"name":"Roestam","id":"110","price":8000,"Hp":55,"Ap":7,"counterAttack":"hybrid","attackArea":4,"description":"","manaSpecialPower":0,"coolDown":0}
+{
+  "name": "Roestam",
+  "id": "110",
+  "price": 8000,
+  "Hp": 55,
+  "Ap": 7,
+  "counterAttack": "hybrid",
+  "attackArea": 4,
+  "description": "",
+  "manaSpecialPower": 0,
+  "coolDown": 0
+}

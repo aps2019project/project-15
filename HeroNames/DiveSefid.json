@@ -1,1 +1,12 @@
-{"name":"DiveSefid","id":"101","price":8000,"Hp":50,"Ap":4,"counterAttack":"melee","attackArea":0,"description":"applies a poweroff buff with 4 unit increment attack power on itself permanently","manaSpecialPower":1,"coolDown":2}
+{
+  "name": "DiveSefid",
+  "id": "101",
+  "price": 8000,
+  "Hp": 50,
+  "Ap": 4,
+  "counterAttack": "melee",
+  "attackArea": 0,
+  "description": "applies a poweroff buff with 4 unit increment attack power on itself permanently",
+  "manaSpecialPower": 1,
+  "coolDown": 2
+}

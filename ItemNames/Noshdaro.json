@@ -1,1 +1,6 @@
-{"itemName":"Noshdaro","id":"054","price":"collectible","desc":"increases random force health 6 units"}
+{
+  "itemName": "Noshdaro",
+  "id": "054",
+  "price": "collectible",
+  "desc": "increases random force health 6 units"
+}

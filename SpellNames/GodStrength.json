@@ -1,0 +1,8 @@
+{
+  "name": "GodStrength",
+  "price": 450,
+  "id": "155",
+  "mp": 2,
+  "range": "self hero",
+  "description": "add 4 units to hero ap"
+}

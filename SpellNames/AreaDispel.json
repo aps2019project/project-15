@@ -1,0 +1,8 @@
+{
+  "name": "AreaDispel",
+  "price": 1500,
+  "id": "152",
+  "mp": 2,
+  "range": "2*2 square",
+  "description": "destroys enemy\u0027s positive buffs and your own negetive buffs"
+}

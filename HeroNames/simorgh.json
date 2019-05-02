@@ -1,1 +1,12 @@
-{"name":"Simorgh","id":"102","price":9000,"Hp":50,"Ap":4,"counterAttack":"melee","attackArea":0,"description":"stun all enemy forces for 1 turn","manaSpecialPower":5,"coolDown":8}
+{
+  "name": "Simorgh",
+  "id": "102",
+  "price": 9000,
+  "Hp": 50,
+  "Ap": 4,
+  "counterAttack": "melee",
+  "attackArea": 0,
+  "description": "stun all enemy forces for 1 turn",
+  "manaSpecialPower": 5,
+  "coolDown": 8
+}

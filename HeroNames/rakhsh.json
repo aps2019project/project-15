@@ -1,1 +1,12 @@
-{"name":"Rakhsh","id":"104","price":8000,"Hp":50,"Ap":4,"counterAttack":"melee","attackArea":0,"description":"stun an enemy force for 1 turn","manaSpecialPower":1,"coolDown":2}
+{
+  "name": "Rakhsh",
+  "id": "104",
+  "price": 8000,
+  "Hp": 50,
+  "Ap": 4,
+  "counterAttack": "melee",
+  "attackArea": 0,
+  "description": "stun an enemy force for 1 turn",
+  "manaSpecialPower": 1,
+  "coolDown": 2
+}

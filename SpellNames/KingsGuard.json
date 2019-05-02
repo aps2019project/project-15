@@ -1,0 +1,8 @@
+{
+  "name": "KingsGuard",
+  "price": 1750,
+  "id": "169",
+  "mp": 9,
+  "range": "an enemy minion in 8 blocks radius",
+  "description": "kills the enemy"
+}

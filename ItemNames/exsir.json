@@ -1,1 +1,6 @@
-{"itemName":"exsir","id":"057","price":"collectible","desc":"add 3 units to hp and a power buff with 3 units of ap deacrease for a minion on random"}
+{
+  "itemName": "exsir",
+  "id": "057",
+  "price": "collectible",
+  "desc": "add 3 units to hp and a power buff with 3 units of ap deacrease for a minion on random"
+}

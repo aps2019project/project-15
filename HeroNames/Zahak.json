@@ -1,1 +1,12 @@
-{"name":"Zahak","id":"105","price":10000,"Hp":50,"Ap":2,"counterAttack":"melee","attackArea":0,"description":"on attack poisons the card for 3 turns","manaSpecialPower":0,"coolDown":0}
+{
+  "name": "Zahak",
+  "id": "105",
+  "price": 10000,
+  "Hp": 50,
+  "Ap": 2,
+  "counterAttack": "melee",
+  "attackArea": 0,
+  "description": "on attack poisons the card for 3 turns",
+  "manaSpecialPower": 0,
+  "coolDown": 0
+}

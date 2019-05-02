@@ -1,1 +1,8 @@
-{"name":"Weakening","price":1000,"mp":1,"range":"an enemy minion","description":"a weakness buff with 4 units of ap decrease"}
+{
+  "name": "Weakening",
+  "price": 1000,
+  "id": "167",
+  "mp": 1,
+  "range": "an enemy minion",
+  "description": "a weakness buff with 4 units of ap decrease"
+}

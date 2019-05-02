@@ -1,1 +1,8 @@
-{"name":"Madness","price":650,"mp":0,"range":"one of your own","description":"for 3 turns adds 4 units to ap of the one it was applied on but disarms itself"}
+{
+  "name": "Madness",
+  "price": 650,
+  "id": "159",
+  "mp": 0,
+  "range": "one of your own",
+  "description": "for 3 turns adds 4 units to ap of the one it was applied on but disarms itself"
+}

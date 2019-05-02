@@ -1,1 +1,8 @@
-{"name":"Fireball","price":400,"mp":1,"range":"one enemy","description":"reduces one enemy hp for 4 units"}
+{
+  "name": "Fireball",
+  "price": 400,
+  "id": "154",
+  "mp": 1,
+  "range": "one enemy",
+  "description": "reduces one enemy hp for 4 units"
+}
