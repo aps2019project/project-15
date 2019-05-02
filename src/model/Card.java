@@ -125,10 +125,9 @@ public abstract class Card {
         return null;
     }
 
-    public static Card returnCardById(String id) {
-        int cardId = Integer.parseInt(id);
+    public static Card returnCardById(int id) {
         for (Card card : Shop.getInstance().getAllCards()) {
-            if (card.cardID == cardId) {
+            if (card.cardID == id) {
                 return card;
             }
         }
@@ -154,7 +153,8 @@ public abstract class Card {
     public ArrayList<Buff> getActivatedBuffs() {
         return activatedBuffs;
     }
-    public void removeDiactivatedBuffs(Buff buff){
+
+    public void removeDiactivatedBuffs(Buff buff) {
         activatedBuffs.remove(buff);
     }
 

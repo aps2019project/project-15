@@ -17,6 +17,7 @@ public class Collection {
 
     View view = View.getInstance();
     Request request = new Request();
+
     public void exitCollection() {
         view.exitCollection();
         Controller.currentMenu = MainMenu.getInstance();
@@ -107,7 +108,7 @@ public class Collection {
         for (Deck deck1 : myDecks) {
             if (deck1.getName().equals(deckName)) {
                 deck = deck1;
-                if (deck1.getCards()!= null && deck1.getCards().contains(card)) {
+                if (deck1.getCards() != null && deck1.getCards().contains(card)) {
                     view.cardIsAlreadyInDeck();
                     return;
                 }
@@ -203,7 +204,7 @@ public class Collection {
             view.deckIsNotInCollection();
             return;
         }
-        if(!deck.validateDeck()){
+        if (!deck.validateDeck()) {
             view.deckIsNotValid();
             return;
         }
@@ -298,7 +299,7 @@ public class Collection {
 
     Card findCardInCollection(Card card) {
         for (Card card1 : myCards) {
-            if (card1 == card ) {
+            if (card1 == card) {
                 return card1;
             }
         }
@@ -322,14 +323,13 @@ public class Collection {
         myItems.remove(item);
     }
 
-    public void cardOrItemToDeck(String id, String deckName){
+    public void cardOrItemToDeck(int id, String deckName) {
         Card card = Card.returnCardById(id);
         Item item = Item.getItemById(id);
-        if(card != null){
+        if (card != null) {
             System.out.println("it is card");
             addCardToDeck(card, deckName);
-        }
-        else if(item != null){
+        } else if (item != null) {
             System.out.println("it is item");
             addItemToDeck(item, deckName);
         }

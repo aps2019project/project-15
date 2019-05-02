@@ -10,7 +10,7 @@ enum typeOfItem {
 public class Item {
 
     String itemName;
-    String id;
+    int id;
     String desc;
     String price;
 
@@ -37,7 +37,7 @@ public class Item {
 
     static ArrayList<Item> items = new ArrayList<>();
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -54,9 +54,9 @@ public class Item {
 
     int y;
 
-    static Item getItemById(String id) {
+    static Item getItemById(int id) {
         for (Item item : Shop.getInstance().getAllItems()) {
-            if (item.getId().equals(id)) {
+            if (item.getId() == id) {
                 return item;
             }
         }
@@ -93,7 +93,7 @@ public class Item {
         return using;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
