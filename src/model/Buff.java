@@ -22,7 +22,12 @@ public class Buff {
 
     public Buff(String description) {
         type = getTypeFromDesc(description);
-        unit = getUnitsFromDesc(description);
+        if(this.card.getName().equalsIgnoreCase("sacrifice")){
+            unit = this.card.Hp;
+        }
+        else {
+            unit = getUnitsFromDesc(description);
+        }
         if(description.contains("hp")){
             hpEffected = true;
         }
@@ -38,11 +43,17 @@ public class Buff {
         if(matcher.find()) {
             return Integer.parseInt(matcher.group(1));
         }
+        if(description.contains("infinite")){
+            return Integer.MAX_VALUE;
+        }
         return 1;
     }
     private int getDurationFromDesc(String description){
         Pattern pattern = Pattern.compile("(\\d+) turn");
         Matcher matcher = pattern.matcher(description);
+        if(this.card.getName().equalsIgnoreCase("HealthWithProfit")){
+            return 0;
+        }
         if(matcher.find()){
             return Integer.parseInt(matcher.group(1));
         }
@@ -105,6 +116,12 @@ public class Buff {
                 if (apEffected) {
                     card.Ap++;
                 }
+                if(this.card.getName().equalsIgnoreCase("Madness")){
+                    madnessEffectOnSelf();
+                }
+                if(this.card.getName().equalsIgnoreCase("Sacrifice")){
+                    sacrificeEffectOnSelf();
+                }
                 break;
             case poison:
                 card.Hp--;
@@ -115,6 +132,9 @@ public class Buff {
                 }
                 if (apEffected) {
                     card.Ap--;
+                }
+                if(this.card.getName().equalsIgnoreCase("HealthWithProfit")){
+                    healthWithProfitEffectOnSlf();
                 }
                 break;
             case stun:
@@ -128,7 +148,7 @@ public class Buff {
                    areaDispelEffect();
                }
                else if(card.getName().equalsIgnoreCase("Dispel")){
-
+                   dispelEffect(card);
                }
         }
     }
@@ -168,6 +188,21 @@ public class Buff {
                 enemyCard.removeDiactivatedBuffs(buff);
             }
         }
+    }
+    private void healthWithProfitEffectOnSlf(){
+        Buff buff = new Buff("Has 2 Holy buffs");
+        this.card.addActivatedBuff(buff);
+        buff.buffEffect(this.card);
+    }
+    private void madnessEffectOnSelf(){
+        Buff buff = new Buff("disarm");
+        this.card.addActivatedBuff(buff);
+        buff.buffEffect(this.card);
+    }
+    private void sacrificeEffectOnSelf(){
+        Buff buff = new Buff("weakness buff with infinite hp decrease");
+        this.card.addActivatedBuff(buff);
+        buff.buffEffect(this.card);
     }
 }
 
