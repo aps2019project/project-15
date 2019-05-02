@@ -36,10 +36,7 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
-        /*for (Minion minion : shop.getAllMinions()) {
-            System.out.println(minion);
-            //System.out.println("id: " + minion.getCardID() );
-        }*/
+
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -74,6 +71,9 @@ public class Controller {
             }
             shop.addCard();
             shop.addItem();
+            for (Minion minion : shop.getAllMinions()) {
+                minion.setCardID(minion.id);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
