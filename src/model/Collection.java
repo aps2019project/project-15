@@ -104,10 +104,10 @@ public class Collection {
             return;
         }
         Deck deck = new Deck("");
-        for (Deck item : myDecks) {
-            if (item.getName().equals(deckName)) {
-                deck = item;
-                if (item.getCards().contains(card)) {
+        for (Deck deck1 : myDecks) {
+            if (deck1.getName().equals(deckName)) {
+                deck = deck1;
+                if (deck1.getCards()!= null && deck1.getCards().contains(card)) {
                     view.cardIsAlreadyInDeck();
                     return;
                 }

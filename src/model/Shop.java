@@ -104,37 +104,44 @@ public class Shop {
     }
 
     public void buy(String name) {
-        Card card = Card.returnCardByName(name);
-        Item item = findItemByName(name);
-        if (card == null && item == null) {
-            view.itemOrCardIsNotInShop();
-            return;
-        }
-        if (card != null && card.price > Controller.currentAccount.getMoney()) {
-            view.notEnoughMoney();
-            return;
-        }
-        if (item != null && Integer.parseInt(item.price) > Controller.currentAccount.getMoney()) {
-            view.notEnoughMoney();
-            return;
-        }
-        if (item != null && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
-            view.tooManyItemsInMyCollection();
-            return;
-        }
-        if (card != null) {
-            Controller.currentAccount.reduceMoney(card.getPrice());
-            Controller.currentAccount.getMyCollection().adCardToCollection(card);
-            view.cardBought();
-            return;
-        }
-        if (item != null) {
-            if (item.getPrice().matches("[0-9]+")) {
-                Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
+        try {
+
+            Card card = Card.returnCardByName(name);
+            Item item = findItemByName(name);
+            if (card == null && item == null) {
+                view.itemOrCardIsNotInShop();
+                return;
             }
-            Controller.currentAccount.getMyCollection().addItemToCollection(item);
-            view.itemBought();
-            view.remainingMoney();
+            if (card != null && card.price > Controller.currentAccount.getMoney()) {
+                view.notEnoughMoney();
+                return;
+            }
+            if (item != null && Integer.parseInt(item.price) > Controller.currentAccount.getMoney()) {
+                view.notEnoughMoney();
+                return;
+            }
+            if (item != null && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
+                view.tooManyItemsInMyCollection();
+                return;
+            }
+            if (card != null) {
+                Controller.currentAccount.reduceMoney(card.getPrice());
+                Controller.currentAccount.getMyCollection().adCardToCollection(card);
+                view.cardBought();
+                view.remainingMoney();
+                return;
+            }
+            if (item != null) {
+                if (item.getPrice().matches("[0-9]+")) {
+                    Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
+                }
+                Controller.currentAccount.getMyCollection().addItemToCollection(item);
+                view.itemBought();
+                view.remainingMoney();
+            }
+        } catch (NumberFormatException e) {
+            e.getMessage();
+            throw new NumberFormatException("you can not buy a collectible!!!");
         }
     }
 
