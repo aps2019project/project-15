@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Hero extends Card {
     static ArrayList<Hero> heroes = new ArrayList<>();
+    int id;
+
     Buff buff;
     int coolDown = 0;
     TypeOfCounterAttack counterAttack;

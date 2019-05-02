@@ -125,9 +125,12 @@ public class Shop {
             return;
         }
         if (item != null) {
-            Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
+            if (item.getPrice().matches("[0-9]+")) {
+                Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
+            }
             Controller.currentAccount.getMyCollection().addItemToCollection(item);
             view.itemBought();
+            view.remainingMoney();
         }
     }
 

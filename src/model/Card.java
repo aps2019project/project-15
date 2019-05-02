@@ -115,7 +115,7 @@ public abstract class Card {
     public static Card returnCardByName(String name) {
         Shop shop = Shop.getInstance();
         for (Card card : shop.allCards) {
-            if (card.name.equals(name)) {
+            if (card.name.equalsIgnoreCase(name)) {
                 return card;
             }
         }
@@ -125,7 +125,7 @@ public abstract class Card {
     public static Card returnCardById(String id) {
         int cardId = Integer.parseInt(id);
         for (Card card : Shop.getInstance().getAllCards()) {
-            if (card.getCardID() == cardId) {
+            if (card.cardID == cardId) {
                 return card;
             }
         }
@@ -145,7 +145,7 @@ public abstract class Card {
     }
 
     public int getCardID() {
-        return cardID;
+        return this.cardID;
     }
 
     public abstract void printStats(int i);
