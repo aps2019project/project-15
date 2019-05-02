@@ -19,14 +19,12 @@ public class Request {
 
     public void chooseBattleType() {
         DataCenter dataCenter = DataCenter.getInstance();
-        System.out.println("Single player mode!");
-        System.out.println("Story Mode?");
-        System.out.println("Custom Game?");
+       view.modeGame();
         getNewCommand();
         if (command.equals("story mode")) {
-            System.out.println("you chose Story Mode!");
+            view.choseStoryMode();
         } else if (command.equals("custom game")) {
-            System.out.println("you chose Custom Game!");
+            view.choseCustomGame();
         }
     }
 }
