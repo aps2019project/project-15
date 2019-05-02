@@ -28,6 +28,7 @@ public class Minion extends Card {
         this.id = id;
     }
 
+    int id = this.getCardID();
 
     public void setCardId() {
         this.setCardID(this.id);

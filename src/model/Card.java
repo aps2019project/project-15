@@ -125,7 +125,7 @@ public abstract class Card {
     public static Card returnCardById(String id) {
         int cardId = Integer.parseInt(id);
         for (Card card : Shop.getInstance().getAllCards()) {
-            if (card.getCardID() == cardId) {
+            if (card.cardID == cardId) {
                 return card;
             }
         }
