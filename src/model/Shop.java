@@ -114,6 +114,10 @@ public class Shop {
             view.notEnoughMoney();
             return;
         }
+        if (item != null && Integer.parseInt(item.price) > Controller.currentAccount.getMoney()) {
+            view.notEnoughMoney();
+            return;
+        }
         if (item != null && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
             view.tooManyItemsInMyCollection();
             return;

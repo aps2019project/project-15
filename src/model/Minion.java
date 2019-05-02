@@ -27,9 +27,6 @@ public class Minion extends Card {
         this.attackType = attackType;
         this.id = id;
     }
-
-    int id = this.getCardID();
-
     public void setCardId() {
         this.setCardID(this.id);
         this.id = this.getCardID();
