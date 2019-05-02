@@ -58,7 +58,6 @@ public abstract class Card {
      */
 
 
-
     TypeOfCard typeOfAttack;
 
     public void setName(String name) {
@@ -117,6 +116,16 @@ public abstract class Card {
         Shop shop = Shop.getInstance();
         for (Card card : shop.allCards) {
             if (card.name.equals(name)) {
+                return card;
+            }
+        }
+        return null;
+    }
+
+    public static Card returnCardById(String id) {
+        int cardId = Integer.parseInt(id);
+        for (Card card : Shop.getInstance().getAllCards()) {
+            if (card.getCardID() == cardId) {
                 return card;
             }
         }

@@ -298,7 +298,7 @@ public class View {
     }
 
     public void printDeckName(int i, String deckName) {
-        System.out.printf("%d : %s : \n", i, deckName);
+        System.out.printf("%d : %s \n", i, deckName);
     }
 
     public void showCollection() {

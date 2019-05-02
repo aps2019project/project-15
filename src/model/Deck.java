@@ -9,7 +9,7 @@ public class Deck {
 
     ArrayList<Card> cards;
     ArrayList<Card> hand;
-    Item item = new Collectible();
+    Item item;
     String name;
     View view = View.getInstance();
     public Deck(String name){
@@ -28,6 +28,7 @@ public class Deck {
         cards.remove(card);
     }
     public void addItem(Item item){
+
         this.item = item;
         view.itemAdded();
     }

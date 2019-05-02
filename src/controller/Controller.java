@@ -186,7 +186,8 @@ public class Controller {
             } else if (RequestType.SAVE_COLLECTION.setMatcher(command).find()) {
                 collection.save();
             } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
-                collection.addCardToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1), RequestType.ADD_COLLECTION.getMatcher().group(2));
+                collection.cardOrItemToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1),RequestType.ADD_COLLECTION.getMatcher().group(2));
+                //collection.addCardToDeck(card , RequestType.ADD_COLLECTION.getMatcher().group(2));
             } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
                 collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
             } else if (RequestType.CREATE_DECK.setMatcher(command).find()) {

@@ -54,6 +54,15 @@ public class Item {
 
     int y;
 
+    static Item getItemById(String id){
+        for(Item item : Shop.getInstance().getAllUsables()){
+            if(item.getId().equals(id)){
+                return  item;
+            }
+        }
+        return null;
+    }
+
     public boolean isCollected() {
         return collected;
     }
@@ -105,6 +114,8 @@ public class Item {
     public void use(int x, int y) {
 
     }
+
+
 
     @Override
     public String toString() {
