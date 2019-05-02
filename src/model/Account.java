@@ -8,7 +8,6 @@ public class Account {
 
     Battle battle = new Battle();
     private View view = View.getInstance();
-    ArrayList<Deck> allDecks = new ArrayList<>();
     Game game;
     Shop shop;
 
@@ -18,9 +17,8 @@ public class Account {
     private boolean isSelected;
 
     private boolean loggedIn = false;
-    private model.Collection myCollection;
+    private model.Collection myCollection = new Collection();
     private int numOfWins;
-    ArrayList<Deck> myDecks = new ArrayList<>();
     private Deck mainDeck;
     ArrayList<Card> graveYard = new ArrayList<>();
     ArrayList<History> historyGames = new ArrayList<>();
@@ -125,4 +123,5 @@ public class Account {
     public boolean soldCard(Card card) {
         return card.sold;
     }
+
 }

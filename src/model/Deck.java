@@ -77,7 +77,7 @@ return null;
         return item;
     }
     public static Deck returnDeckByName(String name){
-        for(Deck deck : Controller.currentAccount.myDecks){
+        for(Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()){
             if(deck.name.equals(name)){
                 return deck;
             }

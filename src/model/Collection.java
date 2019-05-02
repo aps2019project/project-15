@@ -10,19 +10,13 @@ import java.util.Iterator;
 
 public class Collection {
 
-    private static Collection collection = new Collection();
-
-    public static Collection getInstance() {
-        return collection;
-    }
-
     private ArrayList<Card> myCards = new ArrayList<>();
     private ArrayList<Item> myItems = new ArrayList<>();
-    private ArrayList<Deck> myDecks = Controller.currentAccount.myDecks;
+    private ArrayList<Deck> myDecks = new ArrayList<>();
+
 
     View view = View.getInstance();
     Request request = new Request();
-
     public void exitCollection() {
         view.exitCollection();
         Controller.currentMenu = MainMenu.getInstance();
@@ -80,7 +74,7 @@ public class Collection {
     }
 
     public void createDeck(String name) {
-        if (Controller.currentAccount.myDecks != null) {
+        if (Controller.currentAccount.getMyCollection().getMyDecks() != null) {
             for (Deck item : myDecks) {
                 if (item.getName().equals(name)) {
                     view.deckAlreadyExists();

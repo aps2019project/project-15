@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class Controller {
 
     private Request request = new Request();
+    private static Controller controller = new Controller();
     private View view = View.getInstance();
     public static Menu currentMenu = new AccountMenu();
     private boolean finishGame = false;
@@ -27,6 +28,9 @@ public class Controller {
         currentMenu = AccountMenu.getInstance();
     }
 
+    public static Controller getInstance(){
+        return controller;
+    }
     public static Account currentAccount = new Account();
 
     public void main() {
@@ -173,7 +177,7 @@ public class Controller {
 
     private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
         CollectionMenu collectionMenu = CollectionMenu.getInstance();
-        Collection collection = Collection.getInstance();
+        Collection collection = Controller.currentAccount.getMyCollection();
         if (currentMenu.equals(collectionMenu)) {
             if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
                 view.showCollection();
