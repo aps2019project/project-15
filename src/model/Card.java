@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 enum TypeOfCard {
     Minion, Spell, Hero
 }
@@ -17,6 +19,7 @@ public abstract class Card {
     private int cardID;
 
     int cardIdInGame;
+    ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
 
     public void setX(int x) {
@@ -146,6 +149,13 @@ public abstract class Card {
 
     public int getCardID() {
         return this.cardID;
+    }
+
+    public ArrayList<Buff> getActivatedBuffs() {
+        return activatedBuffs;
+    }
+    public void removeDiactivatedBuffs(Buff buff){
+        activatedBuffs.remove(buff);
     }
 
     public abstract void printStats(int i);

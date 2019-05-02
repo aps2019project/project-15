@@ -32,6 +32,7 @@ public class Controller {
         return controller;
     }
     public static Account currentAccount = new Account();
+    public static Account enemyAccount = new Account();
 
     public void main() {
         Request request = new Request();

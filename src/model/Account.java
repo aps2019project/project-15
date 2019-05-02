@@ -9,7 +9,6 @@ public class Account {
     Battle battle = new Battle();
     private View view = View.getInstance();
     Game game;
-    Shop shop;
 
     private String username;
     private String password;
@@ -121,10 +120,6 @@ public class Account {
 
     public boolean soldCard(Card card) {
         return card.sold;
-    }
-
-    public void addCardToMyCollection(Card card) {
-        myCollection.addCardToCollection(card);
     }
 
 }
