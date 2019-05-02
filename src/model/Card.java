@@ -115,7 +115,7 @@ public abstract class Card {
     public static Card returnCardByName(String name) {
         Shop shop = Shop.getInstance();
         for (Card card : shop.allCards) {
-            if (card.name.equals(name)) {
+            if (card.name.equalsIgnoreCase(name)) {
                 return card;
             }
         }

@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
-    private static Controller controller = new Controller();
+    private static Controller controller = Controller.getInstance();
 
     public static void main(String[] args) {
         Controller controller = new Controller();

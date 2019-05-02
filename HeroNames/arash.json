@@ -1,11 +1,1 @@
-{
-  "name": "arash",
-  "price": 10000,
-  "healthLevel": 30,
-  "attackPower": 2,
-  "counterAttack": "ranged",
-  "description": "4 unit attack to all forces ich exist at hero\u0027s row",
-  "attackArea": 6,
-  "Mp": 2,
-  "coolDown": 2
-}
+{"name":"Arash","id":"107","price":10000,"Hp":30,"Ap":2,"counterAttack":"ranged","attackArea":6,"description":"4 unit attack to all forces ich exist at hero row","manaSpecialPower":2,"coolDown":2}

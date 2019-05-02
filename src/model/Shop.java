@@ -104,7 +104,6 @@ public class Shop {
     }
 
     public void buy(String name) {
-        System.out.println("boz");
         Card card = Card.returnCardByName(name);
         Item item = findItemByName(name);
         if (card == null && item == null) {
@@ -183,8 +182,8 @@ public class Shop {
     }
 
     private Item findItemByName(String name) {
-        for (Item item : allItems) {
-            if (item.getItemName().equals(name)) {
+        for (Item item : DataCenter.getInstance().getItems()) {
+            if (item.getItemName().equalsIgnoreCase(name)) {
                 return item;
             }
         }
