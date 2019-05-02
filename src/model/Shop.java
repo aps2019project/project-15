@@ -71,23 +71,6 @@ public class Shop {
     public void addItem() {
         this.allItems.addAll(dataCenter.getItems());
     }
-/*
-
-    public int searchInShop(String name) {
-       if(Card.returnCardByName(name)== null)
-       {
-           if(Card.returnCardItemName(name)==null);
-           {
-               //show this card dosen't exist
-           }
-               //show id item
-       }
-       //show id card(minion or spell or hero)
-
-        return 0;
-
-    }
-*/
 
     public int searchInCollection(String name) {
         for (Card card : this.allCards
