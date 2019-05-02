@@ -1,1 +1,6 @@
-{"itemName":"MajoneMana","id":"058","price":"collectible","desc":"at the next turn increases 3 mana"}
+{
+  "itemName": "MajoneMana",
+  "id": "058",
+  "price": "collectible",
+  "desc": "at the next turn increases 3 mana"
+}

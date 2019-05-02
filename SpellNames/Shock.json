@@ -1,1 +1,8 @@
-{"name":"Shock","price":1200,"mp":1,"range":"one enemy power","description":"is stunned for 2 turns"}
+{
+  "name": "Shock",
+  "price": 1200,
+  "id": "170",
+  "mp": 1,
+  "range": "one enemy power",
+  "description": "is stunned for 2 turns"
+}

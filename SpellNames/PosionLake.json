@@ -1,0 +1,8 @@
+{
+  "name": "PosionLake",
+  "price": 900,
+  "id": "158",
+  "mp": 5,
+  "range": "3*3 square",
+  "description": "for 1 turn makes the block poison blocks"
+}

@@ -1,1 +1,12 @@
-{"name":"EzhdehaHaftSar","id":"103","price":8000,"Hp":50,"Ap":4,"counterAttack":"melee","attackArea":0,"description":"disarm 1 force","manaSpecialPower":0,"coolDown":1}
+{
+  "name": "EzhdehaHaftSar",
+  "id": "103",
+  "price": 8000,
+  "Hp": 50,
+  "Ap": 4,
+  "counterAttack": "melee",
+  "attackArea": 0,
+  "description": "disarm 1 force",
+  "manaSpecialPower": 0,
+  "coolDown": 1
+}

@@ -1,1 +1,6 @@
-{"itemName":"GhosleTamid","id":"069","price":"20000","desc":"Every minion when spawn up to two turns take holy buff"}
+{
+  "itemName": "GhosleTamid",
+  "id": "069",
+  "price": "20000",
+  "desc": "Every minion when spawn up to two turns take holy buff"
+}

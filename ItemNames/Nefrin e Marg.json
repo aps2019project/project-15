@@ -1,1 +1,6 @@
-{"itemName":"NefrineMarg","id":"060","price":"collectible","desc":"Give a random minion the ability to At death 8 randomly hit one Enter the nearest person"}
+{
+  "itemName": "NefrineMarg",
+  "id": "060",
+  "price": "collectible",
+  "desc": "Give a random minion the ability to At death 8 randomly hit one Enter the nearest person"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "PowerUp",
+  "price": 2500,
+  "id": "164",
+  "mp": 2,
+  "range": "our force",
+  "description": "a power buff with 6 units of ap increase"
+}

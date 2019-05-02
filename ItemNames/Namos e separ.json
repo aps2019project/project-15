@@ -1,1 +1,6 @@
-{"itemName":"Namosesepar","id":"052","price":"4000","desc":"activates 12 holy buffs in self hero"}
+{
+  "itemName": "Namosesepar",
+  "id": "052",
+  "price": "4000",
+  "desc": "activates 12 holy buffs in self hero"
+}

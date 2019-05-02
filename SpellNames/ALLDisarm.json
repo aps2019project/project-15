@@ -1,0 +1,8 @@
+{
+  "name": "AllDisarm",
+  "price": 2000,
+  "id": "160",
+  "mp": 9,
+  "range": "all of enemy powers",
+  "description": "for one turn disarms them all"
+}

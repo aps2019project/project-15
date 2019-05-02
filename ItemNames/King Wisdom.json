@@ -1,1 +1,6 @@
-{"itemName":"KingWisdom","id":"064","price":"9000","desc":"for all turns add 1 mana"}
+{
+  "itemName": "KingWisdom",
+  "id": "064",
+  "price": "9000",
+  "desc": "for all turns add 1 mana"
+}
