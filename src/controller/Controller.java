@@ -65,6 +65,7 @@ public class Controller {
                 }
             }
             shop.addCard();
+            shop.addItem();
         } catch (IOException e) {
             e.printStackTrace();
         }

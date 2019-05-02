@@ -21,6 +21,7 @@ public class Shop {
     private ArrayList<Spell> allSpells = new ArrayList<>();
     private ArrayList<Hero> allHeroes = new ArrayList<>();
     private static ArrayList<Usable> allUsables = new ArrayList<>();
+    private ArrayList<Item> allItems = new ArrayList<>();
     private View view = View.getInstance();
 
 
@@ -67,7 +68,12 @@ public class Shop {
             this.allSpells.add(spell);
         }
     }
+
+    public void addItem() {
+        this.allItems.addAll(dataCenter.getItems());
+    }
 /*
+
     public int searchInShop(String name) {
        if(Card.returnCardByName(name)== null)
        {
@@ -184,4 +190,6 @@ public class Shop {
         }
         return null;
     }
+
+
 }
