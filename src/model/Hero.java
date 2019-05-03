@@ -81,4 +81,10 @@ public class Hero extends Card {
             card.stunned = true;
         }
     }
+
+    private void Arash(Card card) {
+    }
+
+    private void Afsane(Card card) {
+    }
 }

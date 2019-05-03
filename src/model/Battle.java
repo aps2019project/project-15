@@ -48,8 +48,6 @@ public class Battle {
     }
 */
 
-    Map map;
-
     public Battle() {
 
     }
@@ -92,7 +90,7 @@ public class Battle {
 
     }
 
-    public void showhand() {
+    public void showHand() {
 
     }
 
@@ -105,7 +103,6 @@ public class Battle {
     }
 
     public void help() {
-
         view.showMinionsYouCanMove();
         view.showMinionsYouCanAttack();
         view.showMinionsYouCanAttack();

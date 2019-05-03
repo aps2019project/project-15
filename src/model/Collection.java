@@ -55,8 +55,7 @@ public class Collection {
     }
 
     boolean hasCard(Card card) {
-        if (this.getMyCards().contains(card)) return true;
-        return false;
+        return this.getMyCards().contains(card);
     }
 
     public void searchInCollection() {
@@ -150,9 +149,8 @@ public class Collection {
 
     }
 
-
-    public void removeCardFromDeck(String cardID, String deckName) {
-        Card card = Card.returnCardByName(cardID);
+    public void removeCardFromDeck(int cardID, String deckName) {
+        Card card = Card.returnCardById(cardID);
         Deck deck = new Deck("");
         for (Deck deckItem : myDecks) {
             if (deckItem.getName().equals(deckName)) {
@@ -166,7 +164,8 @@ public class Collection {
         deck.deleteCard(card);
     }
 
-    public void removeItemFromDeck(Item item, String deckName) {
+    public void removeItemFromDeck(int id ,String deckName) {
+        Item item = Item.getItemById(id);
         Deck deck = new Deck("");
         for (Deck deckItem : myDecks) {
             if (deckItem.getName().equals(deckName)) {
@@ -328,6 +327,18 @@ public class Collection {
         } else if (item != null) {
             System.out.println("it is item");
             addItemToDeck(item, deckName);
+        }
+    }
+
+    public void removeCardOrItemFromDeck(String group, String group1) {
+        Card card = Card.returnCardByName(group);
+        Item item = Item.getItemByName(group);
+        if (card!= null) {
+            this.removeCardFromDeck(Integer.parseInt(group), group1);
+
+        }
+        else if (item != null){
+            this.removeItemFromDeck(Integer.parseInt(group), group1);
         }
     }
 }

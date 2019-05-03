@@ -16,12 +16,10 @@ class Block {
     }
 
     public Card cardContain() {
-
         return null;
     }
 
     public boolean isEmpty() {
-
         return isEmpty;
     }
 
