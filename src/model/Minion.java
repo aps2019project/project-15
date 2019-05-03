@@ -1,10 +1,12 @@
 package model;
 
+import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
 
 import static java.lang.Math.abs;
+import static java.lang.Math.min;
 
 
 public class Minion extends Card {
@@ -66,10 +68,18 @@ public class Minion extends Card {
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
             }
+            if(this.activationType.equals(SpecialPowerActivation.onAttack)){
+                specialPowerActing(card);
+            }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;
                 if (minion.canCounterAttack(this)) {
                     minion.counterAttack(this);
+                }
+                if(minion.activationType.equals(SpecialPowerActivation.onDeath)){
+                    if(minion.healthLevel <= 0){
+                        minion.specialPowerActing(this);
+                    }
                 }
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
@@ -78,14 +88,48 @@ public class Minion extends Card {
             }
         }
     }
-
+    public void specialPowerActing(Card card){
+        this.buff.buffEffect(card);
+    }
     public void counterAttack(Card card) {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
             }
+            if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                Minion minion = (Minion) card;
+                if(minion.activationType.equals(SpecialPowerActivation.onDeath)){
+                    if(minion.healthLevel <= 0){
+                        minion.specialPowerActing(this);
+                    }
+                }
+                if(minion.activationType.equals(SpecialPowerActivation.onDefend)){
+                    minion.specialPowerActing(this);
+                }
+            }
         }
+    }
+    public boolean specialPowerActivation(){
+        switch (this.activationType){
+            case onRespawn:
+                if(Controller.currentAccount.getCardsInGame().contains(this) || Controller.enemyAccount.getCardsInGame().contains(this)){
+                    return true;
+                }
+                break;
+            case onAttack:
+                //can only be called from attack
+                return false;
+            case Passive:
+                return true;
+            case onDeath:
+                //can only be called from attack after hp turned to 0
+                return false;
+            case onDefend:
+                //can only be called from counter attack
+                return false;
+        }
+        return false;
     }
 
     public boolean canCounterAttack(Card card) {
