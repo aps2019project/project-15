@@ -3,10 +3,10 @@
   "id": "009",
   "price": 600,
   "mp": 1,
-  "Hp": 4,
+  "Hp": 0,
   "Ap": 4,
-  "attackType": "jybrid",
-  "range": "3",
+  "attackType": "hibrid",
+  "range": 3,
   "activationType": "",
   "activationTime": ""
 }

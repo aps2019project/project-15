@@ -3,10 +3,10 @@
   "id": "007",
   "price": 500,
   "mp": 1,
-  "Hp": 3,
+  "Hp": 0,
   "Ap": 4,
   "attackType": "ranged",
-  "range": "5",
+  "range": 5,
   "activationType": "",
   "activationTime": ""
 }

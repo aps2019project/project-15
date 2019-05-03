@@ -1,0 +1,12 @@
+{
+  "name": "KamandareFars",
+  "id": "001",
+  "price": 300,
+  "mp": 2,
+  "Hp": 0,
+  "Ap": 4,
+  "attackType": "ranged",
+  "range": 7,
+  "activationType": "",
+  "activationTime": ""
+}

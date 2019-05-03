@@ -3,10 +3,10 @@
   "id": "010",
   "price": 700,
   "mp": 4,
-  "Hp": 6,
+  "Hp": 0,
   "Ap": 6,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "Force the enemy for 1 round disarm and for 4 rounds Poisoning",
   "activationTime": "On Attack"
 }

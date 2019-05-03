@@ -3,10 +3,10 @@
   "id": "026",
   "price": 550,
   "mp": 6,
-  "Hp": 6,
+  "Hp": 0,
   "Ap": 6,
   "attackType": "ranged",
-  "range": "5",
+  "range": 5,
   "activationType": "gives itself and each self minion in 8 neighbour blocks a power buff with 2 units of ap increase and a holy buff continiously",
-  "activationTime": "passive"
+  "activationTime": "Passive"
 }

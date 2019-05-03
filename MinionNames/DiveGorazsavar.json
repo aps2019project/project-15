@@ -3,10 +3,10 @@
   "id": "016",
   "price": 300,
   "mp": 6,
-  "Hp": 16,
+  "Hp": 0,
   "Ap": 8,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "",
   "activationTime": ""
 }

@@ -3,10 +3,10 @@
   "id": "033",
   "price": 500,
   "mp": 4,
-  "Hp": 6,
+  "Hp": 0,
   "Ap": 20,
   "attackType": "ranged",
-  "range": "3",
+  "range": 3,
   "activationType": "",
   "activationTime": ""
 }

@@ -3,10 +3,10 @@
   "id": "029",
   "price": 400,
   "mp": 8,
-  "Hp": 20,
+  "Hp": 0,
   "Ap": 12,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "can not be poisoned",
   "activationTime": "On Defend"
 }

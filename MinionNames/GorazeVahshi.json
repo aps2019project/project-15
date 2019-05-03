@@ -3,10 +3,10 @@
   "id": "028",
   "price": 500,
   "mp": 6,
-  "Hp": 10,
+  "Hp": 0,
   "Ap": 14,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "can not be disarmed",
   "activationTime": "On Defend"
 }

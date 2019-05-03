@@ -3,10 +3,10 @@
   "id": "002",
   "price": 400,
   "mp": 2,
-  "Hp": 6,
+  "Hp": 0,
   "Ap": 4,
   "attackType": "melee",
-  "range": "",
-  "activationType": "stun",
-  "activationTime": "On Attack"
+  "range": 0,
+  "activationType": "Stun",
+  "activationTime": "on Attack"
 }

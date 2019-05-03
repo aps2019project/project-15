@@ -1,12 +1,12 @@
 {
-  "name": "KamandareFars",
-  "id": "001",
+  "name": "GhooleSangandaz",
+  "id": "014",
   "price": 300,
-  "mp": 2,
-  "Hp": 6,
-  "Ap": 4,
+  "mp": 9,
+  "Hp": 0,
+  "Ap": 12,
   "attackType": "ranged",
-  "range": "7",
+  "range": 7,
   "activationType": "",
   "activationTime": ""
 }

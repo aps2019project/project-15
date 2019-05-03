@@ -3,10 +3,10 @@
   "id": "031",
   "price": 450,
   "mp": 8,
-  "Hp": 16,
+  "Hp": 0,
   "Ap": 9,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "on random reduces 16 units from an enemy minion",
   "activationTime": "On Spawn"
 }

@@ -3,10 +3,10 @@
   "id": "023",
   "price": 400,
   "mp": 4,
-  "Hp": 6,
+  "Hp": 0,
   "Ap": 2,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "the next turn of its attack to a minion the minion loses 8 hp",
   "activationTime": "On Attack"
 }

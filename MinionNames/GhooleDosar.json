@@ -3,10 +3,10 @@
   "id": "035",
   "price": 550,
   "mp": 4,
-  "Hp": 10,
+  "Hp": 0,
   "Ap": 4,
   "attackType": "melee",
-  "range": "",
+  "range": 0,
   "activationType": "the attacked force will lose all positive effects",
-  "activationTime": "ON Attack"
+  "activationTime": "On Attack"
 }

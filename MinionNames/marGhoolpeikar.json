@@ -3,10 +3,10 @@
   "id": "021",
   "price": 500,
   "mp": 8,
-  "Hp": 14,
+  "Hp": 0,
   "Ap": 7,
   "attackType": "ranged",
-  "range": "5",
+  "range": 5,
   "activationType": "minions in 2 blocks radius are effected by plus 1 ap",
   "activationTime": "On Spawn"
 }
