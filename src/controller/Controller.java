@@ -182,7 +182,8 @@ public class Controller {
             } else if (RequestType.BUY.setMatcher(command).find()) {
                 shop.buy(RequestType.BUY.getMatcher().group(1));
             } else if (RequestType.SEARCH.setMatcher(command).find()) {
-                shop.search(RequestType.SEARCH.getMatcher().group(1));
+                int cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
+                view.showCardId(cardID);
             } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
                 shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {
