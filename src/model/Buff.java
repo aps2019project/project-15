@@ -5,10 +5,6 @@ import controller.Controller;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-enum TypesOfBuff {
-    holy, power, poison, weakness, stun, disarm, specialCase
-}
-
 
 public class Buff {
     private boolean activated = false;
@@ -113,7 +109,7 @@ public class Buff {
     }
 
     public boolean isStillActivated() {
-        return Controller.currentAccount.game.getCurrentTurn() < startTurn + duration;
+        return Controller.currentAccount.game.getTurn() < startTurn + duration;
     }
 
     public void effect() {
@@ -122,7 +118,7 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
-        if (Controller.currentAccount.game.getCurrentTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
+        if (Controller.currentAccount.game.getTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
             //todo check if they are still activated
             switch (this.type) {
                 case holy:

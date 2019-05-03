@@ -4,14 +4,6 @@ import controller.Controller;
 
 import java.util.ArrayList;
 
-enum ModeOfGame {
-    StoryMode, killOpponent, keepFlag, CollectFlags
-}
-
-enum GameType {
-    SinglePlayer, MultiPlayer
-}
-
 public class Game {
 
     private Map map = new Map();
@@ -27,7 +19,7 @@ public class Game {
     ArrayList<Account> accounts;
     ArrayList<Card> cardsInGame;
     ArrayList<Card> graveYard;
-    int turn = (int) (Math.random() % 2 + 1);
+    private int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;
 
@@ -36,7 +28,7 @@ public class Game {
     }
 
 
-    public Account setaccounts() {
+    public Account setAccounts() {
         if (this.gameType.equals(GameType.MultiPlayer)) {
             Account player2 = new Account();
             return player2;
@@ -152,7 +144,13 @@ public class Game {
         return turn;
     }
 
-    public int getCurrentTurn() {
-        return currentTurn;
+    public void switchTurn() {
+        if (this.turn == 1) {
+            this.turn = 2;
+        }
+        else if (this.turn == 2) {
+            this.turn = 1;
+        }
     }
+
 }
