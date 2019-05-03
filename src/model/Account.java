@@ -10,6 +10,9 @@ public class Account {
     private View view = View.getInstance();
     Game game;
 
+
+    ArrayList<Card> cardsInGame = new ArrayList<>();
+
     private String username;
     private String password;
     private int money = 15000;
@@ -26,6 +29,19 @@ public class Account {
 
     public Account() {
 
+    }
+
+
+    public ArrayList<Card> getCardsInGame() {
+        return cardsInGame;
+    }
+
+    public void addCardInGame(Card card) {
+        cardsInGame.add(card);
+    }
+
+    public void removeCardInGame(Card card) {
+        cardsInGame.remove(card);
     }
 
     public static Account returnAccountByName(String username) {

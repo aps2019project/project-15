@@ -1,5 +1,6 @@
 package model;
 
+import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
@@ -69,5 +70,15 @@ public class Hero extends Card {
     public String toString() {
         String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.Hp + "\n" + "AP: " + this.getAttackPower() + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.manaSpecialPower + "\n" + "coolDown: " + this.coolDown + "\n";
         return information;
+    }
+
+    public void diveSefid() {
+
+    }
+
+    public void simorgh() {
+        for (Card card : Controller.enemyAccount.getCardsInGame()) {
+            card.stunned = true;
+        }
     }
 }
