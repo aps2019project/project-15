@@ -166,5 +166,5 @@ public abstract class Card {
     }
 
     public abstract void printStats(int i);
-
+    public abstract void attack(Card card);
 }

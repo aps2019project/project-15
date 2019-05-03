@@ -10,7 +10,7 @@ import static java.lang.Math.abs;
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Spell specialPower;
-    int range ;
+    int range;
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
     String activationTime;
@@ -35,6 +35,7 @@ public class Minion extends Card {
         this.attackType = attackType;
         this.id = id;
     }
+
     public void setCardId() {
         this.setCardID(this.id);
         this.id = this.getCardID();
@@ -52,46 +53,61 @@ public class Minion extends Card {
         return this.specialPower;
     }
 
-    public void attack(Card cards) {
-
+    public void attack(Card card) {
+        if (this.isInRange(card)) {
+            card.healthLevel -= this.Ap;
+            if (card.healthLevel < 0) {
+                card.healthLevel = 0;
+            }
+            if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
+                Minion minion = (Minion) card;
+                if (minion.canCounterAttack(this)) {
+                    minion.counterAttack(this);
+                }
+            }
+            if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                Hero hero = (Hero) card;
+                //todo call hero counter attack
+            }
+        }
     }
-    public boolean canCounterAttack(Card card){
-        if(this.attackType.equals(TypeOfCounterAttack.hybrid)){
-       return isInRange(card);
+
+    public void counterAttack(Card card) {
+        if (this.isInRange(card)) {
+            card.healthLevel -= this.Ap;
+            if (card.healthLevel < 0) {
+                card.healthLevel = 0;
+            }
+        }
+    }
+
+    public boolean canCounterAttack(Card card) {
+        if (this.attackType.equals(TypeOfCounterAttack.hybrid)) {
+            return isInRange(card);
         }
         boolean isNeighbor = this.isInNeighborBlocks(card);
         boolean isInRange = this.isInRange(card);
-        if(this.attackType.equals(TypeOfCounterAttack.melee)){
-            if(isNeighbor && isInRange){
+        if (this.attackType.equals(TypeOfCounterAttack.melee)) {
+            if (isNeighbor && isInRange) {
                 return true;
             }
             return false;
         }
-        if(this.attackType.equals(TypeOfCounterAttack.ranged)){
-            if(isInRange && !isNeighbor){
+        if (this.attackType.equals(TypeOfCounterAttack.ranged)) {
+            if (isInRange && !isNeighbor) {
                 return true;
             }
             return false;
         }
         return false;
     }
-    private boolean isInRange(Card card){
+
+    private boolean isInRange(Card card) {
         return abs(this.getCurrentBlock().x - card.getCurrentBlock().x) + abs(this.getCurrentBlock().y - card.getCurrentBlock().y) <= range;
     }
-    private boolean isInNeighborBlocks(Card card){
-        if(card.getCurrentBlock().x == this.getCurrentBlock().x && card.getCurrentBlock().y - this.getCurrentBlock().y == 1){
-            return true;
-        }
-        if(card.getCurrentBlock().x == this.getCurrentBlock().x &&  this.getCurrentBlock().y - card.getCurrentBlock().y == 1){
-            return true;
-        }
-        if(card.getCurrentBlock().y == this.getCurrentBlock().y && card.getCurrentBlock().x - this.getCurrentBlock().x == 1){
-            return true;
-        }
-        if(card.getCurrentBlock().y == this.getCurrentBlock().y &&  this.getCurrentBlock().x - card.getCurrentBlock().x == 1){
-            return true;
-        }
-        return false;
+
+    private boolean isInNeighborBlocks(Card card) {
+        return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }
 
     public void keepFlag(Flag flag) {

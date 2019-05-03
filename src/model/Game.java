@@ -76,8 +76,10 @@ public class Game {
     public void incrementNumOfMp() {
 
     }
-
     public void addMp() {
+
+    }
+    public void updateGraveYard(){
 
     }
 
