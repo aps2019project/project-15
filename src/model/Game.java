@@ -19,8 +19,6 @@ public class Game {
 
 
     public Game() {
-        Account player1 = new Account();
-        setaccounts();;
     }
 
     private GameType gameType;

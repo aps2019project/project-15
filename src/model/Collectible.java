@@ -84,5 +84,4 @@ public class Collectible extends Item {
         }
         return null;
     }
-
 }

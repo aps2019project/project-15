@@ -4,11 +4,13 @@ import view.View;
 
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+
 
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Spell specialPower;
-    ArrayList<Block> range = new ArrayList<>();
+    int range ;
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
     String activationTime;
@@ -74,10 +76,7 @@ public class Minion extends Card {
         return false;
     }
     private boolean isInRange(Card card){
-        if(this.range.contains(card.getCurrentBlock())){
-            return true;
-        }
-        return false;
+        return abs(this.getCurrentBlock().x - card.getCurrentBlock().x) + abs(this.getCurrentBlock().y - card.getCurrentBlock().y) <= range;
     }
     private boolean isInNeighborBlocks(Card card){
         if(card.getCurrentBlock().x == this.getCurrentBlock().x && card.getCurrentBlock().y - this.getCurrentBlock().y == 1){
