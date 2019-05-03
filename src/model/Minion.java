@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Spell specialPower;
-    //ArrayList<Block> range = new ArrayList<>();
+    ArrayList<Block> range = new ArrayList<>();
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
     String activationTime;
@@ -44,8 +44,49 @@ public class Minion extends Card {
         return this.specialPower;
     }
 
-    public void attack() {
+    public void attack(Card cards) {
 
+    }
+    public boolean canCounterAttack(Card card){
+        if(this.attackType.equals(TypeOfCounterAttack.hybrid)){
+       return isInRange(card);
+        }
+        boolean isNeighbor = this.isInNeighborBlocks(card);
+        boolean isInRange = this.isInRange(card);
+        if(this.attackType.equals(TypeOfCounterAttack.melee)){
+            if(isNeighbor && isInRange){
+                return true;
+            }
+            return false;
+        }
+        if(this.attackType.equals(TypeOfCounterAttack.ranged)){
+            if(isInRange && !isNeighbor){
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+    private boolean isInRange(Card card){
+        if(this.range.contains(card.getCurrentBlock())){
+            return true;
+        }
+        return false;
+    }
+    private boolean isInNeighborBlocks(Card card){
+        if(card.getCurrentBlock().x == this.getCurrentBlock().x && card.getCurrentBlock().y - this.getCurrentBlock().y == 1){
+            return true;
+        }
+        if(card.getCurrentBlock().x == this.getCurrentBlock().x &&  this.getCurrentBlock().y - card.getCurrentBlock().y == 1){
+            return true;
+        }
+        if(card.getCurrentBlock().y == this.getCurrentBlock().y && card.getCurrentBlock().x - this.getCurrentBlock().x == 1){
+            return true;
+        }
+        if(card.getCurrentBlock().y == this.getCurrentBlock().y &&  this.getCurrentBlock().x - card.getCurrentBlock().x == 1){
+            return true;
+        }
+        return false;
     }
 
     public void keepFlag(Flag flag) {

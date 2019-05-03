@@ -161,5 +161,9 @@ public abstract class Card {
         activatedBuffs.add(buff);
     }
 
+    public Block getCurrentBlock() {
+        return currentBlock;
+    }
+
     public abstract void printStats(int i);
 }
