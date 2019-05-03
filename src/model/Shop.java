@@ -104,6 +104,7 @@ public class Shop {
             if (card != null) {
                 Controller.currentAccount.reduceMoney(card.getPrice());
                 Controller.currentAccount.getMyCollection().addCardToCollection(card);
+                card.numOfCardInCollection ++;
                 view.cardBought();
                 view.remainingMoney();
                 return;
@@ -158,6 +159,7 @@ public class Shop {
             Controller.currentAccount.sellCard(card);
             Controller.currentAccount.getMyCollection().removeCardFromCollection(card);
             Controller.currentAccount.addMoney(card.getPrice());
+            card.numOfCardInCollection --;
             view.cardSold();
             view.remainingMoney();
             return;

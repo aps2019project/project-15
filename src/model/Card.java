@@ -8,6 +8,7 @@ public abstract class Card {
     }
 
     int attackArea;
+    int numOfCardInCollection = 0;
 
     private String name;
     String description;
@@ -152,7 +153,8 @@ public abstract class Card {
     public void removeDeactivatedBuffs(Buff buff) {
         activatedBuffs.remove(buff);
     }
-    public void addActivatedBuff(Buff buff){
+
+    public void addActivatedBuff(Buff buff) {
         activatedBuffs.add(buff);
     }
 
@@ -161,5 +163,6 @@ public abstract class Card {
     }
 
     public abstract void printStats(int i);
+
     public abstract void attack(Card card);
 }
