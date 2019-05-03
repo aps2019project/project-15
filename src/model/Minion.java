@@ -9,7 +9,7 @@ import static java.lang.Math.abs;
 
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
-    Spell specialPower;
+    Buff buff;
     int range;
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
@@ -34,6 +34,8 @@ public class Minion extends Card {
         this.activationType = activationType;
         this.attackType = attackType;
         this.id = id;
+        buff = new Buff(description);
+        buff.card = this;
     }
 
     public void setCardId() {
@@ -49,12 +51,17 @@ public class Minion extends Card {
         return true;
     }
 
-    public Spell getSpecialPower() {
-        return this.specialPower;
+    public Buff getSpecialPower() {
+        return this.buff;
     }
 
     public void attack(Card card) {
-        if (this.isInRange(card)) {
+        if(this.getName().equalsIgnoreCase("Ashkbos")){
+            if(card.getAttackPower() < this.Ap){
+                return;
+            }
+        }
+        if(this.isInRange(card)){
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
