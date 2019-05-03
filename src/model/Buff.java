@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class Buff {
     private boolean activated = false;
     private int startTurn;
+    //todo make start turn of gorg next turn after being applied
     private int duration;
     Card card;
     private int unit;
@@ -109,7 +110,7 @@ public class Buff {
     }
 
     public boolean isStillActivated() {
-        return Controller.currentAccount.game.getTurn() < startTurn + duration;
+        return Controller.currentAccount.game.getTurn() <= startTurn + duration;
     }
 
     public void effect() {
@@ -118,7 +119,10 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
-        if (Controller.currentAccount.game.getTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
+        if(this.card.getName().equalsIgnoreCase("GorgeSefid")){
+            gorgeSefidEffect();
+        }
+        if (Controller.currentAccount.game.getTurn() == this.startTurn || this.type == TypesOfBuff.holy ) {
             //todo check if they are still activated
             switch (this.type) {
                 case holy:
@@ -158,14 +162,35 @@ public class Buff {
                     break;
                 case disarm:
                     card.disarmed = true;
+                    if(card.getName().equalsIgnoreCase("GgorazeVahshi")){
+                        card.disarmed = false;
+                    }
                     break;
                 case specialCase:
-                    if (card.getName().equalsIgnoreCase("AreaDispel")) {
+                    if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
                         areaDispelEffect();
-                    } else if (card.getName().equalsIgnoreCase("Dispel")) {
+                    } else if (this.card.getName().equalsIgnoreCase("Dispel")) {
                         dispelEffect(card);
                     }
+                    else if(this.card.getName().equalsIgnoreCase("Jadogar")){
+                        jadogarEffect(card);
+                    }
             }
+        }
+    }
+    private void jadogarEffect(Card card){
+        card.Ap += 2;
+        card.healthLevel -= 1;
+    }
+    private void gorgeSefidEffect(){
+        if(Controller.currentAccount.game.getTurn() == this.startTurn + 1){
+            this.card.healthLevel -= 6;
+        }
+        else if(Controller.currentAccount.game.getTurn() == this.startTurn + 2){
+            this.card.healthLevel -= 4;
+        }
+        if(this.card.healthLevel < 0 ){
+            this.card.healthLevel = 0;
         }
     }
 

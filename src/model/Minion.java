@@ -36,6 +36,10 @@ public class Minion extends Card {
         this.activationType = activationType;
         this.attackType = attackType;
         this.id = id;
+        if(description.contains("combo")){
+            //todo handle combo
+            return;
+        }
         buff = new Buff(description);
         buff.card = this;
     }
@@ -58,6 +62,10 @@ public class Minion extends Card {
     }
 
     public void attack(Card card) {
+        if(this.getName().equalsIgnoreCase("Giv")){
+            return;
+            //todo add give to other attacks
+        }
         if(this.getName().equalsIgnoreCase("Ashkbos")){
             if(card.getAttackPower() < this.Ap){
                 return;
@@ -89,7 +97,18 @@ public class Minion extends Card {
         }
     }
     public void specialPowerActing(Card card){
+        if(this.getName().equalsIgnoreCase("GhooleDosar")){
+
+        }
         this.buff.buffEffect(card);
+    }
+    private void ghooledosar(Card card){
+        for(Buff buff : card.getActivatedBuffs()){
+            if(buff.getType().equals(TypesOfBuff.holy) || buff.getType().equals(TypesOfBuff.power)){
+                card.removeDeactivatedBuffs(buff);
+                buff.buffNotEffective(card);
+            }
+        }
     }
     public void counterAttack(Card card) {
         if (this.isInRange(card)) {

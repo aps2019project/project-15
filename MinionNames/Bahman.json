@@ -7,6 +7,6 @@
   "Ap": 9,
   "attackType": "melee",
   "range": 0,
-  "activationType": "on random reduces 16 units from an enemy minion",
+  "activationType": "a weakness buff that reduces 16 units from an enemy minion hp",
   "activationTime": "On Spawn"
 }

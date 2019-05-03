@@ -7,6 +7,6 @@
   "Ap": 11,
   "attackType": "hybrid",
   "range": 3,
-  "activationType": "When it dies, it strikes the minions of the 8 blocks around it",
+  "activationType": "When it dies, it strikes the minions hp of the 8 blocks around it with a weakness buff",
   "activationTime": "On Death"
 }
