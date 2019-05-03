@@ -93,8 +93,8 @@ public class Buff {
         return duration;
     }
 
-    public boolean isStillActivated(int turn) {
-        return turn < startTurn + duration - 1;
+    public boolean isStillActivated() {
+        return Controller.currentAccount.game.getCurrentTurn() < startTurn + duration ;
     }
 
     public void effect() {
@@ -103,57 +103,82 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
-        //todo check if they are still activated
-        switch (this.type) {
-            case holy:
-                //todo check if the card was attacked in last turn
-                card.Hp++;
-                break;
-            case power:
-                if (hpEffected) {
+        if(Controller.currentAccount.game.getCurrentTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
+            //todo check if they are still activated
+            switch (this.type) {
+                case holy:
+                    //todo check if the card was attacked in last turn
                     card.Hp++;
-                }
-                if (apEffected) {
-                    card.Ap++;
-                }
-                if(this.card.getName().equalsIgnoreCase("Madness")){
-                    madnessEffectOnSelf();
-                }
-                if(this.card.getName().equalsIgnoreCase("Sacrifice")){
-                    sacrificeEffectOnSelf();
-                }
-                break;
-            case poison:
-                card.Hp--;
-                break;
-            case weakness:
-                if (hpEffected) {
+                    break;
+                case power:
+                    if (hpEffected) {
+                        card.Hp++;
+                    }
+                    if (apEffected) {
+                        card.Ap++;
+                    }
+                    if (this.card.getName().equalsIgnoreCase("Madness")) {
+                        madnessEffectOnSelf();
+                    }
+                    if (this.card.getName().equalsIgnoreCase("Sacrifice")) {
+                        sacrificeEffectOnSelf();
+                    }
+                    break;
+                case poison:
                     card.Hp--;
-                }
-                if (apEffected) {
-                    card.Ap--;
-                }
-                if(this.card.getName().equalsIgnoreCase("HealthWithProfit")){
-                    healthWithProfitEffectOnSlf();
-                }
-                break;
-            case stun:
-                card.stunned = true;
-                break;
-            case disarm:
-                card.disarmed = true;
-                break;
-            case specialCase:
-               if(card.getName().equalsIgnoreCase("AreaDispel")){
-                   areaDispelEffect();
-               }
-               else if(card.getName().equalsIgnoreCase("Dispel")){
-                   dispelEffect(card);
-               }
+                    break;
+                case weakness:
+                    if (hpEffected) {
+                        card.Hp--;
+                    }
+                    if (apEffected) {
+                        card.Ap--;
+                    }
+                    if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
+                        healthWithProfitEffectOnSlf();
+                    }
+                    break;
+                case stun:
+                    card.stunned = true;
+                    break;
+                case disarm:
+                    card.disarmed = true;
+                    break;
+                case specialCase:
+                    if (card.getName().equalsIgnoreCase("AreaDispel")) {
+                        areaDispelEffect();
+                    } else if (card.getName().equalsIgnoreCase("Dispel")) {
+                        dispelEffect(card);
+                    }
+            }
         }
     }
-    public void buffEffectReversed(Card card){
-
+    public static void buffEffectReversed(){
+        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
+            for (Buff buff : card.activatedBuffs){
+                if(!buff.isStillActivated()){
+                    card.removeDiactivatedBuffs(buff);
+                    buff.buffNotEffective(card);
+                }
+            }
+        }
+        for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
+            for (Buff buff : card.activatedBuffs){
+                if(!buff.isStillActivated()){
+                    card.removeDiactivatedBuffs(buff);
+                    buff.buffNotEffective(card);
+                }
+            }
+        }
+    }
+    public void buffNotEffective(Card card){
+        switch (this.type){
+            case disarm:
+                card.disarmed = false;
+                break;
+            case stun:
+                card.stunned = false;
+        }
     }
     private void areaDispelEffect(){
         for(Card card : Controller.currentAccount.getMainDeck().getCards()){

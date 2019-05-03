@@ -15,6 +15,7 @@ enum GameType {
 public class Game {
 
     private Map map = new Map();
+    private int currentTurn;
 
 
     public Game() {
@@ -149,5 +150,9 @@ public class Game {
 
     public int getTurn() {
         return turn;
+    }
+
+    public int getCurrentTurn() {
+        return currentTurn;
     }
 }
