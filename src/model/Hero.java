@@ -18,9 +18,10 @@ public class Hero extends Card {
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
     int manaSpecialPower;
+
     public void attack(Card card) {
         card.Hp -= this.Ap;
-        if(card.Hp < 0){
+        if (card.Hp < 0) {
             card.Hp = 0;
         }
     }

@@ -1,10 +1,10 @@
 package model;
 
 class Block {
-    private boolean poison;
-    private boolean fire;
-    private boolean holy;
-    private boolean isEmpty;
+    private boolean poison = false;
+    private boolean fire = false;
+    private boolean holy = false;
+    private boolean isEmpty = true;
     Card card;
 
     int x;
@@ -13,6 +13,19 @@ class Block {
     public Block(int x, int y) {
         this.x = x;
         this.y = y;
+        int m = (int) Math.random();
+        m %= 10;
+        if (m == 4) {
+            poison = true;
+            return;
+        }
+        if (m == 7) {
+            fire = true;
+            return;
+        }
+        if (m == 6) {
+            holy = true;
+        }
     }
 
     public Card cardContain() {
@@ -33,5 +46,32 @@ class Block {
 
     public boolean isPoison() {
         return poison;
+    }
+
+    public void movedFromBlock(){
+        this.card = null;
+        this.isEmpty = true;
+    }
+
+    public void cardMoverdToBlock(Card card) {
+        this.card = card;
+        this.isEmpty = false;
+    }
+    public void blockEffect(){
+        if(isFire()){
+            this.card.Hp -= 2;
+            if(this.card.Hp < 0 ){
+                this.card.Hp = 0;
+            }
+            return;
+        }
+        if(isHoly()){
+            //todo check if it was attacked
+            this.card.Hp ++;
+            return;
+        }
+        if(isPoison()){
+            this.card.Hp--;
+        }
     }
 }

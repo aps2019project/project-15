@@ -45,6 +45,6 @@ public class Spell extends Card {
     }
 
     public void attack(Card card) {
-
+        buff.buffEffect(card);
     }
 }
