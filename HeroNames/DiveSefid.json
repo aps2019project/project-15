@@ -6,7 +6,7 @@
   "Ap": 4,
   "counterAttack": "melee",
   "attackArea": 0,
-  "description": "applies a power buff with 4 unit increment attack power on itself permanently",
+  "description": "applies a power buff with 4 units increment ap on itself for the rest of the game",
   "manaSpecialPower": 1,
   "coolDown": 2
 }

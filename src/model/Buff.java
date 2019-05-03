@@ -181,7 +181,7 @@ public class Buff {
             case specialCase:
                 if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
                     areaDispelEffect();
-                } else if (this.card.getName().equalsIgnoreCase("Dispel")) {
+                } else if (this.card.getName().equalsIgnoreCase("Dispel") || this.card.getName().equalsIgnoreCase("Afsane")) {
                     dispelEffect(card);
                 } else if (this.card.getName().equalsIgnoreCase("Jadogar")) {
                     jadogarEffect(card);
