@@ -50,8 +50,31 @@ public class Minion extends Card {
         return this.specialPower;
     }
 
-    public void attack(Card cards) {
-
+    public void attack(Card card) {
+        if(this.isInRange(card)){
+            card.healthLevel -= this.Ap;
+            if(card.healthLevel < 0){
+                card.healthLevel = 0;
+            }
+            if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                Minion minion = (Minion) card;
+                if(minion.canCounterAttack(this)){
+                    minion.counterAttack(this);
+                }
+            }
+            if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+                Hero hero = (Hero) card;
+                //todo call hero counter attack
+            }
+        }
+    }
+    public void counterAttack(Card card){
+        if(this.isInRange(card)) {
+            card.healthLevel -= this.Ap;
+            if (card.healthLevel < 0) {
+                card.healthLevel = 0;
+            }
+        }
     }
     public boolean canCounterAttack(Card card){
         if(this.attackType.equals(TypeOfCounterAttack.hybrid)){

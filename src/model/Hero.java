@@ -15,7 +15,7 @@ public class Hero extends Card {
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
     int manaSpecialPower;
-    public void attack() {
+    public void attack(Card card) {
 
     }
 

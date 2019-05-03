@@ -40,4 +40,7 @@ public class Spell extends Card {
         String info = "name: " + this.getName() + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
         return info;
     }
+    public void attack(Card card){
+
+    }
 }
