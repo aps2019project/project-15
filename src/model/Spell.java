@@ -12,6 +12,11 @@ public class Spell extends Card {
         this.setHp(hp);
         buff = new Buff(this.description);
         buff.card = this;
+        this.setTypeOfAttack();
+    }
+
+    public void setTypeOfAttack() {
+        this.typeOfAttack = TypeOfCard.Spell;
     }
 
     public void addToHp(int number) {

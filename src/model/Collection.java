@@ -118,7 +118,7 @@ public class Collection {
             view.deckIsNotInCollection();
             return;
         }
-        if (deck.numberOfCards() >= 20) {
+        if (deck.numberOfCards() >= 2) {
             view.tooManyCardsInDeck();
             return;
         }
@@ -184,18 +184,14 @@ public class Collection {
 
     }
 
-    public boolean validateDeck(String deckName) {
-        Deck deck = new Deck("");
-        for (Deck deckItem : myDecks) {
-            if (deckItem.getName().equals(deckName)) {
-                deck = deckItem;
-            }
-        }
-        if (deck.getName().equals("")) {
+    public void validateDeck(String deckName) {
+        Deck deck = Deck.returnDeckByName(deckName);
+        if (deck == null) {
             view.deckIsNotInCollection();
-            return false;
         }
-        return deck.validateDeck();
+        else {
+            deck.validateDeck();
+        }
     }
 
     public void selectDeck(String deckName) {

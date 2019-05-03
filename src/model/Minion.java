@@ -13,16 +13,22 @@ public class Minion extends Card {
     TypeOfCounterAttack attackType;
     String activationTime;
 
+
     private boolean hasFlag = false;
     private Flag myFlag;
 
     public int id;
+
+    public void setTypeOfAttack() {
+        this.typeOfAttack = TypeOfCard.Minion;
+    }
 
     public Minion(int id, int hp, int ap, int mp, String name, SpecialPowerActivation activationType, TypeOfCounterAttack attackType) {
         this.setCardID(id);
         this.setHp(hp);
         this.setAp(ap);
         this.setMp(mp);
+        this.setTypeOfAttack();
         this.activationType = activationType;
         this.attackType = attackType;
         this.id = id;

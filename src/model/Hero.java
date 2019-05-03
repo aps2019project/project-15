@@ -5,6 +5,7 @@ import view.View;
 import java.util.ArrayList;
 
 public class Hero extends Card {
+
     static ArrayList<Hero> heroes = new ArrayList<>();
     int id;
 
@@ -15,6 +16,14 @@ public class Hero extends Card {
     int manaSpecialPower;
     public void attack() {
 
+    }
+
+    public Hero() {
+        this.setTypeOfAttack();
+    }
+
+    public void setTypeOfAttack() {
+        this.typeOfAttack = TypeOfCard.Hero;
     }
 
     private boolean hasFlag = false;
