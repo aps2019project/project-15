@@ -8,6 +8,9 @@ public class Spell extends Card {
     static ArrayList<Spell> spells = new ArrayList<>();
     Buff buff;
 
+    String range;
+    public String id;
+
     public Spell(int hp) {
         this.setHp(hp);
         buff = new Buff(this.description);
@@ -40,7 +43,8 @@ public class Spell extends Card {
         String info = "name: " + this.getName() + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
         return info;
     }
-    public void attack(Card card){
+
+    public void attack(Card card) {
 
     }
 }

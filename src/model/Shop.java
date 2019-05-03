@@ -129,7 +129,7 @@ public class Shop {
         view.showItems();
     }
 
-    public int search(String name) {
+    public String search(String name) {
         for (Card card : shop.allCards) {
             if (card.getName().equals(name)) {
                 System.out.println("card exists in shop");
@@ -137,7 +137,7 @@ public class Shop {
             }
         }
         System.out.println("card doesn't exist in shop!");
-        return 0;
+        return null;
     }
 
     public void help() {

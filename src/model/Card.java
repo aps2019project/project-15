@@ -12,8 +12,6 @@ public abstract class Card {
     private String name;
     String description;
 
-    private int cardID;
-
     int cardIdInGame;
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
@@ -28,9 +26,9 @@ public abstract class Card {
     boolean disarmed = false;
     int price;
     int Mp;
-    String range;
     int mp = this.Mp;
     int Hp;
+    public String cardID;
 
     int healthLevel;
     int Ap;
@@ -67,7 +65,7 @@ public abstract class Card {
         Mp = mp;
     }
 
-    public void setCardID(int cardID) {
+    public void setCardID(String cardID) {
         this.cardID = cardID;
     }
 
@@ -121,9 +119,10 @@ public abstract class Card {
         return null;
     }
 
-    public static Card returnCardById(int id) {
-        for (Card card : Shop.getInstance().getAllCards()) {
-            if (card.cardID == id) {
+    public static Card returnCardById(String id) {
+        Shop shop = Shop.getInstance();
+        for (Card card : shop.getAllCards()) {
+            if (card.cardID.equals(id)) {
                 return card;
             }
         }
@@ -142,7 +141,7 @@ public abstract class Card {
         return description;
     }
 
-    public int getCardID() {
+    public String getCardID() {
         return this.cardID;
     }
 
