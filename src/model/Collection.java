@@ -149,7 +149,7 @@ public class Collection {
 
     }
 
-    public void removeCardFromDeck(int cardID, String deckName) {
+    public void removeCardFromDeck(String cardID, String deckName) {
         Card card = Card.returnCardById(cardID);
         Deck deck = new Deck("");
         for (Deck deckItem : myDecks) {
@@ -164,7 +164,7 @@ public class Collection {
         deck.deleteCard(card);
     }
 
-    public void removeItemFromDeck(int id ,String deckName) {
+    public void removeItemFromDeck(String id ,String deckName) {
         Item item = Item.getItemById(id);
         Deck deck = new Deck("");
         for (Deck deckItem : myDecks) {
@@ -318,7 +318,7 @@ public class Collection {
         myItems.remove(item);
     }
 
-    public void cardOrItemToDeck(int id, String deckName) {
+    public void cardOrItemToDeck(String id, String deckName) {
         Card card = Card.returnCardById(id);
         Item item = Item.getItemById(id);
         if (card != null) {
@@ -335,11 +335,11 @@ public class Collection {
         Card card = Card.returnCardByName(group);
         Item item = Item.getItemByName(group);
         if (card!= null) {
-            this.removeCardFromDeck(Integer.parseInt(group), group1);
+            this.removeCardFromDeck(group, group1);
 
         }
         else if (item != null){
-            this.removeItemFromDeck(Integer.parseInt(group), group1);
+            this.removeItemFromDeck(group, group1);
         }
     }
 }

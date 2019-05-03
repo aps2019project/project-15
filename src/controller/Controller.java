@@ -71,15 +71,14 @@ public class Controller {
             }
             shop.addCard();
             shop.addItem();
-            for (Minion minion : shop.getAllMinions()) {
-                minion.setCardID(minion.id);
-            }
+            setAllCardsAndItemsID();
             setTypeOfAttacksForAllCards();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -140,17 +139,9 @@ public class Controller {
                 collection.searchInCollection();
             } else if (RequestType.SAVE_COLLECTION.setMatcher(command).find()) {
                 collection.save();
-            } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
-                try {
-                    if (RequestType.ADD_COLLECTION.getMatcher().group(1).matches("[\\d]+")) {
-                        collection.cardOrItemToDeck(Integer.parseInt(RequestType.ADD_COLLECTION.getMatcher().group(1)), RequestType.ADD_COLLECTION.getMatcher().group(2));
-                    }
-                } catch (NumberFormatException e) {
-                    e.getStackTrace();
-                }
             } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
                 collection.removeCardOrItemFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
-                collection.removeCardFromDeck(Integer.parseInt(RequestType.REMOVE_COLLECTION.getMatcher().group(1)), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
+                collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
             } else if (RequestType.CREATE_DECK.setMatcher(command).find()) {
                 collection.createDeck(RequestType.CREATE_DECK.getMatcher().group(1));
             } else if (RequestType.DELETE_DECK.setMatcher(command).find()) {
@@ -165,6 +156,14 @@ public class Controller {
                 collection.showDeck(RequestType.SHOW_DECK.getMatcher().group(1));
             } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
                 view.showCollectionMenu();
+            } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
+                try {
+                    if (RequestType.ADD_COLLECTION.getMatcher().group(1).matches("[\\d]+")) {
+                        collection.cardOrItemToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1), RequestType.ADD_COLLECTION.getMatcher().group(2));
+                    }
+                } catch (NumberFormatException e) {
+                    e.getStackTrace();
+                }
             }
         } else {
             throw new InputException("Invalid command");
@@ -180,7 +179,7 @@ public class Controller {
             } else if (RequestType.BUY.setMatcher(command).find()) {
                 shop.buy(RequestType.BUY.getMatcher().group(1));
             } else if (RequestType.SEARCH.setMatcher(command).find()) {
-                int cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
+                String cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
                 view.showCardId(cardID);
             } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
                 shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
@@ -238,6 +237,22 @@ public class Controller {
             spell.setTypeOfAttack();
         }
     }
+
+    private void setAllCardsAndItemsID() {
+        for (Minion minion : shop.getAllMinions()) {
+            minion.setCardID(minion.id);
+        }
+        for (Hero hero : shop.getAllHeroes()) {
+            hero.setCardID(hero.id);
+        }
+        for (Spell spell : shop.getAllSpells()) {
+            spell.setCardID(spell.id);
+        }
+        for (Item item : shop.getAllItems()) {
+            item.setId(item.id);
+        }
+    }
+
 
     private void accountMenuRequest(String command) throws InputException {
         AccountMenu accountMenu = AccountMenu.getInstance();

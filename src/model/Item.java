@@ -5,9 +5,10 @@ import java.util.ArrayList;
 public class Item {
 
     String itemName;
-    int id;
+    public String id;
     String desc;
     String price;
+    String range;
 
     public Item() {
 
@@ -32,7 +33,7 @@ public class Item {
 
     static ArrayList<Item> items = new ArrayList<>();
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -49,9 +50,9 @@ public class Item {
 
     int y;
 
-    static Item getItemById(int id) {
+    static Item getItemById(String id) {
         for (Item item : Shop.getInstance().getAllItems()) {
-            if (item.getId() == id) {
+            if (item.getId().equals(id)) {
                 return item;
             }
         }
@@ -88,7 +89,7 @@ public class Item {
         return using;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

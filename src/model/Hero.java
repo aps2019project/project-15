@@ -8,14 +8,16 @@ import java.util.ArrayList;
 public class Hero extends Card {
 
     static ArrayList<Hero> heroes = new ArrayList<>();
-    int id;
 
+    public String id;
+
+    int range;
     Buff buff;
+
     int coolDown = 0;
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
     int manaSpecialPower;
-
     public void attack(Card card) {
 
     }
@@ -35,6 +37,10 @@ public class Hero extends Card {
     public void getFlag(Flag flag) {
         hasFlag = true;
         flag.card = this;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void death() {

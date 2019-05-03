@@ -12,22 +12,21 @@ import static java.lang.Math.min;
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Buff buff;
-    int range;
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
     String activationTime;
-
+    int range;
 
     private boolean hasFlag = false;
     private Flag myFlag;
 
-    public int id;
+    public String id;
 
     public void setTypeOfAttack() {
         this.typeOfAttack = TypeOfCard.Minion;
     }
 
-    public Minion(int id, int hp, int ap, int mp, String name, SpecialPowerActivation activationType, TypeOfCounterAttack attackType) {
+    public Minion(String id, int hp, int ap, int mp, String name, SpecialPowerActivation activationType, TypeOfCounterAttack attackType) {
         this.setCardID(id);
         this.setHp(hp);
         this.setAp(ap);

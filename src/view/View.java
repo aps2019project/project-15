@@ -462,12 +462,13 @@ public class View {
     public void remainingMoney() {
         System.out.println("remaining money: " + Controller.currentAccount.getMoney());
     }
-    public void deckIsNotValid(){
+
+    public void deckIsNotValid() {
         System.out.println("deck is not valid");
     }
 
-    public void showCardId(int cardID) {
-        if (cardID != 0)
-        System.out.println("card ID is: " + cardID);
+    public void showCardId(String cardID) {
+        if (Integer.parseInt(cardID) != 0)
+            System.out.println("card ID is: " + cardID);
     }
 }
