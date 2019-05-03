@@ -465,4 +465,9 @@ public class View {
     public void deckIsNotValid(){
         System.out.println("deck is not valid");
     }
+
+    public void showCardId(int cardID) {
+        if (cardID != 0)
+        System.out.println("card ID is: " + cardID);
+    }
 }

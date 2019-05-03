@@ -14,7 +14,7 @@ public class Shop {
         return shop;
     }
 
-    DataCenter dataCenter = DataCenter.getInstance();
+    private DataCenter dataCenter = DataCenter.getInstance();
 
     ArrayList<Card> allCards = new ArrayList<>();
     private ArrayList<Minion> allMinions = new ArrayList<>();
@@ -129,13 +129,15 @@ public class Shop {
         view.showItems();
     }
 
-    public Card search(String name) {
+    public int search(String name) {
         for (Card card : shop.allCards) {
             if (card.getName().equals(name)) {
-                return card;
+                System.out.println("card exists in shop");
+                return card.getCardID();
             }
         }
-        return null;
+        System.out.println("card doesn't exist in shop!");
+        return 0;
     }
 
     public void help() {
@@ -171,9 +173,6 @@ public class Shop {
         return card != null && !Controller.currentAccount.getMyCollection().hasCard(card) && Controller.currentAccount.soldCard(card);
     }
 
-    public void showMenu() {
-
-    }
 
     private Item findItemByName(String name) {
         for (Item item : DataCenter.getInstance().getItems()) {
