@@ -148,10 +148,8 @@ public class Controller {
                 } catch (NumberFormatException e) {
                     e.getStackTrace();
                 }
-                //collection.addCardToDeck(card , RequestType.ADD_COLLECTION.getMatcher().group(2));
             } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
                 collection.removeCardOrItemFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
-
                 collection.removeCardFromDeck(Integer.parseInt(RequestType.REMOVE_COLLECTION.getMatcher().group(1)), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
             } else if (RequestType.CREATE_DECK.setMatcher(command).find()) {
                 collection.createDeck(RequestType.CREATE_DECK.getMatcher().group(1));

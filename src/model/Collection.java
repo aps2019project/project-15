@@ -328,6 +328,7 @@ public class Collection {
             System.out.println("it is item");
             addItemToDeck(item, deckName);
         }
+        System.out.println("oskol");
     }
 
     public void removeCardOrItemFromDeck(String group, String group1) {
