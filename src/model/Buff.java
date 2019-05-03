@@ -119,77 +119,108 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
-        if(this.card.getName().equalsIgnoreCase("GorgeSefid")){
+        if (this.card.getName().equalsIgnoreCase("GorgeSefid")) {
             gorgeSefidEffect();
         }
-        if (Controller.currentAccount.game.getTurn() == this.startTurn || this.type == TypesOfBuff.holy ) {
-            //todo check if they are still activated
-            switch (this.type) {
-                case holy:
-                    //todo check if the card was attacked in last turn
-                    card.Hp++;
-                    break;
-                case power:
-                    if (hpEffected) {
-                        card.Hp++;
-                    }
-                    if (apEffected) {
-                        card.Ap++;
-                    }
-                    if (this.card.getName().equalsIgnoreCase("Madness")) {
-                        madnessEffectOnSelf();
-                    }
-                    if (this.card.getName().equalsIgnoreCase("Sacrifice")) {
-                        sacrificeEffectOnSelf();
-                    }
-                    break;
-                case poison:
-                    card.Hp--;
-                    break;
-                case weakness:
-                    if (hpEffected) {
-                        card.Hp--;
-                    }
-                    if (apEffected) {
-                        card.Ap--;
-                    }
-                    if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
-                        healthWithProfitEffectOnSlf();
-                    }
-                    break;
-                case stun:
-                    card.stunned = true;
-                    break;
-                case disarm:
-                    card.disarmed = true;
-                    if(card.getName().equalsIgnoreCase("GgorazeVahshi")){
-                        card.disarmed = false;
-                    }
-                    break;
-                case specialCase:
-                    if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
-                        areaDispelEffect();
-                    } else if (this.card.getName().equalsIgnoreCase("Dispel")) {
-                        dispelEffect(card);
-                    }
-                    else if(this.card.getName().equalsIgnoreCase("Jadogar")){
-                        jadogarEffect(card);
-                    }
+        if (card.getName().equalsIgnoreCase("Piran")) {
+            if (this.type.equals(TypesOfBuff.poison)) {
+                return;
             }
         }
+        if (this.card.getName().equalsIgnoreCase("ShireDarande")) {
+            shireDarande(card);
+        }
+        //todo check if they are still activated
+        switch (this.type) {
+            case holy:
+                //todo check if the card was attacked in last turn
+                card.Hp += this.unit;
+                break;
+            case power:
+                if (hpEffected) {
+                    card.Hp += this.unit;
+                }
+                if (apEffected) {
+                    card.Ap += this.unit;
+                }
+                if (this.card.getName().equalsIgnoreCase("Madness")) {
+                    madnessEffectOnSelf();
+                }
+                if (this.card.getName().equalsIgnoreCase("Sacrifice")) {
+                    sacrificeEffectOnSelf();
+                }
+                break;
+            case poison:
+                card.Hp -= this.unit;
+                break;
+            case weakness:
+                if (this.card.getName().equalsIgnoreCase("PahlevaneFars")) {
+                    if (card.activatedBuffs.contains(this)) {
+                        this.unit = 5;
+                    }
+                }
+                if (hpEffected) {
+                    card.Hp -= this.unit;
+                }
+                if (apEffected) {
+                    card.Ap -= this.unit;
+                }
+                if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
+                    healthWithProfitEffectOnSlf();
+                }
+                break;
+            case stun:
+                card.stunned = true;
+                break;
+            case disarm:
+                card.disarmed = true;
+                if (card.getName().equalsIgnoreCase("GgorazeVahshi")) {
+                    card.disarmed = false;
+                }
+                break;
+            case specialCase:
+                if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
+                    areaDispelEffect();
+                } else if (this.card.getName().equalsIgnoreCase("Dispel")) {
+                    dispelEffect(card);
+                } else if (this.card.getName().equalsIgnoreCase("Jadogar")) {
+                    jadogarEffect(card);
+                } else if (this.card.getName().equalsIgnoreCase("JadgareAzam")) {
+                    jadogareAzamEffect(card);
+                }
+        }
+        if (this.card.getName().equalsIgnoreCase("JasoseTorani") && this.startTurn == Controller.currentAccount.game.getTurn()) {
+            jasoseTorani(card);
+        }
     }
-    private void jadogarEffect(Card card){
+
+    private void shireDarande(Card card) {
+        //todo add effect
+    }
+
+    private void jasoseTorani(Card card) {
+        Buff buff = new Buff("disarms the enemy for 1 turn");
+        card.addActivatedBuff(buff);
+        buff.buffEffect(card);
+    }
+
+    private void jadogareAzamEffect(Card card) {
+        card.Ap += 2;
+        card.Hp++;
+    }
+
+    private void jadogarEffect(Card card) {
         card.Ap += 2;
         card.healthLevel -= 1;
     }
-    private void gorgeSefidEffect(){
-        if(Controller.currentAccount.game.getTurn() == this.startTurn + 1){
+
+    private void gorgeSefidEffect() {
+        if (Controller.currentAccount.game.getTurn() == this.startTurn + 1) {
             this.card.healthLevel -= 6;
-        }
-        else if(Controller.currentAccount.game.getTurn() == this.startTurn + 2){
+        } else if (Controller.currentAccount.game.getTurn() == this.startTurn + 2) {
             this.card.healthLevel -= 4;
         }
-        if(this.card.healthLevel < 0 ){
+        if (this.card.healthLevel < 0) {
             this.card.healthLevel = 0;
         }
     }
