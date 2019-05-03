@@ -14,7 +14,6 @@ public class Collection {
     private ArrayList<Item> myItems = new ArrayList<>();
     private ArrayList<Deck> myDecks = new ArrayList<>();
 
-
     View view = View.getInstance();
     Request request = new Request();
 
@@ -84,6 +83,7 @@ public class Collection {
         }
         Deck deck = new Deck(name);
         myDecks.add(deck);
+        System.out.println("deck " + deck.getName() + " created!");
     }
 
     public void deleteDeck(String name) {
@@ -103,32 +103,36 @@ public class Collection {
             view.cardNotInCollection();
             return;
         }
-        Deck deck = new Deck("");
-        for (Deck deck1 : myDecks) {
-            if (deck1.getName().equals(deckName)) {
-                deck = deck1;
-                if (deck1.getCards() != null && deck1.getCards().contains(card)) {
-                    view.cardIsAlreadyInDeck();
-                    return;
+        Deck deck = Deck.returnDeckByName(deckName);
+        if (deck != null) {
+            if (deck.getCards() == null) {
+                deck.addCard(card);
+                ;
+            } else if (deck.numberOfCards() > 20) {
+                view.tooManyCardsInDeck();
+
+            } else if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                for (Card item : deck.getCards()) {
+                    if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                        view.heroInDeck();
+                    }
                 }
+            } else if (!deck.getCards().contains(card)) {
+                deck.addCard(card);
+            } else if (deck.getCards().contains(card) && deck.getNumOfCardInDeck(card) > card.numOfCardInCollection) {
+                view.cardIsAlreadyInDeck();
             }
+        } else {
+            view.deckIsNotInCollection();
+            return;
         }
+
+
         if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
-        if (deck.numberOfCards() >= 2) {
-            view.tooManyCardsInDeck();
-            return;
-        }
-        if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
-            for (Card item : deck.getCards()) {
-                if (item.getTypeOfAttack().equals(TypeOfCard.Hero))
-                    view.heroInDeck();
-                return;
-            }
-        }
-        deck.addCard(card);
+
     }
 
     public void addItemToDeck(Item item, String deckName) {
@@ -164,7 +168,7 @@ public class Collection {
         deck.deleteCard(card);
     }
 
-    public void removeItemFromDeck(String id ,String deckName) {
+    public void removeItemFromDeck(String id, String deckName) {
         Item item = Item.getItemById(id);
         Deck deck = new Deck("");
         for (Deck deckItem : myDecks) {
@@ -187,8 +191,7 @@ public class Collection {
         Deck deck = Deck.returnDeckByName(deckName);
         if (deck == null) {
             view.deckIsNotInCollection();
-        }
-        else {
+        } else {
             deck.validateDeck();
         }
     }
@@ -328,17 +331,15 @@ public class Collection {
             System.out.println("it is item");
             addItemToDeck(item, deckName);
         }
-        System.out.println("oskol");
     }
 
     public void removeCardOrItemFromDeck(String group, String group1) {
         Card card = Card.returnCardByName(group);
         Item item = Item.getItemByName(group);
-        if (card!= null) {
+        if (card != null) {
             this.removeCardFromDeck(group, group1);
 
-        }
-        else if (item != null){
+        } else if (item != null) {
             this.removeItemFromDeck(group, group1);
         }
     }
