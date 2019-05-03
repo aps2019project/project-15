@@ -6,7 +6,7 @@
   "Ap": 2,
   "counterAttack": "ranged",
   "attackArea": 6,
-  "description": "4 unit attack to all forces ich exist at hero row",
+  "description": "4 unit attack to all forces which exist at hero row",
   "manaSpecialPower": 2,
   "coolDown": 2
 }

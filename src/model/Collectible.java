@@ -5,10 +5,6 @@ import view.View;
 
 import java.util.ArrayList;
 
-enum TypeOfCollectible {
-    joonBaw, TIR_3_SHAKH, exir
-}
-
 public class Collectible extends Item {
 
     private View view = View.getInstance();
@@ -84,5 +80,4 @@ public class Collectible extends Item {
         }
         return null;
     }
-
 }

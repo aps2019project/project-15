@@ -148,9 +148,9 @@ public class Controller {
                 } catch (NumberFormatException e) {
                     e.getStackTrace();
                 }
-                //collection.addCardToDeck(card , RequestType.ADD_COLLECTION.getMatcher().group(2));
             } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
-                collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
+                collection.removeCardOrItemFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
+                collection.removeCardFromDeck(Integer.parseInt(RequestType.REMOVE_COLLECTION.getMatcher().group(1)), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
             } else if (RequestType.CREATE_DECK.setMatcher(command).find()) {
                 collection.createDeck(RequestType.CREATE_DECK.getMatcher().group(1));
             } else if (RequestType.DELETE_DECK.setMatcher(command).find()) {
@@ -180,7 +180,8 @@ public class Controller {
             } else if (RequestType.BUY.setMatcher(command).find()) {
                 shop.buy(RequestType.BUY.getMatcher().group(1));
             } else if (RequestType.SEARCH.setMatcher(command).find()) {
-                shop.search(RequestType.SEARCH.getMatcher().group(1));
+                int cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
+                view.showCardId(cardID);
             } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
                 shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
             } else if (RequestType.SHOW.setMatcher(command).find()) {

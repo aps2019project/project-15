@@ -5,20 +5,35 @@ import controller.Controller;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-enum TypesOfBuff {
-    holy, power, poison, weakness, stun, disarm, specialCase
-}
-
 
 public class Buff {
-    boolean activated = false;
+    private boolean activated = false;
     private int startTurn;
     private int duration;
     Card card;
     private int unit;
-    TypesOfBuff type;
-    boolean hpEffected = false;
-    boolean apEffected = false;
+
+
+    private TypesOfBuff type;
+
+    private boolean hpEffected = false;
+    private boolean apEffected = false;
+
+    public TypesOfBuff getType() {
+        return type;
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public boolean isHpEffected() {
+        return hpEffected;
+    }
+
+    public boolean isApEffected() {
+        return apEffected;
+    }
 
     public Buff(String description) {
         type = getTypeFromDesc(description);
@@ -94,7 +109,7 @@ public class Buff {
     }
 
     public boolean isStillActivated() {
-        return Controller.currentAccount.game.getCurrentTurn() < startTurn + duration;
+        return Controller.currentAccount.game.getTurn() < startTurn + duration;
     }
 
     public void effect() {
@@ -103,7 +118,7 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
-        if (Controller.currentAccount.game.getCurrentTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
+        if (Controller.currentAccount.game.getTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
             //todo check if they are still activated
             switch (this.type) {
                 case holy:
@@ -158,7 +173,7 @@ public class Buff {
         for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
             for (Buff buff : card.activatedBuffs) {
                 if (!buff.isStillActivated()) {
-                    card.removeDiactivatedBuffs(buff);
+                    card.removeDeactivatedBuffs(buff);
                     buff.buffNotEffective(card);
                 }
             }
@@ -166,7 +181,7 @@ public class Buff {
         for (Card card : Controller.enemyAccount.getMainDeck().getCards()) {
             for (Buff buff : card.activatedBuffs) {
                 if (!buff.isStillActivated()) {
-                    card.removeDiactivatedBuffs(buff);
+                    card.removeDeactivatedBuffs(buff);
                     buff.buffNotEffective(card);
                 }
             }
@@ -189,7 +204,7 @@ public class Buff {
                 if (buff.type.equals(TypesOfBuff.disarm) || buff.type.equals(TypesOfBuff.poison) ||
                         buff.type.equals(TypesOfBuff.weakness) || buff.type.equals(TypesOfBuff.stun)) {
                     buff.activated = false;
-                    card.removeDiactivatedBuffs(buff);
+                    card.removeDeactivatedBuffs(buff);
                 }
             }
         }
@@ -197,7 +212,7 @@ public class Buff {
             for (Buff buff : card.activatedBuffs) {
                 if (buff.type.equals(TypesOfBuff.power) || buff.type.equals(TypesOfBuff.holy)) {
                     buff.activated = false;
-                    card.removeDiactivatedBuffs(buff);
+                    card.removeDeactivatedBuffs(buff);
                 }
             }
         }
@@ -208,13 +223,13 @@ public class Buff {
             if (buff.type.equals(TypesOfBuff.disarm) || buff.type.equals(TypesOfBuff.poison) ||
                     buff.type.equals(TypesOfBuff.weakness) || buff.type.equals(TypesOfBuff.stun)) {
                 buff.activated = false;
-                card.removeDiactivatedBuffs(buff);
+                card.removeDeactivatedBuffs(buff);
             }
         }
         for (Buff buff : enemyCard.activatedBuffs) {
             if (buff.type.equals(TypesOfBuff.power) || buff.type.equals(TypesOfBuff.holy)) {
                 buff.activated = false;
-                enemyCard.removeDiactivatedBuffs(buff);
+                enemyCard.removeDeactivatedBuffs(buff);
             }
         }
     }

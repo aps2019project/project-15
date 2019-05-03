@@ -1,14 +1,18 @@
 package model;
 
+import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
 
+import static java.lang.Math.abs;
+import static java.lang.Math.min;
+
 
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
-    Spell specialPower;
-    ArrayList<Block> range = new ArrayList<>();
+    Buff buff;
+    int range;
     SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
     String activationTime;
@@ -32,6 +36,8 @@ public class Minion extends Card {
         this.activationType = activationType;
         this.attackType = attackType;
         this.id = id;
+        buff = new Buff(description);
+        buff.card = this;
     }
 
     public void setCardId() {
@@ -47,20 +53,33 @@ public class Minion extends Card {
         return true;
     }
 
-    public Spell getSpecialPower() {
-        return this.specialPower;
+    public Buff getSpecialPower() {
+        return this.buff;
     }
 
     public void attack(Card card) {
-        if (this.isInRange(card)) {
+        if(this.getName().equalsIgnoreCase("Ashkbos")){
+            if(card.getAttackPower() < this.Ap){
+                return;
+            }
+        }
+        if(this.isInRange(card)){
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
+            }
+            if(this.activationType.equals(SpecialPowerActivation.onAttack)){
+                specialPowerActing(card);
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;
                 if (minion.canCounterAttack(this)) {
                     minion.counterAttack(this);
+                }
+                if(minion.activationType.equals(SpecialPowerActivation.onDeath)){
+                    if(minion.healthLevel <= 0){
+                        minion.specialPowerActing(this);
+                    }
                 }
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
@@ -69,14 +88,48 @@ public class Minion extends Card {
             }
         }
     }
-
+    public void specialPowerActing(Card card){
+        this.buff.buffEffect(card);
+    }
     public void counterAttack(Card card) {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
             }
+            if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                Minion minion = (Minion) card;
+                if(minion.activationType.equals(SpecialPowerActivation.onDeath)){
+                    if(minion.healthLevel <= 0){
+                        minion.specialPowerActing(this);
+                    }
+                }
+                if(minion.activationType.equals(SpecialPowerActivation.onDefend)){
+                    minion.specialPowerActing(this);
+                }
+            }
         }
+    }
+    public boolean specialPowerActivation(){
+        switch (this.activationType){
+            case onRespawn:
+                if(Controller.currentAccount.getCardsInGame().contains(this) || Controller.enemyAccount.getCardsInGame().contains(this)){
+                    return true;
+                }
+                break;
+            case onAttack:
+                //can only be called from attack
+                return false;
+            case Passive:
+                return true;
+            case onDeath:
+                //can only be called from attack after hp turned to 0
+                return false;
+            case onDefend:
+                //can only be called from counter attack
+                return false;
+        }
+        return false;
     }
 
     public boolean canCounterAttack(Card card) {
@@ -101,26 +154,11 @@ public class Minion extends Card {
     }
 
     private boolean isInRange(Card card) {
-        if (this.range.contains(card.getCurrentBlock())) {
-            return true;
-        }
-        return false;
+        return abs(this.getCurrentBlock().x - card.getCurrentBlock().x) + abs(this.getCurrentBlock().y - card.getCurrentBlock().y) <= range;
     }
 
     private boolean isInNeighborBlocks(Card card) {
-        if (card.getCurrentBlock().x == this.getCurrentBlock().x && card.getCurrentBlock().y - this.getCurrentBlock().y == 1) {
-            return true;
-        }
-        if (card.getCurrentBlock().x == this.getCurrentBlock().x && this.getCurrentBlock().y - card.getCurrentBlock().y == 1) {
-            return true;
-        }
-        if (card.getCurrentBlock().y == this.getCurrentBlock().y && card.getCurrentBlock().x - this.getCurrentBlock().x == 1) {
-            return true;
-        }
-        if (card.getCurrentBlock().y == this.getCurrentBlock().y && this.getCurrentBlock().x - card.getCurrentBlock().x == 1) {
-            return true;
-        }
-        return false;
+        return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }
 
     public void keepFlag(Flag flag) {

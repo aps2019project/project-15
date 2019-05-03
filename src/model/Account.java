@@ -6,12 +6,10 @@ import java.util.ArrayList;
 
 public class Account {
 
-    Battle battle = new Battle();
     private View view = View.getInstance();
-    Game game;
+    Game game = new Game();
 
-
-    ArrayList<Card> cardsInGame = new ArrayList<>();
+    private ArrayList<Card> cardsInGame = new ArrayList<>();
 
     private String username;
     private String password;
@@ -26,11 +24,6 @@ public class Account {
     ArrayList<Card> graveYard = new ArrayList<>();
     ArrayList<History> historyGames = new ArrayList<>();
     private boolean startGame = false;
-
-    public Account() {
-
-    }
-
 
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
@@ -56,13 +49,6 @@ public class Account {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public void setNewGame() {
-        if (startGame) {
-            Game game = new Game();
-            game.accounts.add(this);
-        }
     }
 
     public String getUsername() {
@@ -97,10 +83,6 @@ public class Account {
         return numOfWins;
     }
 
-    public void login(String username, String password) {
-
-    }
-
     public void addMoney(int money) {
         this.money += money;
     }
@@ -108,7 +90,6 @@ public class Account {
     public void reduceMoney(int money) {
         this.money -= money;
     }
-
 
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;

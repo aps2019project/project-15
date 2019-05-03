@@ -2,11 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-enum typeOfItem {
-    collectible,
-    usable;
-}
-
 public class Item {
 
     String itemName;

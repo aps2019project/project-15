@@ -1,8 +1,7 @@
 package model;
 
 public class Flag extends Item {
-//    private int x;
-//    private int y;
+
     private Block currentBlock;
 
     Card card;

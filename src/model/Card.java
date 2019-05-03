@@ -2,10 +2,6 @@ package model;
 
 import java.util.ArrayList;
 
-enum TypeOfCard {
-    Minion, Spell, Hero
-}
-
 public abstract class Card {
     public String getName() {
         return name;
@@ -154,7 +150,7 @@ public abstract class Card {
         return activatedBuffs;
     }
 
-    public void removeDiactivatedBuffs(Buff buff) {
+    public void removeDeactivatedBuffs(Buff buff) {
         activatedBuffs.remove(buff);
     }
     public void addActivatedBuff(Buff buff){

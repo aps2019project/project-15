@@ -15,6 +15,7 @@ public class Hero extends Card {
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
     int manaSpecialPower;
+
     public void attack(Card card) {
 
     }
@@ -35,10 +36,6 @@ public class Hero extends Card {
         hasFlag = true;
         flag.card = this;
     }
-
-/*    public void keepFlag( Flag flag) {
-        flag.setCurrentBlock(flag.getCurrentBlock());
-    }*/
 
     public void death() {
 
@@ -80,5 +77,11 @@ public class Hero extends Card {
         for (Card card : Controller.enemyAccount.getCardsInGame()) {
             card.stunned = true;
         }
+    }
+
+    private void Arash(Card card) {
+    }
+
+    private void Afsane(Card card) {
     }
 }
