@@ -74,6 +74,8 @@ public class Controller {
             for (Minion minion : shop.getAllMinions()) {
                 minion.setCardID(minion.id);
             }
+            setTypeOfAttacksForAllCards();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -102,67 +104,6 @@ public class Controller {
         }
     }
 
-    private void accountMenuRequest(String command) throws InputException {
-        AccountMenu accountMenu = AccountMenu.getInstance();
-        if (Controller.currentMenu.equals(accountMenu)) {
-            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
-                RegisterAccountFunction(accountMenu);
-            } else if (RequestType.LOGIN.setMatcher(command).find()) {
-                boolean ok = false;
-                while (!ok) {
-                    String username = RequestType.LOGIN.getMatcher().group(1);
-                    view.enterPassword();
-                    command = request.getNewCommand();
-                    ok = accountMenu.loginFunction(username, command, dataCenter);
-                }
-                currentMenu = MainMenu.getInstance();
-            } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
-                leaderBoard(dataCenter);
-            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-                view.printAccountMenuOfGame();
-            } else if (RequestType.EXIT.setMatcher(command).find()) {
-                view.exitMessage();
-                finishGame = true;
-            } else if (RequestType.HELP.setMatcher(command).find()) {
-                currentAccount.showMenu();
-            } else {
-                throw new InputException("Invalid command");
-            }
-        }
-    }
-
-    private void mainMenuRequest(String command) throws InputException {
-        Menu mainMenu = MainMenu.getInstance();
-        if (currentMenu.equals(mainMenu)) {
-            if (RequestType.SAVE.setMatcher(command).find()) {
-                int id;
-
-                view.saveEverything();
-            } else if (RequestType.LOGOUT.setMatcher(command).find()) {
-                view.logOutMessage();
-                Account account = Controller.currentAccount;
-                account.setLoggedIn(false);
-            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-                view.printMainMenuOfGame();
-            } else if (RequestType.ENTER_COLLECTION.setMatcher(command).find()) {
-                view.enterCollection();
-            } else if (RequestType.ENTER_SHOP.setMatcher(command).find()) {
-                view.enterShop();
-            } else if (RequestType.HELP.setMatcher(command).find()) {
-                view.mainMenuHelp();
-            } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
-                view.enterBattle();
-                currentMenu = BattleMenu.getInstance();
-            } else if (RequestType.EXIT.setMatcher(command).find()) {
-                view.exitMessage();
-                currentAccount.setLoggedIn(false);
-                view.logOutMessage();
-                currentMenu = AccountMenu.getInstance();
-            } else {
-                throw new InputException("Invalid command");
-            }
-        }
-    }
 
     private void battleMenuRequest(String command) throws InputException {
 
@@ -200,7 +141,13 @@ public class Controller {
             } else if (RequestType.SAVE_COLLECTION.setMatcher(command).find()) {
                 collection.save();
             } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
-                collection.cardOrItemToDeck(Integer.parseInt(RequestType.ADD_COLLECTION.getMatcher().group(1)), RequestType.ADD_COLLECTION.getMatcher().group(2));
+                try {
+                    if (RequestType.ADD_COLLECTION.getMatcher().group(1).matches("[\\d]+")) {
+                        collection.cardOrItemToDeck(Integer.parseInt(RequestType.ADD_COLLECTION.getMatcher().group(1)), RequestType.ADD_COLLECTION.getMatcher().group(2));
+                    }
+                } catch (NumberFormatException e) {
+                    e.getStackTrace();
+                }
                 //collection.addCardToDeck(card , RequestType.ADD_COLLECTION.getMatcher().group(2));
             } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
                 collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
@@ -275,6 +222,80 @@ public class Controller {
             } else {
                 view.invalidUsername();
                 break;
+            }
+        }
+    }
+
+    private void setTypeOfAttacksForAllCards() {
+        for (Hero hero : dataCenter.getHeroes()) {
+            hero.setTypeOfAttack();
+        }
+        for (Minion minion : dataCenter.getMinions()) {
+            minion.setTypeOfAttack();
+        }
+        for (Spell spell : dataCenter.getSpells()) {
+            spell.setTypeOfAttack();
+        }
+    }
+
+    private void accountMenuRequest(String command) throws InputException {
+        AccountMenu accountMenu = AccountMenu.getInstance();
+        if (Controller.currentMenu.equals(accountMenu)) {
+            if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
+                RegisterAccountFunction(accountMenu);
+            } else if (RequestType.LOGIN.setMatcher(command).find()) {
+                boolean ok = false;
+                while (!ok) {
+                    String username = RequestType.LOGIN.getMatcher().group(1);
+                    view.enterPassword();
+                    command = request.getNewCommand();
+                    ok = accountMenu.loginFunction(username, command, dataCenter);
+                }
+                currentMenu = MainMenu.getInstance();
+            } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {
+                leaderBoard(dataCenter);
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
+                view.printAccountMenuOfGame();
+            } else if (RequestType.EXIT.setMatcher(command).find()) {
+                view.exitMessage();
+                finishGame = true;
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                currentAccount.showMenu();
+            } else {
+                throw new InputException("Invalid command");
+            }
+        }
+    }
+
+    private void mainMenuRequest(String command) throws InputException {
+        Menu mainMenu = MainMenu.getInstance();
+        if (currentMenu.equals(mainMenu)) {
+            if (RequestType.SAVE.setMatcher(command).find()) {
+                int id;
+
+                view.saveEverything();
+            } else if (RequestType.LOGOUT.setMatcher(command).find()) {
+                view.logOutMessage();
+                Account account = Controller.currentAccount;
+                account.setLoggedIn(false);
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
+                view.printMainMenuOfGame();
+            } else if (RequestType.ENTER_COLLECTION.setMatcher(command).find()) {
+                view.enterCollection();
+            } else if (RequestType.ENTER_SHOP.setMatcher(command).find()) {
+                view.enterShop();
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                view.mainMenuHelp();
+            } else if (RequestType.ENTER_BATTLE.setMatcher(command).find()) {
+                view.enterBattle();
+                currentMenu = BattleMenu.getInstance();
+            } else if (RequestType.EXIT.setMatcher(command).find()) {
+                view.exitMessage();
+                currentAccount.setLoggedIn(false);
+                view.logOutMessage();
+                currentMenu = AccountMenu.getInstance();
+            } else {
+                throw new InputException("Invalid command");
             }
         }
     }

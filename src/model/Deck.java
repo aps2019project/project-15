@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class Deck {
 
-    ArrayList<Card> cards;
-    ArrayList<Card> hand;
+    ArrayList<Card> cards = new ArrayList<>();
+    ArrayList<Card> hand = new ArrayList<>();
     Item item;
     String name;
     View view = View.getInstance();
@@ -45,10 +45,11 @@ public class Deck {
             for(Card item : cards){
                 if(item.getTypeOfAttack().equals(TypeOfCard.Hero)){
                     if(oneHero){
-                        oneHero = false;
+                        return false;
                     }
                     else{
                         oneHero = true;
+                        break;
                     }
                 }
             }
