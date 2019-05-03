@@ -22,16 +22,15 @@ public class Buff {
 
     public Buff(String description) {
         type = getTypeFromDesc(description);
-        if(this.card.getName().equalsIgnoreCase("sacrifice")){
+        if (this.card.getName().equalsIgnoreCase("sacrifice")) {
             unit = this.card.Hp;
-        }
-        else {
+        } else {
             unit = getUnitsFromDesc(description);
         }
-        if(description.contains("hp")){
+        if (description.contains("hp")) {
             hpEffected = true;
         }
-        if(description.contains("ap")){
+        if (description.contains("ap")) {
             apEffected = true;
         }
         duration = getDurationFromDesc(description);
@@ -40,24 +39,25 @@ public class Buff {
     private int getUnitsFromDesc(String description) {
         Pattern pattern = Pattern.compile("(\\d+) units");
         Matcher matcher = pattern.matcher(description);
-        if(matcher.find()) {
+        if (matcher.find()) {
             return Integer.parseInt(matcher.group(1));
         }
-        if(description.contains("infinite")){
+        if (description.contains("infinite")) {
             return Integer.MAX_VALUE;
         }
         return 1;
     }
-    private int getDurationFromDesc(String description){
+
+    private int getDurationFromDesc(String description) {
         Pattern pattern = Pattern.compile("(\\d+) turn");
         Matcher matcher = pattern.matcher(description);
-        if(this.card.getName().equalsIgnoreCase("HealthWithProfit")){
+        if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
             return 0;
         }
-        if(matcher.find()){
+        if (matcher.find()) {
             return Integer.parseInt(matcher.group(1));
         }
-        if(description.contains("rest of the game")){
+        if (description.contains("rest of the game")) {
             return Integer.MAX_VALUE;
         }
         return 0;
@@ -94,7 +94,7 @@ public class Buff {
     }
 
     public boolean isStillActivated() {
-        return Controller.currentAccount.game.getCurrentTurn() < startTurn + duration ;
+        return Controller.currentAccount.game.getCurrentTurn() < startTurn + duration;
     }
 
     public void effect() {
@@ -103,7 +103,7 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
-        if(Controller.currentAccount.game.getCurrentTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
+        if (Controller.currentAccount.game.getCurrentTurn() == this.startTurn || this.type == TypesOfBuff.holy) {
             //todo check if they are still activated
             switch (this.type) {
                 case holy:
@@ -153,26 +153,28 @@ public class Buff {
             }
         }
     }
-    public static void buffEffectReversed(){
-        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
-            for (Buff buff : card.activatedBuffs){
-                if(!buff.isStillActivated()){
+
+    public static void buffEffectReversed() {
+        for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
+            for (Buff buff : card.activatedBuffs) {
+                if (!buff.isStillActivated()) {
                     card.removeDiactivatedBuffs(buff);
                     buff.buffNotEffective(card);
                 }
             }
         }
-        for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
-            for (Buff buff : card.activatedBuffs){
-                if(!buff.isStillActivated()){
+        for (Card card : Controller.enemyAccount.getMainDeck().getCards()) {
+            for (Buff buff : card.activatedBuffs) {
+                if (!buff.isStillActivated()) {
                     card.removeDiactivatedBuffs(buff);
                     buff.buffNotEffective(card);
                 }
             }
         }
     }
-    public void buffNotEffective(Card card){
-        switch (this.type){
+
+    public void buffNotEffective(Card card) {
+        switch (this.type) {
             case disarm:
                 card.disarmed = false;
                 break;
@@ -180,51 +182,56 @@ public class Buff {
                 card.stunned = false;
         }
     }
-    private void areaDispelEffect(){
-        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
-            for(Buff buff : card.activatedBuffs){
-                if(buff.type.equals(TypesOfBuff.disarm) || buff.type.equals(TypesOfBuff.poison) ||
-                        buff.type.equals(TypesOfBuff.weakness) || buff.type.equals(TypesOfBuff.stun)){
+
+    private void areaDispelEffect() {
+        for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
+            for (Buff buff : card.activatedBuffs) {
+                if (buff.type.equals(TypesOfBuff.disarm) || buff.type.equals(TypesOfBuff.poison) ||
+                        buff.type.equals(TypesOfBuff.weakness) || buff.type.equals(TypesOfBuff.stun)) {
                     buff.activated = false;
                     card.removeDiactivatedBuffs(buff);
                 }
             }
         }
-        for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
-            for(Buff buff : card.activatedBuffs){
-                if(buff.type.equals(TypesOfBuff.power) || buff.type.equals(TypesOfBuff.holy)){
+        for (Card card : Controller.enemyAccount.getMainDeck().getCards()) {
+            for (Buff buff : card.activatedBuffs) {
+                if (buff.type.equals(TypesOfBuff.power) || buff.type.equals(TypesOfBuff.holy)) {
                     buff.activated = false;
                     card.removeDiactivatedBuffs(buff);
                 }
             }
         }
     }
-    private void dispelEffect(Card enemyCard){
-        for(Buff buff : this.card.activatedBuffs){
-            if(buff.type.equals(TypesOfBuff.disarm) || buff.type.equals(TypesOfBuff.poison) ||
-                    buff.type.equals(TypesOfBuff.weakness) || buff.type.equals(TypesOfBuff.stun)){
+
+    private void dispelEffect(Card enemyCard) {
+        for (Buff buff : this.card.activatedBuffs) {
+            if (buff.type.equals(TypesOfBuff.disarm) || buff.type.equals(TypesOfBuff.poison) ||
+                    buff.type.equals(TypesOfBuff.weakness) || buff.type.equals(TypesOfBuff.stun)) {
                 buff.activated = false;
                 card.removeDiactivatedBuffs(buff);
             }
         }
-        for(Buff buff : enemyCard.activatedBuffs){
-            if(buff.type.equals(TypesOfBuff.power) || buff.type.equals(TypesOfBuff.holy)){
+        for (Buff buff : enemyCard.activatedBuffs) {
+            if (buff.type.equals(TypesOfBuff.power) || buff.type.equals(TypesOfBuff.holy)) {
                 buff.activated = false;
                 enemyCard.removeDiactivatedBuffs(buff);
             }
         }
     }
-    private void healthWithProfitEffectOnSlf(){
+
+    private void healthWithProfitEffectOnSlf() {
         Buff buff = new Buff("Has 2 Holy buffs");
         this.card.addActivatedBuff(buff);
         buff.buffEffect(this.card);
     }
-    private void madnessEffectOnSelf(){
+
+    private void madnessEffectOnSelf() {
         Buff buff = new Buff("disarm");
         this.card.addActivatedBuff(buff);
         buff.buffEffect(this.card);
     }
-    private void sacrificeEffectOnSelf(){
+
+    private void sacrificeEffectOnSelf() {
         Buff buff = new Buff("weakness buff with infinite hp decrease");
         this.card.addActivatedBuff(buff);
         buff.buffEffect(this.card);
