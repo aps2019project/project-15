@@ -86,6 +86,9 @@ public class Hero extends Card {
         return false;
     }
     private boolean isInRange(Card card) {
+        if(this.range == 0){
+            return true;
+        }
         return abs(this.getCurrentBlock().x - card.getCurrentBlock().x) + abs(this.getCurrentBlock().y - card.getCurrentBlock().y) <= range;
     }
     private boolean isInNeighborBlocks(Card card) {

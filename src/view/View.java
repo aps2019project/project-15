@@ -523,7 +523,17 @@ public class View {
     public void itemExistsInShop() {
         System.out.println("Item exists in shop!");
     }
-    public void youCanNotAttackThisCard(){
+
+    public void youCanNotAttackThisCard() {
         System.out.println("You can not attack this card");
+    }
+    public void invalidCardId(){
+        System.out.println("Invalid card id");
+    }
+    public void invalidTarget(){
+        System.out.println("Invalid target");
+    }
+    public void cardMoved(Card card){
+        System.out.println(card.getCardIdInGame() + " moved to " + card.getCurrentBlock().getX() + " " + card.getCurrentBlock().getY());;
     }
 }

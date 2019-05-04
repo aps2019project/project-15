@@ -13,13 +13,14 @@ public abstract class Card {
     private String name;
     String description = " ";
 
-    int cardIdInGame;
+    String cardIdInGame;
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
     private Block currentBlock;
     boolean owned = false;
     boolean stunned = false;
     boolean disarmed = false;
+    boolean attackedThisTurn = false;
     int price;
     int Mp;
     int mp = this.Mp;
@@ -37,6 +38,10 @@ public abstract class Card {
 
     public void setMp(int mp) {
         Mp = mp;
+    }
+
+    public void setCurrentBlock(Block currentBlock) {
+        this.currentBlock = currentBlock;
     }
 
     public void setCardID(String cardID) {
@@ -125,6 +130,10 @@ public abstract class Card {
 
     public Block getCurrentBlock() {
         return currentBlock;
+    }
+
+    public String getCardIdInGame() {
+        return cardIdInGame;
     }
 
     public abstract void printStats(int i);

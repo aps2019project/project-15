@@ -13,7 +13,7 @@ public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Buff buff;
     TypeOfCounterAttack attackType;
-     String activationType;
+    String activationType;
     SpecialPowerActivation activationTime;
     int range;
 

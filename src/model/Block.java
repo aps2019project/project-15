@@ -1,6 +1,6 @@
 package model;
 
-class Block {
+public class Block {
     private boolean poison = false;
     private boolean fire = false;
     private boolean holy = false;
@@ -73,5 +73,17 @@ class Block {
         if(isPoison()){
             this.card.Hp--;
         }
+    }
+
+    public void setEmpty(boolean empty) {
+        isEmpty = empty;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 }
