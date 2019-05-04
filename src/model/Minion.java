@@ -92,7 +92,7 @@ public class Minion extends Card {
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 Hero hero = (Hero) card;
-                //todo call hero counter attack
+                hero.counterAttack(this);
             }
         }
     }
