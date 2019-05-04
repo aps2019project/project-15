@@ -71,11 +71,25 @@ public class Game {
     public void incrementNumOfMp() {
 
     }
+
     public void addMp() {
 
     }
-    public void updateGraveYard(){
 
+    public void updateGraveYard() {
+        //should be called after each game
+        for(Card card : Controller.currentAccount.getCardsInGame()){
+            if(card.Hp <= 0){
+                graveYard.add(card);
+                Controller.currentAccount.removeCardInGame(card);
+            }
+        }
+        for(Card card : Controller.enemyAccount.getCardsInGame()){
+            if(card.Hp <= 0){
+                graveYard.add(card);
+                Controller.enemyAccount.removeCardInGame(card);
+            }
+        }
     }
 
     public void reduceMp() {
@@ -122,6 +136,7 @@ public class Game {
     }
 
     public void counterAttack(Card myCard, Card opponentCard) {
+        myCard.attack(opponentCard);
 
     }
 
@@ -130,10 +145,6 @@ public class Game {
     }
 
     public void showNextCard() {
-
-    }
-
-    public void enterGraveYard() {
 
     }
 
@@ -150,8 +161,7 @@ public class Game {
     public void switchTurn() {
         if (this.turn == 1) {
             this.turn = 2;
-        }
-        else if (this.turn == 2) {
+        } else if (this.turn == 2) {
             this.turn = 1;
         }
     }
