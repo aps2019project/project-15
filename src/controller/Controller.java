@@ -25,6 +25,9 @@ public class Controller {
     private Shop shop = Shop.getInstance();
     public static Account currentAccount = new Account();
     public static Account enemyAccount = new Account();
+    {
+        enemyAccount.setGame(currentAccount.getGame());
+    }
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();

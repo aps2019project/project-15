@@ -62,14 +62,13 @@ public class Game {
         return 3;
     }
 
-    public void incrementNumOfMp() {
 
+    public void addPlayerOneMp(int n) {
+        this.player1Mp += n;
     }
-
-    public void addMp() {
-
+    public void addPlayerTwoMp(int n) {
+        this.player2Mp += n;
     }
-
     public void updateGraveYard() {
         //should be called after each game
         for (Card card : Controller.currentAccount.getCardsInGame()) {

@@ -2,5 +2,5 @@
   "itemName": "KamaneDamol",
   "id": "053",
   "price": "30000",
-  "desc": "just for ranged and hybrid self hero disarms the enemy while attack"
+  "desc": "if self hero is ranged or hybrid, while attack disarms the enemy for one turn"
 }

@@ -143,4 +143,7 @@ public class Hero extends Card {
         return information;
     }
 
+    public TypeOfCounterAttack getCounterAttack() {
+        return counterAttack;
+    }
 }
