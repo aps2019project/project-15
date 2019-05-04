@@ -88,7 +88,7 @@ public class Collection {
 
     public void deleteDeck(String name) {
         Iterator<Deck> iter = myDecks.iterator();
-        Deck deck ;
+        Deck deck;
         while (iter.hasNext()) {
             deck = iter.next();
             if (deck.getName().equals(name)) {
@@ -193,7 +193,14 @@ public class Collection {
         if (deck == null) {
             view.deckIsNotInCollection();
         } else {
-            deck.validateDeck();
+            boolean ok;
+            ok = deck.validateDeck();
+            if (ok) {
+                deck.validated = true;
+                System.out.println("deck " + deck.getName() + " is validated!");
+            } else {
+                System.out.println("deck " + deck.getName() + " could not be validated!");
+            }
         }
     }
 
@@ -208,6 +215,8 @@ public class Collection {
             return;
         }
         Controller.currentAccount.setMainDeck(deck);
+        Controller.currentAccount.getMainDeck().validated = true;
+        System.out.println("main deck has been set!");
     }
 
     public void showAllDecks() {

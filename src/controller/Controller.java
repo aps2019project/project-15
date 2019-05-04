@@ -25,6 +25,7 @@ public class Controller {
     private Shop shop = Shop.getInstance();
     public static Account currentAccount = new Account();
     public static Account enemyAccount = new Account();
+    private boolean gameStarted = false;
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
@@ -105,21 +106,25 @@ public class Controller {
     private void battleMenuRequest(String command) throws InputException {
 
         BattleMenu battleMenu = BattleMenu.getInstance();
-        boolean gameStarted = false;
         try {
-            while (currentMenu.equals(battleMenu)) {
-                if (gameStarted) {
-                    view.gameIsLoading();
-                    break;
-                } else {
-
+            if (gameStarted) {
+                view.gameIsLoading();
+                return;
+            } else {
+                if (Controller.currentAccount.getMainDeck().validated) {
+                    System.out.println("your deck is " + currentAccount.getMainDeck().getName());
                     battleMenu.chooseBattleType(command);
                     gameStarted = true;
+                } else {
+                    System.out.println("you have not chosen a valid deck!");
+                    currentMenu = MainMenu.getInstance();
                 }
             }
-        } catch (InputException e) {
+        } catch (
+                InputException e) {
             throw new InputException("Invalid command");
         }
+
     }
 
     private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
