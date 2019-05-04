@@ -113,6 +113,7 @@ public class Controller {
         try {
             if (gameStarted) {
                 view.gameIsLoading();
+                currentAccount.setGame(new Game());
                 gameFunction();
                 return;
             } else {

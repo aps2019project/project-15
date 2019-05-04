@@ -3,6 +3,6 @@
   "price": 2100,
   "id": "162",
   "mp": 0,
-  "range": "1 my or enemy force",
+  "range": "1 self or enemy force",
   "description": "destroys enemy positive buff and self negetive buff"
 }

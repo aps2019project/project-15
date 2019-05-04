@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Account {
 
     private View view = View.getInstance();
-    Game game = new Game();
+    Game game;
 
     private ArrayList<Card> cardsInGame = new ArrayList<>();
 
