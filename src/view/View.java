@@ -471,4 +471,57 @@ public class View {
         if (Integer.parseInt(cardID) != 0)
             System.out.println("card ID is: " + cardID);
     }
+
+    public void gameIsLoading() {
+        System.out.println("GAME IS LOADING!!!!!!!!");
+    }
+
+    public void usernameLoggedIn(Account account) {
+        System.out.println(account.getUsername() + " logged in!");
+    }
+
+    public void singlePlayerMode() {
+        System.out.println("single player mode!");
+    }
+
+    public void getSecondUsername() {
+        System.out.println("multi player mode!");
+        System.out.println("enter second player username: ");
+    }
+
+    public void getSecondPassword() {
+        System.out.println("enter second player password: ");
+    }
+
+    public void gameIsBetween(Account account, Account secondPlayer) {
+        System.out.println("game is between " + account.getUsername() + " & " + secondPlayer.getUsername());
+    }
+
+    public void wantToAddCard(Card card) {
+        System.out.println("you want to add card " + card.getName());
+    }
+
+    public void wantToAddItem(Item item) {
+        System.out.println("you want to add item " + item.getItemName());
+    }
+
+    public void cardExistsInShop() {
+        System.out.println("card exists in shop");
+    }
+
+    public void cardDoesntExistInShop() {
+        System.out.println("card doesn't exist in shop!");
+    }
+
+    public void deckCreated(Deck deck) {
+        System.out.println("deck " + deck.getName() + " created!");
+    }
+
+    public void noCardInThisDeck() {
+        System.out.println("no cards in this deck!");
+    }
+
+    public void noItemsInThisDeck() {
+        System.out.println("no items!");
+    }
 }

@@ -131,11 +131,11 @@ public class Shop {
     public String search(String name) {
         for (Card card : shop.allCards) {
             if (card.getName().equals(name)) {
-                System.out.println("card exists in shop");
+                view.cardExistsInShop();
                 return card.getCardID();
             }
         }
-        System.out.println("card doesn't exist in shop!");
+        view.cardDoesntExistInShop();
         return null;
     }
 
