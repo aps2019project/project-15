@@ -523,4 +523,7 @@ public class View {
     public void itemExistsInShop() {
         System.out.println("Item exists in shop!");
     }
+    public void youCanNotAttackThisCard(){
+        System.out.println("You can not attack this card");
+    }
 }

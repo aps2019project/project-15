@@ -46,6 +46,7 @@ public class Buff {
             apEffected = true;
         }
         duration = getDurationFromDesc(description);
+        startTurn = Controller.currentAccount.game.getTurn();
     }
 
     public void makeBuff(String description) {
