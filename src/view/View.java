@@ -7,7 +7,6 @@ import model.menu.CollectionMenu;
 import model.menu.ShopMenu;
 import model.Hero;
 
-
 public class View {
     private static View ourInstance = new View();
 
@@ -17,7 +16,6 @@ public class View {
 
     private View() {
     }
-
 
     public void printMainMenuOfGame() {
         System.out.println("Menu: ");
@@ -59,15 +57,12 @@ public class View {
     }
 
     public void showMinionsYouCanMove() {
-
     }
 
     public void showMinionsYouCanAttack() {
-
     }
 
     public void cardsYouCanInsert() {
-
     }
 
     public void printCollectionHelpMenu() {

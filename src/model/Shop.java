@@ -110,14 +110,12 @@ public class Shop {
             view.remainingMoney();
             return;
         }
-        if (item != null) {
-            if (item.getPrice().matches("[0-9]+")) {
-                Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
-            }
-            Controller.currentAccount.getMyCollection().addItemToCollection(item);
-            view.itemBought();
-            view.remainingMoney();
+        if (item.getPrice().matches("[0-9]+")) {
+            Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
         }
+        Controller.currentAccount.getMyCollection().addItemToCollection(item);
+        view.itemBought();
+        view.remainingMoney();
     }
 
 

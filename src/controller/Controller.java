@@ -246,8 +246,7 @@ public class Controller {
 
     private void mainMenuRequest(String command) throws InputException {
         if (RequestType.SAVE.setMatcher(command).find()) {
-            int id;
-
+            //todo
             view.saveEverything();
         } else if (RequestType.LOGOUT.setMatcher(command).find()) {
             view.logOutMessage();

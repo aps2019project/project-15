@@ -15,7 +15,7 @@ public class Collection {
     private ArrayList<Deck> myDecks = new ArrayList<>();
 
     View view = View.getInstance();
-    Request request = new Request();
+    private Request request = new Request();
 
     public void exitCollection() {
         view.exitCollection();
@@ -60,12 +60,12 @@ public class Collection {
     public void searchInCollection() {
         String name = request.getNewCommand();
         Card card = Card.returnCardByName(name);
-        if (!card.equals(null)) {
+        if (card != null) {
             view.printCardId(card);
             return;
         }
         Collectible collectible = Collectible.returnItemName(name);
-        if (!collectible.equals(null)) {
+        if (collectible != null) {
             view.printCollectibleID(collectible);
             return;
         }
@@ -88,7 +88,7 @@ public class Collection {
 
     public void deleteDeck(String name) {
         Iterator<Deck> iter = myDecks.iterator();
-        Deck deck = new Deck("");
+        Deck deck ;
         while (iter.hasNext()) {
             deck = iter.next();
             if (deck.getName().equals(name)) {
@@ -133,7 +133,6 @@ public class Collection {
 
         if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
-            return;
         }
     }
 
