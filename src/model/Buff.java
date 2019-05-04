@@ -48,16 +48,8 @@ public class Buff {
         duration = getDurationFromDesc(description);
     }
 
-    private int getUnitsFromDesc(String description) {
-        Pattern pattern = Pattern.compile("(\\d+) units");
-        Matcher matcher = pattern.matcher(description);
-        if (matcher.find()) {
-            return Integer.parseInt(matcher.group(1));
-        }
-        if (description.contains("infinite")) {
-            return Integer.MAX_VALUE;
-        }
-        return 1;
+    public void makeBuff(String description) {
+
     }
 
     private int getDurationFromDesc(String description) {
@@ -75,24 +67,38 @@ public class Buff {
         return 0;
     }
 
+    private int getUnitsFromDesc(String description) {
+        Pattern pattern = Pattern.compile("(\\d+) units");
+        Matcher matcher = pattern.matcher(description);
+        if (matcher.find()) {
+            return Integer.parseInt(matcher.group(1));
+        }
+        if (description.contains("infinite")) {
+            return Integer.MAX_VALUE;
+        }
+        return 1;
+    }
+
     private TypesOfBuff getTypeFromDesc(String description) {
-        if (description.contains("holy")) {
-            return TypesOfBuff.holy;
-        }
-        if (description.contains("power")) {
-            return TypesOfBuff.power;
-        }
-        if (description.contains("poison")) {
-            return TypesOfBuff.poison;
-        }
-        if (description.contains("weakness")) {
-            return TypesOfBuff.weakness;
-        }
-        if (description.contains("stun")) {
-            return TypesOfBuff.stun;
-        }
-        if (description.contains("disarm")) {
-            return TypesOfBuff.disarm;
+        if (description != null && !description.equals("")) {
+            if (description.contains("holy")) {
+                return TypesOfBuff.holy;
+            }
+            if (description.contains("power")) {
+                return TypesOfBuff.power;
+            }
+            if (description.contains("poison")) {
+                return TypesOfBuff.poison;
+            }
+            if (description.contains("weakness")) {
+                return TypesOfBuff.weakness;
+            }
+            if (description.contains("stun")) {
+                return TypesOfBuff.stun;
+            }
+            if (description.contains("disarm")) {
+                return TypesOfBuff.disarm;
+            }
         }
         return TypesOfBuff.specialCase;
     }
@@ -104,6 +110,7 @@ public class Buff {
     public int getDuration() {
         return duration;
     }
+
 
     public boolean isStillActivated() {
         return Controller.currentAccount.game.getTurn() <= startTurn + duration;
