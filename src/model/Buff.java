@@ -55,9 +55,6 @@ public class Buff {
     private int getDurationFromDesc(String description) {
         Pattern pattern = Pattern.compile("(\\d+) turn");
         Matcher matcher = pattern.matcher(description);
-        if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
-            return 0;
-        }
         if (matcher.find()) {
             return Integer.parseInt(matcher.group(1));
         }
@@ -122,6 +119,9 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
+        if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
+            this.duration = 0;
+        }
         if (this.card.getName().equalsIgnoreCase("sacrifice")) {
             unit = this.card.Hp;
         }
