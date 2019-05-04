@@ -7,6 +7,6 @@
   "Ap": 7,
   "attackType": "ranged",
   "range": 5,
-  "activationType": "minions in 2 blocks radius are effected by plus 1 ap",
+  "activationType": "minions in 2 blocks radius are effected by a power buff of 1 unit of ap",
   "activationTime": "On Spawn"
 }

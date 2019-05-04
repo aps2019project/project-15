@@ -7,6 +7,6 @@
   "Ap": 6,
   "attackType": "ranged",
   "range": 4,
-  "activationType": "Up to 3 rounds of enemy force poisoned",
+  "activationType": "For 3 turns poisons enemy force",
   "activationTime": "On Attack"
 }

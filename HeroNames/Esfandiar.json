@@ -6,7 +6,7 @@
   "Ap": 3,
   "counterAttack": "hybrid",
   "attackArea": 3,
-  "description": "has 3 holy buffs continuously",
+  "description": "has 3 units of holy buffs for the rest of the game",
   "manaSpecialPower": 0,
   "coolDown": 0
 }

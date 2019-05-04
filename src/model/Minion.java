@@ -35,7 +35,7 @@ public class Minion extends Card {
         this.activationType = activationType;
         this.attackType = attackType;
         this.id = id;
-        if(description.contains("combo")){
+        if (description.contains("combo")) {
             //todo handle combo
             return;
         }
@@ -61,21 +61,21 @@ public class Minion extends Card {
     }
 
     public void attack(Card card) {
-        if(this.getName().equalsIgnoreCase("Giv")){
+        if (this.getName().equalsIgnoreCase("Giv")) {
             return;
             //todo add give to other attacks
         }
-        if(this.getName().equalsIgnoreCase("Ashkbos")){
-            if(card.getAttackPower() < this.Ap){
+        if (this.getName().equalsIgnoreCase("Ashkbos")) {
+            if (card.getAttackPower() < this.Ap) {
                 return;
             }
         }
-        if(this.isInRange(card)){
+        if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
             }
-            if(this.activationType.equals(SpecialPowerActivation.onAttack)){
+            if (this.activationType.equals(SpecialPowerActivation.onAttack)) {
                 specialPowerActing(card);
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
@@ -83,8 +83,8 @@ public class Minion extends Card {
                 if (minion.canCounterAttack(this)) {
                     minion.counterAttack(this);
                 }
-                if(minion.activationType.equals(SpecialPowerActivation.onDeath)){
-                    if(minion.healthLevel <= 0){
+                if (minion.activationType.equals(SpecialPowerActivation.onDeath)) {
+                    if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
                 }
@@ -95,43 +95,47 @@ public class Minion extends Card {
             }
         }
     }
-    public void specialPowerActing(Card card){
-        if(this.getName().equalsIgnoreCase("GhooleDosar")){
+
+    public void specialPowerActing(Card card) {
+        if (this.getName().equalsIgnoreCase("GhooleDosar")) {
 
         }
         this.buff.buffEffect(card);
     }
-    private void ghooledosar(Card card){
-        for(Buff buff : card.getActivatedBuffs()){
-            if(buff.getType().equals(TypesOfBuff.holy) || buff.getType().equals(TypesOfBuff.power)){
+
+    private void ghooledosar(Card card) {
+        for (Buff buff : card.getActivatedBuffs()) {
+            if (buff.getType().equals(TypesOfBuff.holy) || buff.getType().equals(TypesOfBuff.power)) {
                 card.removeDeactivatedBuffs(buff);
                 buff.buffNotEffective(card);
             }
         }
     }
+
     public void counterAttack(Card card) {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
             }
-            if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+            if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;
-                if(minion.activationType.equals(SpecialPowerActivation.onDeath)){
-                    if(minion.healthLevel <= 0){
+                if (minion.activationType.equals(SpecialPowerActivation.onDeath)) {
+                    if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
                 }
-                if(minion.activationType.equals(SpecialPowerActivation.onDefend)){
+                if (minion.activationType.equals(SpecialPowerActivation.onDefend)) {
                     minion.specialPowerActing(this);
                 }
             }
         }
     }
-    public boolean specialPowerActivation(){
-        switch (this.activationType){
+
+    public boolean specialPowerActivation() {
+        switch (this.activationType) {
             case onRespawn:
-                if(Controller.currentAccount.getCardsInGame().contains(this) || Controller.enemyAccount.getCardsInGame().contains(this)){
+                if (Controller.currentAccount.getCardsInGame().contains(this) || Controller.enemyAccount.getCardsInGame().contains(this)) {
                     return true;
                 }
                 break;

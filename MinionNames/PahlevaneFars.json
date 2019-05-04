@@ -7,6 +7,6 @@
   "Ap": 6,
   "attackType": "melee",
   "range": 0,
-  "activationType": "Attacks with ap: 5+ The number of times that has attacked to that force before",
+  "activationType": "weakness buff Attacks with ap: 0 units more The number of times that has attacked to that force before for the rest of the game",
   "activationTime": "On Attack"
 }

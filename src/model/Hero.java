@@ -20,11 +20,15 @@ public class Hero extends Card {
     int manaSpecialPower;
 
     public void attack(Card card) {
-
+        card.Hp -= this.Ap;
+        if (card.Hp < 0) {
+            card.Hp = 0;
+        }
     }
 
     public Hero() {
         this.setTypeOfAttack();
+        buff = new Buff(description);
     }
 
     public void setTypeOfAttack() {

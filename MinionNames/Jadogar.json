@@ -7,6 +7,6 @@
   "Ap": 4,
   "attackType": "ranged",
   "range": 3,
-  "activationType": "to itself and each self minionin 8 blocks around it gives a power buff with 2 units of ap increase and a weakness buff with 1 unit of hp deacrease",
+  "activationType": "to itself and each self minionin 8 blocks around it gives a buff with 2 units of ap increase and a buff with 1 unit of hp decrease",
   "activationTime": "Passive"
 }
