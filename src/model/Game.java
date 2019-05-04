@@ -9,11 +9,6 @@ public class Game {
 
     private Map map = new Map();
     private int currentTurn;
-
-
-    public Game() {
-    }
-
     private GameType gameType;
     private ModeOfGame Mode;
     GameType type;
@@ -29,7 +24,6 @@ public class Game {
     public Map getMap() {
         return map;
     }
-
 
     public Account setAccounts() {
         if (this.gameType.equals(GameType.MultiPlayer)) {
@@ -78,14 +72,14 @@ public class Game {
 
     public void updateGraveYard() {
         //should be called after each game
-        for(Card card : Controller.currentAccount.getCardsInGame()){
-            if(card.Hp <= 0){
+        for (Card card : Controller.currentAccount.getCardsInGame()) {
+            if (card.Hp <= 0) {
                 graveYard.add(card);
                 Controller.currentAccount.removeCardInGame(card);
             }
         }
-        for(Card card : Controller.enemyAccount.getCardsInGame()){
-            if(card.Hp <= 0){
+        for (Card card : Controller.enemyAccount.getCardsInGame()) {
+            if (card.Hp <= 0) {
                 graveYard.add(card);
                 Controller.enemyAccount.removeCardInGame(card);
             }
@@ -261,5 +255,4 @@ public class Game {
         view.showMinionsYouCanAttack();
         view.showMinionsYouCanAttack();
     }
-
 }

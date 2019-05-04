@@ -13,16 +13,16 @@ public class Deck {
     String name;
     View view = View.getInstance();
 
-    public Deck(String name) {
+    Deck(String name) {
         this.name = name;
     }
 
-    public void addCard(Card card) {
+    void addCard(Card card) {
         this.cards.add(card);
         view.cardAdded();
     }
 
-    public void deleteCard(Card card) {
+    void deleteCard(Card card) {
         if (!this.cards.contains(card)) {
             view.cardIsNotInDeck();
             return;
@@ -30,12 +30,12 @@ public class Deck {
         cards.remove(card);
     }
 
-    public void addItem(Item item) {
+    void addItem(Item item) {
         this.item = item;
         view.itemAdded();
     }
 
-    public void deleteItem(Item item) {
+    void deleteItem(Item item) {
         if (!this.item.equals(item)) {
             view.itemIsNotInDeck();
             return;
@@ -43,7 +43,7 @@ public class Deck {
         this.item = null;
     }
 
-    public boolean validateDeck() {
+    boolean validateDeck() {
         boolean oneHero = false;
         System.out.println("number of cards in this deck: "+this.numberOfCards());
         if (this.numberOfCards() == 21 ) {
@@ -72,11 +72,11 @@ public class Deck {
         return name;
     }
 
-    public ArrayList<Card> getCards() {
+    ArrayList<Card> getCards() {
         return cards;
     }
 
-    public int numberOfCards() {
+    int numberOfCards() {
         return cards.size();
     }
 
@@ -93,7 +93,7 @@ public class Deck {
         return null;
     }
 
-    public int getNumOfCardInDeck(Card card) {
+    int getNumOfCardInDeck(Card card) {
         int num = 0;
         for (Card card1 : this.getCards()) {
             if (card1 == card) {
