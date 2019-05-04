@@ -250,6 +250,7 @@ public class Controller {
             view.saveEverything();
         } else if (RequestType.LOGOUT.setMatcher(command).find()) {
             view.logOutMessage();
+            currentMenu = AccountMenu.getInstance();
             Account account = Controller.currentAccount;
             account.setLoggedIn(false);
         } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
@@ -265,8 +266,6 @@ public class Controller {
             currentMenu = BattleMenu.getInstance();
         } else if (RequestType.EXIT.setMatcher(command).find()) {
             view.exitMessage();
-            currentAccount.setLoggedIn(false);
-            view.logOutMessage();
             currentMenu = AccountMenu.getInstance();
         } else {
             throw new InputException("Invalid command");
@@ -282,7 +281,9 @@ public class Controller {
             shop.buy(RequestType.BUY.getMatcher().group(1));
         } else if (RequestType.SEARCH.setMatcher(command).find()) {
             String cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
-            view.showCardId(cardID);
+            if (cardID != null) {
+                view.showCardId(cardID);
+            }
         } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
             shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
         } else if (RequestType.SHOW.setMatcher(command).find()) {

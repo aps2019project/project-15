@@ -127,10 +127,16 @@ public class Shop {
     }
 
     public String search(String name) {
-        for (Card card : shop.allCards) {
+        for (Card card : shop.getAllCards()) {
             if (card.getName().equals(name)) {
                 view.cardExistsInShop();
                 return card.getCardID();
+            }
+        }
+        for (Item item : shop.getAllItems()){
+            if (item.getItemName().equals(name)) {
+                view.itemExistsInShop();
+                return item.getId();
             }
         }
         view.cardDoesntExistInShop();

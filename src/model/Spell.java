@@ -5,10 +5,10 @@ import view.View;
 import java.util.ArrayList;
 
 public class Spell extends Card {
-    static ArrayList<Spell> spells = new ArrayList<>();
-    Buff buff;
+    private static ArrayList<Spell> spells = new ArrayList<>();
+    private Buff buff;
 
-    String range;
+    private String range;
     public String id;
 
     public Spell(int hp) {

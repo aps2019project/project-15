@@ -519,4 +519,8 @@ public class View {
     public void noItemsInThisDeck() {
         System.out.println("no items!");
     }
+
+    public void itemExistsInShop() {
+        System.out.println("Item exists in shop!");
+    }
 }
