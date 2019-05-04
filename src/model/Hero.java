@@ -18,6 +18,7 @@ public class Hero extends Card {
     TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
     int manaSpecialPower;
+
     public void attack(Card card) {
 
     }
@@ -90,4 +91,5 @@ public class Hero extends Card {
 
     private void Afsane(Card card) {
     }
+
 }

@@ -79,7 +79,6 @@ public class Controller {
         }
     }
 
-
     private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         T card = new Gson().fromJson(reader, classOfT);
@@ -102,7 +101,6 @@ public class Controller {
             throw new InputException("Invalid command");
         }
     }
-
 
     private void battleMenuRequest(String command) throws InputException {
 
@@ -252,7 +250,6 @@ public class Controller {
             item.setId(item.id);
         }
     }
-
 
     private void accountMenuRequest(String command) throws InputException {
         AccountMenu accountMenu = AccountMenu.getInstance();
