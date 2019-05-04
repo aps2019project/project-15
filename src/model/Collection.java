@@ -83,7 +83,7 @@ public class Collection {
         }
         Deck deck = new Deck(name);
         myDecks.add(deck);
-        System.out.println("deck " + deck.getName() + " created!");
+        view.deckCreated(deck);
     }
 
     public void deleteDeck(String name) {
@@ -226,9 +226,9 @@ public class Collection {
             return;
         }
         if (deck.cards == null) {
-            System.out.println("no cards in this deck!");
+            view.noCardInThisDeck();
             if (deck.item == null) {
-                System.out.println("no items!");
+                view.noItemsInThisDeck();
                 return;
             }
         }
@@ -326,10 +326,10 @@ public class Collection {
         Card card = Card.returnCardById(id);
         Item item = Item.getItemById(id);
         if (card != null) {
-            System.out.println("it is card");
+            view.wantToAddCard(card);
             addCardToDeck(card, deckName);
         } else if (item != null) {
-            System.out.println("it is item");
+            view.wantToAddItem(item);
             addItemToDeck(item, deckName);
         }
     }

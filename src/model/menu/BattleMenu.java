@@ -6,6 +6,7 @@ import model.Game;
 import view.InputException;
 import view.Request;
 import view.RequestType;
+import view.View;
 
 public class BattleMenu extends Menu {
 
@@ -13,17 +14,16 @@ public class BattleMenu extends Menu {
     public static BattleMenu getInstance() {
         return battleMenu;
     }
+    private View view = View.getInstance();
 
     Request request = new Request();
 
     public void chooseBattleType(String command) throws InputException  {
         if (RequestType.SINGLE_PLAYER.setMatcher(command).find()) {
-            System.out.println("single player mode!");
-            //System.out.println("to start game , type 'start' ");
+            view.singlePlayerMode();
         }
         else if (RequestType.MULTI_PLAYER.setMatcher(command).find()) {
-            System.out.println("multi player mode!");
-            System.out.println("enter second player username: ");
+            view.getSecondUsername();
             String secondUsername = request.getNewCommand();
             Controller.enemyAccount.setUsername(secondUsername);
             addSecondPLayer(secondUsername);
@@ -37,10 +37,10 @@ public class BattleMenu extends Menu {
         Account account = Controller.currentAccount;
         Account secondPlayer = new Account();
         secondPlayer.setUsername(secondUsername);
-        System.out.println("enter second player password: ");
+        view.getSecondPassword();
         String password = request.getNewCommand();
         secondPlayer.setPassword(password);
         Controller.enemyAccount.setPassword(password);
-        System.out.println("game is between " + account.getUsername() + " & " + secondPlayer.getUsername());
+        view.gameIsBetween(account , secondPlayer);
     }
 }

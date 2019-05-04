@@ -31,7 +31,7 @@ public class AccountMenu extends Menu {
         if (account != null) {
             if (!account.isLoggedIn()) {
                 if (account.getPassword().equals(password)) {
-                    System.out.println(account.getUsername() + " logged in!");
+                    view.usernameLoggedIn(account);
                     loggedIn = true;
                 } else {
                     view.incorrectPassword();

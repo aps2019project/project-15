@@ -110,7 +110,7 @@ public class Controller {
         try {
             while (currentMenu.equals(battleMenu)) {
                 if (gameStarted) {
-                    System.out.println("GAME IS LOADING!!!!!!!!");
+                    view.gameIsLoading();
                     break;
                 } else {
                     battleMenu.chooseBattleType(command);
