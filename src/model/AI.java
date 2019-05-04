@@ -3,14 +3,17 @@ package model;
 import java.util.ArrayList;
 
 public class AI {
+    private Deck mainDdeck;
     private ArrayList<Card> AICards;
-    private ArrayList<Deck> AIDecks;
+   // private ArrayList<Deck> AIDecks;
 
 
-    public void move() {
+    public void move(Card card , Block blockmaghsad) {
 
     }
-    public void attack() {
+    public void attack(Card card , ArrayList<Block> blocks) {
+
+
 
     }
 
@@ -18,7 +21,7 @@ public class AI {
         return AICards;
     }
 
-    public ArrayList<Deck> getAIDecks() {
-        return AIDecks;
+    public Deck getMainDdeck() {
+        return mainDdeck;
     }
 }

@@ -1,7 +1,11 @@
 package model;
 
+import com.gilecode.yagson.YaGson;
+import com.gilecode.yagson.YaGsonBuilder;
 import view.View;
+import com.google.gson.Gson;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Account {
@@ -122,6 +126,18 @@ public class Account {
 
     public boolean soldCard(Card card) {
         return card.sold;
+    }
+    public static  void saveaccount(Account account){
+        YaGson yagson =  new YaGsonBuilder().create();
+        try {
+            Writer writer = new FileWriter(account.username + ".json");
+            String info = new String(yagson.toJson(account));
+            writer.write(info);
+            writer.close();
+        }
+        catch (Exception e){
+            e.getStackTrace();
+        }
     }
 
 }
