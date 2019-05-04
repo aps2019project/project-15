@@ -12,6 +12,7 @@ public class Deck {
     Item item;
     String name;
     View view = View.getInstance();
+    public boolean validated = false;
 
     Deck(String name) {
         this.name = name;

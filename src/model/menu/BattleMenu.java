@@ -36,11 +36,12 @@ public class BattleMenu extends Menu {
     public void addSecondPLayer(String secondUsername) {
         Account account = Controller.currentAccount;
         Account secondPlayer = new Account();
-        secondPlayer.setUsername(secondUsername);
-        view.getSecondPassword();
-        String password = request.getNewCommand();
-        secondPlayer.setPassword(password);
-        Controller.enemyAccount.setPassword(password);
-        view.gameIsBetween(account , secondPlayer);
+            secondPlayer.setUsername(secondUsername);
+            view.getSecondPassword();
+            String password = request.getNewCommand();
+            secondPlayer.setPassword(password);
+            Controller.enemyAccount.setPassword(password);
+            view.gameIsBetween(account, secondPlayer);
+            view.gameIsBetween(account, Controller.enemyAccount);
     }
 }

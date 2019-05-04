@@ -25,6 +25,27 @@ public enum RequestType {
     SELECT_USER("^select user (\\w+)$"),
     SINGLE_PLAYER("^single player$"),
     MULTI_PLAYER("^multi player$"),
+    GAME_INFO("^game info$"),
+    SHOW_MY_MINIONS("^show my minions$"),
+    SHOW_OPP_MINIONS("^$show opponent minions"),
+    SHOW_CARD_INFO("^show card info (\\w+)$"),
+    SELECT_CARD("^select (\\w+)$"),
+    MOVE_TO("^move to (\\d+),(\\d+)$"),
+    ATTACK_OPP("^attack (\\w+)$"),
+    ATTACH_COMBO("^attack combo (\\w+)+$"),
+    USE_SPECIAL_POWER("^use special power (\\w+),(\\w+)$"),
+    SHOW_HAND("^show hand$"),
+    INSERT_CARD_IN_BLOCK("^insert (\\w+) in (\\w+),(\\w+)$"),
+    END_TURN("^end turn$"),
+    SHOW_COLLECTABLES("^show collectables$"),
+    SELECT_COLLECTABLE("^select (\\w+)$"),
+    SHOW_INFO("^show info$"),
+    SHOW_INFO_CARD_ID("^show info (\\w+)$"),
+    USE_LOCATION("^use location (\\w+),(\\w+)$"),
+    SHOW_NEXT_CARD("^show next card$"),
+    ENTER_GRAVEYARD("^enter graveyard$"),
+    END_GAME("^end game$"),
+    SHOW_CARDS_GRAVEYARD("^show cards$"),
 
     //shopMenu
     SHOW_COLLECTION_IN_SHOP("^show collection$"),
@@ -64,4 +85,4 @@ public enum RequestType {
     RequestType(String pattern) {
         this.pattern = Pattern.compile(pattern);
     }
-    }
+}
