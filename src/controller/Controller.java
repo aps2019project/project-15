@@ -106,13 +106,13 @@ public class Controller {
 
         BattleMenu battleMenu = BattleMenu.getInstance();
         boolean gameStarted = false;
-
         try {
             while (currentMenu.equals(battleMenu)) {
                 if (gameStarted) {
                     view.gameIsLoading();
                     break;
                 } else {
+
                     battleMenu.chooseBattleType(command);
                     gameStarted = true;
                 }
@@ -165,33 +165,6 @@ public class Controller {
             }
         } else {
             throw new InputException("Invalid command");
-        }
-    }
-
-    private void shopMenuRequest(String command) throws InputException {
-        ShopMenu shopMenu = ShopMenu.getInstance();
-        Shop shop = new Shop();
-        if (currentMenu.equals(shopMenu)) {
-            if (RequestType.SELL.setMatcher(command).find()) {
-                shop.sell(RequestType.SELL.getMatcher().group(1));
-            } else if (RequestType.BUY.setMatcher(command).find()) {
-                shop.buy(RequestType.BUY.getMatcher().group(1));
-            } else if (RequestType.SEARCH.setMatcher(command).find()) {
-                String cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
-                view.showCardId(cardID);
-            } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
-                shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
-            } else if (RequestType.SHOW.setMatcher(command).find()) {
-                shop.show();
-            } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
-                shop.showCollection();
-            } else if (RequestType.HELP.setMatcher(command).find()) {
-                shop.help();
-            } else if (RequestType.EXIT_SHOP.setMatcher(command).find()) {
-                shop.exitShop();
-            }
-        } else {
-            throw new InputException("invalid command");
         }
     }
 
@@ -312,4 +285,32 @@ public class Controller {
             }
         }
     }
+
+    private void shopMenuRequest(String command) throws InputException {
+        ShopMenu shopMenu = ShopMenu.getInstance();
+        Shop shop = new Shop();
+        if (currentMenu.equals(shopMenu)) {
+            if (RequestType.SELL.setMatcher(command).find()) {
+                shop.sell(RequestType.SELL.getMatcher().group(1));
+            } else if (RequestType.BUY.setMatcher(command).find()) {
+                shop.buy(RequestType.BUY.getMatcher().group(1));
+            } else if (RequestType.SEARCH.setMatcher(command).find()) {
+                String cardID = shop.search(RequestType.SEARCH.getMatcher().group(1));
+                view.showCardId(cardID);
+            } else if (RequestType.SEARCH_COLLECTION_IN_SHOW.setMatcher(command).find()) {
+                shop.searchInCollection(RequestType.SEARCH_COLLECTION_IN_SHOW.getMatcher().group(1));
+            } else if (RequestType.SHOW.setMatcher(command).find()) {
+                shop.show();
+            } else if (RequestType.SHOW_COLLECTION_IN_SHOP.setMatcher(command).find()) {
+                shop.showCollection();
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                shop.help();
+            } else if (RequestType.EXIT_SHOP.setMatcher(command).find()) {
+                shop.exitShop();
+            }
+        } else {
+            throw new InputException("invalid command");
+        }
+    }
+
 }

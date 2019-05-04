@@ -117,6 +117,7 @@ public class Collection {
                         break;
                     }
                 }
+                deck.addCard(card);
             } else if (!deck.getCards().contains(card)) {
                 deck.addCard(card);
             } else if (deck.getCards().contains(card) && deck.getNumOfCardInDeck(card) >= card.numOfCardInCollection) {
@@ -285,7 +286,6 @@ public class Collection {
     void addCardToCollection(Card card) {
         this.myCards.add(card);
     }
-
 
     boolean addItemToCollection(Item item) {
         if (myItems.size() >= 3) {

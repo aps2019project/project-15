@@ -45,18 +45,19 @@ public class Deck {
 
     public boolean validateDeck() {
         boolean oneHero = false;
-        if (this.numberOfCards() == 20) {
+        System.out.println("number of cards in this deck: "+this.numberOfCards());
+        if (this.numberOfCards() == 21 ) {
             for (Card item : cards) {
                 if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                     if (oneHero) {
                         return false;
                     } else {
                         oneHero = true;
-                        break;
                     }
                 }
             }
             if (oneHero) {
+                System.out.println("deck is valid!");
                 return true;
             }
         }

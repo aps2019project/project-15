@@ -44,7 +44,7 @@ public enum RequestType {
     DELETE_DECK("^delete deck (\\w+)$"),
     ADD_COLLECTION("^add (\\w+) to deck (\\w+)$"),
     REMOVE_COLLECTION("^remove (\\w+) from deck (\\w+)$"),
-    VALIDATE("^validate (\\w+)$"),
+    VALIDATE("^validate deck (\\w+)$"),
     SELECT_DECK("^select deck (\\w+)$"),
     SHOW_ALL_DECKS("^show all decks$"),
     SHOW_DECK("^show deck (\\w+)$"),
