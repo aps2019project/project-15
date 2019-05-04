@@ -22,7 +22,7 @@ public class Collection {
         Controller.currentMenu = MainMenu.getInstance();
     }
 
-    public void showCollection() { //todo
+    public void showCollection() {
         view.heroStats();
         int i = 1;
         for (Card item : myCards) {
@@ -107,32 +107,33 @@ public class Collection {
         if (deck != null) {
             if (deck.getCards() == null) {
                 deck.addCard(card);
-                ;
             } else if (deck.numberOfCards() > 20) {
                 view.tooManyCardsInDeck();
-
+                return;
             } else if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 for (Card item : deck.getCards()) {
                     if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                         view.heroInDeck();
+                        break;
                     }
                 }
             } else if (!deck.getCards().contains(card)) {
                 deck.addCard(card);
-            } else if (deck.getCards().contains(card) && deck.getNumOfCardInDeck(card) > card.numOfCardInCollection) {
+            } else if (deck.getCards().contains(card) && deck.getNumOfCardInDeck(card) >= card.numOfCardInCollection) {
                 view.cardIsAlreadyInDeck();
+                return;
+            } else {
+                deck.addCard(card);
             }
         } else {
             view.deckIsNotInCollection();
             return;
         }
 
-
         if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
             return;
         }
-
     }
 
     public void addItemToDeck(Item item, String deckName) {

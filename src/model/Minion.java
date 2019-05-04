@@ -12,9 +12,9 @@ import static java.lang.Math.min;
 public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Buff buff;
-    SpecialPowerActivation activationType;
     TypeOfCounterAttack attackType;
-    String activationTime;
+     String activationType;
+    SpecialPowerActivation activationTime;
     int range;
 
     private boolean hasFlag = false;
@@ -26,15 +26,16 @@ public class Minion extends Card {
         this.typeOfAttack = TypeOfCard.Minion;
     }
 
-    public Minion(String id, int hp, int ap, int mp, String name, SpecialPowerActivation activationType, TypeOfCounterAttack attackType) {
+    public Minion(String id, int hp, int ap, int mp, String name, SpecialPowerActivation activationTime, TypeOfCounterAttack attackType) {
         this.setCardID(id);
         this.setHp(hp);
         this.setAp(ap);
         this.setMp(mp);
         this.setTypeOfAttack();
-        this.activationType = activationType;
+        this.activationTime = activationTime;
         this.attackType = attackType;
         this.id = id;
+        this.description = this.activationType;
         if (description.contains("combo")) {
             //todo handle combo
             return;
@@ -133,7 +134,7 @@ public class Minion extends Card {
     }
 
     public boolean specialPowerActivation() {
-        switch (this.activationType) {
+        switch (this.activationTime) {
             case onRespawn:
                 if (Controller.currentAccount.getCardsInGame().contains(this) || Controller.enemyAccount.getCardsInGame().contains(this)) {
                     return true;

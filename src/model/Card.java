@@ -11,7 +11,7 @@ public abstract class Card {
     int numOfCardInCollection = 0;
 
     private String name;
-    String description;
+    String description = " ";
 
     int cardIdInGame;
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
