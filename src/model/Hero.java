@@ -29,6 +29,7 @@ public class Hero extends Card {
     public Hero() {
         this.setTypeOfAttack();
         buff = new Buff(description);
+        buff.card = this;
     }
 
     public void setTypeOfAttack() {

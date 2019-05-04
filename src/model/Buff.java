@@ -38,11 +38,7 @@ public class Buff {
 
     public Buff(String description) {
         type = getTypeFromDesc(description);
-        if (this.card.getName().equalsIgnoreCase("sacrifice")) {
-            unit = this.card.Hp;
-        } else {
-            unit = getUnitsFromDesc(description);
-        }
+        unit = getUnitsFromDesc(description);
         if (description.contains("hp")) {
             hpEffected = true;
         }
@@ -119,6 +115,9 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
+        if (this.card.getName().equalsIgnoreCase("sacrifice")) {
+            unit = this.card.Hp;
+        }
         if (this.card.getName().equalsIgnoreCase("GorgeSefid")) {
             gorgeSefidEffect();
         }
