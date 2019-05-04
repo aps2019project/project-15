@@ -1,13 +1,17 @@
 package model;
 
+import com.gilecode.yagson.YaGson;
+import com.gilecode.yagson.YaGsonBuilder;
 import view.View;
+import com.google.gson.Gson;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Account {
 
     private View view = View.getInstance();
-    Game game;
+    Game game = new Game();
 
     private ArrayList<Card> cardsInGame = new ArrayList<>();
 
@@ -123,7 +127,6 @@ public class Account {
     public boolean soldCard(Card card) {
         return card.sold;
     }
-
     public void setGame(Game game) {
         this.game = game;
     }

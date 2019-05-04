@@ -26,7 +26,7 @@ public abstract class Card {
     int mp = this.Mp;
     int Hp;
     public String cardID;
-
+    boolean isCardinGane = false;
     int healthLevel;
     int Ap;
     private boolean using = false;
