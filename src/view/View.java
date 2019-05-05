@@ -44,7 +44,7 @@ public class View {
         System.out.println(collectible.getId());
     }
 
-    public void printItemID(Item item){
+    public void printItemID(Item item) {
         System.out.println(item.id);
     }
 
@@ -606,7 +606,17 @@ public class View {
         System.out.println("cards you can insert in map:");
     }
 
-    public void NotYourTurn() {
+    public void notYourTurn() {
         System.out.println("it is not your turn!");
+    }
+
+    public void showMyCollectibles() {
+        for (Item item : Controller.currentAccount.myCollectibles) {
+            System.out.println(item.getItemName());
+        }
+    }
+
+    public void enteredGraveYard() {
+        System.out.println("you entered graveyard!");
     }
 }

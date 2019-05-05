@@ -1,9 +1,7 @@
 package model;
 
 import view.View;
-import com.google.gson.Gson;
 
-import java.io.*;
 import java.util.ArrayList;
 
 public class Account {

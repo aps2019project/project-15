@@ -55,12 +55,12 @@ public class Hero extends Card {
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;
-                if (minion.activationType.equals(SpecialPowerActivation.onDeath)) {
+                if (minion.activationTime.equals(SpecialPowerActivation.onDeath)) {
                     if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
                 }
-                if (minion.activationType.equals(SpecialPowerActivation.onDefend)) {
+                if (minion.activationTime.equals(SpecialPowerActivation.onDefend)) {
                     minion.specialPowerActing(this);
                 }
             }

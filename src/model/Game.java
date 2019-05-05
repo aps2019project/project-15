@@ -18,8 +18,9 @@ public class Game {
     private int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;
-    private Card currentCrad;
+    private Card currentCard;
     private Account activeAccount;
+    public Item currentCollectible;
 
     private View view = View.getInstance();
 
@@ -220,7 +221,7 @@ public class Game {
             View.getInstance().invalidCardId();
             return;
         }
-        currentCrad = card;
+        currentCard = card;
     }
 
     public void moveTo(Card card, int x, int y) {
