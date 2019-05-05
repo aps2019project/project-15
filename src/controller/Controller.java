@@ -29,7 +29,7 @@ public class Controller {
     private boolean exit = false;
     public static Game currentGame;
 
-    private static void setCurrentMenu() {
+    private void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
     }
 
@@ -57,7 +57,6 @@ public class Controller {
             shop.addItem();
             setAllCardsAndItemsID();
             setTypeOfAttacksForAllCards();
-            enemyAccount.setGame(currentAccount.getGame());
             collectibleAdder();
         } catch (IOException e) {
             e.printStackTrace();
@@ -152,12 +151,10 @@ public class Controller {
 
                 } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
 
-                    Card card = Card.returnCardByName(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1));
+                    String name = RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1);
                     int x = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(2));
                     int y = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(3));
-                    if (card != null ){
 
-                    }
                 } else if (RequestType.END_TURN.setMatcher(command).find()) {
                     currentAccount.myTurn = false;
                 } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {

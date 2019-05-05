@@ -25,7 +25,7 @@ public class Account {
     ArrayList<History> historyGames = new ArrayList<>();
     public ArrayList<Item> myCollectibles = new ArrayList<>();
     private boolean startGame = false;
-
+    public ArrayList<Card> myCardsInMap = new ArrayList<>();
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }
