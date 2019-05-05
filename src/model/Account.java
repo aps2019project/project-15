@@ -28,7 +28,7 @@ public class Account {
     public ArrayList<Item> myCollectibles = new ArrayList<>();
     private boolean startGame = false;
     public ArrayList<Card> myCardsInMap = new ArrayList<>();
-    ArrayList<Card> getCardsInGame() {
+    public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }
 

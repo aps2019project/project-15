@@ -371,7 +371,7 @@ public class Game {
             canBeEnserted = spell.checkEffectiveness(block.card);
         }
         else {
-            canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
+            canBeEnserted = checkSurroundingBlocks(x, y, canBeEnserted);
         }
         if (!canBeEnserted) {
             view.invalidTarget();
