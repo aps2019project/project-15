@@ -539,4 +539,13 @@ public class View {
     public void cardMoved(Card card) {
         System.out.println(card.getCardIdInGame() + " moved to " + card.getCurrentBlock().getX() + " " + card.getCurrentBlock().getY());
     }
+    public void wrongCardTypeForCombo(){
+        System.out.println("The chosen card is not a minion");
+    }
+    public void notAComboMinion(){
+        System.out.println("This minion does not attack in combo");
+    }
+    public void cardNotInGame(){
+        System.out.println("The card is not currently in game");
+    }
 }

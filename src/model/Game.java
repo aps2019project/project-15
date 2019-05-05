@@ -284,14 +284,40 @@ public class Game {
     public void attack(Card myCard, Card opponentCard) {
         myCard.attack(opponentCard);
     }
-
-    public boolean attackComboPossible(String... opponentCardId) {
-        return true;
-
-    }
-
-    public void attackCombo(String opponentCardId, String myCardId1, String myCardId2, String... myCard) {
-
+    public void attackCombo(String opponentCardId, String... myCardIds) {
+        Card enemyCard = Card.returnCardById(opponentCardId);
+        Account otherAccount;
+        if(Controller.currentAccount.getCardsInGame().contains(enemyCard)){
+            otherAccount = Controller.enemyAccount;
+        }
+        else if(Controller.enemyAccount.getCardsInGame().contains(enemyCard)){
+            otherAccount = Controller.currentAccount;
+        }
+        else {
+            view.cardNotInGame();
+            return;
+        }
+        int lenght = myCardIds.length;
+        String[] myCardId = new String[lenght];
+        Minion[] myCrads = new Minion[lenght];
+        for(int i = 0; i < lenght; i++){
+            Card card = Card.returnCardById(myCardId[i]);
+            if(!otherAccount.getCardsInGame().contains(card)){
+                view.cardNotInGame();
+                return;
+            }
+            if(!card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                view.wrongCardTypeForCombo();
+                return;
+            }
+            Minion minion = (Minion) card;
+            if(!minion.getActivationTime().equals(SpecialPowerActivation.combo)){
+                view.notAComboMinion();
+                return;
+            }
+            myCrads[i] = minion;
+        }
+        Minion.comboAttack(enemyCard, myCrads);
     }
 
     public void useSpecialPower(int x, int y) {

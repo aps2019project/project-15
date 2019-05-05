@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 public class Buff {
     private boolean activated = false;
     private int startTurn;
-    //todo make start turn of gorg next turn after being applied
     private int duration;
     Card card;
     private int unit;
@@ -120,6 +119,9 @@ public class Buff {
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) {
+        if(this.card.getName().equalsIgnoreCase("gorg")){
+            startTurn += 1;
+        }
         if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
             this.duration = 0;
         }
