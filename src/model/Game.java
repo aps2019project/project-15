@@ -80,7 +80,6 @@ public class Game {
     }
 
     public void updateGraveYard() {
-        //should be called after each game
         for (Card card : Controller.currentAccount.getCardsInGame()) {
             if (card.Hp <= 0) {
                 graveYard.add(card);
@@ -185,6 +184,10 @@ public class Game {
     }
 
     public void moveTo(Card card, int x, int y) {
+        if(card.stunned){
+            view.cardIsStun();
+            return;
+        }
         if (distanceTooLong(card, x, y)) {
             view.invalidTarget();
             return;
@@ -248,7 +251,17 @@ public class Game {
 
 
     public void attack(Card myCard, Card opponentCard) {
-        myCard.attack(opponentCard);
+        if (!myCard.disarmed) {
+            myCard.attack(opponentCard);
+            if(activeAccount.equals(Controller.currentAccount)){
+                player1Mp -= myCard.Mp;
+            }
+            else {
+                player2Mp -= myCard.Mp;
+            }
+            return;
+        }
+        view.disarmedCard();
     }
 
     public void attackCombo(String opponentCardId, String... myCardIds) {
@@ -293,12 +306,14 @@ public class Game {
 
     }
 
-    public void insert(String CardId, int x, int y) {
-
-    }
-
     public void endTurn() {
         turn++;
+        for(Card card : Controller.currentAccount.getCardsInGame()){
+            card.getCurrentBlock().blockEffect(card.attackedThisTurn);
+        }
+        for(Card card : Controller.enemyAccount.getCardsInGame()){
+            card.getCurrentBlock().blockEffect(card.attackedThisTurn);
+        }
         if (activeAccount.equals(Controller.currentAccount)) {
             activeAccount = Controller.enemyAccount;
         } else {
@@ -308,12 +323,29 @@ public class Game {
             card.attackedThisTurn = false;
         }
         updateGraveYard();
+        addToMana();
+    }
+
+    public void addToMana() {
+        if (activeAccount.equals(Controller.currentAccount)) {
+            if (turn < 14) {
+                player1Mp = (turn / 2) + 2;
+            } else {
+                player1Mp = 9;
+            }
+        } else {
+            if (turn < 14) {
+                player2Mp = (turn / 2) + 2;
+            } else {
+                player2Mp = 9;
+            }
+        }
     }
 
     public void help() {
-        view.showMinionsYouCanMove();
-        view.showMinionsYouCanAttack();
-        view.showMinionsYouCanAttack();
+        view.showMyMinions();
+        view.showEnemyMinion();
+        activeAccount.getMainDeck().showHand();
     }
 
     public void addCardsToGame(String cardName, int x, int y) {
@@ -323,7 +355,7 @@ public class Game {
             return;
         }
         boolean canBeEnserted = false;
-        if(card.getTypeOfAttack().equals(TypeOfCard.Spell)){
+        if (card.getTypeOfAttack().equals(TypeOfCard.Spell)) {
             Spell spell = (Spell) card;
             Block block = map.getBlock(x, y);
             if (block == null || block.isEmpty()) {
@@ -331,11 +363,10 @@ public class Game {
                 return;
             }
             canBeEnserted = spell.checkEffectiveness(block.card);
-        }
-        else {
+        } else {
             canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
         }
-        if(!canBeEnserted ){
+        if (!canBeEnserted) {
             view.invalidTarget();
             return;
         }
@@ -345,22 +376,20 @@ public class Game {
             return;
         }
         boolean whichAccount = activeAccount.equals(Controller.currentAccount);
-        if(whichAccount){
-            if((Controller.currentAccount.game.player1Mp - card.Mp) < 0){
+        if (whichAccount) {
+            if ((Controller.currentAccount.game.player1Mp - card.Mp) < 0) {
+                view.notEnoughMana();
+                return;
+            }
+        } else {
+            if ((Controller.currentAccount.game.player2Mp - card.Mp) < 0) {
                 view.notEnoughMana();
                 return;
             }
         }
-        else{
-            if((Controller.currentAccount.game.player2Mp - card.Mp) < 0){
-                view.notEnoughMana();
-                return;
-            }
-        }
-        if(whichAccount){
+        if (whichAccount) {
             Controller.currentAccount.game.reducePlayerOneMp(card.Mp);
-        }
-        else{
+        } else {
             Controller.currentAccount.game.reducePlayerTwoMp(card.Mp);
         }
         cardsInGame.add(card);
@@ -403,5 +432,28 @@ public class Game {
             }
         }
         return canBeEnserted;
+    }
+    public void showCard(String cardIdInGame){
+        Card wantedCard = null;
+        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
+            if(card.getCardIdInGame().equals(cardIdInGame)){
+                wantedCard =  card;
+            }
+        }
+        if(wantedCard == null){
+            for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
+                if(card.getCardIdInGame().equals(cardIdInGame)){
+                    wantedCard =  card;
+                }
+            }
+        }
+        if(wantedCard == null){
+            view.noSuchCardInGame();
+            return;
+        }
+        view.showCardInGame(wantedCard);
+    }
+    public Account getActiveAccount(){
+        return this.activeAccount;
     }
 }

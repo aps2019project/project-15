@@ -58,7 +58,7 @@ public class Block {
         this.isEmpty = false;
     }
 
-    public void blockEffect() {
+    public void blockEffect(boolean wasAttacked) {
         if (isFire()) {
             this.card.Hp -= 2;
             if (this.card.Hp < 0) {
@@ -67,8 +67,9 @@ public class Block {
             return;
         }
         if (isHoly()) {
-            //todo check if it was attacked
-            this.card.Hp++;
+            if(wasAttacked) {
+                this.card.Hp++;
+            }
             return;
         }
         if (isPoison()) {

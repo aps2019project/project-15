@@ -60,15 +60,38 @@ public class View {
         System.out.println("Enter the collectible ID: ");
     }
 
-    public void showMinionsYouCanMove() {
+    public void showMyMinions() {
+        Account account = Controller.currentAccount.getGame().getActiveAccount();
+        for(Card card : account.getCardsInGame()){
+            if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
+                +", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
+                + card.getAttackPower());
+            }
+        }
     }
 
-    public void showMinionsYouCanAttack() {
+    public void showEnemyMinion() {
+        Account account = Controller.currentAccount.getGame().getActiveAccount();
+        if(account.equals(Controller.currentAccount)) {
+            for (Card card : Controller.enemyAccount.getCardsInGame()) {
+                if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
+                    System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
+                            + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
+                            + card.getAttackPower());
+                }
+            }
+        }
+        else {
+            for(Card card : Controller.currentAccount.getCardsInGame()){
+                if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                    System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
+                            +", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
+                            + card.getAttackPower());
+                }
+            }
+        }
     }
-
-    public void cardsYouCanInsert() {
-    }
-
     public void printCollectionHelpMenu() {
         System.out.println("To exit from collection, type 'exit' ");
         System.out.println("To show all cards and items in your collection, type 'show' ");
@@ -629,5 +652,33 @@ public class View {
     }
     public void notEnoughMana(){
         System.out.println("You don't have enough mana");
+    }
+    public void disarmedCard(){
+        System.out.println("Card is disarmed!!");
+    }
+    public void cardIsStun(){
+        System.out.println("Card is stunned");
+    }
+    public void noSuchCardInGame(){
+        System.out.println("No such card in game");
+    }
+    public void showCardInGame(Card card){
+        if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+            Hero hero = (Hero) card;
+            System.out.printf("Hero: \n Name: %s\n Cost: %d\n Desc: %s\n", hero.getName(), hero.getPrice(), hero.getDescription());
+            return;
+        }
+        if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+            Minion minion = (Minion) card;
+            System.out.printf("Minion:\nName: %s\nHp: %d Ap: %d Mp: %d\nRange: %d\nCombo-ability: %s\nCost: %d\nDesc: %s\n"
+            , minion.getName(), minion.getHealthLevel(), minion.getAttackPower(), minion.getMp(), minion.getRange(),
+                    minion.hasComboAbility(), minion.getPrice(), minion.getDescription());
+            return;
+        }
+        if(card.getTypeOfAttack().equals(TypeOfCard.Spell)){
+            Spell spell = (Spell) card;
+            System.out.printf("Spell:\nName: %S\nMp: %d\nCost: %d\nDesc: %s\n", spell.getName(), spell.getMp(),
+                    spell.getPrice(), spell.getDescription());
+        }
     }
 }

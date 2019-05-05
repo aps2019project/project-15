@@ -1,5 +1,5 @@
 package model;
 
-enum TypeOfCard {
+public enum TypeOfCard {
     Minion, Spell, Hero
 }

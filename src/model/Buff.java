@@ -142,8 +142,9 @@ public class Buff {
         //todo check if they are still activated
         switch (this.type) {
             case holy:
-                //todo check if the card was attacked in last turn
-                card.Hp += this.unit;
+                if(card.attackedThisTurn) {
+                    card.Hp += this.unit;
+                }
                 break;
             case power:
                 if (hpEffected) {

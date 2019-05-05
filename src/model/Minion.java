@@ -228,4 +228,13 @@ public class Minion extends Card {
     public SpecialPowerActivation getActivationTime() {
         return activationTime;
     }
+    public int getRange(){
+        return this.range;
+    }
+    public boolean hasComboAbility(){
+        if(this.getActivationTime().equals(SpecialPowerActivation.combo)){
+            return true;
+        }
+        return false;
+    }
 }
