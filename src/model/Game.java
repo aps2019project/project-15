@@ -19,8 +19,8 @@ public class Game {
     private int result;
     private int timeOfGame;
     public Card currentCard;
+    public Item currentItem;
     private Account activeAccount;
-    public Item currentCollectible;
 
     private View view = View.getInstance();
 
