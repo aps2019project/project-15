@@ -7,6 +7,6 @@
   "Ap": 7,
   "attackType": "ranged",
   "range": 5,
-  "activationType": "is not effected by negetive buff or attack",
+  "activationType": "is not effected by negative buff or attack",
   "activationTime": "On Defend"
 }

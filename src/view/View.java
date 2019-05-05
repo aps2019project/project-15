@@ -44,6 +44,10 @@ public class View {
         System.out.println(collectible.getId());
     }
 
+    public void printItemID(Item item){
+        System.out.println(item.id);
+    }
+
     public void printIncrementHealth(int number) {
         System.out.println(number + "units added to health");
     }

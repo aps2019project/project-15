@@ -57,11 +57,15 @@ public class Collection {
         return this.getMyCards().contains(card);
     }
 
-    public void searchInCollection() {
-        String name = request.getNewCommand();
+    public void searchInCollection(String name) {
         Card card = Card.returnCardByName(name);
         if (card != null) {
             view.printCardId(card);
+            return;
+        }
+        Item item = Item.getItemByName(name);
+        if (item != null) {
+            view.printItemID(item);
             return;
         }
         Collectible collectible = Collectible.returnItemName(name);

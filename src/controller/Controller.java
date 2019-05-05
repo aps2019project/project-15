@@ -78,11 +78,12 @@ public class Controller {
             setAllCardsAndItemsID();
             setTypeOfAttacksForAllCards();
             enemyAccount.setGame(currentAccount.getGame());
-
+            collectibleAdder();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -139,58 +140,63 @@ public class Controller {
     private void gameFunction(Game game) {
         while (!exit) {
             String command = request.getNewCommand();
-            //if (game.getTurn() == currentAccount.myTurn)
-            if (RequestType.GAME_INFO.setMatcher(command).find()) {
+            if (currentAccount.myTurn) {
+                if (RequestType.GAME_INFO.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
 
-            } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
+                } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
 
-            } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
+                } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
 
-            } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
+                } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
+                    String name = RequestType.ATTACK_OPP.getMatcher().group(1);
+                    Card card = Card.returnCardByName(name);
+                    currentCard.attack(card);
+                } else if (RequestType.ATTACH_COMBO.setMatcher(command).find()) {
 
-            } else if (RequestType.ATTACH_COMBO.setMatcher(command).find()) {
+                } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
 
-            } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
+                } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
 
-            } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
+                } else if (RequestType.END_TURN.setMatcher(command).find()) {
 
-            } else if (RequestType.END_TURN.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
+                } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
 
-            } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
+                } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
 
-            } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
+                } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
 
-            } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_CARDS_GRAVEYARD.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_CARDS_GRAVEYARD.setMatcher(command).find()) {
+                } else if (RequestType.END_GAME.setMatcher(command).find()) {
 
-            } else if (RequestType.END_GAME.setMatcher(command).find()) {
+                } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
 
-            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-
-            } else if (RequestType.EXIT.setMatcher(command).find()) {
-                exit = true;
-                break;
-            } else if (RequestType.HELP.setMatcher(command).find()) {
-                view.showUserOptions();
-            } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
-                view.battleHelp();
+                } else if (RequestType.EXIT.setMatcher(command).find()) {
+                    exit = true;
+                    break;
+                } else if (RequestType.HELP.setMatcher(command).find()) {
+                    view.showUserOptions();
+                } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
+                    view.battleHelp();
+                }
+            } else {
+                System.out.println("this is not your turn!");
             }
         }
     }
@@ -204,7 +210,8 @@ public class Controller {
         } else if (RequestType.EXIT_COLLECTION.setMatcher(command).find()) {
             collection.exitCollection();
         } else if (RequestType.SEARCH_COLLECTION.setMatcher(command).find()) {
-            collection.searchInCollection();
+            String name = RequestType.SEARCH_COLLECTION.getMatcher().group(1);
+            collection.searchInCollection(name);
         } else if (RequestType.SAVE_COLLECTION.setMatcher(command).find()) {
             collection.save();
         } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
@@ -369,6 +376,15 @@ public class Controller {
             shop.exitShop();
         } else {
             throw new InputException("invalid command");
+        }
+    }
+
+    private void collectibleAdder() {
+        for (Item item : dataCenter.getItems()) {
+            if (item.getPrice().equals("collectible")) {
+                Collectible collectible = (Collectible) item;
+                Collectible.getAllCollectibles().add(collectible);
+            }
         }
     }
 }

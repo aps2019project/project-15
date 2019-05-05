@@ -9,7 +9,7 @@ public class Collectible extends Item {
 
     private View view = View.getInstance();
 
-    private static ArrayList<Collectible> allCollectibles;
+    private static ArrayList<Collectible> allCollectibles = new ArrayList<>();
 
     public static ArrayList<Collectible> getAllCollectibles() {
         return allCollectibles;

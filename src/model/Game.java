@@ -13,8 +13,8 @@ public class Game {
 
     private ModeOfGame Mode;
     GameType type;
-    ArrayList<Card> cardsInGame;
-    ArrayList<Card> graveYard;
+    ArrayList<Card> cardsInGame = new ArrayList<>();
+    ArrayList<Card> graveYard = new ArrayList<>();
     private int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;

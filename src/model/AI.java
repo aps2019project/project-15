@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AI {
     private Deck mainDdeck;
-    private ArrayList<Card> AICards;
+    private ArrayList<Card> AICards = new ArrayList<>();
    // private ArrayList<Deck> AIDecks;
 
 
