@@ -87,4 +87,8 @@ public class Block {
     public int getY() {
         return y;
     }
+
+    public Card getCard() {
+        return card;
+    }
 }

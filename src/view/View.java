@@ -624,4 +624,10 @@ public class View {
             System.out.println(card);
         }
     }
+    public void invalidCardNameInGame(){
+        System.out.println("Invalid card name");
+    }
+    public void notEnoughMana(){
+        System.out.println("You don't have enough mana");
+    }
 }
