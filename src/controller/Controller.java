@@ -113,10 +113,11 @@ public class Controller {
         try {
             if (gameStarted) {
                 view.gameIsLoading();
-                currentAccount.setGame(new Game());
-                currentGame = currentAccount.getGame();
+                Game game = new Game();
+                currentGame = game;
+                currentAccount.setGame(game);
                 enemyAccount.setGame(currentGame);
-                gameFunction();
+                gameFunction(game);
                 return;
             } else {
                 if (Controller.currentAccount.getMainDeck().validated) {
@@ -135,9 +136,10 @@ public class Controller {
 
     }
 
-    private void gameFunction() {
+    private void gameFunction(Game game) {
         while (!exit) {
             String command = request.getNewCommand();
+            //if (game.getTurn() == currentAccount.myTurn)
             if (RequestType.GAME_INFO.setMatcher(command).find()) {
 
             } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
@@ -186,7 +188,9 @@ public class Controller {
                 exit = true;
                 break;
             } else if (RequestType.HELP.setMatcher(command).find()) {
-
+                view.showUserOptions();
+            } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
+                view.battleHelp();
             }
         }
     }

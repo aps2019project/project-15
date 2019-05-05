@@ -2,8 +2,7 @@ package model;
 
 import view.View;
 import com.google.gson.Gson;
-import com.gilecode.yagson.YaGson;
-import com.gilecode.yagson.YaGsonBuilder;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -11,7 +10,7 @@ public class Account {
 
     private View view = View.getInstance();
     Game game = new Game();
-
+    public boolean myTurn = false;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
 
     private String username;

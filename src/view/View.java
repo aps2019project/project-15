@@ -102,6 +102,33 @@ public class View {
         System.out.println("To see leaderboard , type 'enter leaderboard' ");
     }
 
+    public void battleHelp() {
+        System.out.println("to show game info, type 'game info'");
+        System.out.println("to show your minions, type'show my minions'");
+        System.out.println("to show your opponent minions, type'show opponent minions'");
+        System.out.println("to show card info, type 'show card info [card ID]'");
+        System.out.println("to select a card, type ' select card [card ID]'");
+        System.out.println("to move to a block, type 'move to [x],[y]'");
+        System.out.println("to attack, type 'attack [opponent card ID]'");
+        System.out.println("to attack combo, type 'attack combo [opp card Id][your card ID][your card Id]....'");
+        System.out.println("to use special power, type 'use special power [x],[y]'");
+        System.out.println("to show your hand, type 'show hand'");
+        System.out.println("to insert card in a blok , type 'insert [card name] in [x],[y]'");
+        System.out.println("to end your turn, type 'end turn'");
+        System.out.println("to show collectables , type 'show collectables'");
+        System.out.println("to select a collectable, type 'select [collectable ID]'");
+        System.out.println("to show info , type 'show info'");
+        System.out.println("to use an item in a location, type 'use location [x],[y]'");
+        System.out.println("to show next card , type 'show next card'");
+        System.out.println("to enter graveyard , type 'enter graveyard'");
+        System.out.println("to show a card info in graveyard , type 'show info [card ID]'");
+        System.out.println("to show cards , type 'show cards'");
+        System.out.println("to end game , type 'end game'");
+        System.out.println("to exit , type 'exit'");
+        System.out.println("to show menu , type 'show menu'");
+    }
+
+
     public void enterCollection() {
         Controller.currentMenu = CollectionMenu.getInstance();
         System.out.println("you entered Collection!");
@@ -555,13 +582,27 @@ public class View {
         System.out.println("set your goal in game!");
         System.out.println("1. killOpponent\n2. keepFlag\n3. CollectFlags");
     }
-    public void wrongCardTypeForCombo(){
+
+    public void wrongCardTypeForCombo() {
         System.out.println("The chosen card is not a minion");
     }
-    public void notAComboMinion(){
+
+    public void notAComboMinion() {
         System.out.println("This minion does not attack in combo");
     }
-    public void cardNotInGame(){
+
+    public void cardNotInGame() {
         System.out.println("The card is not currently in game");
+    }
+
+
+    public void showUserOptions() {
+        System.out.println("forces you can move:");
+        System.out.println("forces you can attack to:");
+        System.out.println("cards you can insert in map:");
+    }
+
+    public void NotYourTurn(){
+        System.out.println("it is not your turn!");
     }
 }
