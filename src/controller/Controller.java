@@ -40,6 +40,7 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
+        //view.showMinions();
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());

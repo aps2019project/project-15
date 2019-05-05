@@ -13,8 +13,8 @@ public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Buff buff;
     TypeOfCounterAttack attackType;
-    SpecialPowerActivation activationType;
-    SpecialPowerActivation activationTime;
+    public String activationType;
+    public SpecialPowerActivation activationTime;
     int range;
 
     private boolean hasFlag = false;
@@ -26,14 +26,14 @@ public class Minion extends Card {
         this.typeOfAttack = TypeOfCard.Minion;
     }
 
-    public Minion(String id, int hp, int ap, int mp, String name, SpecialPowerActivation activationTime, TypeOfCounterAttack attackType) {
+    public Minion(String id, int hp, int ap, int mp, String name, String activationTime, String attackType) {
         this.setCardID(id);
         this.setHp(hp);
         this.setAp(ap);
         this.setMp(mp);
         this.setTypeOfAttack();
-        this.activationTime = activationTime;
-        this.attackType = attackType;
+        this.activationTime = SpecialPowerActivation.valueOf(activationTime);
+        this.attackType = TypeOfCounterAttack.valueOf(attackType);
         this.id = id;
         this.description = this.activationType.toString();
         buff = new Buff(description);

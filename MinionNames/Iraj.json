@@ -7,6 +7,6 @@
   "Ap": 20,
   "attackType": "ranged",
   "range": 3,
-  "activationType": "",
-  "activationTime": ""
+  "activationType": "...",
+  "activationTime": " "
 }

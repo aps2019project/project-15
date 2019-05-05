@@ -13,7 +13,7 @@ public abstract class Card {
     private String name;
     String description = " ";
 
-    String cardIdInGame;
+    private String cardIdInGame;
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
     private Block currentBlock;
@@ -25,7 +25,7 @@ public abstract class Card {
     int Mp;
     int mp = this.Mp;
     int Hp;
-    public String cardID;
+    private String cardID;
     boolean isCardinGame = false;
     int healthLevel = this.Hp;
     int Ap;
@@ -54,6 +54,7 @@ public abstract class Card {
 
     public void setHp(int healthLevel) {
         this.healthLevel = healthLevel;
+        this.Hp = healthLevel;
     }
 
     public void call(Card card) {
