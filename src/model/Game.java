@@ -13,15 +13,16 @@ public class Game {
 
     private ModeOfGame Mode;
     GameType type;
-    ArrayList<Card> cardsInGame = new ArrayList<>();
-    ArrayList<Card> graveYard = new ArrayList<>();
+    private ArrayList<Card> cardsInGame = new ArrayList<>();
+    private ArrayList<Card> graveYard = new ArrayList<>();
     private int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;
     public Card currentCard;
     public Item currentItem;
     private Account activeAccount;
-
+    private int firstPlayerMP = 2;
+    private int secondPlayerMP = 2;
     private View view = View.getInstance();
 
     public Map getMap() {
@@ -46,9 +47,8 @@ public class Game {
         History history = new History();
         history.result = result;
         history.time = timeOfGame;
-/*            player1.historyGames.add(history);
-            player2.historyGames.add(history);*/
-
+        Controller.currentAccount.historyGames.add(history);
+        Controller.enemyAccount.historyGames.add(history);
     }
 
     public void setMode(ModeOfGame mode) {
@@ -71,11 +71,15 @@ public class Game {
     }
 
 
-    public void addPlayerOneMp(int n) {
+    public ModeOfGame getMode() {
+        return Mode;
+    }
+
+    void addPlayerOneMp(int n) {
         this.player1Mp += n;
     }
 
-    public void addPlayerTwoMp(int n) {
+    void addPlayerTwoMp(int n) {
         this.player2Mp += n;
     }
 
@@ -94,15 +98,15 @@ public class Game {
         }
     }
 
-    public void reducePlayerOneMp(int n) {
+    private void reducePlayerOneMp(int n) {
         player1Mp -= n;
     }
 
-    public void reducePlayerTwoMp(int n) {
+    private void reducePlayerTwoMp(int n) {
         player2Mp -= n;
     }
 
-    public boolean returnCondition() {
+    private boolean returnCondition() {
         return true;
     }
 
@@ -156,8 +160,10 @@ public class Game {
 
     public void switchTurn() {
         if (this.turn == 1) {
+            player2Mp++;
             this.turn = 2;
         } else if (this.turn == 2) {
+            player1Mp++;
             this.turn = 1;
         }
     }
@@ -284,12 +290,12 @@ public class Game {
                 view.cardNotInGame();
                 return;
             }
-            if (!card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
+            if (card != null && !card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 view.wrongCardTypeForCombo();
                 return;
             }
             Minion minion = (Minion) card;
-            if (!minion.getActivationTime().equals(SpecialPowerActivation.combo)) {
+            if ((minion != null) && !minion.getActivationTime().equals(SpecialPowerActivation.combo)) {
                 view.notAComboMinion();
                 return;
             }
@@ -363,7 +369,8 @@ public class Game {
                 return;
             }
             canBeEnserted = spell.checkEffectiveness(block.card);
-        } else {
+        }
+        else {
             canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
         }
         if (!canBeEnserted) {
@@ -400,17 +407,17 @@ public class Game {
         }
     }
 
-    private boolean checkSuroundingBlocks(int x, int y, boolean canBeEnserted) {
+    private boolean checkSurroundingBlocks(int x, int y, boolean canBeEnserted) {
         Block surrondingBlock = map.getBlock(x - 1, y);
         if (surrondingBlock != null) {
-            if (surrondingBlock.isEmpty() == false && activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+            if (!surrondingBlock.isEmpty() && activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
                 canBeEnserted = true;
             }
         }
         if (!canBeEnserted) {
             surrondingBlock = map.getBlock(x, y - 1);
             if (surrondingBlock != null) {
-                if (surrondingBlock.isEmpty() == false && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                if (!surrondingBlock.isEmpty() && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
                     canBeEnserted = true;
                 }
             }
@@ -418,7 +425,7 @@ public class Game {
         if (!canBeEnserted) {
             surrondingBlock = map.getBlock(x + 1, y);
             if (surrondingBlock != null) {
-                if (surrondingBlock.isEmpty() == true && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                if (surrondingBlock.isEmpty() && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
                     canBeEnserted = true;
                 }
             }
@@ -426,7 +433,7 @@ public class Game {
         if (!canBeEnserted) {
             surrondingBlock = map.getBlock(x, y + 1);
             if (surrondingBlock != null) {
-                if (surrondingBlock.isEmpty() == true && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                if (surrondingBlock.isEmpty() && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
                     canBeEnserted = true;
                 }
             }

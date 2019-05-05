@@ -21,13 +21,14 @@ public class Account {
     private int numOfWins;
 
     private Deck mainDeck;
-    ArrayList<Card> graveYard = new ArrayList<>();
+
+    private ArrayList<Card> graveYard = new ArrayList<>();
+
     ArrayList<History> historyGames = new ArrayList<>();
     public ArrayList<Item> myCollectibles = new ArrayList<>();
     private boolean startGame = false;
     public ArrayList<Card> myCardsInMap = new ArrayList<>();
-
-    public ArrayList<Card> getCardsInGame() {
+    ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }
 
@@ -35,7 +36,7 @@ public class Account {
         cardsInGame.add(card);
     }
 
-    public void removeCardInGame(Card card) {
+    void removeCardInGame(Card card) {
         cardsInGame.remove(card);
     }
 
@@ -47,6 +48,10 @@ public class Account {
             }
         }
         return null;
+    }
+
+    public ArrayList<Card> getGraveYard() {
+        return graveYard;
     }
 
     public void setUsername(String username) {
