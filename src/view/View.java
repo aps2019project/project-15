@@ -350,13 +350,14 @@ public class View {
     }
 
     public void modeGame() {
-        System.out.println("Single player mode!");
+        System.out.println("Single player!");
         System.out.println("Story Mode?");
         System.out.println("Custom Game?");
     }
 
     public void choseStoryMode() {
         System.out.println("you chose Story Mode!");
+        System.out.println("you have all the 3 goals in this game");
     }
 
     public void choseCustomGame() {
@@ -527,13 +528,32 @@ public class View {
     public void youCanNotAttackThisCard() {
         System.out.println("You can not attack this card");
     }
-    public void invalidCardId(){
+
+    public void invalidCardId() {
         System.out.println("Invalid card id");
     }
-    public void invalidTarget(){
+
+    public void invalidTarget() {
         System.out.println("Invalid target");
     }
-    public void cardMoved(Card card){
-        System.out.println(card.getCardIdInGame() + " moved to " + card.getCurrentBlock().getX() + " " + card.getCurrentBlock().getY());;
+
+    public void cardMoved(Card card) {
+        System.out.println(card.getCardIdInGame() + " moved to " + card.getCurrentBlock().getX() + " " + card.getCurrentBlock().getY());
+        ;
+    }
+
+    public void setYourGameGoal() {
+        System.out.println("set your goal in game!");
+        System.out.println("1. killOpponent\n2. keepFlag\n3. CollectFlags");
+    }
+
+    public void showGameGoal(int num) {
+        if (num == 1) {
+            System.out.println("you chose 'kill opponent'");
+        } else if (num == 2) {
+            System.out.println("you chose 'keep flag'");
+        } else if (num == 3) {
+            System.out.println("you chose 'collect flags'");
+        }
     }
 }

@@ -17,14 +17,5 @@ public class Request {
         return Integer.parseInt(scanner.nextLine().trim());
     }
 
-    public void chooseBattleType() {
-        DataCenter dataCenter = DataCenter.getInstance();
-       view.modeGame();
-        getNewCommand();
-        if (command.equals("story mode")) {
-            view.choseStoryMode();
-        } else if (command.equals("custom game")) {
-            view.choseCustomGame();
-        }
-    }
+
 }
