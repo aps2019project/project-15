@@ -42,6 +42,7 @@ public class Spell extends Card {
         }
         if (this.getName().equalsIgnoreCase("AreaDispel")) {
             //todo check to be part of a 2x2 block with other cards?
+            return true;
         }
         if (this.getName().equalsIgnoreCase("Dispel")) {
             return true;
@@ -51,6 +52,7 @@ public class Spell extends Card {
         }
         if (this.getName().equalsIgnoreCase("PoisonLake")) {
             //todo check the cards effected to be part of 3x3 square
+            return true;
         }
         if (this.range.contains("enemy") && this.range.contains("hero")) {
             return isEnemy(card) && isHero(card);

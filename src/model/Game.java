@@ -323,7 +323,18 @@ public class Game {
             return;
         }
         boolean canBeEnserted = false;
-        canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
+        if(card.getTypeOfAttack().equals(TypeOfCard.Spell)){
+            Spell spell = (Spell) card;
+            Block block = map.getBlock(x, y);
+            if (block == null || block.isEmpty()) {
+                view.invalidTarget();
+                return;
+            }
+            canBeEnserted = spell.checkEffectiveness(block.card);
+        }
+        else {
+            canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
+        }
         if(!canBeEnserted ){
             view.invalidTarget();
             return;
