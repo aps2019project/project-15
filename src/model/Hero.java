@@ -40,13 +40,14 @@ public class Hero extends Card {
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 Hero hero = (Hero) card;
-                if(hero.canCounterAttack(this)) {
+                if (hero.canCounterAttack(this)) {
                     hero.counterAttack(card);
                 }
             }
         }
     }
-    public void counterAttack(Card card){
+
+    public void counterAttack(Card card) {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
@@ -65,6 +66,7 @@ public class Hero extends Card {
             }
         }
     }
+
     public boolean canCounterAttack(Card card) {
         if (this.counterAttack.equals(TypeOfCounterAttack.hybrid)) {
             return isInRange(card);
@@ -85,12 +87,14 @@ public class Hero extends Card {
         }
         return false;
     }
+
     private boolean isInRange(Card card) {
-        if(this.range == 0){
+        if (this.range == 0) {
             return true;
         }
         return abs(this.getCurrentBlock().x - card.getCurrentBlock().x) + abs(this.getCurrentBlock().y - card.getCurrentBlock().y) <= range;
     }
+
     private boolean isInNeighborBlocks(Card card) {
         return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }

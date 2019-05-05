@@ -125,6 +125,7 @@ public class Account {
     public boolean soldCard(Card card) {
         return card.sold;
     }
+
     public void setGame(Game game) {
         this.game = game;
     }

@@ -602,7 +602,7 @@ public class View {
         System.out.println("cards you can insert in map:");
     }
 
-    public void NotYourTurn(){
+    public void NotYourTurn() {
         System.out.println("it is not your turn!");
     }
 }
