@@ -539,10 +539,6 @@ public class View {
 
     public void cardMoved(Card card) {
         System.out.println(card.getCardIdInGame() + " moved to " + card.getCurrentBlock().getX() + " " + card.getCurrentBlock().getY());
-
-    public void setYourGameGoal() {
-        System.out.println("set your goal in game!");
-        System.out.println("1. killOpponent\n2. keepFlag\n3. CollectFlags");
     }
 
     public void showGameGoal(int num) {
@@ -553,5 +549,10 @@ public class View {
         } else if (num == 3) {
             System.out.println("you chose 'collect flags'");
         }
+    }
+
+    public void setYourGameGoal() {
+        System.out.println("set your goal in game!");
+        System.out.println("1. killOpponent\n2. keepFlag\n3. CollectFlags");
     }
 }

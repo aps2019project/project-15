@@ -1,5 +1,5 @@
 package model;
 
-enum ModeOfGame {
-    StoryMode, killOpponent, keepFlag, CollectFlags
+public enum ModeOfGame {
+    StoryMode, killOpponent, KeepFlag, CollectFlags
 }

@@ -114,15 +114,14 @@ public class Controller {
             if (gameStarted) {
                 view.gameIsLoading();
                 currentAccount.setGame(new Game());
-                enemyAccount.setGame(currentAccount.getGame());
                 currentGame = currentAccount.getGame();
+                enemyAccount.setGame(currentGame);
                 gameFunction();
                 return;
             } else {
                 if (Controller.currentAccount.getMainDeck().validated) {
                     System.out.println("your deck is " + currentAccount.getMainDeck().getName());
                     battleMenu.chooseBattleType(command);
-                    battleMenu.chooseBattleMode();
                     gameStarted = true;
                 } else {
                     System.out.println("you have not chosen a valid deck!");

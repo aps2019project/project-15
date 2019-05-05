@@ -51,6 +51,7 @@ public enum RequestType {
     KILL_OPPONENT("^kill opponent$"),
     GET_FLAG("^get flag$"),
     COLLECT_FlAG("^collect flag$"),
+    START_MULTIPLAYER_GAME("^start multiplayer game (\\w+) (\\w+)$"),
 
     //shopMenu
     SHOW_COLLECTION_IN_SHOP("^show collection$"),

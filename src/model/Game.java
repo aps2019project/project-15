@@ -10,6 +10,7 @@ public class Game {
     private Map map = new Map();
     private int currentTurn;
     private GameType gameType;
+
     private ModeOfGame Mode;
     GameType type;
     ArrayList<Card> cardsInGame;
@@ -48,6 +49,11 @@ public class Game {
             player2.historyGames.add(history);*/
 
     }
+
+    public void setMode(ModeOfGame mode) {
+        Mode = mode;
+    }
+
 
     private int setInitialPlayer1Mp() {
         if (this.firstTurn == 1) {
@@ -118,7 +124,7 @@ public class Game {
                 break;
             }
             case (3): {
-                Mode = ModeOfGame.keepFlag;
+                Mode = ModeOfGame.KeepFlag;
                 setFlag();
                 break;
             }
