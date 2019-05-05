@@ -219,6 +219,7 @@ public class Collection {
             return;
         }
         Controller.currentAccount.setMainDeck(deck);
+        deck.hand.allCradsInDeck = deck.cards;
         Controller.currentAccount.getMainDeck().validated = true;
         System.out.println("main deck has been set!");
     }

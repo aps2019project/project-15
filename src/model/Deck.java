@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Deck {
 
     ArrayList<Card> cards = new ArrayList<>();
-    ArrayList<Card> hand = new ArrayList<>();
+    Hand hand;
     Item item;
     String name;
     View view = View.getInstance();
