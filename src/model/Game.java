@@ -71,15 +71,19 @@ public class Game {
     }
 
 
-    public void addPlayerOneMp(int n) {
+    public ModeOfGame getMode() {
+        return Mode;
+    }
+
+    void addPlayerOneMp(int n) {
         this.player1Mp += n;
     }
 
-    public void addPlayerTwoMp(int n) {
+    void addPlayerTwoMp(int n) {
         this.player2Mp += n;
     }
 
-    public void updateGraveYard() {
+    private void updateGraveYard() {
         //should be called after each game
         for (Card card : Controller.currentAccount.getCardsInGame()) {
             if (card.Hp <= 0) {
@@ -323,7 +327,7 @@ public class Game {
             return;
         }
         boolean canBeEnserted = false;
-        if(card.getTypeOfAttack().equals(TypeOfCard.Spell)){
+        if (card.getTypeOfAttack().equals(TypeOfCard.Spell)) {
             Spell spell = (Spell) card;
             Block block = map.getBlock(x, y);
             if (block == null || block.isEmpty()) {
@@ -331,11 +335,10 @@ public class Game {
                 return;
             }
             canBeEnserted = spell.checkEffectiveness(block.card);
-        }
-        else {
+        } else {
             canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
         }
-        if(!canBeEnserted ){
+        if (!canBeEnserted) {
             view.invalidTarget();
             return;
         }
@@ -345,22 +348,20 @@ public class Game {
             return;
         }
         boolean whichAccount = activeAccount.equals(Controller.currentAccount);
-        if(whichAccount){
-            if((Controller.currentAccount.game.player1Mp - card.Mp) < 0){
+        if (whichAccount) {
+            if ((Controller.currentAccount.game.player1Mp - card.Mp) < 0) {
+                view.notEnoughMana();
+                return;
+            }
+        } else {
+            if ((Controller.currentAccount.game.player2Mp - card.Mp) < 0) {
                 view.notEnoughMana();
                 return;
             }
         }
-        else{
-            if((Controller.currentAccount.game.player2Mp - card.Mp) < 0){
-                view.notEnoughMana();
-                return;
-            }
-        }
-        if(whichAccount){
+        if (whichAccount) {
             Controller.currentAccount.game.reducePlayerOneMp(card.Mp);
-        }
-        else{
+        } else {
             Controller.currentAccount.game.reducePlayerTwoMp(card.Mp);
         }
         cardsInGame.add(card);
