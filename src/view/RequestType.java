@@ -46,6 +46,11 @@ public enum RequestType {
     ENTER_GRAVEYARD("^enter graveyard$"),
     END_GAME("^end game$"),
     SHOW_CARDS_GRAVEYARD("^show cards$"),
+    STORY_MODE("^story mode$"),
+    CUSTOM_GAME("^custom game$"),
+    KILL_OPPONENT("^kill opponent$"),
+    GET_FLAG("^get flag$"),
+    COLLECT_FlAG("^collect flag$"),
 
     //shopMenu
     SHOW_COLLECTION_IN_SHOP("^show collection$"),

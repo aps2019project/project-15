@@ -110,7 +110,6 @@ public class Game {
         switch (number) {
             case (1): {
                 Mode = ModeOfGame.StoryMode;
-
                 break;
             }
             case (2): {

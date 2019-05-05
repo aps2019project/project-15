@@ -27,7 +27,8 @@ public class Controller {
     public static Account enemyAccount = new Account();
     private boolean gameStarted = false;
     private boolean exit = false;
-    private static Card currentCard;
+    public static Card currentCard;
+    public static Game currentGame;
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
@@ -114,12 +115,14 @@ public class Controller {
                 view.gameIsLoading();
                 currentAccount.setGame(new Game());
                 enemyAccount.setGame(currentAccount.getGame());
+                currentGame = currentAccount.getGame();
                 gameFunction();
                 return;
             } else {
                 if (Controller.currentAccount.getMainDeck().validated) {
                     System.out.println("your deck is " + currentAccount.getMainDeck().getName());
                     battleMenu.chooseBattleType(command);
+                    battleMenu.chooseBattleMode();
                     gameStarted = true;
                 } else {
                     System.out.println("you have not chosen a valid deck!");
