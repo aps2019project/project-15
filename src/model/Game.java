@@ -355,4 +355,82 @@ public class Game {
         view.showMinionsYouCanAttack();
         view.showMinionsYouCanAttack();
     }
+
+    public void addCardsToGame(String cardName, int x, int y) {
+        Card card = Card.returnCardByName(cardName);
+        if (card == null || !activeAccount.getMainDeck().hand.getCardsInHand().contains(card)) {
+            view.invalidCardNameInGame();
+            return;
+        }
+        boolean canBeEnserted = false;
+        canBeEnserted = checkSuroundingBlocks(x, y, canBeEnserted);
+        if(!canBeEnserted ){
+            view.invalidTarget();
+            return;
+        }
+        Block block = map.getBlock(x, y);
+        if (block == null || !block.isEmpty()) {
+            view.invalidTarget();
+            return;
+        }
+        boolean whichAccount = activeAccount.equals(Controller.currentAccount);
+        if(whichAccount){
+            if((Controller.currentAccount.game.player1Mp - card.Mp) < 0){
+                view.notEnoughMana();
+                return;
+            }
+        }
+        else{
+            if((Controller.currentAccount.game.player2Mp - card.Mp) < 0){
+                view.notEnoughMana();
+                return;
+            }
+        }
+        if(whichAccount){
+            Controller.currentAccount.game.reducePlayerOneMp(card.Mp);
+        }
+        else{
+            Controller.currentAccount.game.reducePlayerTwoMp(card.Mp);
+        }
+        cardsInGame.add(card);
+        if (activeAccount.equals(Controller.currentAccount)) {
+            Controller.currentAccount.getMainDeck().hand.deleteFromHand(card);
+        } else {
+            Controller.enemyAccount.getMainDeck().hand.deleteFromHand(card);
+        }
+    }
+
+    private boolean checkSuroundingBlocks(int x, int y, boolean canBeEnserted) {
+        Block surrondingBlock = map.getBlock(x - 1, y);
+        if (surrondingBlock != null) {
+            if (surrondingBlock.isEmpty() == false && activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                canBeEnserted = true;
+            }
+        }
+        if (!canBeEnserted) {
+            surrondingBlock = map.getBlock(x, y - 1);
+            if (surrondingBlock != null) {
+                if (surrondingBlock.isEmpty() == false && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                    canBeEnserted = true;
+                }
+            }
+        }
+        if (!canBeEnserted) {
+            surrondingBlock = map.getBlock(x + 1, y);
+            if (surrondingBlock != null) {
+                if (surrondingBlock.isEmpty() == true && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                    canBeEnserted = true;
+                }
+            }
+        }
+        if (!canBeEnserted) {
+            surrondingBlock = map.getBlock(x, y + 1);
+            if (surrondingBlock != null) {
+                if (surrondingBlock.isEmpty() == true && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                    canBeEnserted = true;
+                }
+            }
+        }
+        return canBeEnserted;
+    }
 }
