@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class Hand {
     ArrayList<Card> allCradsInDeck = new ArrayList<>();
-    ArrayList<Card> cardsInHand = new ArrayList<>();
-    ArrayList<Card> cardsUsedInGame = new ArrayList<>();
-    Card cardToBeAdded;
+    private ArrayList<Card> cardsInHand = new ArrayList<>();
+    private ArrayList<Card> cardsUsedInGame = new ArrayList<>();
+    private Card cardToBeAdded;
 
     public void initializeHand(){
         //should be called at the begining of game
@@ -32,7 +32,7 @@ public class Hand {
             }
         }
     }
-    public void getNextCard() {
+    private void getNextCard() {
         Random random = new Random();
         int j = 1;
         for(int i = 0; i < j; i++){
@@ -56,7 +56,7 @@ public class Hand {
         }
         return cardsInHand;
     }
-    public void addToHand() {
+    private void addToHand() {
         while(cardsInHand.size() < 5){
             cardsInHand.add(cardToBeAdded);
             if((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0){

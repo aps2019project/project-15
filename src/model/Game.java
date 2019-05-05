@@ -18,7 +18,7 @@ public class Game {
     private int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;
-    private Card currentCard;
+    public Card currentCard;
     private Account activeAccount;
     public Item currentCollectible;
 
