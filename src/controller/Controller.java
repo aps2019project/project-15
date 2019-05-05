@@ -53,26 +53,7 @@ public class Controller {
     private void initEverything() {
         try {
             setCurrentMenu();
-            final String[] paths = {
-                    "HeroNames", "ItemNames", "SpellNames", "MinionNames",
-            };
-            for (String path : paths) {
-                File directory = new File(path);
-                File[] files = directory.listFiles();
-                if (files != null) {
-                    for (File file : files) {
-                        if (path.contains("Hero")) {
-                            addCard(file, Hero.class, dataCenter.getHeroes());
-                        } else if (path.contains("Item")) {
-                            addCard(file, Item.class, dataCenter.getItems());
-                        } else if (path.contains("Minion")) {
-                            addCard(file, Minion.class, dataCenter.getMinions());
-                        } else if (path.contains("Spell")) {
-                            addCard(file, Spell.class, dataCenter.getSpells());
-                        }
-                    }
-                }
-            }
+            addJSONFiles();
             shop.addCard();
             shop.addItem();
             setAllCardsAndItemsID();
@@ -119,7 +100,6 @@ public class Controller {
                 currentAccount.setGame(game);
                 enemyAccount.setGame(currentGame);
                 gameFunction(game);
-                return;
             } else {
                 if (Controller.currentAccount.getMainDeck().validated) {
                     System.out.println("your deck is " + currentAccount.getMainDeck().getName());
@@ -150,13 +130,21 @@ public class Controller {
                 } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
 
                 } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
-
+                    Card card= Card.returnCardByName(RequestType.SELECT_CARD.getMatcher().group(1));
+                    if (card != null) {
+                        currentCard = card;
+                    }
+                    else{
+                        System.out.println("Invalid card ID");
+                    }
                 } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
 
                 } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
                     String name = RequestType.ATTACK_OPP.getMatcher().group(1);
                     Card card = Card.returnCardByName(name);
-                    currentCard.attack(card);
+                    if (card!= null) {
+                        currentCard.attack(card);
+                    }
                 } else if (RequestType.ATTACH_COMBO.setMatcher(command).find()) {
 
                 } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
@@ -166,11 +154,12 @@ public class Controller {
                 } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
 
                 } else if (RequestType.END_TURN.setMatcher(command).find()) {
-
+                    currentAccount.myTurn = false;
                 } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
-
+                    view.showMyCollectibles();
                 } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
-
+                    String name = RequestType.SELECT_COLLECTABLE.getMatcher().group(1);
+                    game.currentCollectible = Item.getItemByName(name);
                 } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
 
                 } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
@@ -178,7 +167,7 @@ public class Controller {
                 } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
 
                 } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
-
+                    view.enteredGraveYard();
                 } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
 
                 } else if (RequestType.SHOW_CARDS_GRAVEYARD.setMatcher(command).find()) {
@@ -196,7 +185,7 @@ public class Controller {
                     view.battleHelp();
                 }
             } else {
-                System.out.println("this is not your turn!");
+                view.notYourTurn();
             }
         }
     }
@@ -375,7 +364,7 @@ public class Controller {
         } else if (RequestType.EXIT_SHOP.setMatcher(command).find()) {
             shop.exitShop();
         } else {
-            throw new InputException("invalid command");
+            throw new InputException("Invalid command");
         }
     }
 
@@ -383,6 +372,29 @@ public class Controller {
         for (Item item : dataCenter.getItems()) {
             if (item.getPrice().equals("collectible")) {
                 Collectible.getAllCollectibles().add(item);
+            }
+        }
+    }
+
+    private void addJSONFiles() throws IOException {
+        final String[] paths = {
+                "HeroNames", "ItemNames", "SpellNames", "MinionNames",
+        };
+        for (String path : paths) {
+            File directory = new File(path);
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (path.contains("Hero")) {
+                        addCard(file, Hero.class, dataCenter.getHeroes());
+                    } else if (path.contains("Item")) {
+                        addCard(file, Item.class, dataCenter.getItems());
+                    } else if (path.contains("Minion")) {
+                        addCard(file, Minion.class, dataCenter.getMinions());
+                    } else if (path.contains("Spell")) {
+                        addCard(file, Spell.class, dataCenter.getSpells());
+                    }
+                }
             }
         }
     }

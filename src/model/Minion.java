@@ -13,7 +13,7 @@ public class Minion extends Card {
     static ArrayList<Minion> minions = new ArrayList<>();
     Buff buff;
     TypeOfCounterAttack attackType;
-    String activationType;
+    SpecialPowerActivation activationType;
     SpecialPowerActivation activationTime;
     int range;
 
@@ -35,14 +35,9 @@ public class Minion extends Card {
         this.activationTime = activationTime;
         this.attackType = attackType;
         this.id = id;
-        this.description = this.activationType;
+        this.description = String.valueOf(this.activationType);
         buff = new Buff(description);
         buff.card = this;
-    }
-
-    public void setCardId() {
-        this.setCardID(this.id);
-        this.id = this.getCardID();
     }
 
     public void getFlag(Flag flag) {
@@ -56,6 +51,7 @@ public class Minion extends Card {
     public Buff getSpecialPower() {
         return this.buff;
     }
+
 
     public void attack(Card card) {
         if (this.getName().equalsIgnoreCase("Giv")) {
@@ -179,20 +175,20 @@ public class Minion extends Card {
     private boolean isInNeighborBlocks(Card card) {
         return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }
-    public static void comboAttack(Card enemyCard, Minion[] minions){
+
+    public static void comboAttack(Card enemyCard, Minion[] minions) {
         int reduction = 0;
-        for(int i =0 ; i < minions.length; i++){
+        for (int i = 0; i < minions.length; i++) {
             reduction += minions[i].Ap;
         }
         enemyCard.Hp -= reduction;
-        if(enemyCard.Hp < 0){
+        if (enemyCard.Hp < 0) {
             enemyCard.Hp = 0;
         }
-        if(enemyCard.getTypeOfAttack().equals(TypeOfCard.Hero)){
+        if (enemyCard.getTypeOfAttack().equals(TypeOfCard.Hero)) {
             Hero hero = (Hero) enemyCard;
             hero.counterAttack(minions[0]);
-        }
-        else if(enemyCard.getTypeOfAttack().equals(TypeOfCard.Minion)){
+        } else if (enemyCard.getTypeOfAttack().equals(TypeOfCard.Minion)) {
             Minion minion = (Minion) enemyCard;
             minion.counterAttack(minions[0]);
         }

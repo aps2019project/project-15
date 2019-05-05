@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Item {
 
+    private DataCenter dataCenter =DataCenter.getInstance();
     String itemName;
     public String id;
     private String desc = "";
@@ -22,6 +23,14 @@ public class Item {
         return buff;
     }
 
+    public static Item getItemByName(String name){
+        for (Item item : Controller.currentAccount.myCollectibles){
+            if (item.getItemName().equals(name)){
+                return item;
+            }
+        }
+        return null;
+    }
 
     public void itemEffect(Card card) {
         //todo check ghosleTamid to be called after entering a card
@@ -203,15 +212,6 @@ public class Item {
     static Item getItemById(String id) {
         for (Item item : Shop.getInstance().getAllItems()) {
             if (item.getId().equals(id)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    static Item getItemByName(String name) {
-        for (Item item : Shop.getInstance().getAllItems()) {
-            if (item.getItemName().equals(name)) {
                 return item;
             }
         }
