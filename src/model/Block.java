@@ -48,7 +48,7 @@ public class Block {
         return poison;
     }
 
-    public void movedFromBlock(){
+    public void movedFromBlock() {
         this.card = null;
         this.isEmpty = true;
     }
@@ -57,20 +57,21 @@ public class Block {
         this.card = card;
         this.isEmpty = false;
     }
-    public void blockEffect(){
-        if(isFire()){
+
+    public void blockEffect() {
+        if (isFire()) {
             this.card.Hp -= 2;
-            if(this.card.Hp < 0 ){
+            if (this.card.Hp < 0) {
                 this.card.Hp = 0;
             }
             return;
         }
-        if(isHoly()){
+        if (isHoly()) {
             //todo check if it was attacked
-            this.card.Hp ++;
+            this.card.Hp++;
             return;
         }
-        if(isPoison()){
+        if (isPoison()) {
             this.card.Hp--;
         }
     }

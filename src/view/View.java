@@ -539,8 +539,6 @@ public class View {
 
     public void cardMoved(Card card) {
         System.out.println(card.getCardIdInGame() + " moved to " + card.getCurrentBlock().getX() + " " + card.getCurrentBlock().getY());
-        ;
-    }
 
     public void setYourGameGoal() {
         System.out.println("set your goal in game!");

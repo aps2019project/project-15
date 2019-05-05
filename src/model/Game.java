@@ -91,6 +91,7 @@ public class Game {
     public void reducePlayerOneMp(int n) {
         player1Mp -= n;
     }
+
     public void reducePlayerTwoMp(int n) {
         player2Mp -= n;
     }
@@ -209,28 +210,28 @@ public class Game {
 
     public void select(String cardId) {
         Card card = Card.returnCardById(cardId);
-        if(card == null){
+        if (card == null) {
             View.getInstance().invalidCardId();
             return;
         }
         currentCrad = card;
     }
 
-    public void moveTo(Card card,int x, int y) {
-        if(distanceTooLong(card, x, y)){
+    public void moveTo(Card card, int x, int y) {
+        if (distanceTooLong(card, x, y)) {
             view.invalidTarget();
             return;
         }
-        if(x < 0 || x > 5 || y < 0 || y > 9){
+        if (x < 0 || x > 5 || y < 0 || y > 9) {
             view.invalidTarget();
             return;
         }
         Block block = map.getBlock(x, y);
-        if(block.isEmpty()){
+        if (block.isEmpty()) {
             view.invalidTarget();
             return;
         }
-        if(!enemyInWay(block, card)){
+        if (!enemyInWay(block, card)) {
             view.invalidTarget();
             return;
         }
@@ -241,38 +242,40 @@ public class Game {
         card.setCurrentBlock(block);
         view.cardMoved(card);
     }
-    private boolean enemyInWay(Block block, Card card){
-        if(block.x == card.getCurrentBlock().x && block.y > card.getCurrentBlock().y){
+
+    private boolean enemyInWay(Block block, Card card) {
+        if (block.x == card.getCurrentBlock().x && block.y > card.getCurrentBlock().y) {
             Block checkBlock = map.getBlock(block.x, block.y + 1);
-            if(checkBlock.isEmpty()){
+            if (checkBlock.isEmpty()) {
                 return false;
             }
             return true;
         }
-        if(block.y == card.getCurrentBlock().y && block.x > card.getCurrentBlock().x){
+        if (block.y == card.getCurrentBlock().y && block.x > card.getCurrentBlock().x) {
             Block checkBlock = map.getBlock(block.x + 1, block.y);
-            if(checkBlock.isEmpty()){
+            if (checkBlock.isEmpty()) {
                 return false;
             }
             return true;
         }
-        if(block.x == card.getCurrentBlock().x && block.y < card.getCurrentBlock().y){
+        if (block.x == card.getCurrentBlock().x && block.y < card.getCurrentBlock().y) {
             Block checkBlock = map.getBlock(block.x, block.y - 1);
-            if(checkBlock.isEmpty()){
+            if (checkBlock.isEmpty()) {
                 return false;
             }
             return true;
         }
-        if(block.y == card.getCurrentBlock().y && block.x < card.getCurrentBlock().x){
+        if (block.y == card.getCurrentBlock().y && block.x < card.getCurrentBlock().x) {
             Block checkBlock = map.getBlock(block.x - 1, block.y);
-            if(checkBlock.isEmpty()){
+            if (checkBlock.isEmpty()) {
                 return false;
             }
             return true;
         }
         return true;
     }
-    private boolean distanceTooLong(Card card, int x, int y){
+
+    private boolean distanceTooLong(Card card, int x, int y) {
         return (Math.abs(card.getCurrentBlock().x - x) + Math.abs(card.getCurrentBlock().y - y)) <= 2;
     }
 
@@ -304,13 +307,12 @@ public class Game {
 
     public void endTurn() {
         turn++;
-        if(activeAccount.equals(Controller.currentAccount)){
+        if (activeAccount.equals(Controller.currentAccount)) {
             activeAccount = Controller.enemyAccount;
-        }
-        else{
+        } else {
             activeAccount = Controller.currentAccount;
         }
-        for(Card card : activeAccount.getCardsInGame()){
+        for (Card card : activeAccount.getCardsInGame()) {
             card.attackedThisTurn = false;
         }
         updateGraveYard();

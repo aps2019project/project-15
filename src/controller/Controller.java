@@ -114,6 +114,7 @@ public class Controller {
             if (gameStarted) {
                 view.gameIsLoading();
                 currentAccount.setGame(new Game());
+                enemyAccount.setGame(currentAccount.getGame());
                 currentGame = currentAccount.getGame();
                 gameFunction();
                 return;
