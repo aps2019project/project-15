@@ -2,5 +2,5 @@
   "itemName": "NefrineMarg",
   "id": "060",
   "price": "collectible",
-  "desc": "Give a random minion the ability to At death 8 randomly hit one Enter the nearest person"
+  "desc": "gives a random minion the ability to apply a weakness buff of 8 units to one of people close to it"
 }

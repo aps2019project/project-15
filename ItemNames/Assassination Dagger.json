@@ -2,5 +2,5 @@
   "itemName": "AssassinationDagger",
   "id": "065",
   "price": "15000",
-  "desc": "When placing any force, one unit attacks the enemy's hero"
+  "desc": "When placing any self force, one unit attacks the enemy's hero"
 }

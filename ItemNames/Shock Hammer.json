@@ -2,5 +2,5 @@
   "itemName": "ShockHammer",
   "id": "067",
   "price": "15000",
-  "desc": "own hero disarms enemy`s force for one turn (n attack)"
+  "desc": "own hero disarms enemy`s force for 1 turn if attacked"
 }

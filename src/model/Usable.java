@@ -10,8 +10,4 @@ public class Usable extends Item {
         return usables;
     }
 
-    public Usable() {
-
-    }
-
 }

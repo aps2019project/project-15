@@ -76,6 +76,7 @@ public class Controller {
             shop.addItem();
             setAllCardsAndItemsID();
             setTypeOfAttacksForAllCards();
+            enemyAccount.setGame(currentAccount.getGame());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -111,6 +112,7 @@ public class Controller {
         try {
             if (gameStarted) {
                 view.gameIsLoading();
+                currentAccount.setGame(new Game());
                 gameFunction();
                 return;
             } else {

@@ -2,5 +2,5 @@
   "itemName": "RandomDamage",
   "id": "061",
   "price": "collectible",
-  "desc": "increases 2 attack power for random force in map"
+  "desc": "applies a power buff of 2 units of ap for a random force in map"
 }

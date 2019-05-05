@@ -2,5 +2,5 @@
   "itemName": "TerrorHood",
   "id": "062",
   "price": "5000",
-  "desc": "When attacked, weakness buff will be applied with 2 decreases in attack power for an enemy's random power"
+  "desc": "When attacked, weakness buff will be applied with 2 units of decreases in ap for an enemy's random power"
 }

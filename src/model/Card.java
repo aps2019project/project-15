@@ -13,37 +13,23 @@ public abstract class Card {
     private String name;
     String description = " ";
 
-    int cardIdInGame;
+    String cardIdInGame;
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
-
-    private int x;
-
-    private int y;
-
     private Block currentBlock;
     boolean owned = false;
     boolean stunned = false;
     boolean disarmed = false;
+    boolean attackedThisTurn = false;
     int price;
     int Mp;
     int mp = this.Mp;
     int Hp;
     public String cardID;
-
+    boolean isCardinGane = false;
     int healthLevel;
     int Ap;
     private boolean using = false;
-
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
     TypeOfCard typeOfAttack;
 
     public void setName(String name) {
@@ -52,6 +38,10 @@ public abstract class Card {
 
     public void setMp(int mp) {
         Mp = mp;
+    }
+
+    public void setCurrentBlock(Block currentBlock) {
+        this.currentBlock = currentBlock;
     }
 
     public void setCardID(String cardID) {
@@ -80,14 +70,6 @@ public abstract class Card {
 
     public int getAttackPower() {
         return Ap;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 
     public boolean isUsing() {
@@ -148,6 +130,10 @@ public abstract class Card {
 
     public Block getCurrentBlock() {
         return currentBlock;
+    }
+
+    public String getCardIdInGame() {
+        return cardIdInGame;
     }
 
     public abstract void printStats(int i);

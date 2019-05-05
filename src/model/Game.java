@@ -12,12 +12,13 @@ public class Game {
     private GameType gameType;
     private ModeOfGame Mode;
     GameType type;
-    ArrayList<Account> accounts;
     ArrayList<Card> cardsInGame;
     ArrayList<Card> graveYard;
     private int turn = (int) (Math.random() % 2 + 1);
     private int result;
     private int timeOfGame;
+    private Card currentCrad;
+    private Account activeAccount;
 
     private View view = View.getInstance();
 
@@ -62,12 +63,13 @@ public class Game {
         return 3;
     }
 
-    public void incrementNumOfMp() {
 
+    public void addPlayerOneMp(int n) {
+        this.player1Mp += n;
     }
 
-    public void addMp() {
-
+    public void addPlayerTwoMp(int n) {
+        this.player2Mp += n;
     }
 
     public void updateGraveYard() {
@@ -86,8 +88,11 @@ public class Game {
         }
     }
 
-    public void reduceMp() {
-
+    public void reducePlayerOneMp(int n) {
+        player1Mp -= n;
+    }
+    public void reducePlayerTwoMp(int n) {
+        player2Mp -= n;
     }
 
     public boolean returnCondition() {
@@ -123,15 +128,6 @@ public class Game {
                 break;
             }
         }
-    }
-
-    public boolean counterAttackPossible(Card myCard, Card opponentCard) {
-        return true;
-    }
-
-    public void counterAttack(Card myCard, Card opponentCard) {
-        myCard.attack(opponentCard);
-
     }
 
     public void setFlag() {
@@ -213,16 +209,77 @@ public class Game {
     }
 
     public void select(String cardId) {
-
+        Card card = Card.returnCardById(cardId);
+        if(card == null){
+            View.getInstance().invalidCardId();
+            return;
+        }
+        currentCrad = card;
     }
 
-    public void moveTo(int x, int y) {
-
+    public void moveTo(Card card,int x, int y) {
+        if(distanceTooLong(card, x, y)){
+            view.invalidTarget();
+            return;
+        }
+        if(x < 0 || x > 5 || y < 0 || y > 9){
+            view.invalidTarget();
+            return;
+        }
+        Block block = map.getBlock(x, y);
+        if(block.isEmpty()){
+            view.invalidTarget();
+            return;
+        }
+        if(!enemyInWay(block, card)){
+            view.invalidTarget();
+            return;
+        }
+        card.getCurrentBlock().card = null;
+        card.getCurrentBlock().setEmpty(true);
+        block.setEmpty(false);
+        block.card = card;
+        card.setCurrentBlock(block);
+        view.cardMoved(card);
+    }
+    private boolean enemyInWay(Block block, Card card){
+        if(block.x == card.getCurrentBlock().x && block.y > card.getCurrentBlock().y){
+            Block checkBlock = map.getBlock(block.x, block.y + 1);
+            if(checkBlock.isEmpty()){
+                return false;
+            }
+            return true;
+        }
+        if(block.y == card.getCurrentBlock().y && block.x > card.getCurrentBlock().x){
+            Block checkBlock = map.getBlock(block.x + 1, block.y);
+            if(checkBlock.isEmpty()){
+                return false;
+            }
+            return true;
+        }
+        if(block.x == card.getCurrentBlock().x && block.y < card.getCurrentBlock().y){
+            Block checkBlock = map.getBlock(block.x, block.y - 1);
+            if(checkBlock.isEmpty()){
+                return false;
+            }
+            return true;
+        }
+        if(block.y == card.getCurrentBlock().y && block.x < card.getCurrentBlock().x){
+            Block checkBlock = map.getBlock(block.x - 1, block.y);
+            if(checkBlock.isEmpty()){
+                return false;
+            }
+            return true;
+        }
+        return true;
+    }
+    private boolean distanceTooLong(Card card, int x, int y){
+        return (Math.abs(card.getCurrentBlock().x - x) + Math.abs(card.getCurrentBlock().y - y)) <= 2;
     }
 
 
     public void attack(Card myCard, Card opponentCard) {
-
+        myCard.attack(opponentCard);
     }
 
     public boolean attackComboPossible(String... opponentCardId) {
@@ -247,7 +304,17 @@ public class Game {
     }
 
     public void endTurn() {
-
+        turn++;
+        if(activeAccount.equals(Controller.currentAccount)){
+            activeAccount = Controller.enemyAccount;
+        }
+        else{
+            activeAccount = Controller.currentAccount;
+        }
+        for(Card card : activeAccount.getCardsInGame()){
+            card.attackedThisTurn = false;
+        }
+        updateGraveYard();
     }
 
     public void help() {

@@ -1,7 +1,9 @@
 package model;
 
 import view.View;
+import com.google.gson.Gson;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Account {
@@ -123,5 +125,11 @@ public class Account {
     public boolean soldCard(Card card) {
         return card.sold;
     }
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
+    public Game getGame() {
+        return game;
+    }
 }

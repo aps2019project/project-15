@@ -2,5 +2,5 @@
   "itemName": "Noshdaro",
   "id": "054",
   "price": "collectible",
-  "desc": "increases random force health 6 units"
+  "desc": "gives a random force a power buff of 6 units for hp"
 }
