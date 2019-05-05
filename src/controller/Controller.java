@@ -382,8 +382,7 @@ public class Controller {
     private void collectibleAdder() {
         for (Item item : dataCenter.getItems()) {
             if (item.getPrice().equals("collectible")) {
-                Collectible collectible = (Collectible) item;
-                Collectible.getAllCollectibles().add(collectible);
+                Collectible.getAllCollectibles().add(item);
             }
         }
     }

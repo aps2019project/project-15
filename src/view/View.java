@@ -40,7 +40,7 @@ public class View {
         System.out.println(e.getMessage());
     }
 
-    public void printCollectibleID(Collectible collectible) {
+    public void printCollectibleID(Item collectible) {
         System.out.println(collectible.getId());
     }
 
@@ -206,8 +206,8 @@ public class View {
     public void allItemDeclaration() {
         System.out.println("Items : ");
         int i = 1;
-        for (Collectible item : Collectible.getAllCollectibles()) {
-            System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %d\n", i, item.getItemName(), item.getDesc(),
+        for (Item item : Collectible.getAllCollectibles()) {
+            System.out.printf("\t  %d : Name : %s _ Desc : %s _ Sell cost : %s\n", i, item.getItemName(), item.getDesc(),
                     item.getPrice());
             i++;
         }

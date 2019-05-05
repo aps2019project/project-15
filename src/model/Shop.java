@@ -82,8 +82,6 @@ public class Shop {
     }
 
     public void buy(String name) {
-
-
         Card card = Card.returnCardByName(name);
         Item item = findItemByName(name);
         if (card == null && item == null) {
@@ -114,6 +112,7 @@ public class Shop {
             Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
         }
         Controller.currentAccount.getMyCollection().addItemToCollection(item);
+        Controller.currentAccount.myCollectibles.add(item);
         view.itemBought();
         view.remainingMoney();
     }
@@ -133,7 +132,7 @@ public class Shop {
                 return card.getCardID();
             }
         }
-        for (Item item : shop.getAllItems()){
+        for (Item item : shop.getAllItems()) {
             if (item.getItemName().equals(name)) {
                 view.itemExistsInShop();
                 return item.getId();

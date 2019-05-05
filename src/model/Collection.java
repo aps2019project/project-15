@@ -68,7 +68,7 @@ public class Collection {
             view.printItemID(item);
             return;
         }
-        Collectible collectible = Collectible.returnItemName(name);
+        Item collectible = Collectible.returnItemName(name);
         if (collectible != null) {
             view.printCollectibleID(collectible);
             return;

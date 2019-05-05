@@ -9,9 +9,9 @@ public class Collectible extends Item {
 
     private View view = View.getInstance();
 
-    private static ArrayList<Collectible> allCollectibles = new ArrayList<>();
+    private static ArrayList<Item> allCollectibles = new ArrayList<>();
 
-    public static ArrayList<Collectible> getAllCollectibles() {
+    public static ArrayList<Item> getAllCollectibles() {
         return allCollectibles;
     }
 
@@ -72,10 +72,10 @@ public class Collectible extends Item {
     public static void shamshirChini() {
 
     }
-    public static Collectible returnItemName(String name) {
-        for(Collectible item : allCollectibles) {
+    static Item returnItemName(String name) {
+        for(Item item : allCollectibles) {
             if (item.itemName.equals(name)) {
-                return item;
+                return  item;
             }
         }
         return null;

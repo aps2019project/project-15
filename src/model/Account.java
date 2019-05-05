@@ -25,6 +25,7 @@ public class Account {
     private Deck mainDeck;
     ArrayList<Card> graveYard = new ArrayList<>();
     ArrayList<History> historyGames = new ArrayList<>();
+    public ArrayList<Item> myCollectibles = new ArrayList<>();
     private boolean startGame = false;
 
     public ArrayList<Card> getCardsInGame() {
