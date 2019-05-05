@@ -36,10 +36,6 @@ public class Minion extends Card {
         this.attackType = attackType;
         this.id = id;
         this.description = this.activationType;
-        if (description.contains("combo")) {
-            //todo handle combo
-            return;
-        }
         buff = new Buff(description);
         buff.card = this;
     }
@@ -183,6 +179,24 @@ public class Minion extends Card {
     private boolean isInNeighborBlocks(Card card) {
         return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }
+    public static void comboAttack(Card enemyCard, Minion[] minions){
+        int reduction = 0;
+        for(int i =0 ; i < minions.length; i++){
+            reduction += minions[i].Ap;
+        }
+        enemyCard.Hp -= reduction;
+        if(enemyCard.Hp < 0){
+            enemyCard.Hp = 0;
+        }
+        if(enemyCard.getTypeOfAttack().equals(TypeOfCard.Hero)){
+            Hero hero = (Hero) enemyCard;
+            hero.counterAttack(minions[0]);
+        }
+        else if(enemyCard.getTypeOfAttack().equals(TypeOfCard.Minion)){
+            Minion minion = (Minion) enemyCard;
+            minion.counterAttack(minions[0]);
+        }
+    }
 
     public void keepFlag(Flag flag) {
 
@@ -213,5 +227,9 @@ public class Minion extends Card {
     public String toString() {
         String info = "name:" + this.getName() + "\n" + "id: " + this.id + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "Hp:" + this.Hp + "\n" + "Ap:" + this.Ap + "\n" + "attackType: " + this.attackType + "\n" + "range: " + this.range + "\n" + "activationType: " + this.activationType + "\n" + "activationTime: " + this.activationTime + "\n";
         return info;
+    }
+
+    public SpecialPowerActivation getActivationTime() {
+        return activationTime;
     }
 }

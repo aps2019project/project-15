@@ -1,5 +1,5 @@
 package model;
 
 public enum SpecialPowerActivation {
-    onRespawn, Passive, onDeath, onAttack, onDefend
+    onRespawn, Passive, onDeath, onAttack, onDefend, combo
 }
