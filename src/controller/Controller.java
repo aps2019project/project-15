@@ -130,11 +130,10 @@ public class Controller {
                 } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
 
                 } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
-                    Card card= Card.returnCardByName(RequestType.SELECT_CARD.getMatcher().group(1));
+                    Card card = Card.returnCardByName(RequestType.SELECT_CARD.getMatcher().group(1));
                     if (card != null) {
                         currentCard = card;
-                    }
-                    else{
+                    } else {
                         System.out.println("Invalid card ID");
                     }
                 } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
@@ -142,7 +141,7 @@ public class Controller {
                 } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
                     String name = RequestType.ATTACK_OPP.getMatcher().group(1);
                     Card card = Card.returnCardByName(name);
-                    if (card!= null) {
+                    if (card != null) {
                         currentCard.attack(card);
                     }
                 } else if (RequestType.ATTACH_COMBO.setMatcher(command).find()) {
@@ -183,6 +182,10 @@ public class Controller {
                     view.showUserOptions();
                 } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
                     view.battleHelp();
+                } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
+                    System.out.println("you want to quit the game!");
+                    System.out.println("you! loser! ha ha ha!");
+                    currentMenu = MainMenu.getInstance();
                 }
             } else {
                 view.notYourTurn();
@@ -205,7 +208,6 @@ public class Controller {
             collection.save();
         } else if (RequestType.REMOVE_COLLECTION.setMatcher(command).find()) {
             collection.removeCardOrItemFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
-            collection.removeCardFromDeck(RequestType.REMOVE_COLLECTION.getMatcher().group(1), RequestType.REMOVE_COLLECTION.getMatcher().group(2));
         } else if (RequestType.CREATE_DECK.setMatcher(command).find()) {
             collection.createDeck(RequestType.CREATE_DECK.getMatcher().group(1));
         } else if (RequestType.DELETE_DECK.setMatcher(command).find()) {

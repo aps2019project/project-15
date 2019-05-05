@@ -53,6 +53,7 @@ public enum RequestType {
     COLLECT_FlAG("^collect flag$"),
     START_MULTIPLAYER_GAME("^start multiplayer game (\\w+) (\\w+)$"),
     HELP_MENU("^help menu$"),
+    QUIT_GAME("^quit this game$"),
 
     //shopMenu
     SHOW_COLLECTION_IN_SHOP("^show collection$"),
