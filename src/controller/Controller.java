@@ -27,6 +27,7 @@ public class Controller {
     public static Account enemyAccount = new Account();
     private boolean gameStarted = false;
     private boolean exit = false;
+    private static Card currentCard;
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
@@ -75,6 +76,7 @@ public class Controller {
             shop.addItem();
             setAllCardsAndItemsID();
             setTypeOfAttacksForAllCards();
+            enemyAccount.setGame(currentAccount.getGame());
 
         } catch (IOException e) {
             e.printStackTrace();

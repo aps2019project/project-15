@@ -245,6 +245,7 @@ public class Collection {
             int i = 1;
             for (Card item : deck.getCards()) {
                 if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                    System.out.println("Hero: ");
                     item.printStats(i);
                     i++;
                 }

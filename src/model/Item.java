@@ -8,7 +8,7 @@ public class Item {
 
     String itemName;
     public String id;
-    String desc;
+    String desc = "";
     String price;
     String range;
     Buff buff;
