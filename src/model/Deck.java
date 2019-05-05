@@ -103,4 +103,7 @@ public class Deck {
         }
         return num;
     }
+    public void showHand(){
+        view.showHand(this.hand);
+    }
 }

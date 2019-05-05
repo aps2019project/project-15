@@ -619,4 +619,9 @@ public class View {
     public void enteredGraveYard() {
         System.out.println("you entered graveyard!");
     }
+    public void showHand(Hand hand){
+        for(Card card : hand.getCardsInHand()){
+            System.out.println(card);
+        }
+    }
 }

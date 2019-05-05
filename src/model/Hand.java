@@ -69,4 +69,8 @@ public class Hand {
         cardsInHand.remove(card);
         cardsUsedInGame.add(card);
     }
+
+    public ArrayList<Card> getCardsInHand() {
+        return cardsInHand;
+    }
 }
