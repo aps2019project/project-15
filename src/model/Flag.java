@@ -26,10 +26,10 @@ public class Flag extends Item {
     public Card getCard() {
         return card;
     }
-    public void setCurrentBlock(Block block){
+
+    public void setCurrentBlock(Block block) {
         this.currentBlock = block;
     }
-
 
 
 }

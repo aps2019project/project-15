@@ -9,11 +9,11 @@ public class Hand {
     private ArrayList<Card> cardsUsedInGame = new ArrayList<>();
     private Card cardToBeAdded;
 
-    public void initializeHand(){
+    public void initializeHand() {
         //should be called at the begining of game
         Hero hero = new Hero();
-        for(Card card : allCradsInDeck){
-            if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+        for (Card card : allCradsInDeck) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 hero = (Hero) card;
                 break;
             }
@@ -22,50 +22,50 @@ public class Hand {
         Random random = new Random();
         cardsInHand.add(allCradsInDeck.get(random.nextInt(allCradsInDeck.size())));
         int j = 4;
-        for(int i = 0; i < j ; i++){
+        for (int i = 0; i < j; i++) {
             Card card = allCradsInDeck.get(random.nextInt(allCradsInDeck.size()));
-            if(!cardsInHand.contains(card)){
+            if (!cardsInHand.contains(card)) {
                 cardsInHand.add(card);
-            }
-            else {
+            } else {
                 j++;
             }
         }
     }
+
     private void getNextCard() {
         Random random = new Random();
         int j = 1;
-        for(int i = 0; i < j; i++){
+        for (int i = 0; i < j; i++) {
             Card card = allCradsInDeck.get(random.nextInt(allCradsInDeck.size()));
-            if(!cardsInHand.contains(card) && !cardsUsedInGame.contains(card)){
+            if (!cardsInHand.contains(card) && !cardsUsedInGame.contains(card)) {
                 cardToBeAdded = card;
-            }
-            else if((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0){
+            } else if ((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0) {
                 cardToBeAdded = null;
                 break;
-            }
-            else{
+            } else {
                 j++;
             }
         }
     }
 
     public ArrayList<Card> returnHand() {
-        if(cardsInHand.size() < 5){
+        if (cardsInHand.size() < 5) {
             addToHand();
         }
         return cardsInHand;
     }
+
     private void addToHand() {
-        while(cardsInHand.size() < 5){
+        while (cardsInHand.size() < 5) {
             cardsInHand.add(cardToBeAdded);
-            if((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0){
+            if ((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0) {
                 break;
             }
             getNextCard();
         }
     }
-    public void deleteFromHand(Card card){
+
+    public void deleteFromHand(Card card) {
         cardsInHand.remove(card);
 
         cardsUsedInGame.add(card);

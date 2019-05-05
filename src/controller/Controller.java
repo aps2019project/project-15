@@ -225,7 +225,7 @@ public class Controller {
         } else if (RequestType.SHOW_DECK.setMatcher(command).find()) {
             collection.showDeck(RequestType.SHOW_DECK.getMatcher().group(1));
         } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-            view.showCollectionMenu();
+            collection.showMenu();
         } else if (RequestType.ADD_COLLECTION.setMatcher(command).find()) {
             if (RequestType.ADD_COLLECTION.getMatcher().group(1).matches("[\\d]+")) {
                 collection.cardOrItemToDeck(RequestType.ADD_COLLECTION.getMatcher().group(1), RequestType.ADD_COLLECTION.getMatcher().group(2));

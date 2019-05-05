@@ -158,38 +158,36 @@ public class Collection {
 
     }
 
-    public void removeCardFromDeck(String cardID, String deckName) {
+    private void removeCardFromDeck(String cardID, String deckName) {
         Card card = Card.returnCardById(cardID);
-        Deck deck = new Deck("");
-        for (Deck deckItem : myDecks) {
-            if (deckItem.getName().equals(deckName)) {
-                deck = deckItem;
-            }
-        }
-        if (deck.getName().equals("")) {
+        Deck deck = Deck.returnDeckByName(deckName);
+        if (deck == null) {
             view.deckIsNotInCollection();
-            return;
+        } else if (card == null) {
+            System.out.println("card is not valid");
+        } else if (!deck.getCards().contains(card)) {
+            view.deckIsNotInCollection();
+        } else {
+            deck.deleteCard(card);
         }
-        deck.deleteCard(card);
     }
 
-    public void removeItemFromDeck(String id, String deckName) {
+    private void removeItemFromDeck(String id, String deckName) {
         Item item = Item.getItemById(id);
-        Deck deck = new Deck("");
-        for (Deck deckItem : myDecks) {
-            if (deckItem.getName().equals(deckName)) {
-                deck = deckItem;
-            }
-        }
-        if (deck.getName().equals("")) {
+        Deck deck = Deck.returnDeckByName(deckName);
+        if (deck == null) {
             view.deckIsNotInCollection();
-            return;
+        } else if (item == null) {
+            System.out.println("Item is not valid");
+        } else if (deck.getItem() != item) {
+            view.deckIsNotInCollection();
+        } else {
+            deck.deleteItem(item);
         }
-        deck.deleteItem(item);
     }
 
     public void showMenu() {
-
+        view.showCollectionMenu();
     }
 
     public void validateDeck(String deckName) {

@@ -57,7 +57,7 @@ public class DataCenter {
 
     public Account getAccountByName(String name) {
         for (Account account : accounts.values()
-             ) {
+        ) {
             if (account.getUsername().equals(name)) {
                 return account;
             }
