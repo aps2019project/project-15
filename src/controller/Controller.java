@@ -29,7 +29,7 @@ public class Controller {
     private boolean exit = false;
     public static Game currentGame;
 
-    private static void setCurrentMenu() {
+    private void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
     }
 
@@ -57,7 +57,6 @@ public class Controller {
             shop.addItem();
             setAllCardsAndItemsID();
             setTypeOfAttacksForAllCards();
-            enemyAccount.setGame(currentAccount.getGame());
             collectibleAdder();
         } catch (IOException e) {
             e.printStackTrace();
@@ -113,7 +112,6 @@ public class Controller {
                 InputException e) {
             throw new InputException("Invalid command");
         }
-
     }
 
     private void gameFunction(Game game) {
@@ -123,7 +121,9 @@ public class Controller {
                 if (RequestType.GAME_INFO.setMatcher(command).find()) {
 
                 } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
-
+/*
+                    for (Minion minion : )
+*/
                 } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
 
                 } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
@@ -151,21 +151,19 @@ public class Controller {
 
                 } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
 
-                    Card card = Card.returnCardByName(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1));
+                    String name = RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1);
                     int x = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(2));
                     int y = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(3));
-                    if (card != null ){
 
-                    }
                 } else if (RequestType.END_TURN.setMatcher(command).find()) {
                     currentAccount.myTurn = false;
                 } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
                     view.showMyCollectibles();
                 } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
                     String name = RequestType.SELECT_COLLECTABLE.getMatcher().group(1);
-                    game.currentCollectible = Item.getItemByName(name);
+                    game.currentItem = Item.getItemByName(name);
                 } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
-
+                    System.out.println(currentGame.currentItem);
                 } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
 
                 } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
