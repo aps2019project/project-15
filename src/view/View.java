@@ -303,7 +303,7 @@ public class View {
     public void printMinionStats(Minion minion, int i) {
         System.out.printf("\t  %d : Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
-                , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
+                , minion.getAttackPower() , minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
     }
 
     public void printItemStats(Item item, int i) {

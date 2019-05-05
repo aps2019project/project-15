@@ -35,7 +35,7 @@ public class Minion extends Card {
         this.activationTime = activationTime;
         this.attackType = attackType;
         this.id = id;
-        this.description = String.valueOf(this.activationType);
+        this.description = this.activationType.toString();
         buff = new Buff(description);
         buff.card = this;
     }

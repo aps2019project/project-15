@@ -26,8 +26,8 @@ public abstract class Card {
     int mp = this.Mp;
     int Hp;
     public String cardID;
-    boolean isCardinGane = false;
-    int healthLevel;
+    boolean isCardinGame = false;
+    int healthLevel = this.Hp;
     int Ap;
     private boolean using = false;
     TypeOfCard typeOfAttack;
@@ -37,7 +37,7 @@ public abstract class Card {
     }
 
     public void setMp(int mp) {
-        Mp = mp;
+        this.mp = mp;
     }
 
     public void setCurrentBlock(Block currentBlock) {
@@ -61,7 +61,7 @@ public abstract class Card {
     }
 
     public int getMp() {
-        return Mp;
+        return this.mp;
     }
 
     public int getHealthLevel() {
