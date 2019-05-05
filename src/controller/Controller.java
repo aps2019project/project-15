@@ -27,9 +27,6 @@ public class Controller {
     public static Account enemyAccount = new Account();
     private boolean gameStarted = false;
     private boolean exit = false;
-    {
-        enemyAccount.setGame(currentAccount.getGame());
-    }
 
     private static void setCurrentMenu() {
         currentMenu = AccountMenu.getInstance();
@@ -114,6 +111,7 @@ public class Controller {
             if (gameStarted) {
                 view.gameIsLoading();
                 currentAccount.setGame(new Game());
+                enemyAccount.setGame(currentAccount.getGame());
                 gameFunction();
                 return;
             } else {
