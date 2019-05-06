@@ -32,7 +32,7 @@ public enum RequestType {
     SELECT_CARD("^select (\\w+)$"),
     MOVE_TO("^move to (\\d+),(\\d+)$"),
     ATTACK_OPP("^attack (\\w+)$"),
-    ATTACH_COMBO("^attack combo (\\w+)+$"),
+    ATTACK_COMBO("^attack combo (\\w+)+$"),
     USE_SPECIAL_POWER("^use special power (\\w+),(\\w+)$"),
     SHOW_HAND("^show hand$"),
     INSERT_CARD_IN_BLOCK("^insert (\\w+) in (\\w+),(\\w+)$"),
