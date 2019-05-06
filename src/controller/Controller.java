@@ -88,16 +88,16 @@ public class Controller {
 
         BattleMenu battleMenu = BattleMenu.getInstance();
         try {
+            Game game = new Game();
             if (gameStarted) {
                 view.gameIsLoading();
-                Game game = new Game();
                 currentGame = game;
                 gameFunction(game);
             } else {
                 if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
                     view.deckIsBetween();
                     view.playerOptions();
-                    battleMenu.chooseBattleType(command);
+                    battleMenu.chooseBattleType(game, command);
                     gameStarted = true;
                 } else {
                     view.notValidDeck();
@@ -118,11 +118,8 @@ public class Controller {
             if (currentAccount.myTurn) {
                 if (RequestType.GAME_INFO.setMatcher(command).find()) {
                     if (game.getMode().equals(ModeOfGame.killOpponent)) {
-
-                    } else if (game.getMode().equals(ModeOfGame.KeepFlag)) {
-
-                    } else if (game.getMode().equals(ModeOfGame.CollectFlags)) {
-
+                        System.out.println(game.player1Hp);
+                        System.out.println(game.player2Hp);
                     }
                 } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
                     showMinionsFunction(currentAccount);

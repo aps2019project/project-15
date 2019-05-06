@@ -20,7 +20,7 @@ public class BattleMenu extends Menu {
     private View view = View.getInstance();
     private Request request = new Request();
 
-    public void chooseBattleType(String command) throws InputException {
+    public void chooseBattleType(Game game , String command) throws InputException {
         if (RequestType.SINGLE_PLAYER.setMatcher(command).find()) {
             view.singlePlayerMode();
             chooseBattleMode();
@@ -38,7 +38,7 @@ public class BattleMenu extends Menu {
                     Controller.currentGame.setMode(ModeOfGame.killOpponent);
                 } else if (mode == 2) {
                     Controller.currentGame.setMode(ModeOfGame.KeepFlag);
-
+                    game.addFlagsToGame(numOfFlags);
                 } else if (mode == 3) {
                     Controller.currentGame.setMode(ModeOfGame.CollectFlags);
                 } else{
