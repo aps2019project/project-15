@@ -447,7 +447,7 @@ public class Game {
             view.invalidCardNameInGame();
             return;
         }
-        boolean canBeEnserted = false;
+        boolean canBeInserted = false;
         if (card.getTypeOfAttack().equals(TypeOfCard.Spell)) {
             Spell spell = (Spell) card;
             Block block = map.getBlock(x, y);
@@ -455,11 +455,11 @@ public class Game {
                 view.invalidTarget();
                 return;
             }
-            canBeEnserted = spell.checkEffectiveness(block.card);
+            canBeInserted = spell.checkEffectiveness(block.card);
         } else {
-            canBeEnserted = checkSurroundingBlocks(x, y, canBeEnserted);
+            canBeInserted = checkSurroundingBlocks(x, y, canBeInserted);
         }
-        if (!canBeEnserted) {
+        if (!canBeInserted) {
             view.invalidTarget();
             return;
         }
