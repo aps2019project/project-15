@@ -3,7 +3,7 @@
   "id": "013",
   "price": 300,
   "mp": 9,
-  "Hp": 0,
+  "Hp": 14,
   "Ap": 10,
   "attackType": "hybrid",
   "range": 7,

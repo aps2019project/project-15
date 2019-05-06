@@ -318,7 +318,7 @@ public class Game {
                 return;
             }
             Minion minion = (Minion) card;
-            if (!minion.getActivationTime().equals(SpecialPowerActivation.combo)) {
+            if (!minion.activationTime.equals(SpecialPowerActivation.combo.toString())) {
                 view.notAComboMinion();
                 return;
             }
@@ -437,10 +437,8 @@ public class Game {
         cardsInGame.add(card);
         if (activeAccount.equals(Controller.currentAccount)) {
             Controller.currentAccount.getMainDeck().hand.deleteFromHand(card);
-            Controller.currentAccount.addCardInGame(card);
         } else {
             Controller.enemyAccount.getMainDeck().hand.deleteFromHand(card);
-            Controller.enemyAccount.addCardInGame(card);
         }
     }
 

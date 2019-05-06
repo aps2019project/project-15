@@ -3,7 +3,7 @@
   "id": "027",
   "price": 500,
   "mp": 5,
-  "Hp": 0,
+  "Hp": 10,
   "Ap": 4,
   "attackType": "ranged",
   "range": 4,
