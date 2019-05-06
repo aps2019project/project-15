@@ -24,11 +24,9 @@ public class Game {
     private int firstPlayerMP = 2;
     private int secondPlayerMP = 2;
     private View view = View.getInstance();
-
     public Map getMap() {
         return map;
     }
-
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
     private int firstTurn;
@@ -446,20 +444,20 @@ public class Game {
         }
         boolean whichAccount = activeAccount.equals(Controller.currentAccount);
         if (whichAccount) {
-            if ((Controller.currentAccount.game.player1Mp - card.Mp) < 0) {
+            if ((Controller.currentGame.player1Mp - card.Mp) < 0) {
                 view.notEnoughMana();
                 return;
             }
         } else {
-            if ((Controller.currentAccount.game.player2Mp - card.Mp) < 0) {
+            if ((Controller.currentGame.player2Mp - card.Mp) < 0) {
                 view.notEnoughMana();
                 return;
             }
         }
         if (whichAccount) {
-            Controller.currentAccount.game.reducePlayerOneMp(card.Mp);
+            Controller.currentGame.reducePlayerOneMp(card.Mp);
         } else {
-            Controller.currentAccount.game.reducePlayerTwoMp(card.Mp);
+            Controller.currentGame.reducePlayerTwoMp(card.Mp);
         }
         cardsInGame.add(card);
         if (activeAccount.equals(Controller.currentAccount)) {
