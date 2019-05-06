@@ -4,9 +4,9 @@ import controller.Controller;
 
 import java.util.ArrayList;
 
-public class Item implements Cloneable{
+public class Item implements Cloneable {
 
-    private DataCenter dataCenter =DataCenter.getInstance();
+    private DataCenter dataCenter = DataCenter.getInstance();
     String itemName;
     public String id;
     private String desc = "";
@@ -22,13 +22,14 @@ public class Item implements Cloneable{
     public Buff getBuff() {
         return buff;
     }
-    public Item clone() throws CloneNotSupportedException{
+
+    public Item clone() throws CloneNotSupportedException {
         return (Item) super.clone();
     }
 
-    public static Item getItemByName(String name){
-        for (Item item : Controller.currentAccount.getMyCollection().getMyItems()){
-            if (item.getItemName().equalsIgnoreCase(name)){
+    public static Item getItemByName(String name) {
+        for (Item item : Controller.currentAccount.getMyCollection().getMyItems()) {
+            if (item.getItemName().equalsIgnoreCase(name)) {
                 return item;
             }
         }
@@ -53,7 +54,7 @@ public class Item implements Cloneable{
         this.buff.buffEffect(card);
     }
 
-    private void tireDoShakh(Card card) throws CloneNotSupportedException{
+    private void tireDoShakh(Card card) throws CloneNotSupportedException {
         if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
             Minion minion = (Minion) card;
             if (!minion.getMinionType().equals(TypeOfCounterAttack.melee)) {
@@ -61,9 +62,7 @@ public class Item implements Cloneable{
             }
         } else if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
             Hero hero = (Hero) card;
-            if (!hero.getCounterAttack().equals(TypeOfCounterAttack.melee)) {
-                buff.buffEffect(card);
-            }
+            if (!hero.getCounterAttack().equals(TypeOfCounterAttack.melee)) buff.buffEffect(card);
         }
     }
 
@@ -124,7 +123,11 @@ public class Item implements Cloneable{
             if (lookingForHero.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 Hero hero = (Hero) lookingForHero;
                 if (!hero.getCounterAttack().equals(TypeOfCounterAttack.hybrid)) {
-                    this.buff.buffEffect(card);
+                    try {
+                        this.buff.buffEffect(card);
+                    } catch (CloneNotSupportedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

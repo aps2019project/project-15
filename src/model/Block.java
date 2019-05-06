@@ -59,7 +59,7 @@ public class Block {
     }
 
     public void blockEffect() {
-        if(this.card != null) {
+        if (this.card != null) {
             if (isFire()) {
                 this.card.Hp -= 2;
                 if (this.card.Hp < 0) {

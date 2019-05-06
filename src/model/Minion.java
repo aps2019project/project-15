@@ -63,7 +63,7 @@ public class Minion extends Card {
             if (card.healthLevel < 0) {
                 card.healthLevel = 0;
             }
-            if (this.activationType.equals(SpecialPowerActivation.onAttack)) {
+            if (this.activationType.equals(SpecialPowerActivation.onAttack.toString())) {
                 this.buff.setActivated(true);
                 specialPowerActing(card);
             }
@@ -72,7 +72,7 @@ public class Minion extends Card {
                 if (minion.canCounterAttack(this)) {
                     minion.counterAttack(this);
                 }
-                if (minion.activationType.equals(SpecialPowerActivation.onDeath)) {
+                if (minion.activationType.equals(SpecialPowerActivation.onDeath.toString())) {
                     if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
@@ -85,7 +85,7 @@ public class Minion extends Card {
         }
     }
 
-    public void specialPowerActing(Card card) {
+    public void specialPowerActing(Card card) throws CloneNotSupportedException{
         if (this.getName().equalsIgnoreCase("GhooleDosar")) {
             ghooledosar(card);
         }
@@ -119,12 +119,12 @@ public class Minion extends Card {
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;
-                if (minion.activationType.equals(SpecialPowerActivation.onDeath)) {
+                if (minion.activationType.equals(SpecialPowerActivation.onDeath.toString())) {
                     if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
                 }
-                if (minion.activationType.equals(SpecialPowerActivation.onDefend)) {
+                if (minion.activationType.equals(SpecialPowerActivation.onDefend.toString())) {
                     minion.specialPowerActing(this);
                 }
             }

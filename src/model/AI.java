@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AI extends Account {
-    Game game = new Game();
+    private Game game;
     private Deck mainDdeck;
     private ArrayList<Card> AICards = new ArrayList<>();
 
-    // private ArrayList<Deck> AIDecks;
-    public AI() {
+    public void setGame(Game game) {
+
+        this.game = game;
     }
 
-    private void insertcard() {
+    private void insertCard() {
     }
 
     private void move() {
@@ -20,7 +21,6 @@ public class AI extends Account {
     }
 
     private void attack() {
-
 
     }
 
@@ -36,10 +36,11 @@ public class AI extends Account {
                 break;
             case 2:
 
-                insertcard();
-                game.endTurn();
+                insertCard();
         }
+        game.endTurn();
     }
+
 
     public ArrayList<Card> getAICards() {
         return AICards;

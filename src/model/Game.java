@@ -29,14 +29,6 @@ public class Game {
         return map;
     }
 
-    public Account setAccounts() {
-        if (this.gameType.equals(GameType.MultiPlayer)) {
-            Account player2 = new Account();
-            return player2;
-        }
-        return null;
-    }
-
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
     private int firstTurn;
@@ -163,12 +155,6 @@ public class Game {
 
     }
 
-    public void setSecondPlayer() {
-        if (this.gameType.equals(GameType.MultiPlayer)) {
-
-        }
-    }
-
     public int getTurn() {
         return turn;
     }
@@ -193,21 +179,21 @@ public class Game {
 
     public void showCardInfo(String cardId) {
         Card card = returnCardByIdInGame(cardId);
-        if(card != null){
+        if (card != null) {
             view.showCardInGame(card);
-        }
-        else{
+        } else {
             view.noSuchCardInGame();
         }
     }
-    private Card returnCardByIdInGame(String cardId){
-        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
-            if(card.getCardIdInGame().equalsIgnoreCase(cardId)){
+
+    private Card returnCardByIdInGame(String cardId) {
+        for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
+            if (card.getCardIdInGame().equalsIgnoreCase(cardId)) {
                 return card;
             }
         }
-        for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
-            if(card.getCardIdInGame().equalsIgnoreCase(cardId)){
+        for (Card card : Controller.enemyAccount.getMainDeck().getCards()) {
+            if (card.getCardIdInGame().equalsIgnoreCase(cardId)) {
                 return card;
             }
         }
@@ -224,7 +210,7 @@ public class Game {
     }
 
     public void moveTo(Card card, int x, int y) {
-        if(card.stunned){
+        if (card.stunned) {
             view.cardIsStun();
             return;
         }
@@ -290,13 +276,12 @@ public class Game {
     }
 
 
-    public void attack(Card myCard, Card opponentCard) throws CloneNotSupportedException{
+    public void attack(Card myCard, Card opponentCard) throws CloneNotSupportedException {
         if (!myCard.disarmed) {
             myCard.attack(opponentCard);
-            if(activeAccount.equals(Controller.currentAccount)){
+            if (activeAccount.equals(Controller.currentAccount)) {
                 player1Mp -= myCard.Mp;
-            }
-            else {
+            } else {
                 player2Mp -= myCard.Mp;
             }
             return;
@@ -304,9 +289,9 @@ public class Game {
         view.disarmedCard();
     }
 
-    public void attackCombo(String opponentCardId, String... myCardIds) throws CloneNotSupportedException{
+    public void attackCombo(String opponentCardId, String... myCardIds) throws CloneNotSupportedException {
         Card enemyCard = returnCardByIdInGame(opponentCardId);
-        if(enemyCard == null){
+        if (enemyCard == null) {
             view.noSuchCardInGame();
             return;
         }
@@ -319,10 +304,10 @@ public class Game {
             view.cardNotInGame();
             return;
         }
-        int lenght = myCardIds.length;
-        String[] myCardId = new String[lenght];
-        Minion[] myCrads = new Minion[lenght];
-        for (int i = 0; i < lenght; i++) {
+        int length = myCardIds.length;
+        String[] myCardId = new String[length];
+        Minion[] myCrads = new Minion[length];
+        for (int i = 0; i < length; i++) {
             Card card = returnCardByIdInGame(myCardId[i]);
             if (card == null) {
                 view.cardNotInGame();
@@ -375,10 +360,10 @@ public class Game {
 
     public void endTurn() {
         turn++;
-        for(Card card : Controller.currentAccount.getCardsInGame()){
+        for (Card card : Controller.currentAccount.getCardsInGame()) {
             card.getCurrentBlock().blockEffect();
         }
-        for(Card card : Controller.enemyAccount.getCardsInGame()){
+        for (Card card : Controller.enemyAccount.getCardsInGame()) {
             card.getCurrentBlock().blockEffect();
         }
         if (activeAccount.equals(Controller.currentAccount)) {
@@ -392,14 +377,15 @@ public class Game {
         updateGraveYard();
         addToMana();
     }
+
     private void buffEffect() throws CloneNotSupportedException {
-        for(Card card : Controller.currentAccount.getCardsInGame()){
-            for(Buff buff : card.getActivatedBuffs()){
+        for (Card card : Controller.currentAccount.getCardsInGame()) {
+            for (Buff buff : card.getActivatedBuffs()) {
                 buff.buffEffect(card);
             }
         }
-        for(Card card : Controller.enemyAccount.getCardsInGame()){
-            for(Buff buff : card.getActivatedBuffs()){
+        for (Card card : Controller.enemyAccount.getCardsInGame()) {
+            for (Buff buff : card.getActivatedBuffs()) {
                 buff.buffEffect(card);
             }
         }
@@ -442,8 +428,7 @@ public class Game {
                 return;
             }
             canBeEnserted = spell.checkEffectiveness(block.card);
-        }
-        else {
+        } else {
             canBeEnserted = checkSurroundingBlocks(x, y, canBeEnserted);
         }
         if (!canBeEnserted) {
@@ -513,27 +498,29 @@ public class Game {
         }
         return canBeEnserted;
     }
-    public void showCard(String cardIdInGame){
+
+    public void showCard(String cardIdInGame) {
         Card wantedCard = null;
-        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
-            if(card.getCardIdInGame().equals(cardIdInGame)){
-                wantedCard =  card;
+        for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
+            if (card.getCardIdInGame().equals(cardIdInGame)) {
+                wantedCard = card;
             }
         }
-        if(wantedCard == null){
-            for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
-                if(card.getCardIdInGame().equals(cardIdInGame)){
-                    wantedCard =  card;
+        if (wantedCard == null) {
+            for (Card card : Controller.enemyAccount.getMainDeck().getCards()) {
+                if (card.getCardIdInGame().equals(cardIdInGame)) {
+                    wantedCard = card;
                 }
             }
         }
-        if(wantedCard == null){
+        if (wantedCard == null) {
             view.noSuchCardInGame();
             return;
         }
         view.showCardInGame(wantedCard);
     }
-    public Account getActiveAccount(){
+
+    public Account getActiveAccount() {
         return this.activeAccount;
     }
 }

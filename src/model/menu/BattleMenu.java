@@ -42,7 +42,7 @@ public class BattleMenu extends Menu {
                     Controller.currentGame.setMode(ModeOfGame.CollectFlags);
                 }
                 if (numOfFlags != 0) {
-                    System.out.println("number of flags in game is " + numOfFlags);
+                    view.showNumOfFlags(numOfFlags);
                 }
             }
 

@@ -28,6 +28,7 @@ public class Account {
     public ArrayList<Item> myCollectibles = new ArrayList<>();
     private boolean startGame = false;
     public ArrayList<Card> myCardsInMap = new ArrayList<>();
+
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }
@@ -111,11 +112,11 @@ public class Account {
     }
 
     public void setMainDeck(Deck deck) throws CloneNotSupportedException {
-        for (Card card : deck.getCards()){
+        for (Card card : deck.getCards()) {
             Card mainDeckCard = card.clone();
             mainDeck.addCard(mainDeckCard);
         }
-        if(deck.getItem() != null) {
+        if (deck.getItem() != null) {
             Item mainDeckItem = deck.getItem().clone();
             mainDeck.addItem(mainDeckItem);
         }

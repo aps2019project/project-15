@@ -164,7 +164,7 @@ public class Collection {
         if (deck == null) {
             view.deckIsNotInCollection();
         } else if (card == null) {
-            System.out.println("card is not valid");
+            view.invalidCardId();
         } else if (!deck.getCards().contains(card)) {
             view.deckIsNotInCollection();
         } else {
@@ -178,7 +178,7 @@ public class Collection {
         if (deck == null) {
             view.deckIsNotInCollection();
         } else if (item == null) {
-            System.out.println("Item is not valid");
+            view.invalidItemID();
         } else if (deck.getItem() != item) {
             view.deckIsNotInCollection();
         } else {
@@ -199,14 +199,14 @@ public class Collection {
             ok = deck.validateDeck();
             if (ok) {
                 deck.validated = true;
-                System.out.println("deck " + deck.getName() + " is validated!");
+                view.validatedDeck(deck.getName());
             } else {
-                System.out.println("deck " + deck.getName() + " could not be validated!");
+                view.couldNotBeValidated(deck.getName());
             }
         }
     }
 
-    public void selectDeck(String deckName) throws CloneNotSupportedException{
+    public void selectDeck(String deckName) throws CloneNotSupportedException {
         Deck deck = Deck.returnDeckByName(deckName);
         if (deck == null) {
             view.deckIsNotInCollection();
@@ -217,9 +217,9 @@ public class Collection {
             return;
         }
         Controller.currentAccount.setMainDeck(deck);
-        deck.hand.allCradsInDeck = deck.cards;
+        deck.hand.allCardsInDeck = deck.cards;
         Controller.currentAccount.getMainDeck().validated = true;
-        System.out.println("main deck has been set!");
+        view.setMainDeck();
     }
 
     public void showAllDecks() {
@@ -245,14 +245,7 @@ public class Collection {
             }
         }
         if (deck.cards != null) {
-            int i = 1;
-            for (Card item : deck.getCards()) {
-                if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
-                    System.out.println("Hero: ");
-                    item.printStats(i);
-                    i++;
-                }
-            }
+            view.showHeroInDeck(deck);
         }
         int i = 1;
         //view.printItemStats(deck.getItem(), i);

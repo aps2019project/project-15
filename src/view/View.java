@@ -62,18 +62,18 @@ public class View {
 
     public void showMyMinions() {
         Account account = Controller.currentAccount.getGame().getActiveAccount();
-        for(Card card : account.getCardsInGame()){
-            if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+        for (Card card : account.getCardsInGame()) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
-                +", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
-                + card.getAttackPower());
+                        + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
+                        + card.getAttackPower());
             }
         }
     }
 
     public void showEnemyMinion() {
         Account account = Controller.currentAccount.getGame().getActiveAccount();
-        if(account.equals(Controller.currentAccount)) {
+        if (account.equals(Controller.currentAccount)) {
             for (Card card : Controller.enemyAccount.getCardsInGame()) {
                 if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                     System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
@@ -81,17 +81,17 @@ public class View {
                             + card.getAttackPower());
                 }
             }
-        }
-        else {
-            for(Card card : Controller.currentAccount.getCardsInGame()){
-                if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+        } else {
+            for (Card card : Controller.currentAccount.getCardsInGame()) {
+                if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                     System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
-                            +", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
+                            + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
                             + card.getAttackPower());
                 }
             }
         }
     }
+
     public void printCollectionHelpMenu() {
         System.out.println("To exit from collection, type 'exit' ");
         System.out.println("To show all cards and items in your collection, type 'show' ");
@@ -326,7 +326,7 @@ public class View {
     public void printMinionStats(Minion minion, int i) {
         System.out.printf("\t  %d : Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
-                , minion.getAttackPower() , minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
+                , minion.getAttackPower(), minion.getHealthLevel(), minion.getMp(), minion.getDescription(), minion.getPrice());
     }
 
     public void printItemStats(Item item, int i) {
@@ -583,10 +583,6 @@ public class View {
         System.out.println("You can not attack this card");
     }
 
-    public void invalidCardId() {
-        System.out.println("Invalid card id");
-    }
-
     public void invalidTarget() {
         System.out.println("Invalid target");
     }
@@ -642,43 +638,121 @@ public class View {
     public void enteredGraveYard() {
         System.out.println("you entered graveyard!");
     }
-    public void showHand(Hand hand){
-        for(Card card : hand.getCardsInHand()){
+
+    public void showHand(Hand hand) {
+        for (Card card : hand.getCardsInHand()) {
             System.out.println(card);
         }
     }
-    public void invalidCardNameInGame(){
+
+    public void invalidCardNameInGame() {
         System.out.println("Invalid card name");
     }
-    public void notEnoughMana(){
+
+    public void notEnoughMana() {
         System.out.println("You don't have enough mana");
     }
-    public void disarmedCard(){
+
+    public void disarmedCard() {
         System.out.println("Card is disarmed!!");
     }
-    public void cardIsStun(){
+
+    public void cardIsStun() {
         System.out.println("Card is stunned");
     }
-    public void noSuchCardInGame(){
+
+    public void noSuchCardInGame() {
         System.out.println("No such card in game");
     }
-    public void showCardInGame(Card card){
-        if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+
+    public void showCardInGame(Card card) {
+        if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
             Hero hero = (Hero) card;
             System.out.printf("Hero: \n Name: %s\n Cost: %d\n Desc: %s\n", hero.getName(), hero.getPrice(), hero.getDescription());
             return;
         }
-        if(card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+        if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
             Minion minion = (Minion) card;
             System.out.printf("Minion:\nName: %s\nHp: %d Ap: %d Mp: %d\nRange: %d\nCombo-ability: %s\nCost: %d\nDesc: %s\n"
-            , minion.getName(), minion.getHealthLevel(), minion.getAttackPower(), minion.getMp(), minion.getRange(),
+                    , minion.getName(), minion.getHealthLevel(), minion.getAttackPower(), minion.getMp(), minion.getRange(),
                     minion.hasComboAbility(), minion.getPrice(), minion.getDescription());
             return;
         }
-        if(card.getTypeOfAttack().equals(TypeOfCard.Spell)){
+        if (card.getTypeOfAttack().equals(TypeOfCard.Spell)) {
             Spell spell = (Spell) card;
             System.out.printf("Spell:\nName: %S\nMp: %d\nCost: %d\nDesc: %s\n", spell.getName(), spell.getMp(),
                     spell.getPrice(), spell.getDescription());
+        }
+    }
+
+    public void deckIsBetween() {
+        System.out.println("your deck is " + Controller.currentAccount.getMainDeck().getName());
+    }
+
+    public void notValidDeck() {
+        System.out.println("you have not chosen a valid deck!");
+    }
+
+    public void invalidCardId() {
+        System.out.println("Invalid card ID");
+    }
+
+    public void showCurrentItem() {
+        System.out.println(Controller.currentGame.currentItem);
+    }
+
+    public void quitGameRequest() {
+        System.out.println("you want to quit the game!");
+        System.out.println("you! loser! ha ha ha!");
+    }
+
+    public void showCardsInGraveYard() {
+        for (Card card : Controller.currentAccount.getGraveYard()) {
+            System.out.println(card);
+        }
+    }
+
+    public void showNumOfFlags(int numOfFlags) {
+        System.out.println("number of flags in game is " + numOfFlags);
+    }
+
+    public void showNumOfCardsInDeck(int numberOfCards) {
+        System.out.println("number of cards in this deck: " + numberOfCards);
+
+    }
+
+    public void validDeck() {
+        System.out.println("deck is valid!");
+
+    }
+
+    public void invalidItemID() {
+        System.out.println("Item is not valid");
+    }
+
+    public void validatedDeck(String name) {
+        System.out.println("deck " + name + " is validated!");
+
+    }
+
+    public void couldNotBeValidated(String name) {
+        System.out.println("deck " + name + " could not be validated!");
+
+    }
+
+    public void setMainDeck() {
+        System.out.println("main deck has been set!");
+
+    }
+
+    public void showHeroInDeck(Deck deck) {
+        int i = 1;
+        for (Card item : deck.getCards()) {
+            if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                System.out.println("Hero: ");
+                item.printStats(i);
+                i++;
+            }
         }
     }
     public void invalidCoordinates(){
