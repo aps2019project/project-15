@@ -55,7 +55,7 @@ public class Block {
         this.isEmpty = true;
     }
 
-    public void cardMovedToBlock(Card card) {
+    void cardMovedToBlock(Card card) {
         this.card = card;
         this.isEmpty = false;
     }

@@ -141,7 +141,7 @@ public abstract class Card implements Cloneable {
         return currentBlock;
     }
 
-    public ArrayList<Collectible> getCollectibles() {
+    ArrayList<Collectible> getCollectibles() {
         return collectibles;
     }
     void addToCollectibles(Collectible collectible){

@@ -24,15 +24,6 @@ public class DataCenter {
 
     }
 
-    public Card returnCardItemName(String name) {
-        for (Card item : heroes) {
-            if (item.getName().equals(name)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
     public ArrayList<Collectible> getCollectibles() {
         return collectibles;
     }
@@ -53,13 +44,7 @@ public class DataCenter {
         return items;
     }
 
-    private Account onlineAccount;
     private HashMap<String, Account> accounts = new HashMap<>();
-
-
-    public void setOnlineAccount(Account onlineAccount) {
-        this.onlineAccount = onlineAccount;
-    }
 
     public Account getAccountByName(String name) {
         for (Account account : accounts.values()
@@ -69,10 +54,6 @@ public class DataCenter {
             }
         }
         return null;
-    }
-
-    public Account getOnlineAccount() {
-        return onlineAccount;
     }
 
     public HashMap<String, Account> getAccounts() {

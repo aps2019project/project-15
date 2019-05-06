@@ -8,11 +8,8 @@ import java.util.ArrayList;
 public class Game {
 
     private Map map = new Map();
-    private int currentTurn;
-    private GameType gameType;
     private ArrayList<Flag> flags = new ArrayList<>();
     private ModeOfGame Mode;
-    GameType type;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
     private ArrayList<Card> graveYard = new ArrayList<>();
     private int turn = (int) (Math.random() % 2 + 1);
@@ -23,7 +20,7 @@ public class Game {
     private Account activeAccount;
     private View view = View.getInstance();
 
-    public Map getMap() {
+    Map getMap() {
         return map;
     }
 
@@ -42,17 +39,16 @@ public class Game {
     private int firstTurn;
     boolean done = false;
     private boolean finishedGame = false;
-    private ModeOfGame storyMode;
 
     public boolean isFinishedGame() {
         return finishedGame;
     }
 
-    public void setFinishedGame(boolean finishedGame) {
+    private void setFinishedGame(boolean finishedGame) {
         this.finishedGame = finishedGame;
     }
 
-    public void endGameSetter() {
+    private void endGameSetter() {
         switch (this.Mode) {
             case killOpponent:
                 setFinishedGame(killOpponentGameEnded());
@@ -143,11 +139,6 @@ public class Game {
         Mode = mode;
     }
 
-    public void initialItemAndHeroEffect() {
-        //should be called in turn one and two
-
-    }
-
     private int setInitialPlayer1Mp() {
         if (this.firstTurn == 1) {
             return 2;
@@ -222,11 +213,6 @@ public class Game {
         player2Mp -= n;
     }
 
-    private boolean returnCondition() {
-        return true;
-    }
-
-
     public void setTypeOfGame(int number) {
         switch (number) {
             case (1): {
@@ -263,14 +249,6 @@ public class Game {
         }
     }
 
-    public void showMyMinions() {
-        view.showMyMinions();
-    }
-
-    public void showOpponentMinions() {
-        view.showEnemyMinion();
-    }
-
     public void showCardInfo(String cardId) {
         Card card = returnCardByIdInGame(cardId);
         if (card != null) {
@@ -292,15 +270,6 @@ public class Game {
             }
         }
         return null;
-    }
-
-    public void select(String cardId) {
-        Card card = returnCardByIdInGame(cardId);
-        if (card == null) {
-            view.invalidCardId();
-            return;
-        }
-        currentCard = card;
     }
 
     public void moveTo(Card card, int x, int y) {
@@ -336,31 +305,19 @@ public class Game {
     private boolean enemyInWay(Block block, Card card) {
         if (block.x == card.getCurrentBlock().x && block.y > card.getCurrentBlock().y) {
             Block checkBlock = map.getBlock(block.x, block.y + 1);
-            if (checkBlock.isEmpty()) {
-                return false;
-            }
-            return true;
+            return !checkBlock.isEmpty();
         }
         if (block.y == card.getCurrentBlock().y && block.x > card.getCurrentBlock().x) {
             Block checkBlock = map.getBlock(block.x + 1, block.y);
-            if (checkBlock.isEmpty()) {
-                return false;
-            }
-            return true;
+            return !checkBlock.isEmpty();
         }
         if (block.x == card.getCurrentBlock().x && block.y < card.getCurrentBlock().y) {
             Block checkBlock = map.getBlock(block.x, block.y - 1);
-            if (checkBlock.isEmpty()) {
-                return false;
-            }
-            return true;
+            return !checkBlock.isEmpty();
         }
         if (block.y == card.getCurrentBlock().y && block.x < card.getCurrentBlock().x) {
             Block checkBlock = map.getBlock(block.x - 1, block.y);
-            if (checkBlock.isEmpty()) {
-                return false;
-            }
-            return true;
+            return !checkBlock.isEmpty();
         }
         return true;
     }
@@ -456,7 +413,7 @@ public class Game {
         activeAccount.getMainDeck().showHand();
     }
 
-    public void endTurn() {
+    void endTurn() {
         turn++;
         for (Card card : Controller.currentAccount.getCardsInGame()) {
             card.getCurrentBlock().blockEffect();
@@ -472,10 +429,10 @@ public class Game {
         for (Card card : activeAccount.getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        if (activeAccount.getMainDeck().getItem().equals("KingWisom")) {
+        if (activeAccount.getMainDeck().getItem().getItemName().equals("KingWisom")) {
             activeAccount.getMainDeck().getItem().KingWisdom(activeAccount.getUsername());
         }
-        if (activeAccount.getMainDeck().getItem().equals("TajDanaii")) {
+        if (activeAccount.getMainDeck().getItem().getItemName().equals("TajDanaii")) {
             activeAccount.getMainDeck().getItem().tajeDanaii(activeAccount.getUsername());
         }
         map.checkIfCollectibleOrFlagIsTaken();
@@ -497,7 +454,7 @@ public class Game {
         }
     }
 
-    public void addToMana() {
+    private void addToMana() {
         if (activeAccount.equals(Controller.currentAccount)) {
             if (turn < 14) {
                 player1Mp = (turn / 2) + 2;

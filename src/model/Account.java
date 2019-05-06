@@ -13,7 +13,6 @@ public class Account {
     private String username;
     private String password;
     private int money = 15000;
-    private boolean isSelected;
 
     private boolean loggedIn = false;
     private Collection myCollection = new Collection();
@@ -24,7 +23,6 @@ public class Account {
 
     private ArrayList<History> historyGames = new ArrayList<>();
     public ArrayList<Item> myCollectibles = new ArrayList<>();
-    private boolean startGame = false;
 
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
@@ -66,17 +64,12 @@ public class Account {
         return money;
     }
 
-    public boolean isSelected() {
-        return isSelected;
-    }
-
     public boolean isLoggedIn() {
         return loggedIn;
     }
 
     public int getNumOfWins() {
-        int numOfWins = 0;
-        return numOfWins;
+        return 0;
     }
 
     void addMoney(int money) {
@@ -89,14 +82,6 @@ public class Account {
 
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
-    public void setMoney(int money) {
-        this.money = money;
     }
 
     void setMainDeck(Deck deck) throws CloneNotSupportedException {
@@ -126,7 +111,7 @@ public class Account {
     boolean soldCard(Card card) {
         return card.sold;
     }
-    public void addToHistory(int result, int time, String opponentName){
+    void addToHistory(int result, int time, String opponentName){
         History history = new History(result, time, opponentName);
         historyGames.add(history);
     }

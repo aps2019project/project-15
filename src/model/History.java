@@ -1,10 +1,11 @@
 package model;
 
 class History {
-    int result;
-    int time;
-    String opponentName;
-    public History(int result, int time, String opponentName){
+    private int result;
+    private int time;
+    private String opponentName;
+
+    History(int result, int time, String opponentName) {
         this.result = result;
         this.time = time;
         this.opponentName = opponentName;

@@ -31,8 +31,9 @@ public class Hand {
             }
         }
     }
-    public Card getCardToBeAdded(){
-        if(cardToBeAdded == null){
+
+    public Card getCardToBeAdded() {
+        if (cardToBeAdded == null) {
             getNextCard();
         }
         return cardToBeAdded;

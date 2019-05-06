@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class Item implements Cloneable {
 
-    private DataCenter dataCenter = DataCenter.getInstance();
     String itemName;
     public String id;
     private String desc = "";
@@ -35,9 +34,10 @@ public class Item implements Cloneable {
         }
         return null;
     }
-    public ArrayList<Card> itemEffectOnWhat(int x, int y){
+
+    ArrayList<Card> itemEffectOnWhat(int x, int y) {
         ArrayList<Card> returns = new ArrayList<>();
-        if(this.getItemName().equalsIgnoreCase("Namosesepar")){
+        if (this.getItemName().equalsIgnoreCase("Namosesepar")) {
             returns.add(Controller.currentGame.getActiveAccount().getMainDeck().getDeckHero());
             return returns;
         }
@@ -45,9 +45,9 @@ public class Item implements Cloneable {
         return returns;
     }
 
-    public void itemEffect(Card card) throws CloneNotSupportedException{
-        if(this.getItemName().equalsIgnoreCase("SheckHammer")) {
-            if (card.getTypeOfAttack().equals(TypeOfCard.Hero) || !card.attackedThisTurn){
+    void itemEffect(Card card) throws CloneNotSupportedException {
+        if (this.getItemName().equalsIgnoreCase("SheckHammer")) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Hero) || !card.attackedThisTurn) {
                 return;
             }
         }
@@ -78,7 +78,7 @@ public class Item implements Cloneable {
         }
     }
 
-    public void tajeDanaii(String username) {
+    void tajeDanaii(String username) {
         if (Controller.currentGame.getTurn() < 4) {
             if (username.equalsIgnoreCase(Controller.currentAccount.getUsername())) {
                 Controller.currentGame.addPlayerOneMp(1);
@@ -130,7 +130,7 @@ public class Item implements Cloneable {
         }
     }
 
-    private void KamaneDamo(Card card) throws CloneNotSupportedException{
+    private void KamaneDamo(Card card) {
         for (Card lookingForHero : Controller.currentAccount.getCardsInGame()) {
             if (lookingForHero.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 Hero hero = (Hero) lookingForHero;
@@ -173,7 +173,7 @@ public class Item implements Cloneable {
         }
     }
 
-    public void KingWisdom(String username) {
+    void KingWisdom(String username) {
         if (username.equalsIgnoreCase(Controller.currentAccount.getUsername())) {
             Controller.currentGame.addPlayerOneMp(1);
         } else {
@@ -181,7 +181,7 @@ public class Item implements Cloneable {
         }
     }
 
-    public void assassinationDaggerEffect() {
+    void assassinationDaggerEffect() {
         for (Card card : Controller.enemyAccount.getCardsInGame()) {
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 card.Hp--;
@@ -227,35 +227,12 @@ public class Item implements Cloneable {
         return items;
     }
 
-    boolean using = false;
-
-
-    public static void addToItems(Item item) {
-        items.add(item);
-    }
-
-    public boolean isUsing() {
-        return using;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setUsing(boolean using) {
-        this.using = using;
-    }
-
-    public String returnItemName() {
-        if (items.contains(this)) {
-            return this.itemName;
-        }
-        return null;
-    }
-
     @Override
     public String toString() {
-        String info = "itemName: " + this.getItemName() + "\n" + "ID: " + this.getId() + "\n" + "price: " + this.getPrice() + "\n" + "desc: " + this.getDesc() + "\n";
-        return info;
+        return "itemName: " + this.getItemName() + "\n" + "ID: " + this.getId() + "\n" + "price: " + this.getPrice() + "\n" + "desc: " + this.getDesc() + "\n";
     }
 }

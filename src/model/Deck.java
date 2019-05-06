@@ -15,6 +15,7 @@ public class Deck {
     String name = " ";
     View view = View.getInstance();
     public boolean validated = false;
+
     Deck(String name) {
         this.name = name;
     }
@@ -70,10 +71,6 @@ public class Deck {
         return false;
     }
 
-    public Hand returnHand() {
-        return null;
-    }
-
     public String getName() {
         return name;
     }
@@ -112,9 +109,10 @@ public class Deck {
     public void showHand() {
         view.showHand(this.hand);
     }
-    public Hero getDeckHero(){
-        for(Card card : this.getCards()){
-            if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+
+    public Hero getDeckHero() {
+        for (Card card : this.getCards()) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 return (Hero) card;
             }
         }

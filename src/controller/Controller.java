@@ -129,8 +129,7 @@ public class Controller {
                 } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
                     showMinionsFunction(enemyAccount);
                 } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
-                    Card card = Card.returnCardById(RequestType.SHOW_CARD_INFO.getMatcher().group(1));
-                    System.out.println(card);
+                    game.showCardInfo(RequestType.SHOW_CARD_INFO.getMatcher().group(1));
                 } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
                     Card card = Card.returnCardByName(RequestType.SELECT_CARD.getMatcher().group(1));
                     if (card != null) {

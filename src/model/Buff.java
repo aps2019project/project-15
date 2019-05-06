@@ -1,11 +1,9 @@
 package model;
 
 import controller.Controller;
-import view.InputException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 public class Buff implements Cloneable {
     private boolean activated = false;
@@ -13,10 +11,7 @@ public class Buff implements Cloneable {
     private int duration;
     Card card;
     private int unit;
-
-
     private TypesOfBuff type;
-
     private boolean hpEffected = false;
     private boolean apEffected = false;
 
@@ -24,23 +19,11 @@ public class Buff implements Cloneable {
         return (Buff) super.clone();
     }
 
-    public TypesOfBuff getType() {
+    TypesOfBuff getType() {
         return type;
     }
 
-    public boolean isActivated() {
-        return activated;
-    }
-
-    public boolean isHpEffected() {
-        return hpEffected;
-    }
-
-    public boolean isApEffected() {
-        return apEffected;
-    }
-
-    public Buff(String description) {
+    Buff(String description) {
         type = getTypeFromDesc(description);
         unit = getUnitsFromDesc(description);
         if (description.contains("hp")) {
@@ -104,25 +87,15 @@ public class Buff implements Cloneable {
         return TypesOfBuff.specialCase;
     }
 
-    public int getStartTurn() {
+    int getStartTurn() {
         return startTurn;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
-
-    public boolean isStillActivated() {
+    private boolean isStillActivated() {
         return Controller.currentGame.getTurn() <= startTurn + duration;
     }
 
-    public void effect() {
-
-    }
-
-    //todo a buff being activated for a card
-    public void buffEffect(Card card) throws CloneNotSupportedException {
+    void buffEffect(Card card) throws CloneNotSupportedException {
         if (this.card.getName().equalsIgnoreCase("gorg")) {
             startTurn += 1;
         }
@@ -262,7 +235,7 @@ public class Buff implements Cloneable {
         }
     }
 
-    public void buffNotEffective(Card card) {
+    void buffNotEffective(Card card) {
         switch (this.type) {
             case disarm:
                 card.disarmed = false;
@@ -326,11 +299,11 @@ public class Buff implements Cloneable {
         buff.buffEffect(this.card);
     }
 
-    public void setActivated(boolean activated) {
+    void setActivated(boolean activated) {
         this.activated = activated;
     }
 
-    public void setStartTurn(int startTurn) {
+    void setStartTurn(int startTurn) {
         this.startTurn = startTurn;
     }
 }

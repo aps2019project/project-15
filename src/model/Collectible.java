@@ -48,7 +48,7 @@ public class Collectible extends Item {
         }
         return null;
     }
-    public static ArrayList<Collectible> getRandomCollectibles(){
+    static ArrayList<Collectible> getRandomCollectibles(){
         ArrayList<Collectible> returns = new ArrayList<>();
         Random random = new Random();
         int num = random.nextInt(allCollectibles.size());
