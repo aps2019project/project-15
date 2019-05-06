@@ -20,6 +20,10 @@ public class Hero extends Card {
     Item[][] itemCheck = new Item[4][];
     private int manaSpecialPower;
 
+    public int getHp() {
+        return this.Hp;
+    }
+
     public void attack(Card card) throws CloneNotSupportedException {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;

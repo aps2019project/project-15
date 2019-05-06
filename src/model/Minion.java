@@ -22,6 +22,10 @@ public class Minion extends Card {
 
     public String id;
 
+    public int getHp(){
+        return this.Hp;
+    }
+
     public void setTypeOfAttack() {
         this.typeOfAttack = TypeOfCard.Minion;
     }

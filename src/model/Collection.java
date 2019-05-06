@@ -180,7 +180,7 @@ public class Collection {
         } else if (item == null) {
             view.invalidItemID();
         } else if (deck.getItem() != item) {
-            view.deckIsNotInCollection();
+            view.itemNotInCollection();
         } else {
             deck.deleteItem(item);
         }
@@ -340,8 +340,8 @@ public class Collection {
     }
 
     public void removeCardOrItemFromDeck(String group, String group1) {
-        Card card = Card.returnCardByName(group);
-        Item item = Item.getItemByName(group);
+        Card card = Card.returnCardById(group);
+        Item item = Item.getItemById(group);
         if (card != null) {
             this.removeCardFromDeck(group, group1);
 

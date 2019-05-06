@@ -65,7 +65,6 @@ public class Controller {
         }
     }
 
-
     private <T> void addCard(File file, Class<T> classOfT, ArrayList<T> list) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         T card = new Gson().fromJson(reader, classOfT);
@@ -101,7 +100,7 @@ public class Controller {
                 enemyAccount.setGame(currentGame);
                 gameFunction(game);
             } else {
-                if (Controller.currentAccount.getMainDeck().validated) {
+                if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
                     view.deckIsBetween();
                     battleMenu.chooseBattleType(command);
                     gameStarted = true;

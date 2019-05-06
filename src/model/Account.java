@@ -20,7 +20,7 @@ public class Account {
     private Collection myCollection = new Collection();
     private int numOfWins;
 
-    private Deck mainDeck;
+    private Deck mainDeck = new Deck("mainDeck");
 
     private ArrayList<Card> graveYard = new ArrayList<>();
 
