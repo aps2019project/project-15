@@ -142,13 +142,6 @@ public class Game {
         return false;
     }
 
-    public void addToHistory() {
-        History history = new History();
-        history.result = result;
-        history.time = timeOfGame;
-        Controller.currentAccount.historyGames.add(history);
-        Controller.enemyAccount.historyGames.add(history);
-    }
 
     public void setMode(ModeOfGame mode) {
         Mode = mode;
