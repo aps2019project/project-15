@@ -583,10 +583,6 @@ public class View {
         System.out.println("You can not attack this card");
     }
 
-    public void invalidCardId() {
-        System.out.println("Invalid card id");
-    }
-
     public void invalidTarget() {
         System.out.println("Invalid target");
     }
@@ -686,6 +682,77 @@ public class View {
             Spell spell = (Spell) card;
             System.out.printf("Spell:\nName: %S\nMp: %d\nCost: %d\nDesc: %s\n", spell.getName(), spell.getMp(),
                     spell.getPrice(), spell.getDescription());
+        }
+    }
+
+    public void deckIsBetween() {
+        System.out.println("your deck is " + Controller.currentAccount.getMainDeck().getName());
+    }
+
+    public void notValidDeck() {
+        System.out.println("you have not chosen a valid deck!");
+    }
+
+    public void invalidCardId() {
+        System.out.println("Invalid card ID");
+    }
+
+    public void showCurrentItem() {
+        System.out.println(Controller.currentGame.currentItem);
+    }
+
+    public void quitGameRequest() {
+        System.out.println("you want to quit the game!");
+        System.out.println("you! loser! ha ha ha!");
+    }
+
+    public void showCardsInGraveYard() {
+        for (Card card : Controller.currentAccount.getGraveYard()) {
+            System.out.println(card);
+        }
+    }
+
+    public void showNumOfFlags(int numOfFlags) {
+        System.out.println("number of flags in game is " + numOfFlags);
+    }
+
+    public void showNumOfCardsInDeck(int numberOfCards) {
+        System.out.println("number of cards in this deck: " + numberOfCards);
+
+    }
+
+    public void validDeck() {
+        System.out.println("deck is valid!");
+
+    }
+
+    public void invalidItemID() {
+        System.out.println("Item is not valid");
+    }
+
+    public void validatedDeck(String name) {
+        System.out.println("deck " + name + " is validated!");
+
+    }
+
+    public void couldNotBeValidated(String name) {
+        System.out.println("deck " + name + " could not be validated!");
+
+    }
+
+    public void setMainDeck() {
+        System.out.println("main deck has been set!");
+
+    }
+
+    public void showHeroInDeck(Deck deck) {
+        int i = 1;
+        for (Card item : deck.getCards()) {
+            if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                System.out.println("Hero: ");
+                item.printStats(i);
+                i++;
+            }
         }
     }
 }

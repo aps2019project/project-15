@@ -89,7 +89,7 @@ public class Controller {
         }
     }
 
-    private void battleMenuRequest(String command) throws InputException , CloneNotSupportedException{
+    private void battleMenuRequest(String command) throws InputException, CloneNotSupportedException {
 
         BattleMenu battleMenu = BattleMenu.getInstance();
         try {
@@ -102,11 +102,11 @@ public class Controller {
                 gameFunction(game);
             } else {
                 if (Controller.currentAccount.getMainDeck().validated) {
-                    System.out.println("your deck is " + currentAccount.getMainDeck().getName());
+                    view.deckIsBetween();
                     battleMenu.chooseBattleType(command);
                     gameStarted = true;
                 } else {
-                    System.out.println("you have not chosen a valid deck!");
+                    view.notValidDeck();
                     currentMenu = MainMenu.getInstance();
                 }
             }
@@ -118,7 +118,7 @@ public class Controller {
         }
     }
 
-    private void gameFunction(Game game) throws InputException , CloneNotSupportedException{
+    private void gameFunction(Game game) throws InputException, CloneNotSupportedException {
         while (!exit) {
             String command = request.getNewCommand();
             if (currentAccount.myTurn) {
@@ -146,7 +146,7 @@ public class Controller {
                 if (card != null) {
                     currentGame.currentCard = card;
                 } else {
-                    System.out.println("Invalid card ID");
+                    view.invalidCardId();
                 }
             } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
 
@@ -176,9 +176,8 @@ public class Controller {
                 String name = RequestType.SELECT_COLLECTABLE.getMatcher().group(1);
                 game.currentItem = Item.getItemByName(name);
             } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
-                System.out.println(currentGame.currentItem);
             } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
-
+                view.showCurrentItem();
             } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
 
             } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
@@ -198,8 +197,7 @@ public class Controller {
             } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
                 view.battleHelp();
             } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
-                System.out.println("you want to quit the game!");
-                System.out.println("you! loser! ha ha ha!");
+                view.quitGameRequest();
                 currentMenu = MainMenu.getInstance();
             }
         }
@@ -416,9 +414,7 @@ public class Controller {
     private void graveYardFunction() throws InputException {
         String command = request.getNewCommand();
         if (RequestType.SHOW_CARDS_GRAVEYARD.setMatcher(command).find()) {
-            for (Card card : currentAccount.getGraveYard()) {
-                System.out.println(card);
-            }
+            view.showCardsInGraveYard();
         } else {
             throw new InputException("Invalid command");
         }
