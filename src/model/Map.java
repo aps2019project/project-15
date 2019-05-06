@@ -1,5 +1,7 @@
 package model;
 
+import controller.Controller;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -34,6 +36,19 @@ public class Map {
             }
         }
     }
+    public void addFlagToMap(Flag flag){
+        Random random = new Random();
+        boolean blockFound = false;
+        while (!blockFound){
+            int x = random.nextInt(5);
+            int y = random.nextInt(9);
+            Block block = totalMap[x][y];
+            if(block.flag == null){
+                block.setFlag(flag);
+                blockFound = true;
+            }
+        }
+    }
 
 
     public ArrayList<Block> getBlocks() {
@@ -46,13 +61,18 @@ public class Map {
         }
         return null;
     }
-    public void checkIfCollectibleIsTaken(){
+    public void checkIfCollectibleOrFlagIsTaken(){
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
                 if(totalMap[i][j].collectible != null && totalMap[i][j].card != null){
                     totalMap[i][j].card.addToCollectibles(totalMap[i][j].collectible);
                     //todo add item effect
                     totalMap[i][j].moveCollectible();
+                }
+                if(totalMap[i][j].flag != null && totalMap[i][j].card != null){
+                    totalMap[i][j].flag.card =  totalMap[i][j].card;
+                    totalMap[i][j].flag.setStartTurn(Controller.currentGame.getTurn());
+                    totalMap[i][j].removeFlag();
                 }
             }
         }

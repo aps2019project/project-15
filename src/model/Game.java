@@ -10,7 +10,7 @@ public class Game {
     private Map map = new Map();
     private int currentTurn;
     private GameType gameType;
-
+    ArrayList<Flag> flags = new ArrayList<>();
     private ModeOfGame Mode;
     GameType type;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
@@ -27,6 +27,13 @@ public class Game {
 
     public Map getMap() {
         return map;
+    }
+    public void addFlagsToGame(int n){
+        for(int i = 0; i < n; i++){
+            Flag flag = new Flag();
+            flags.add(flag);
+            map.addFlagToMap(flag);
+        }
     }
 
     private int player1Mp = setInitialPlayer1Mp();
@@ -396,7 +403,7 @@ public class Game {
         for (Card card : activeAccount.getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        map.checkIfCollectibleIsTaken();
+        map.checkIfCollectibleOrFlagIsTaken();
         updateGraveYard();
         addToMana();
     }
