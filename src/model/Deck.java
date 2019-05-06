@@ -8,14 +8,19 @@ import java.util.ArrayList;
 public class Deck {
 
     ArrayList<Card> cards = new ArrayList<>();
+
     Hand hand = new Hand();
+
     Item item;
     String name = " ";
     View view = View.getInstance();
     public boolean validated = false;
-
     Deck(String name) {
         this.name = name;
+    }
+
+    public Hand getHand() {
+        return hand;
     }
 
     void addCard(Card card) {

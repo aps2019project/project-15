@@ -763,4 +763,14 @@ public class View {
     public void noSpecialPower() {
         System.out.println("This card doesn't have any special power");
     }
+
+    public void showNextCard() {
+        Card card = Controller.currentGame.getActiveAccount().getMainDeck().getHand().getCardToBeAdded();
+        if (card != null) {
+            System.out.println(card);
+        }
+        else{
+            System.out.println("There is no card left in deck!");
+        }
+    }
 }
