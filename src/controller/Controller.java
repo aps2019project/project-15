@@ -170,7 +170,6 @@ public class Controller {
 
             } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
                 view.showCurrentItem();
-
             } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
 
             } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
@@ -178,30 +177,24 @@ public class Controller {
             } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
                 view.enteredGraveYard();
                 graveYardFunction();
-
             } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
                 currentGame.showCard(RequestType.SHOW_INFO_CARD_ID.getMatcher().group(1));
             } else if (RequestType.END_GAME.setMatcher(command).find()) {
                 if (currentGame.isFinishedGame()) {
                     currentMenu = MainMenu.getInstance();
                 }
-
             } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
 
             } else if (RequestType.EXIT.setMatcher(command).find()) {
                 exit = true;
                 break;
-
             } else if (RequestType.HELP.setMatcher(command).find()) {
                 view.showUserOptions();
-
             } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
                 view.battleHelp();
-
             } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
                 view.quitGameRequest();
                 currentMenu = MainMenu.getInstance();
-
             }
         }
     }
