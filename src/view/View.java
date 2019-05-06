@@ -14,6 +14,8 @@ public class View {
         return ourInstance;
     }
 
+    private DataCenter dataCenter = DataCenter.getInstance();
+
     private View() {
     }
 
@@ -326,7 +328,7 @@ public class View {
     public void printMinionStats(Minion minion, int i) {
         System.out.printf("\t  %d : Type : %s _ Name : %s _ Class : %s _ AP : %d _ HP : %d _ MP : %d _ " +
                         "Special power : %s _ Sell cost : %d\n", i, minion.getTypeOfAttack(), minion.getName(), minion.getMinionType()
-                , minion.getAttackPower(), minion.getHp(), minion.getMp(), minion.getSpecialPower(), minion.getPrice());
+                , minion.getAttackPower(), minion.getHp(), minion.getMp(), minion.activationType, minion.getPrice());
     }
 
     public void printItemStats(Item item, int i) {
@@ -396,7 +398,6 @@ public class View {
     public void showMinions() {
         System.out.println("Minions: ");
         System.out.println();
-        DataCenter dataCenter = DataCenter.getInstance();
         for (Minion minion : dataCenter.getMinions()) {
             System.out.println(minion);
         }
@@ -544,7 +545,7 @@ public class View {
     }
 
     public void gameIsBetween(Account account, Account secondPlayer) {
-        System.out.println("game is between " + account.getUsername() + " & " + secondPlayer.getUsername());
+        System.out.println("game is between " + account.getUsername() + " and " + secondPlayer.getUsername());
     }
 
     public void wantToAddCard(Card card) {
@@ -713,7 +714,7 @@ public class View {
     }
 
     public void showNumOfFlags(int numOfFlags) {
-        System.out.println("number of flags in game is " + numOfFlags);
+        System.out.println("number of flags in game is: " + numOfFlags);
     }
 
     public void showNumOfCardsInDeck(int numberOfCards) {
@@ -772,7 +773,19 @@ public class View {
             System.out.println("There is no card left in deck!");
         }
     }
-    public void gameWon(String winnerName){
+
+    public void gameWon(String winnerName) {
         System.out.println(winnerName + " won the game!");
+    }
+
+    public void showCollectibles() {
+        for (Collectible collectible : dataCenter.getCollectibles()) {
+            System.out.println(collectible);
+        }
+    }
+
+    public void invalidNumber() {
+        System.out.println("Invald number!");
+
     }
 }

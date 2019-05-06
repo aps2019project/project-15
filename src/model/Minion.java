@@ -22,7 +22,7 @@ public class Minion extends Card {
 
     public String id;
 
-    public int getHp(){
+    public int getHp() {
         return this.Hp;
     }
 

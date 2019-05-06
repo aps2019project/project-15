@@ -10,9 +10,10 @@ public class Collectible extends Item {
 
     private View view = View.getInstance();
 
-    private static ArrayList<Item> allCollectibles = new ArrayList<>();
+    private static ArrayList<Collectible> allCollectibles = new ArrayList<>();
 
-    public static ArrayList<Item> getAllCollectibles() {
+    public static ArrayList<Collectible> getAllCollectibles() {
+        allCollectibles = DataCenter.getInstance().getCollectibles();
         return allCollectibles;
     }
 
@@ -51,7 +52,8 @@ public class Collectible extends Item {
     public static ArrayList<Collectible> getRandomCollectibles(){
         ArrayList<Collectible> returns = new ArrayList<>();
         Random random = new Random();
-        Collectible collectible = (Collectible) allCollectibles.get(random.nextInt(allCollectibles.size()));
+        int num = random.nextInt(allCollectibles.size());
+        Collectible collectible = allCollectibles.get(Math.abs(num));
         returns.add(collectible);
         int numbers = random.nextInt(5);
         for(int i = 0; i < numbers; i++){
@@ -64,5 +66,11 @@ public class Collectible extends Item {
             }
         }
         return returns;
+    }
+
+    @Override
+    public String toString() {
+        String info = "itemName: " + this.getItemName() + "\n" + "ID: " + this.getId() + "\n" + "price: " + this.getPrice() + "\n" + "desc: " + this.getDesc() + "\n";
+        return info;
     }
 }

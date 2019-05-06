@@ -12,6 +12,8 @@ public class DataCenter {
     private ArrayList<Spell> spells = new ArrayList<>();
     private ArrayList<Item> items = new ArrayList<>();
 
+    private ArrayList<Collectible> collectibles = new ArrayList<>();
+
     public static DataCenter getInstance() {
         return ourInstance;
     }
@@ -29,6 +31,10 @@ public class DataCenter {
             }
         }
         return null;
+    }
+
+    public ArrayList<Collectible> getCollectibles() {
+        return collectibles;
     }
 
     public ArrayList<Hero> getHeroes() {

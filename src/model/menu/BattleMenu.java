@@ -30,28 +30,31 @@ public class BattleMenu extends Menu {
             Controller.enemyAccount.setUsername(secondUsername);
             addSecondPLayer();
             String setMode = request.getNewCommand();
+            System.out.println(setMode);
             if (RequestType.START_MULTIPLAYER_GAME.setMatcher(setMode).find()) {
-                String mode = RequestType.START_MULTIPLAYER_GAME.getMatcher().group(1);
+                int mode = Integer.parseInt(RequestType.START_MULTIPLAYER_GAME.getMatcher().group(1));
                 int numOfFlags = Integer.parseInt(RequestType.START_MULTIPLAYER_GAME.getMatcher().group(2));
-                if (RequestType.KILL_OPPONENT.setMatcher(mode).find()) {
+                if (mode == 1) {
                     Controller.currentGame.setMode(ModeOfGame.killOpponent);
-                } else if (RequestType.GET_FLAG.setMatcher(mode).find()) {
+                } else if (mode == 2) {
                     Controller.currentGame.setMode(ModeOfGame.KeepFlag);
 
-                } else if (RequestType.COLLECT_FlAG.setMatcher(mode).find()) {
+                } else if (mode == 3) {
                     Controller.currentGame.setMode(ModeOfGame.CollectFlags);
+                } else{
+                    view.invalidNumber();
                 }
                 if (numOfFlags != 0) {
                     view.showNumOfFlags(numOfFlags);
                 }
+                System.out.println("game mode is: " + Controller.currentGame.getMode());
             }
-
         } else {
             throw new InputException("Invalid command");
         }
     }
 
-    public void addSecondPLayer() {
+    private void addSecondPLayer() {
         Account account = Controller.currentAccount;
         view.getSecondPassword();
         String password = request.getNewCommand();

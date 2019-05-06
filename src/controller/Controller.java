@@ -36,6 +36,7 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
+
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
@@ -415,14 +416,14 @@ public class Controller {
     private void collectibleAdder() {
         for (Item item : dataCenter.getItems()) {
             if (item.getPrice().equals("collectible")) {
-                Collectible.getAllCollectibles().add(item);
+                Collectible.getAllCollectibles().add((Collectible) item);
             }
         }
     }
 
     private void addJSONFiles() throws IOException {
         final String[] paths = {
-                "HeroNames", "ItemNames", "SpellNames", "MinionNames",
+                "HeroNames", "ItemNames", "SpellNames", "MinionNames", "Collectibles",
         };
         for (String path : paths) {
             File directory = new File(path);
@@ -437,6 +438,8 @@ public class Controller {
                         addCard(file, Minion.class, dataCenter.getMinions());
                     } else if (path.contains("Spell")) {
                         addCard(file, Spell.class, dataCenter.getSpells());
+                    } else if (path.contains("Collectibles")) {
+                        addCard(file, Collectible.class, dataCenter.getCollectibles());
                     }
                 }
             }
