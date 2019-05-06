@@ -43,6 +43,10 @@ public class Minion extends Card {
 
     }
 
+    public boolean specialPowerActivated() {
+        return true;
+    }
+
     public Buff getSpecialPower() {
         return this.buff;
     }

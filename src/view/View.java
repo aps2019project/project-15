@@ -761,4 +761,5 @@ public class View {
     public void noSpecialPower(){
         System.out.println("This card doesn't have any special power");
     }
+
 }

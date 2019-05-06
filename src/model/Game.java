@@ -346,7 +346,11 @@ public class Game {
             Minion minion = (Minion) currentCard;
             ArrayList<Card> cards = minion.cardsAttacked(map, minion.getCurrentBlock());
             for(Card attackCard : cards){
-                minion.specialPowerActing(attackCard);
+                try {
+                    minion.specialPowerActing(attackCard);
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
             }
         }
         if(currentCard.getTypeOfAttack().equals(TypeOfCard.Hero)){
