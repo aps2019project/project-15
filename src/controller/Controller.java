@@ -1,7 +1,6 @@
 package controller;
 
 import com.google.gson.Gson;
-import com.sun.tools.javac.Main;
 import model.*;
 import model.menu.*;
 import view.InputException;
@@ -132,17 +131,9 @@ public class Controller {
 
                 }
             } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
-                    for (Card card: currentAccount.getCardsInGame()) {
-                        if (dataCenter.getMinions().contains(card)){
-                            System.out.println(card);
-                        }
-                    }
+                showMinionsFunction(currentAccount);
             } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
-                for (Card card: enemyAccount.getCardsInGame()) {
-                    if (dataCenter.getMinions().contains(card)){
-                        System.out.println(card);
-                    }
-                }
+                showMinionsFunction(enemyAccount);
             } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
 
             } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
@@ -153,13 +144,9 @@ public class Controller {
                     view.invalidCardId();
                 }
             } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
-
+                moveCardFunction();
             } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
-                String name = RequestType.ATTACK_OPP.getMatcher().group(1);
-                Card card = Card.returnCardByName(name);
-                if (card != null) {
-                    currentGame.currentCard.attack(card);
-                }
+                attackFunction();
             } else if (RequestType.ATTACH_COMBO.setMatcher(command).find()) {
 
             } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
@@ -167,10 +154,7 @@ public class Controller {
             } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
 
             } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
-                String name = RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1);
-                int x = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(2));
-                int y = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(3));
-                game.addCardsToGame(name , x , y);
+                cardInGameInsert(game);
             } else if (RequestType.END_TURN.setMatcher(command).find()) {
                 currentAccount.myTurn = false;
             } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
@@ -189,7 +173,7 @@ public class Controller {
             } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
 
             } else if (RequestType.END_GAME.setMatcher(command).find()) {
-                if (currentGame.isFinishedGame()){
+                if (currentGame.isFinishedGame()) {
                     currentMenu = MainMenu.getInstance();
                 }
             } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
@@ -204,6 +188,36 @@ public class Controller {
             } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
                 view.quitGameRequest();
                 currentMenu = MainMenu.getInstance();
+            }
+        }
+    }
+
+    private void moveCardFunction() {
+        Card card = currentGame.currentCard;
+        int x = Integer.parseInt(RequestType.MOVE_TO.getMatcher().group(1));
+        int y = Integer.parseInt(RequestType.MOVE_TO.getMatcher().group(2));
+        currentGame.moveTo(card, x, y);
+    }
+
+    private void attackFunction() throws CloneNotSupportedException {
+        String name = RequestType.ATTACK_OPP.getMatcher().group(1);
+        Card card = Card.returnCardByName(name);
+        if (card != null) {
+            currentGame.currentCard.attack(card);
+        }
+    }
+
+    private void cardInGameInsert(Game game) {
+        String name = RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1);
+        int x = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(2));
+        int y = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(3));
+        game.addCardsToGame(name, x, y);
+    }
+
+    private void showMinionsFunction(Account account) {
+        for (Card card : account.getCardsInGame()) {
+            if (dataCenter.getMinions().contains(card)) {
+                System.out.println(card);
             }
         }
     }
