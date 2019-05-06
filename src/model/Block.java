@@ -10,6 +10,7 @@ public class Block {
     int startTurn = -5;
     Card card;
     Collectible collectible;
+    Flag flag;
 
     int x;
     int y;
@@ -117,5 +118,16 @@ public class Block {
     }
     public void moveCollectible(){
         this.collectible = null;
+    }
+
+    public void setFlag(Flag flag) {
+        this.flag = flag;
+    }
+
+    public Flag getFlag() {
+        return flag;
+    }
+    public void removeFlag(){
+        this.flag = null;
     }
 }

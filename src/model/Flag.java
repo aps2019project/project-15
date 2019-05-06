@@ -1,10 +1,13 @@
 package model;
 
+import controller.Controller;
+
 public class Flag extends Item {
 
     private Block currentBlock;
     public static final int neededTurns = 6;
     Card card;
+    private int startTurn;
 
     public Card condition() {
         return null;
@@ -31,5 +34,14 @@ public class Flag extends Item {
         this.currentBlock = block;
     }
 
+    public void setStartTurn(int startTurn) {
+        this.startTurn = startTurn;
+    }
 
+    public int getStartTurn() {
+        return startTurn;
+    }
+    public boolean singleFlagModeGameWon(){
+        return this.startTurn + neededTurns <= Controller.currentGame.getTurn();
+    }
 }
