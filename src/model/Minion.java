@@ -93,7 +93,7 @@ public class Minion extends Card {
         }
     }
 
-    public void specialPowerActing(Card card) throws CloneNotSupportedException{
+    public void specialPowerActing(Card card) {
         if (this.getName().equalsIgnoreCase("GhooleDosar")) {
             ghooledosar(card);
         }

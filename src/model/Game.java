@@ -344,17 +344,17 @@ public class Game {
         }
         if(currentCard.getTypeOfAttack().equals(TypeOfCard.Minion)){
             Minion minion = (Minion) currentCard;
-            ArrayList<Card> cards = minion.cardsAttacked(map, minion.getCurrentBlock());
+            ArrayList<Card> cards = minion.cardsAttacked(map, block);
             for(Card attackCard : cards){
-                try {
-                    minion.specialPowerActing(attackCard);
-                } catch (CloneNotSupportedException e) {
-                    e.printStackTrace();
-                }
+                minion.specialPowerActing(attackCard);
             }
         }
         if(currentCard.getTypeOfAttack().equals(TypeOfCard.Hero)){
-
+            Hero hero = (Hero) currentCard;
+            ArrayList<Card> cards = hero.specialPowerActingOn(map, block);
+            for(Card attackCard : cards){
+                hero.specialPowerActivation(attackCard);
+            }
         }
     }
 

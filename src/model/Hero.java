@@ -87,6 +87,19 @@ public class Hero extends Card {
         }
         return false;
     }
+    public void specialPowerActivation(Card card){
+        this.buff.setActivated(true);
+        try {
+            this.buff.buffEffect(card);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+    public ArrayList<Card> specialPowerActingOn(Map map, Block block){
+        ArrayList<Card> returns = new ArrayList<>();
+        returns.add(block.getCard());
+        return returns;
+    }
 
     private boolean isInRange(Card card) {
         if (this.range == 0) {
