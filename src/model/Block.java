@@ -1,10 +1,13 @@
 package model;
 
+import controller.Controller;
+
 public class Block {
     private boolean poison = false;
     private boolean fire = false;
     private boolean holy = false;
     private boolean isEmpty = true;
+    int startTurn = -5;
     Card card;
 
     int x;
@@ -59,6 +62,11 @@ public class Block {
     }
 
     public void blockEffect() {
+        if(this.startTurn != -5){
+            if(startTurn + 3 <= Controller.currentGame.getTurn()){
+                this.holy = false;
+            }
+        }
         if (this.card != null) {
             if (isFire()) {
                 this.card.Hp -= 2;
@@ -93,5 +101,9 @@ public class Block {
 
     public Card getCard() {
         return card;
+    }
+    public void kaveEffect(){
+        this.holy = true;
+        startTurn = Controller.currentGame.getTurn();
     }
 }

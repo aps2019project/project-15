@@ -107,5 +107,13 @@ public class Deck {
     public void showHand() {
         view.showHand(this.hand);
     }
+    public Hero getDeckHero(){
+        for(Card card : this.getCards()){
+            if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+                return (Hero) card;
+            }
+        }
+        return null;
+    }
 
 }

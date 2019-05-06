@@ -1,5 +1,6 @@
 package model;
 
+import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
@@ -88,6 +89,9 @@ public class Hero extends Card {
         return false;
     }
     public void specialPowerActivation(Card card){
+        if(this.getName().equalsIgnoreCase("kave")){
+            card.getCurrentBlock().kaveEffect();
+        }
         this.buff.setActivated(true);
         try {
             this.buff.buffEffect(card);
@@ -97,7 +101,38 @@ public class Hero extends Card {
     }
     public ArrayList<Card> specialPowerActingOn(Map map, Block block){
         ArrayList<Card> returns = new ArrayList<>();
+        if(this.getName().equalsIgnoreCase("simorgh")){
+            return simorghVictims(returns);
+        }
+        if(this.getName().equalsIgnoreCase("arash")){
+            return arashAttacking(map, returns);
+        }
         returns.add(block.getCard());
+        return returns;
+    }
+
+    private ArrayList<Card> arashAttacking(Map map, ArrayList<Card> returns) {
+        int x = this.getCurrentBlock().x;
+        for(int i = 0; i < 9; i++){
+            Block block1 = map.getBlock(x, i);
+            if(block1.getCard() != null){
+                returns.add(block1.getCard());
+            }
+        }
+        return returns;
+    }
+
+    private ArrayList<Card> simorghVictims(ArrayList<Card> returns) {
+        Account enemy = new Account();
+        if(Controller.currentGame.equals(Controller.currentAccount)){
+            enemy = Controller.enemyAccount;
+        }
+        else {
+            enemy = Controller.currentAccount;
+        }
+        for(Card card : enemy.getCardsInGame()){
+            returns.add(card);
+        }
         return returns;
     }
 
