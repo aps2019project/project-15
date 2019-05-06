@@ -10,7 +10,7 @@ public class Map {
     int column = 9;
     private ArrayList<Block> blocks = new ArrayList<>();
     private ArrayList<Collectible> inGameCollectible = new ArrayList<>();
-    Block[][] totalMap = new Block[5][9];
+    private Block[][] totalMap = new Block[5][9];
 
     public Map() {
         for (int i = 0; i < 5; i++) {

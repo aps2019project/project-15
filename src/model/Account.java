@@ -90,11 +90,11 @@ public class Account {
         return numOfWins;
     }
 
-    public void addMoney(int money) {
+    void addMoney(int money) {
         this.money += money;
     }
 
-    public void reduceMoney(int money) {
+    void reduceMoney(int money) {
         this.money -= money;
     }
 
@@ -110,7 +110,7 @@ public class Account {
         this.money = money;
     }
 
-    public void setMainDeck(Deck deck) throws CloneNotSupportedException {
+    void setMainDeck(Deck deck) throws CloneNotSupportedException {
         for (Card card : deck.getCards()) {
             Card mainDeckCard = card.clone();
             mainDeck.addCard(mainDeckCard);
