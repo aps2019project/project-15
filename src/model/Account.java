@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Account {
 
     private View view = View.getInstance();
-    Game game = new Game();
     public boolean myTurn = false;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
 
@@ -130,20 +129,13 @@ public class Account {
         return myCollection;
     }
 
-    public void sellCard(Card card) {
+    void sellCard(Card card) {
         card.owned = false;
         card.sold = true;
     }
 
-    public boolean soldCard(Card card) {
+    boolean soldCard(Card card) {
         return card.sold;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Game getGame() {
-        return game;
-    }
 }
