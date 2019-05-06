@@ -13,17 +13,12 @@ public class Account {
     private String username;
     private String password;
     private int money = 15000;
-
     private boolean loggedIn = false;
     private Collection myCollection = new Collection();
-
     private Deck mainDeck = new Deck("mainDeck");
-
     private ArrayList<Card> graveYard = new ArrayList<>();
-
     private ArrayList<History> historyGames = new ArrayList<>();
     public ArrayList<Item> myCollectibles = new ArrayList<>();
-
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }
@@ -111,9 +106,9 @@ public class Account {
     boolean soldCard(Card card) {
         return card.sold;
     }
-    void addToHistory(int result, int time, String opponentName){
+
+    void addToHistory(int result, int time, String opponentName) {
         History history = new History(result, time, opponentName);
         historyGames.add(history);
     }
-
 }
