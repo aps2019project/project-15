@@ -768,9 +768,9 @@ public class View {
         Card card = Controller.currentGame.getActiveAccount().getMainDeck().getHand().getCardToBeAdded();
         if (card != null) {
             System.out.println(card);
-        }
-        else{
+        } else {
             System.out.println("There is no card left in deck!");
         }
     }
+
 }

@@ -144,7 +144,7 @@ public abstract class Card implements Cloneable {
     public ArrayList<Collectible> getCollectibles() {
         return collectibles;
     }
-    public void addToCollectibles(Collectible collectible){
+    void addToCollectibles(Collectible collectible){
         collectibles.add(collectible);
     }
 
@@ -155,4 +155,9 @@ public abstract class Card implements Cloneable {
     public abstract void printStats(int i);
 
     public abstract void attack(Card card) throws CloneNotSupportedException;
+
+    @Override
+    public String toString() {
+        return "Hp: " + this.Hp +" Ap: " + this.Ap + " Mp: " + this.Mp + " description: " + this.description;
+    }
 }

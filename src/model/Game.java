@@ -31,6 +31,8 @@ public class Game {
 
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
+    public int player1Hp = -1;
+    public int player2Hp = -1;
     private int firstTurn;
     boolean done = false;
     private boolean finishedGame = false;
