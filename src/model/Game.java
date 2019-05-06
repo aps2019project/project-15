@@ -229,11 +229,6 @@ public class Game {
         return true;
     }
 
-    public void endGame() {
-        if (returnCondition()) {
-
-        }
-    }
 
     public void setTypeOfGame(int number) {
         switch (number) {
@@ -248,25 +243,14 @@ public class Game {
             }
             case (3): {
                 Mode = ModeOfGame.KeepFlag;
-                setFlag();
                 break;
             }
             case (4): {
                 Mode = ModeOfGame.CollectFlags;
-                setFlag();
                 break;
             }
         }
     }
-
-    private void setFlag() {
-
-    }
-
-    public void showNextCard() {
-
-    }
-
     public int getTurn() {
         return turn;
     }
@@ -490,6 +474,12 @@ public class Game {
         for (Card card : activeAccount.getCardsInGame()) {
             card.attackedThisTurn = false;
         }
+        if(activeAccount.getMainDeck().getItem().equals("KingWisom")){
+            activeAccount.getMainDeck().getItem().KingWisdom(activeAccount.getUsername());
+        }
+        if(activeAccount.getMainDeck().getItem().equals("TajDanaii")){
+            activeAccount.getMainDeck().getItem().tajeDanaii(activeAccount.getUsername());
+        }
         map.checkIfCollectibleOrFlagIsTaken();
         updateGraveYard();
         endGameSetter();
@@ -531,6 +521,16 @@ public class Game {
         activeAccount.getMainDeck().showHand();
     }
 
+    public void useItem(Item item,int x, int y){
+        ArrayList<Card> effecteds = item.itemEffectOnWhat(x, y);
+        for(Card card : effecteds){
+            try {
+                item.itemEffect(card);
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public void addCardsToGame(String cardName, int x, int y) {
         Card card = Card.returnCardByName(cardName);
         if (card == null || !activeAccount.getMainDeck().hand.getCardsInHand().contains(card)) {
@@ -578,8 +578,32 @@ public class Game {
         cardsInGame.add(card);
         if (activeAccount.equals(Controller.currentAccount)) {
             Controller.currentAccount.getMainDeck().hand.deleteFromHand(card);
+            if(Controller.currentAccount.getMainDeck().getItem().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                Item item = Controller.currentAccount.getMainDeck().getItem();
+                try {
+                    item.itemEffect(card);
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(Controller.currentAccount.getMainDeck().getItem().equals("assassinationDagger")){
+                Item item = Controller.currentAccount.getMainDeck().getItem();
+                item.assassinationDaggerEffect();
+            }
         } else {
             Controller.enemyAccount.getMainDeck().hand.deleteFromHand(card);
+            if(Controller.currentAccount.getMainDeck().getItem().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+                Item item = Controller.currentAccount.getMainDeck().getItem();
+                try {
+                    item.itemEffect(card);
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+            if(Controller.currentAccount.getMainDeck().getItem().equals("assassinationDagger")){
+                Item item = Controller.currentAccount.getMainDeck().getItem();
+                item.assassinationDaggerEffect();
+            }
         }
     }
 
