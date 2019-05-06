@@ -199,6 +199,11 @@ public class Controller {
         }
     }
 
+    private void useSpecialPower() {
+        currentGame.useSpecialPower(Integer.parseInt(RequestType.USE_SPECIAL_POWER.getMatcher().group(1)),
+                Integer.parseInt(RequestType.USE_SPECIAL_POWER.getMatcher().group(1)));
+    }
+
     private void moveCardFunction() {
         Card card = currentGame.currentCard;
         int x = Integer.parseInt(RequestType.MOVE_TO.getMatcher().group(1));

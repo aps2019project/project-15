@@ -35,18 +35,22 @@ public class Item implements Cloneable {
         }
         return null;
     }
-    public ArrayList<Card> itemEffectOnWhat(){
+    public ArrayList<Card> itemEffectOnWhat(int x, int y){
         ArrayList<Card> returns = new ArrayList<>();
         if(this.getItemName().equalsIgnoreCase("Namosesepar")){
             returns.add(Controller.currentGame.getActiveAccount().getMainDeck().getDeckHero());
             return returns;
         }
+        returns.add(Controller.currentGame.getMap().getBlock(x, y).getCard());
         return returns;
     }
 
     public void itemEffect(Card card) throws CloneNotSupportedException{
-        //todo check ghosleTamid to be called after entering a card
-        //todo check that shock hammer is called after hero is attacked
+        if(this.getItemName().equalsIgnoreCase("SheckHammer")) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Hero) || !card.attackedThisTurn){
+                return;
+            }
+        }
         if (this.getItemName().equalsIgnoreCase("KamaneDamol")) {
             KamaneDamo(card);
             return;
@@ -170,7 +174,6 @@ public class Item implements Cloneable {
     }
 
     public void KingWisdom(String username) {
-        //shuld be called each turn
         if (username.equalsIgnoreCase(Controller.currentAccount.getUsername())) {
             Controller.currentGame.addPlayerOneMp(1);
         } else {
@@ -179,7 +182,6 @@ public class Item implements Cloneable {
     }
 
     public void assassinationDaggerEffect() {
-        //todo check to be called only after entering a card to game
         for (Card card : Controller.enemyAccount.getCardsInGame()) {
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 card.Hp--;
@@ -211,18 +213,6 @@ public class Item implements Cloneable {
     }
 
 
-    public int getX() {
-        return x;
-    }
-
-    int x;
-
-    public int getY() {
-        return y;
-    }
-
-    int y;
-
     static Item getItemById(String id) {
         for (Item item : Shop.getInstance().getAllItems()) {
             if (item.getId().equals(id)) {
@@ -232,11 +222,6 @@ public class Item implements Cloneable {
         return null;
     }
 
-    public boolean isCollected() {
-        return collected;
-    }
-
-    boolean collected;
 
     public static ArrayList<Item> getItems() {
         return items;
@@ -266,22 +251,6 @@ public class Item implements Cloneable {
             return this.itemName;
         }
         return null;
-    }
-
-    public void showCollectables() {
-        //graphics to be added
-    }
-
-    public void selectCollectable(String collectableId) {
-
-    }
-
-    public void showInfo() {
-
-    }
-
-    public void use(int x, int y) {
-
     }
 
     @Override
