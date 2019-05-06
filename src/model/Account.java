@@ -118,7 +118,7 @@ public class Account {
         view.accountMenuHelp();
     }
 
-    public model.Collection getMyCollection() {
+    public Collection getMyCollection() {
         return myCollection;
     }
 

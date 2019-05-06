@@ -14,7 +14,7 @@ public class Minion extends Card {
     Buff buff;
     TypeOfCounterAttack attackType;
     public String activationType;
-    public SpecialPowerActivation activationTime;
+    public String activationTime;
     int range;
 
     private boolean hasFlag = false;
@@ -32,7 +32,6 @@ public class Minion extends Card {
         this.setAp(ap);
         this.setMp(mp);
         this.setTypeOfAttack();
-        this.activationTime = SpecialPowerActivation.valueOf(activationTime);
         this.attackType = TypeOfCounterAttack.valueOf(attackType);
         this.id = id;
         this.description = this.activationType.toString();
@@ -125,28 +124,6 @@ public class Minion extends Card {
         }
     }
 
-    public boolean specialPowerActivation() {
-        switch (this.activationTime) {
-            case onRespawn:
-                if (Controller.currentAccount.getCardsInGame().contains(this) || Controller.enemyAccount.getCardsInGame().contains(this)) {
-                    return true;
-                }
-                break;
-            case onAttack:
-                //can only be called from attack
-                return false;
-            case Passive:
-                return true;
-            case onDeath:
-                //can only be called from attack after hp turned to 0
-                return false;
-            case onDefend:
-                //can only be called from counter attack
-                return false;
-        }
-        return false;
-    }
-
     public boolean canCounterAttack(Card card) {
         if (this.attackType.equals(TypeOfCounterAttack.hybrid)) {
             return isInRange(card);
@@ -225,14 +202,11 @@ public class Minion extends Card {
         return info;
     }
 
-    public SpecialPowerActivation getActivationTime() {
-        return activationTime;
-    }
     public int getRange(){
         return this.range;
     }
     public boolean hasComboAbility(){
-        if(this.getActivationTime().equals(SpecialPowerActivation.combo)){
+        if(this.activationTime.equals(SpecialPowerActivation.combo.toString())){
             return true;
         }
         return false;

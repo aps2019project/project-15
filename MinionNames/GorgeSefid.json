@@ -3,7 +3,7 @@
   "id": "022",
   "price": 400,
   "mp": 5,
-  "Hp": 0,
+  "Hp": 8,
   "Ap": 2,
   "attackType": "melee",
   "range": 0,

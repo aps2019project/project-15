@@ -295,7 +295,7 @@ public class Game {
                 return;
             }
             Minion minion = (Minion) card;
-            if ((minion != null) && !minion.getActivationTime().equals(SpecialPowerActivation.combo)) {
+            if ((minion != null) && !minion.activationTime.equals(SpecialPowerActivation.combo.toString())) {
                 view.notAComboMinion();
                 return;
             }

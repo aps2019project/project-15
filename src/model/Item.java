@@ -24,8 +24,8 @@ public class Item {
     }
 
     public static Item getItemByName(String name){
-        for (Item item : Controller.currentAccount.myCollectibles){
-            if (item.getItemName().equals(name)){
+        for (Item item : Controller.currentAccount.getMyCollection().getMyItems()){
+            if (item.getItemName().equalsIgnoreCase(name)){
                 return item;
             }
         }

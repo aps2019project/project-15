@@ -318,7 +318,7 @@ public class Collection {
     }
 
     Item findItemInCollection(Item item) {
-        for (Item item1 : myItems) {
+        for (Item item1 : this.getMyItems()) {
             if (item1 == item) {
                 return item1;
             }
