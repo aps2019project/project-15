@@ -775,4 +775,7 @@ public class View {
     public void gameWon(String winnerName){
         System.out.println(winnerName + " won the game!");
     }
+    public void showCollectible(Collectible collectible){
+        System.out.println(collectible);
+    }
 }
