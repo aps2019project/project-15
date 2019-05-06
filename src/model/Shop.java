@@ -166,13 +166,19 @@ public class Shop {
             Controller.currentAccount.getMyCollection().removeCardFromCollection(card);
             Controller.currentAccount.addMoney(card.getPrice());
             card.numOfCardInCollection--;
+            for (Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()) {
+                deck.getCards().remove(card);
+            }
             view.cardSold();
             view.remainingMoney();
             return;
         }
-        if (realItem) {
+        if (item != null && realItem) {
             Controller.currentAccount.getMyCollection().removeItemFromCollection(item);
             Controller.currentAccount.addMoney(Integer.parseInt(item.getPrice()));
+            for (Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()) {
+                deck.getCards().remove(card);
+            }
             view.itemSold();
             view.remainingMoney();
         }
@@ -192,6 +198,4 @@ public class Shop {
         }
         return null;
     }
-
-
 }
