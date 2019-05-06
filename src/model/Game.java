@@ -79,13 +79,28 @@ public class Game {
         for (Card card : Controller.currentAccount.getCardsInGame()) {
             if (card.Hp <= 0) {
                 graveYard.add(card);
+                ghooleTakCheshm(card);
                 Controller.currentAccount.removeCardInGame(card);
             }
         }
         for (Card card : Controller.enemyAccount.getCardsInGame()) {
             if (card.Hp <= 0) {
                 graveYard.add(card);
+                ghooleTakCheshm(card);
                 Controller.enemyAccount.removeCardInGame(card);
+            }
+        }
+    }
+    private void ghooleTakCheshm(Card card){
+        if(card.getName().equalsIgnoreCase("GhooleTakCheshm")){
+            Minion minion = (Minion) card;
+            ArrayList<Card> cards = minion.cardsAttacked(map, minion.getCurrentBlock());
+            for(Card attackedCard : cards){
+                try {
+                    minion.ghooleTakCheshm(attackedCard);
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -313,11 +328,38 @@ public class Game {
     }
 
     public void useSpecialPower(int x, int y) {
+        Block block = map.getBlock(x , y);
+        if(block == null){
+            view.invalidCoordinates();
+            return;
+        }
+        if(currentCard.getTypeOfAttack().equals(TypeOfCard.Spell)){
+            view.noSpecialPower();
+            return;
+        }
+        Card card = block.getCard();
+        if(card == null){
+            view.invalidTarget();
+            return;
+        }
+        if(currentCard.getTypeOfAttack().equals(TypeOfCard.Minion)){
+            Minion minion = (Minion) currentCard;
+            ArrayList<Card> cards = minion.cardsAttacked(map, minion.getCurrentBlock());
+            for(Card attackCard : cards){
+                try {
+                    minion.specialPowerActing(attackCard);
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        if(currentCard.getTypeOfAttack().equals(TypeOfCard.Hero)){
 
+        }
     }
 
     public void showHand() {
-
+        activeAccount.getMainDeck().showHand();
     }
 
     public void endTurn() {
