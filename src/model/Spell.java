@@ -28,7 +28,7 @@ public class Spell extends Card {
         this.healthLevel += number;
     }
 
-    public void effect(Card card) {
+    public void effect(Card card) throws CloneNotSupportedException {
         if (checkEffectiveness(card)) {
             this.buff.buffEffect(card);
         } else {
@@ -75,9 +75,7 @@ public class Spell extends Card {
     private boolean kingsGuardInRange(Card card) {
         if (Math.abs((this.getCurrentBlock().x - card.getCurrentBlock().x)) == 1)
             return true;
-        else if (Math.abs((this.getCurrentBlock().y - card.getCurrentBlock().y)) == 1)
-            return true;
-        return false;
+        else return Math.abs((this.getCurrentBlock().y - card.getCurrentBlock().y)) == 1;
     }
 
     private boolean isHero(Card card) {
@@ -90,26 +88,18 @@ public class Spell extends Card {
 
     private boolean checkIfSelfPower(Card card) {
         if (Controller.currentAccount.getCardsInGame().contains(this)) {
-            if (Controller.currentAccount.getCardsInGame().contains(card)) {
-                return true;
-            }
+            return Controller.currentAccount.getCardsInGame().contains(card);
         } else if (Controller.enemyAccount.getCardsInGame().contains(this)) {
-            if (Controller.enemyAccount.getCardsInGame().contains(card)) {
-                return true;
-            }
+            return Controller.enemyAccount.getCardsInGame().contains(card);
         }
         return false;
     }
 
     private boolean isEnemy(Card card) {
         if (Controller.currentAccount.getCardsInGame().contains(this)) {
-            if (Controller.currentAccount.getCardsInGame().contains(card)) {
-                return false;
-            }
+            return !Controller.currentAccount.getCardsInGame().contains(card);
         } else if (Controller.enemyAccount.getCardsInGame().contains(this)) {
-            if (Controller.enemyAccount.getCardsInGame().contains(card)) {
-                return false;
-            }
+            return !Controller.enemyAccount.getCardsInGame().contains(card);
         }
         return true;
     }
@@ -140,11 +130,10 @@ public class Spell extends Card {
     }
 
     public String toString() {
-        String info = "name: " + this.getName() + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
-        return info;
+        return "name: " + this.getName() + "\n" + "price: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
     }
 
-    public void attack(Card card) {
+    public void attack(Card card) throws CloneNotSupportedException {
         buff.buffEffect(card);
     }
 }

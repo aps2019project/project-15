@@ -46,8 +46,8 @@ public class Deck {
 
     boolean validateDeck() {
         boolean oneHero = false;
-        System.out.println("number of cards in this deck: "+this.numberOfCards());
-        if (this.numberOfCards() == 21 ) {
+        System.out.println("number of cards in this deck: " + this.numberOfCards());
+        if (this.numberOfCards() == 21) {
             for (Card item : cards) {
                 if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                     if (oneHero) {
@@ -103,7 +103,8 @@ public class Deck {
         }
         return num;
     }
-    public void showHand(){
+
+    public void showHand() {
         view.showHand(this.hand);
     }
 }

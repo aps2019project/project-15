@@ -1,12 +1,13 @@
 package model;
 
 import controller.Controller;
+import view.InputException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Buff implements Cloneable{
+public class Buff implements Cloneable {
     private boolean activated = false;
     private int startTurn;
     private int duration;
@@ -18,7 +19,8 @@ public class Buff implements Cloneable{
 
     private boolean hpEffected = false;
     private boolean apEffected = false;
-    public Buff clone() throws CloneNotSupportedException{
+
+    public Buff clone() throws CloneNotSupportedException {
         return (Buff) super.clone();
     }
 
@@ -121,7 +123,7 @@ public class Buff implements Cloneable{
 
     //todo a buff being activated for a card
     public void buffEffect(Card card) throws CloneNotSupportedException {
-        if(this.card.getName().equalsIgnoreCase("gorg")){
+        if (this.card.getName().equalsIgnoreCase("gorg")) {
             startTurn += 1;
         }
         if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
@@ -141,7 +143,7 @@ public class Buff implements Cloneable{
         if (this.card.getName().equalsIgnoreCase("ShireDarande")) {
             shireDarande(card);
         }
-        if(this.activated) {
+        if (this.activated) {
             switch (this.type) {
                 case holy:
                     if (card.attackedThisTurn) {
@@ -185,10 +187,7 @@ public class Buff implements Cloneable{
                     card.stunned = true;
                     break;
                 case disarm:
-                    card.disarmed = true;
-                    if (card.getName().equalsIgnoreCase("GgorazeVahshi")) {
-                        card.disarmed = false;
-                    }
+                    card.disarmed = !card.getName().equalsIgnoreCase("GgorazeVahshi");
                     break;
                 case specialCase:
                     if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
@@ -208,8 +207,8 @@ public class Buff implements Cloneable{
     }
 
     private void shireDarande(Card card) {
-        for(Buff buff : card.getActivatedBuffs()){
-            if(buff.getType().equals(TypesOfBuff.holy)){
+        for (Buff buff : card.getActivatedBuffs()) {
+            if (buff.getType().equals(TypesOfBuff.holy)) {
                 card.attackedThisTurn = false;
             }
         }

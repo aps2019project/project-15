@@ -206,7 +206,7 @@ public class Collection {
         }
     }
 
-    public void selectDeck(String deckName) {
+    public void selectDeck(String deckName) throws CloneNotSupportedException {
         Deck deck = Deck.returnDeckByName(deckName);
         if (deck == null) {
             view.deckIsNotInCollection();
@@ -217,7 +217,7 @@ public class Collection {
             return;
         }
         Controller.currentAccount.setMainDeck(deck);
-        deck.hand.allCradsInDeck = deck.cards;
+        deck.hand.allCardsInDeck = deck.cards;
         Controller.currentAccount.getMainDeck().validated = true;
         System.out.println("main deck has been set!");
     }

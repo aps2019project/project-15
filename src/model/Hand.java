@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Hand {
-    ArrayList<Card> allCradsInDeck = new ArrayList<>();
+    ArrayList<Card> allCardsInDeck = new ArrayList<>();
     private ArrayList<Card> cardsInHand = new ArrayList<>();
     private ArrayList<Card> cardsUsedInGame = new ArrayList<>();
     private Card cardToBeAdded;
 
     public void initializeHand() {
-        //should be called at the begining of game
+        //should be called at the beginning of game
         Hero hero = new Hero();
-        for (Card card : allCradsInDeck) {
+        for (Card card : allCardsInDeck) {
             if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 hero = (Hero) card;
                 break;
             }
         }
-        allCradsInDeck.remove(hero);
+        allCardsInDeck.remove(hero);
         Random random = new Random();
-        cardsInHand.add(allCradsInDeck.get(random.nextInt(allCradsInDeck.size())));
+        cardsInHand.add(allCardsInDeck.get(random.nextInt(allCardsInDeck.size())));
         int j = 4;
         for (int i = 0; i < j; i++) {
-            Card card = allCradsInDeck.get(random.nextInt(allCradsInDeck.size()));
+            Card card = allCardsInDeck.get(random.nextInt(allCardsInDeck.size()));
             if (!cardsInHand.contains(card)) {
                 cardsInHand.add(card);
             } else {
@@ -36,10 +36,10 @@ public class Hand {
         Random random = new Random();
         int j = 1;
         for (int i = 0; i < j; i++) {
-            Card card = allCradsInDeck.get(random.nextInt(allCradsInDeck.size()));
+            Card card = allCardsInDeck.get(random.nextInt(allCardsInDeck.size()));
             if (!cardsInHand.contains(card) && !cardsUsedInGame.contains(card)) {
                 cardToBeAdded = card;
-            } else if ((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0) {
+            } else if ((allCardsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0) {
                 cardToBeAdded = null;
                 break;
             } else {
@@ -58,7 +58,7 @@ public class Hand {
     private void addToHand() {
         while (cardsInHand.size() < 5) {
             cardsInHand.add(cardToBeAdded);
-            if ((allCradsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0) {
+            if ((allCardsInDeck.size() - cardsUsedInGame.size() - cardsInHand.size()) == 0) {
                 break;
             }
             getNextCard();

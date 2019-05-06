@@ -40,12 +40,13 @@ public class Controller {
     public void main() {
         Request request = new Request();
         initEverything();
-        view.showMinions();
         while (!finishGame) {
             try {
                 handleRequest(currentMenu, request.getNewCommand());
             } catch (InputException e) {
                 View.getInstance().printError(e);
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -71,7 +72,7 @@ public class Controller {
         list.add(card);
     }
 
-    private void handleRequest(Menu currentMenu, String command) throws InputException {
+    private void handleRequest(Menu currentMenu, String command) throws InputException, CloneNotSupportedException {
         DataCenter dataCenter = DataCenter.getInstance();
         if (currentMenu.equals(MainMenu.getInstance())) {
             mainMenuRequest(command);
@@ -112,10 +113,12 @@ public class Controller {
         } catch (
                 InputException e) {
             throw new InputException("Invalid command");
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
         }
     }
 
-    private void gameFunction(Game game) throws InputException {
+    private void gameFunction(Game game) throws InputException, CloneNotSupportedException {
         while (!exit) {
             String command = request.getNewCommand();
             if (currentAccount.myTurn) {
@@ -202,7 +205,7 @@ public class Controller {
         }
     }
 
-    private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
+    private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException, CloneNotSupportedException {
         Collection collection = Controller.currentAccount.getMyCollection();
         if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
             view.showCollection();
