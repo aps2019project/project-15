@@ -681,4 +681,10 @@ public class View {
                     spell.getPrice(), spell.getDescription());
         }
     }
+    public void invalidCoordinates(){
+        System.out.println("Invalid coordinates");
+    }
+    public void noSpecialPower(){
+        System.out.println("This card doesn't have any special power");
+    }
 }

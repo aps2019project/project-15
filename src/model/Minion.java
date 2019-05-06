@@ -43,16 +43,12 @@ public class Minion extends Card {
 
     }
 
-    public boolean specialPowerActivated() {
-        return true;
-    }
-
     public Buff getSpecialPower() {
         return this.buff;
     }
 
 
-    public void attack(Card card) throws CloneNotSupportedException{
+    public void attack(Card card) throws CloneNotSupportedException {
         if (this.getName().equalsIgnoreCase("Giv")) {
             return;
             //todo add give to other attacks
@@ -89,10 +85,20 @@ public class Minion extends Card {
         }
     }
 
-    public void specialPowerActing(Card card) throws CloneNotSupportedException{
+    public void specialPowerActing(Card card) {
         if (this.getName().equalsIgnoreCase("GhooleDosar")) {
             ghooledosar(card);
         }
+        this.buff.setActivated(true);
+        try {
+            this.buff.buffEffect(card);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ghooleTakCheshm(Card card) throws CloneNotSupportedException {
+        this.buff.setActivated(true);
         this.buff.buffEffect(card);
     }
 
@@ -105,7 +111,7 @@ public class Minion extends Card {
         }
     }
 
-    public void counterAttack(Card card) throws CloneNotSupportedException{
+    public void counterAttack(Card card) throws CloneNotSupportedException {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
@@ -154,7 +160,7 @@ public class Minion extends Card {
         return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }
 
-    public static void comboAttack(Card enemyCard, Minion[] minions) throws CloneNotSupportedException{
+    public static void comboAttack(Card enemyCard, Minion[] minions) throws CloneNotSupportedException {
         int reduction = 0;
         for (int i = 0; i < minions.length; i++) {
             reduction += minions[i].Ap;
@@ -203,13 +209,183 @@ public class Minion extends Card {
         return info;
     }
 
-    public int getRange(){
+    public int getRange() {
         return this.range;
     }
-    public boolean hasComboAbility(){
-        if(this.activationTime.equals(SpecialPowerActivation.combo.toString())){
+
+    public boolean hasComboAbility() {
+        if (this.activationTime.equals(SpecialPowerActivation.combo.toString())) {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<Card> cardsAttacked(Map map, Block block) {
+        ArrayList<Card> returns = new ArrayList<>();
+        if (this.getName().equalsIgnoreCase("GhooleTakCheshm")) {
+            return getCardsOfGhooleTakCheshm(map, block, returns);
+        }
+        if (this.getName().equalsIgnoreCase("marGhoolpeikar")) {
+            return marGhoolpeikarCards(map, block, returns);
+        }
+        if (this.getName().equalsIgnoreCase("Jadogar") || this.getName().equalsIgnoreCase("JadogarAzam")) {
+            return jadogarReturns(map, block, returns);
+        }
+        if (this.getName().equalsIgnoreCase("Jen")) {
+            return jenCards(returns);
+        }
+        if (this.getName().equalsIgnoreCase("NaneSarma")) {
+            return naneSarmaCards(map, block, returns);
+        }
+        returns.add(block.getCard());
+        return returns;
+    }
+
+    private ArrayList<Card> naneSarmaCards(Map map, Block block, ArrayList<Card> returns) {
+        Account enemy = new Account();
+        if (Controller.currentAccount.getGame().getActiveAccount().equals(Controller.currentAccount)) {
+            enemy = Controller.enemyAccount;
+        } else {
+            enemy = Controller.currentAccount;
+        }
+        for (int i = 0; i <= 1; i++) {
+            for (int j = 0; j <= 1; j++) {
+                Block block1 = map.getBlock(block.x + i, block.y + j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            enemy.getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+                block1 = map.getBlock(block.getX() - i, block.y - j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            enemy.getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+                block1 = map.getBlock(block.x - i, block.y + j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            enemy.getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+                block1 = map.getBlock(block.x + i, block.y - j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            enemy.getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+            }
+        }
+        return returns;
+    }
+
+    private ArrayList<Card> jenCards(ArrayList<Card> returns) {
+        for (Card card : Controller.currentAccount.game.getActiveAccount().getMainDeck().getCards()) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
+                returns.add(card);
+            }
+        }
+        return returns;
+    }
+
+    private ArrayList<Card> jadogarReturns(Map map, Block block, ArrayList<Card> returns) {
+        returns.add(this);
+        for (int i = 0; i <= 1; i++) {
+            for (int j = 0; j <= 1; j++) {
+                Block block1 = map.getBlock(block.x + i, block.y + j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+                block1 = map.getBlock(block.getX() - i, block.y - j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+                block1 = map.getBlock(block.x - i, block.y + j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+                block1 = map.getBlock(block.x + i, block.y - j);
+                if (block1 != null && block1.getCard() != null) {
+                    if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
+                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                        returns.add(block.getCard());
+                    }
+                }
+            }
+        }
+        return returns;
+    }
+
+    private ArrayList<Card> marGhoolpeikarCards(Map map, Block block, ArrayList<Card> returns) {
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 2 - i; j >= 0; j--) {
+                Block block1 = map.getBlock(block.x + i, block.y + j);
+                if (block1 != null && block1.getCard() != null) {
+                    returns.add(block.getCard());
+                }
+                block1 = map.getBlock(block.getX() - i, block.y - j);
+                if (block1 != null && block1.getCard() != null) {
+                    returns.add(block.getCard());
+                }
+                block1 = map.getBlock(block.x - i, block.y + j);
+                if (block1 != null && block1.getCard() != null) {
+                    returns.add(block.getCard());
+                }
+                block1 = map.getBlock(block.x + i, block.y - j);
+                if (block1 != null && block1.getCard() != null) {
+                    returns.add(block.getCard());
+                }
+            }
+        }
+        return returns;
+    }
+
+    private ArrayList<Card> getCardsOfGhooleTakCheshm(Map map, Block block, ArrayList<Card> returns) {
+        Block block1 = map.getBlock(block.x, block.y - 1);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x - 1, block.y - 1);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x - 1, block.y);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x - 1, block.y + 1);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x + 1, block.y + 1);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x + 1, block.y);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x + 1, block.y - 1);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        block1 = map.getBlock(block.x, block.y + 1);
+        if (block1 != null && block1.getCard() != null) {
+            returns.add(block.getCard());
+        }
+        return returns;
     }
 }
