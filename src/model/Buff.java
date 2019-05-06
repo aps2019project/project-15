@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Buff {
+public class Buff implements Cloneable{
     private boolean activated = false;
     private int startTurn;
     private int duration;
@@ -18,6 +18,9 @@ public class Buff {
 
     private boolean hpEffected = false;
     private boolean apEffected = false;
+    public Buff clone() throws CloneNotSupportedException{
+        return (Buff) super.clone();
+    }
 
     public TypesOfBuff getType() {
         return type;
@@ -45,7 +48,6 @@ public class Buff {
             apEffected = true;
         }
         duration = getDurationFromDesc(description);
-        startTurn = Controller.currentAccount.game.getTurn();
     }
 
     public void makeBuff(String description) {
@@ -118,7 +120,7 @@ public class Buff {
     }
 
     //todo a buff being activated for a card
-    public void buffEffect(Card card) {
+    public void buffEffect(Card card) throws CloneNotSupportedException {
         if(this.card.getName().equalsIgnoreCase("gorg")){
             startTurn += 1;
         }
@@ -139,76 +141,81 @@ public class Buff {
         if (this.card.getName().equalsIgnoreCase("ShireDarande")) {
             shireDarande(card);
         }
-        //todo check if they are still activated
-        switch (this.type) {
-            case holy:
-                if(card.attackedThisTurn) {
-                    card.Hp += this.unit;
-                }
-                break;
-            case power:
-                if (hpEffected) {
-                    card.Hp += this.unit;
-                }
-                if (apEffected) {
-                    card.Ap += this.unit;
-                }
-                if (this.card.getName().equalsIgnoreCase("Madness")) {
-                    madnessEffectOnSelf();
-                }
-                if (this.card.getName().equalsIgnoreCase("Sacrifice")) {
-                    sacrificeEffectOnSelf();
-                }
-                break;
-            case poison:
-                card.Hp -= this.unit;
-                break;
-            case weakness:
-                if (this.card.getName().equalsIgnoreCase("PahlevaneFars")) {
-                    if (card.activatedBuffs.contains(this)) {
-                        this.unit = 5;
+        if(this.activated) {
+            switch (this.type) {
+                case holy:
+                    if (card.attackedThisTurn) {
+                        card.Hp += this.unit;
                     }
-                }
-                if (hpEffected) {
+                    break;
+                case power:
+                    if (hpEffected) {
+                        card.Hp += this.unit;
+                    }
+                    if (apEffected) {
+                        card.Ap += this.unit;
+                    }
+                    if (this.card.getName().equalsIgnoreCase("Madness")) {
+                        madnessEffectOnSelf();
+                    }
+                    if (this.card.getName().equalsIgnoreCase("Sacrifice")) {
+                        sacrificeEffectOnSelf();
+                    }
+                    break;
+                case poison:
                     card.Hp -= this.unit;
-                }
-                if (apEffected) {
-                    card.Ap -= this.unit;
-                }
-                if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
-                    healthWithProfitEffectOnSlf();
-                }
-                break;
-            case stun:
-                card.stunned = true;
-                break;
-            case disarm:
-                card.disarmed = true;
-                if (card.getName().equalsIgnoreCase("GgorazeVahshi")) {
-                    card.disarmed = false;
-                }
-                break;
-            case specialCase:
-                if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
-                    areaDispelEffect();
-                } else if (this.card.getName().equalsIgnoreCase("Dispel") || this.card.getName().equalsIgnoreCase("Afsane")) {
-                    dispelEffect(card);
-                } else if (this.card.getName().equalsIgnoreCase("Jadogar")) {
-                    jadogarEffect(card);
-                } else if (this.card.getName().equalsIgnoreCase("JadgareAzam")) {
-                    jadogareAzamEffect(card);
-                }
-        }
-        if (this.card.getName().equalsIgnoreCase("JasoseTorani") && this.startTurn == Controller.currentAccount.game.getTurn()) {
-            jasoseTorani(card);
+                    break;
+                case weakness:
+                    if (this.card.getName().equalsIgnoreCase("PahlevaneFars")) {
+                        if (card.activatedBuffs.contains(this)) {
+                            this.unit = 5;
+                        }
+                    }
+                    if (hpEffected) {
+                        card.Hp -= this.unit;
+                    }
+                    if (apEffected) {
+                        card.Ap -= this.unit;
+                    }
+                    if (this.card.getName().equalsIgnoreCase("HealthWithProfit")) {
+                        healthWithProfitEffectOnSlf();
+                    }
+                    break;
+                case stun:
+                    card.stunned = true;
+                    break;
+                case disarm:
+                    card.disarmed = true;
+                    if (card.getName().equalsIgnoreCase("GgorazeVahshi")) {
+                        card.disarmed = false;
+                    }
+                    break;
+                case specialCase:
+                    if (this.card.getName().equalsIgnoreCase("AreaDispel")) {
+                        areaDispelEffect();
+                    } else if (this.card.getName().equalsIgnoreCase("Dispel") || this.card.getName().equalsIgnoreCase("Afsane")) {
+                        dispelEffect(card);
+                    } else if (this.card.getName().equalsIgnoreCase("Jadogar")) {
+                        jadogarEffect(card);
+                    } else if (this.card.getName().equalsIgnoreCase("JadgareAzam")) {
+                        jadogareAzamEffect(card);
+                    }
+            }
+            if (this.card.getName().equalsIgnoreCase("JasoseTorani") && this.startTurn == Controller.currentAccount.game.getTurn()) {
+                jasoseTorani(card);
+            }
         }
     }
 
     private void shireDarande(Card card) {
-        //todo add effect
+        for(Buff buff : card.getActivatedBuffs()){
+            if(buff.getType().equals(TypesOfBuff.holy)){
+                card.attackedThisTurn = false;
+            }
+        }
     }
 
-    private void jasoseTorani(Card card) {
+    private void jasoseTorani(Card card) throws CloneNotSupportedException {
         Buff buff = new Buff("disarms the enemy for 1 turn");
         card.addActivatedBuff(buff);
         buff.buffEffect(card);
@@ -239,6 +246,7 @@ public class Buff {
         for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
             for (Buff buff : card.activatedBuffs) {
                 if (!buff.isStillActivated()) {
+                    buff.activated = false;
                     card.removeDeactivatedBuffs(buff);
                     buff.buffNotEffective(card);
                 }
@@ -247,6 +255,7 @@ public class Buff {
         for (Card card : Controller.enemyAccount.getMainDeck().getCards()) {
             for (Buff buff : card.activatedBuffs) {
                 if (!buff.isStillActivated()) {
+                    buff.activated = false;
                     card.removeDeactivatedBuffs(buff);
                     buff.buffNotEffective(card);
                 }
@@ -300,22 +309,30 @@ public class Buff {
         }
     }
 
-    private void healthWithProfitEffectOnSlf() {
+    private void healthWithProfitEffectOnSlf() throws CloneNotSupportedException {
         Buff buff = new Buff("Has 2 Holy buffs");
         this.card.addActivatedBuff(buff);
         buff.buffEffect(this.card);
     }
 
-    private void madnessEffectOnSelf() {
+    private void madnessEffectOnSelf() throws CloneNotSupportedException {
         Buff buff = new Buff("disarm");
         this.card.addActivatedBuff(buff);
         buff.buffEffect(this.card);
     }
 
-    private void sacrificeEffectOnSelf() {
+    private void sacrificeEffectOnSelf() throws CloneNotSupportedException {
         Buff buff = new Buff("weakness buff with infinite hp decrease");
         this.card.addActivatedBuff(buff);
         buff.buffEffect(this.card);
+    }
+
+    public void setActivated(boolean activated) {
+        this.activated = activated;
+    }
+
+    public void setStartTurn(int startTurn) {
+        this.startTurn = startTurn;
     }
 }
 

@@ -67,7 +67,6 @@ public class Hand {
 
     public void deleteFromHand(Card card) {
         cardsInHand.remove(card);
-
         cardsUsedInGame.add(card);
     }
 

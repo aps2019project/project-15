@@ -4,7 +4,7 @@ import controller.Controller;
 
 import java.util.ArrayList;
 
-public class Item {
+public class Item implements Cloneable{
 
     private DataCenter dataCenter =DataCenter.getInstance();
     String itemName;
@@ -21,6 +21,9 @@ public class Item {
 
     public Buff getBuff() {
         return buff;
+    }
+    public Item clone() throws CloneNotSupportedException{
+        return (Item) super.clone();
     }
 
     public static Item getItemByName(String name){

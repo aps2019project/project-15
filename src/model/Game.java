@@ -169,21 +169,40 @@ public class Game {
     }
 
     public void showMyMinions() {
-
+        view.showMyMinions();
     }
 
     public void showOpponentMinions() {
-
+        view.showEnemyMinion();
     }
 
     public void showCardInfo(String cardId) {
-
+        Card card = returnCardByIdInGame(cardId);
+        if(card != null){
+            view.showCardInGame(card);
+        }
+        else{
+            view.noSuchCardInGame();
+        }
+    }
+    private Card returnCardByIdInGame(String cardId){
+        for(Card card : Controller.currentAccount.getMainDeck().getCards()){
+            if(card.getCardIdInGame().equalsIgnoreCase(cardId)){
+                return card;
+            }
+        }
+        for(Card card : Controller.enemyAccount.getMainDeck().getCards()){
+            if(card.getCardIdInGame().equalsIgnoreCase(cardId)){
+                return card;
+            }
+        }
+        return null;
     }
 
     public void select(String cardId) {
-        Card card = Card.returnCardById(cardId);
+        Card card = returnCardByIdInGame(cardId);
         if (card == null) {
-            View.getInstance().invalidCardId();
+            view.invalidCardId();
             return;
         }
         currentCard = card;
@@ -271,7 +290,11 @@ public class Game {
     }
 
     public void attackCombo(String opponentCardId, String... myCardIds) {
-        Card enemyCard = Card.returnCardById(opponentCardId);
+        Card enemyCard = returnCardByIdInGame(opponentCardId);
+        if(enemyCard == null){
+            view.noSuchCardInGame();
+            return;
+        }
         Account otherAccount;
         if (Controller.currentAccount.getCardsInGame().contains(enemyCard)) {
             otherAccount = Controller.enemyAccount;
@@ -285,17 +308,17 @@ public class Game {
         String[] myCardId = new String[lenght];
         Minion[] myCrads = new Minion[lenght];
         for (int i = 0; i < lenght; i++) {
-            Card card = Card.returnCardById(myCardId[i]);
-            if (!otherAccount.getCardsInGame().contains(card)) {
+            Card card = returnCardByIdInGame(myCardId[i]);
+            if (card == null) {
                 view.cardNotInGame();
                 return;
             }
-            if (card != null && !card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
+            if (!card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 view.wrongCardTypeForCombo();
                 return;
             }
             Minion minion = (Minion) card;
-            if ((minion != null) && !minion.getActivationTime().equals(SpecialPowerActivation.combo)) {
+            if (!minion.getActivationTime().equals(SpecialPowerActivation.combo)) {
                 view.notAComboMinion();
                 return;
             }
@@ -315,10 +338,10 @@ public class Game {
     public void endTurn() {
         turn++;
         for(Card card : Controller.currentAccount.getCardsInGame()){
-            card.getCurrentBlock().blockEffect(card.attackedThisTurn);
+            card.getCurrentBlock().blockEffect();
         }
         for(Card card : Controller.enemyAccount.getCardsInGame()){
-            card.getCurrentBlock().blockEffect(card.attackedThisTurn);
+            card.getCurrentBlock().blockEffect();
         }
         if (activeAccount.equals(Controller.currentAccount)) {
             activeAccount = Controller.enemyAccount;
@@ -330,6 +353,18 @@ public class Game {
         }
         updateGraveYard();
         addToMana();
+    }
+    private void buffEffect() throws CloneNotSupportedException {
+        for(Card card : Controller.currentAccount.getCardsInGame()){
+            for(Buff buff : card.getActivatedBuffs()){
+                buff.buffEffect(card);
+            }
+        }
+        for(Card card : Controller.enemyAccount.getCardsInGame()){
+            for(Buff buff : card.getActivatedBuffs()){
+                buff.buffEffect(card);
+            }
+        }
     }
 
     public void addToMana() {
@@ -402,8 +437,10 @@ public class Game {
         cardsInGame.add(card);
         if (activeAccount.equals(Controller.currentAccount)) {
             Controller.currentAccount.getMainDeck().hand.deleteFromHand(card);
+            Controller.currentAccount.addCardInGame(card);
         } else {
             Controller.enemyAccount.getMainDeck().hand.deleteFromHand(card);
+            Controller.enemyAccount.addCardInGame(card);
         }
     }
 
