@@ -398,6 +398,7 @@ public class View {
     public void showMinions() {
         System.out.println("Minions: ");
         System.out.println();
+        DataCenter dataCenter = DataCenter.getInstance();
         for (Minion minion : dataCenter.getMinions()) {
             System.out.println(minion);
         }
@@ -777,6 +778,9 @@ public class View {
     public void gameWon(String winnerName) {
         System.out.println(winnerName + " won the game!");
     }
+    public void showCollectible(Collectible collectible){
+        System.out.println(collectible);
+    }
 
     public void showCollectibles() {
         for (Collectible collectible : dataCenter.getCollectibles()) {
@@ -785,7 +789,7 @@ public class View {
     }
 
     public void invalidNumber() {
-        System.out.println("Invald number!");
+        System.out.println("Invalid number!");
 
     }
 }

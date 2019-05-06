@@ -43,6 +43,7 @@ public class Game {
     private int firstTurn;
     boolean done = false;
     private boolean finishedGame = false;
+    private ModeOfGame storyMode;
 
     public boolean isFinishedGame() {
         return finishedGame;
@@ -55,18 +56,17 @@ public class Game {
     public void endGameSetter(){
         switch (this.Mode){
             case killOpponent:
-                killOpponentGameEnded();
+                setFinishedGame(killOpponentGameEnded());
                 break;
             case KeepFlag:
-                keepFlagEndGame();
+                setFinishedGame(keepFlagEndGame());
                 break;
             case CollectFlags:
-                collectFlagModeEndGame();
-                //todo handle story mode
+                setFinishedGame(collectFlagModeEndGame());
         }
     }
 
-    private void collectFlagModeEndGame() {
+    private boolean collectFlagModeEndGame() {
         ArrayList<Card> cardsThatOwnFlag = new ArrayList<>();
         for(Flag flag : flags){
             if(flag.card != null){
@@ -84,42 +84,62 @@ public class Game {
         if(cardsOfCurrentAccount >= cardsThatOwnFlag.size()){
             view.gameWon(Controller.currentAccount.getUsername());
             Controller.currentAccount.addMoney(1500);
+            Controller.currentAccount.addToHistory(1, timeOfGame, Controller.enemyAccount.getUsername());
+            Controller.enemyAccount.addToHistory(0, timeOfGame, Controller.currentAccount.getUsername());
+            return true;
         }
         else if(cardsOfEnemyAccount >= cardsThatOwnFlag.size()){
             view.gameWon(Controller.enemyAccount.getUsername());
             Controller.enemyAccount.addMoney(1500);
+            Controller.currentAccount.addToHistory(0, timeOfGame, Controller.enemyAccount.getUsername());
+            Controller.enemyAccount.addToHistory(1, timeOfGame, Controller.currentAccount.getUsername());
+            return true;
         }
+        return false;
     }
 
-    private void keepFlagEndGame() {
+    private boolean keepFlagEndGame() {
         for(Flag flag : flags){
             if(flag.singleFlagModeGameWon()){
                 if(Controller.currentAccount.getMainDeck().getCards().contains(flag.card)){
                     view.gameWon(Controller.currentAccount.getUsername());
                     Controller.currentAccount.addMoney(1000);
+                    Controller.currentAccount.addToHistory(1, timeOfGame, Controller.enemyAccount.getUsername());
+                    Controller.enemyAccount.addToHistory(0, timeOfGame, Controller.currentAccount.getUsername());
+                    return true;
                 }
                 else{
                     view.gameWon(Controller.enemyAccount.getUsername());
                     Controller.enemyAccount.addMoney(1000);
+                    Controller.currentAccount.addToHistory(0, timeOfGame, Controller.enemyAccount.getUsername());
+                    Controller.enemyAccount.addToHistory(1, timeOfGame, Controller.currentAccount.getUsername());
+                    return true;
                 }
             }
         }
+        return false;
     }
 
-    private void killOpponentGameEnded() {
+    private boolean killOpponentGameEnded() {
         for(Card card : graveYard){
             if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
                 if(Controller.currentAccount.getMainDeck().getDeckHero().equals(card)){
                     view.gameWon(Controller.enemyAccount.getUsername());
                     Controller.enemyAccount.addMoney(500);
+                    Controller.currentAccount.addToHistory(0, timeOfGame, Controller.enemyAccount.getUsername());
+                    Controller.enemyAccount.addToHistory(1, timeOfGame, Controller.currentAccount.getUsername());
+                    return true;
                 }
                 else{
                     view.gameWon(Controller.currentAccount.getUsername());
                     Controller.currentAccount.addMoney(500);
+                    Controller.currentAccount.addToHistory(1, timeOfGame, Controller.enemyAccount.getUsername());
+                    Controller.enemyAccount.addToHistory(0, timeOfGame, Controller.currentAccount.getUsername());
+                    return true;
                 }
-                setFinishedGame(true);
             }
         }
+        return false;
     }
 
     public void addToHistory() {
@@ -627,5 +647,12 @@ public class Game {
 
     public Account getActiveAccount() {
         return this.activeAccount;
+    }
+    public void showCollectibles(){
+        for(Card card : activeAccount.getCardsInGame()){
+            for(Collectible collectible : card.getCollectibles()){
+                view.showCollectible(collectible);
+            }
+        }
     }
 }

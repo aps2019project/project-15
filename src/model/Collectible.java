@@ -17,7 +17,6 @@ public class Collectible extends Item {
         return allCollectibles;
     }
 
-    TypeOfCollectible mode;
 
     public Collectible() {
     }

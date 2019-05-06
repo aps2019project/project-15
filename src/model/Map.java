@@ -77,4 +77,8 @@ public class Map {
             }
         }
     }
+
+    public ArrayList<Collectible> getInGameCollectible() {
+        return inGameCollectible;
+    }
 }

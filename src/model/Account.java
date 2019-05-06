@@ -137,5 +137,9 @@ public class Account {
     boolean soldCard(Card card) {
         return card.sold;
     }
+    public void addToHistory(int result, int time, String opponentName){
+        History history = new History(result, time, opponentName);
+        historyGames.add(history);
+    }
 
 }

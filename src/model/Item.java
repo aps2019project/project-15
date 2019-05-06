@@ -35,6 +35,14 @@ public class Item implements Cloneable {
         }
         return null;
     }
+    public ArrayList<Card> itemEffectOnWhat(){
+        ArrayList<Card> returns = new ArrayList<>();
+        if(this.getItemName().equalsIgnoreCase("Namosesepar")){
+            returns.add(Controller.currentGame.getActiveAccount().getMainDeck().getDeckHero());
+            return returns;
+        }
+        return returns;
+    }
 
     public void itemEffect(Card card) throws CloneNotSupportedException{
         //todo check ghosleTamid to be called after entering a card
