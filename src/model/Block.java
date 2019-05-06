@@ -58,22 +58,24 @@ public class Block {
         this.isEmpty = false;
     }
 
-    public void blockEffect(boolean wasAttacked) {
-        if (isFire()) {
-            this.card.Hp -= 2;
-            if (this.card.Hp < 0) {
-                this.card.Hp = 0;
+    public void blockEffect() {
+        if(this.card != null) {
+            if (isFire()) {
+                this.card.Hp -= 2;
+                if (this.card.Hp < 0) {
+                    this.card.Hp = 0;
+                }
+                return;
             }
-            return;
-        }
-        if (isHoly()) {
-            if(wasAttacked) {
-                this.card.Hp++;
+            if (isHoly()) {
+                if (this.card.attackedThisTurn) {
+                    this.card.Hp++;
+                }
+                return;
             }
-            return;
-        }
-        if (isPoison()) {
-            this.card.Hp--;
+            if (isPoison()) {
+                this.card.Hp--;
+            }
         }
     }
 

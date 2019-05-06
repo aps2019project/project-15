@@ -1,8 +1,10 @@
 package model;
 
+import controller.Controller;
+
 import java.util.ArrayList;
 
-public abstract class Card {
+public abstract class Card implements Cloneable{
     public String getName() {
         return name;
     }
@@ -31,6 +33,9 @@ public abstract class Card {
     int Ap;
     private boolean using = false;
     TypeOfCard typeOfAttack;
+    public Card clone() throws CloneNotSupportedException{
+        return (Card) super.clone();
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -125,8 +130,10 @@ public abstract class Card {
         activatedBuffs.remove(buff);
     }
 
-    public void addActivatedBuff(Buff buff) {
-        activatedBuffs.add(buff);
+    public void addActivatedBuff(Buff buff) throws CloneNotSupportedException {
+        Buff buffToBeAdded = buff.clone();
+        activatedBuffs.add(buffToBeAdded);
+        buff.setStartTurn(Controller.currentAccount.game.getTurn());
     }
 
     public Block getCurrentBlock() {

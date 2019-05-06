@@ -110,8 +110,15 @@ public class Account {
         this.money = money;
     }
 
-    public void setMainDeck(Deck deck) {
-        this.mainDeck = deck;
+    public void setMainDeck(Deck deck) throws CloneNotSupportedException {
+        for (Card card : deck.getCards()){
+            Card mainDeckCard = card.clone();
+            mainDeck.addCard(mainDeckCard);
+        }
+        if(deck.getItem() != null) {
+            Item mainDeckItem = deck.getItem().clone();
+            mainDeck.addItem(mainDeckItem);
+        }
     }
 
     public void showMenu() {

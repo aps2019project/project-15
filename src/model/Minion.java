@@ -68,6 +68,7 @@ public class Minion extends Card {
                 card.healthLevel = 0;
             }
             if (this.activationType.equals(SpecialPowerActivation.onAttack)) {
+                this.buff.setActivated(true);
                 specialPowerActing(card);
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
@@ -90,7 +91,7 @@ public class Minion extends Card {
 
     public void specialPowerActing(Card card) {
         if (this.getName().equalsIgnoreCase("GhooleDosar")) {
-
+            ghooledosar(card);
         }
         this.buff.buffEffect(card);
     }
