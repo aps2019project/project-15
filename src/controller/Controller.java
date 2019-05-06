@@ -122,11 +122,11 @@ public class Controller {
             }
             if (RequestType.GAME_INFO.setMatcher(command).find()) {
                 if (game.getMode().equals(ModeOfGame.killOpponent)) {
-
+                    currentGame.setMode(ModeOfGame.killOpponent);
                 } else if (game.getMode().equals(ModeOfGame.KeepFlag)) {
-
+                    currentGame.setMode(ModeOfGame.KeepFlag);
                 } else if (game.getMode().equals(ModeOfGame.CollectFlags)) {
-
+                    currentGame.setMode(ModeOfGame.CollectFlags);
                 }
             } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
                 showMinionsFunction(currentAccount);
@@ -150,11 +150,11 @@ public class Controller {
             } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
                 attackFunction();
             } else if (RequestType.ATTACH_COMBO.setMatcher(command).find()) {
-
+                //currentGame.attackCombo(RequestType.ATTACH_COMBO.getMatcher().group(1), );
             } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
-
+                useSpecialPower();
             } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
-
+                currentGame.getActiveAccount().getMainDeck().showHand();
             } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
                 cardInGameInsert(game);
 
@@ -180,7 +180,7 @@ public class Controller {
                 graveYardFunction();
 
             } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
-
+                currentGame.showCard(RequestType.SHOW_INFO_CARD_ID.getMatcher().group(1));
             } else if (RequestType.END_GAME.setMatcher(command).find()) {
                 if (currentGame.isFinishedGame()) {
                     currentMenu = MainMenu.getInstance();
@@ -204,6 +204,11 @@ public class Controller {
 
             }
         }
+    }
+
+    private void useSpecialPower() {
+        currentGame.useSpecialPower(Integer.parseInt(RequestType.USE_SPECIAL_POWER.getMatcher().group(1)),
+                Integer.parseInt(RequestType.USE_SPECIAL_POWER.getMatcher().group(1)));
     }
 
     private void moveCardFunction() {

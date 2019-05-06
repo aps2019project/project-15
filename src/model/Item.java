@@ -35,7 +35,7 @@ public class Item implements Cloneable {
         }
         return null;
     }
-    public ArrayList<Card> itemEffectOnWhat(){
+    public ArrayList<Card> itemEffectOnWhat(int x, int y){
         ArrayList<Card> returns = new ArrayList<>();
         if(this.getItemName().equalsIgnoreCase("Namosesepar")){
             returns.add(Controller.currentGame.getActiveAccount().getMainDeck().getDeckHero());
