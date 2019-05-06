@@ -37,7 +37,7 @@ public class Controller {
         return controller;
     }
 
-    public void main() {
+    public void main() throws CloneNotSupportedException{
         Request request = new Request();
         initEverything();
         //view.showMinions();
@@ -71,7 +71,7 @@ public class Controller {
         list.add(card);
     }
 
-    private void handleRequest(Menu currentMenu, String command) throws InputException {
+    private void handleRequest(Menu currentMenu, String command) throws InputException , CloneNotSupportedException{
         DataCenter dataCenter = DataCenter.getInstance();
         if (currentMenu.equals(MainMenu.getInstance())) {
             mainMenuRequest(command);
@@ -88,7 +88,7 @@ public class Controller {
         }
     }
 
-    private void battleMenuRequest(String command) throws InputException {
+    private void battleMenuRequest(String command) throws InputException , CloneNotSupportedException{
 
         BattleMenu battleMenu = BattleMenu.getInstance();
         try {
@@ -115,7 +115,7 @@ public class Controller {
         }
     }
 
-    private void gameFunction(Game game) throws InputException {
+    private void gameFunction(Game game) throws InputException , CloneNotSupportedException{
         while (!exit) {
             String command = request.getNewCommand();
             if (currentAccount.myTurn) {
@@ -202,7 +202,7 @@ public class Controller {
         }
     }
 
-    private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException {
+    private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException , CloneNotSupportedException{
         Collection collection = Controller.currentAccount.getMyCollection();
         if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
             view.showCollection();

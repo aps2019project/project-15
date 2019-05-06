@@ -275,7 +275,7 @@ public class Game {
     }
 
 
-    public void attack(Card myCard, Card opponentCard) {
+    public void attack(Card myCard, Card opponentCard) throws CloneNotSupportedException{
         if (!myCard.disarmed) {
             myCard.attack(opponentCard);
             if(activeAccount.equals(Controller.currentAccount)){
@@ -289,7 +289,7 @@ public class Game {
         view.disarmedCard();
     }
 
-    public void attackCombo(String opponentCardId, String... myCardIds) {
+    public void attackCombo(String opponentCardId, String... myCardIds) throws CloneNotSupportedException{
         Card enemyCard = returnCardByIdInGame(opponentCardId);
         if(enemyCard == null){
             view.noSuchCardInGame();

@@ -35,7 +35,7 @@ public class Item implements Cloneable{
         return null;
     }
 
-    public void itemEffect(Card card) {
+    public void itemEffect(Card card) throws CloneNotSupportedException{
         //todo check ghosleTamid to be called after entering a card
         //todo check that shock hammer is called after hero is attacked
         if (this.getItemName().equalsIgnoreCase("KamaneDamol")) {
@@ -53,7 +53,7 @@ public class Item implements Cloneable{
         this.buff.buffEffect(card);
     }
 
-    private void tireDoShakh(Card card) {
+    private void tireDoShakh(Card card) throws CloneNotSupportedException{
         if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
             Minion minion = (Minion) card;
             if (!minion.getMinionType().equals(TypeOfCounterAttack.melee)) {
@@ -119,7 +119,7 @@ public class Item implements Cloneable{
         }
     }
 
-    private void KamaneDamo(Card card) {
+    private void KamaneDamo(Card card) throws CloneNotSupportedException{
         for (Card lookingForHero : Controller.currentAccount.getCardsInGame()) {
             if (lookingForHero.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 Hero hero = (Hero) lookingForHero;

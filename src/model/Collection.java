@@ -206,7 +206,7 @@ public class Collection {
         }
     }
 
-    public void selectDeck(String deckName) {
+    public void selectDeck(String deckName) throws CloneNotSupportedException{
         Deck deck = Deck.returnDeckByName(deckName);
         if (deck == null) {
             view.deckIsNotInCollection();

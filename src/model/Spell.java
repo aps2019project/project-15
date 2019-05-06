@@ -28,7 +28,7 @@ public class Spell extends Card {
         this.healthLevel += number;
     }
 
-    public void effect(Card card) {
+    public void effect(Card card) throws CloneNotSupportedException{
         if (checkEffectiveness(card)) {
             this.buff.buffEffect(card);
         } else {
@@ -144,7 +144,7 @@ public class Spell extends Card {
         return info;
     }
 
-    public void attack(Card card) {
+    public void attack(Card card) throws CloneNotSupportedException{
         buff.buffEffect(card);
     }
 }

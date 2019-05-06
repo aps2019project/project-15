@@ -146,5 +146,5 @@ public abstract class Card implements Cloneable{
 
     public abstract void printStats(int i);
 
-    public abstract void attack(Card card);
+    public abstract void attack(Card card) throws CloneNotSupportedException;
 }

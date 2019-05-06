@@ -53,7 +53,7 @@ public class Minion extends Card {
     }
 
 
-    public void attack(Card card) {
+    public void attack(Card card) throws CloneNotSupportedException{
         if (this.getName().equalsIgnoreCase("Giv")) {
             return;
             //todo add give to other attacks
@@ -90,7 +90,7 @@ public class Minion extends Card {
         }
     }
 
-    public void specialPowerActing(Card card) {
+    public void specialPowerActing(Card card) throws CloneNotSupportedException{
         if (this.getName().equalsIgnoreCase("GhooleDosar")) {
             ghooledosar(card);
         }
@@ -106,7 +106,7 @@ public class Minion extends Card {
         }
     }
 
-    public void counterAttack(Card card) {
+    public void counterAttack(Card card) throws CloneNotSupportedException{
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
@@ -177,7 +177,7 @@ public class Minion extends Card {
         return abs(card.getCurrentBlock().y - this.getCurrentBlock().y) + abs(card.getCurrentBlock().y - this.getCurrentBlock().y) == 1;
     }
 
-    public static void comboAttack(Card enemyCard, Minion[] minions) {
+    public static void comboAttack(Card enemyCard, Minion[] minions) throws CloneNotSupportedException{
         int reduction = 0;
         for (int i = 0; i < minions.length; i++) {
             reduction += minions[i].Ap;
