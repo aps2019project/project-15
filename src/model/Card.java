@@ -4,7 +4,7 @@ import controller.Controller;
 
 import java.util.ArrayList;
 
-public abstract class Card implements Cloneable{
+public abstract class Card implements Cloneable {
     public String getName() {
         return name;
     }
@@ -33,7 +33,8 @@ public abstract class Card implements Cloneable{
     int Ap;
     private boolean using = false;
     TypeOfCard typeOfAttack;
-    public Card clone() throws CloneNotSupportedException{
+
+    public Card clone() throws CloneNotSupportedException {
         return (Card) super.clone();
     }
 

@@ -72,10 +72,11 @@ public class Collectible extends Item {
     public static void shamshirChini() {
 
     }
+
     static Item returnItemName(String name) {
-        for(Item item : allCollectibles) {
+        for (Item item : allCollectibles) {
             if (item.itemName.equals(name)) {
-                return  item;
+                return item;
             }
         }
         return null;

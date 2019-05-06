@@ -1,6 +1,5 @@
 package model;
 
-import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
@@ -13,15 +12,15 @@ public class Hero extends Card {
 
     public String id;
 
-    int range;
-    Buff buff;
+    private int range;
+    private Buff buff;
 
-    int coolDown = 0;
-    TypeOfCounterAttack counterAttack;
+    private int coolDown = 0;
+    private TypeOfCounterAttack counterAttack;
     Item[][] itemCheck = new Item[4][];
-    int manaSpecialPower;
+    private int manaSpecialPower;
 
-    public void attack(Card card)throws CloneNotSupportedException {
+    public void attack(Card card) throws CloneNotSupportedException {
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {
@@ -32,7 +31,7 @@ public class Hero extends Card {
                 if (minion.canCounterAttack(this)) {
                     minion.counterAttack(this);
                 }
-                if (minion.activationType.equals(SpecialPowerActivation.onDeath)) {
+                if (minion.activationType.equals(SpecialPowerActivation.onDeath.toString())) {
                     if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
@@ -55,12 +54,12 @@ public class Hero extends Card {
             }
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;
-                if (minion.activationTime.equals(SpecialPowerActivation.onDeath)) {
+                if (minion.activationTime.equals(SpecialPowerActivation.onDeath.toString())) {
                     if (minion.healthLevel <= 0) {
                         minion.specialPowerActing(this);
                     }
                 }
-                if (minion.activationTime.equals(SpecialPowerActivation.onDefend)) {
+                if (minion.activationTime.equals(SpecialPowerActivation.onDefend.toString())) {
                     minion.specialPowerActing(this);
                 }
             }
@@ -80,10 +79,7 @@ public class Hero extends Card {
             return false;
         }
         if (this.counterAttack.equals(TypeOfCounterAttack.ranged)) {
-            if (isInRange && !isNeighbor) {
-                return true;
-            }
-            return false;
+            return isInRange && !isNeighbor;
         }
         return false;
     }
@@ -146,8 +142,7 @@ public class Hero extends Card {
 
     @Override
     public String toString() {
-        String information = "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.Hp + "\n" + "AP: " + this.getAttackPower() + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.manaSpecialPower + "\n" + "coolDown: " + this.coolDown + "\n";
-        return information;
+        return "name: " + this.getName() + "\n" + "description: " + this.description + "\n" + "price: " + this.price + "\n" + "HP: " + this.Hp + "\n" + "AP: " + this.getAttackPower() + "\n" + "typeOfAttack: " + this.counterAttack + "\n" + "attackArea: " + this.attackArea + "\n" + "Mp: " + this.manaSpecialPower + "\n" + "coolDown: " + this.coolDown + "\n";
     }
 
     public TypeOfCounterAttack getCounterAttack() {
