@@ -29,7 +29,9 @@ public class Flag extends Item {
     public Card getCard() {
         return card;
     }
-
+public void removeCard(){
+        this.card = null;
+}
     public void setCurrentBlock(Block block) {
         this.currentBlock = block;
     }
