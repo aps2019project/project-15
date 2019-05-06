@@ -31,6 +31,12 @@ public class Hand {
             }
         }
     }
+    public Card getCardToBeAdded(){
+        if(cardToBeAdded == null){
+            getNextCard();
+        }
+        return cardToBeAdded;
+    }
 
     private void getNextCard() {
         Random random = new Random();

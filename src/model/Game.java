@@ -24,14 +24,28 @@ public class Game {
     private int firstPlayerMP = 2;
     private int secondPlayerMP = 2;
     private View view = View.getInstance();
+
     public Map getMap() {
         return map;
     }
+
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
     private int firstTurn;
     boolean done = false;
+    private boolean finishedGame = false;
 
+    public boolean isFinishedGame() {
+        return finishedGame;
+    }
+
+    public void setFinishedGame(boolean finishedGame) {
+        this.finishedGame = finishedGame;
+    }
+
+    public void endGameSetter(){
+
+    }
 
     public void addToHistory() {
         History history = new History();
@@ -89,11 +103,12 @@ public class Game {
             }
         }
     }
-    private void ghooleTakCheshm(Card card){
-        if(card.getName().equalsIgnoreCase("GhooleTakCheshm")){
+
+    private void ghooleTakCheshm(Card card) {
+        if (card.getName().equalsIgnoreCase("GhooleTakCheshm")) {
             Minion minion = (Minion) card;
             ArrayList<Card> cards = minion.cardsAttacked(map, minion.getCurrentBlock());
-            for(Card attackedCard : cards){
+            for (Card attackedCard : cards) {
                 try {
                     minion.ghooleTakCheshm(attackedCard);
                 } catch (CloneNotSupportedException e) {
@@ -326,31 +341,31 @@ public class Game {
     }
 
     public void useSpecialPower(int x, int y) {
-        Block block = map.getBlock(x , y);
-        if(block == null){
+        Block block = map.getBlock(x, y);
+        if (block == null) {
             view.invalidCoordinates();
             return;
         }
-        if(currentCard.getTypeOfAttack().equals(TypeOfCard.Spell)){
+        if (currentCard.getTypeOfAttack().equals(TypeOfCard.Spell)) {
             view.noSpecialPower();
             return;
         }
         Card card = block.getCard();
-        if(card == null){
+        if (card == null) {
             view.invalidTarget();
             return;
         }
-        if(currentCard.getTypeOfAttack().equals(TypeOfCard.Minion)){
+        if (currentCard.getTypeOfAttack().equals(TypeOfCard.Minion)) {
             Minion minion = (Minion) currentCard;
             ArrayList<Card> cards = minion.cardsAttacked(map, block);
-            for(Card attackCard : cards){
+            for (Card attackCard : cards) {
                 minion.specialPowerActing(attackCard);
             }
         }
-        if(currentCard.getTypeOfAttack().equals(TypeOfCard.Hero)){
+        if (currentCard.getTypeOfAttack().equals(TypeOfCard.Hero)) {
             Hero hero = (Hero) currentCard;
             ArrayList<Card> cards = hero.specialPowerActingOn(map, block);
-            for(Card attackCard : cards){
+            for (Card attackCard : cards) {
                 hero.specialPowerActivation(attackCard);
             }
         }

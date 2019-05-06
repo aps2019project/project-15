@@ -250,7 +250,7 @@ public class Minion extends Card {
     }
 
     private ArrayList<Card> naneSarmaCards(Map map, Block block, ArrayList<Card> returns) {
-        Account enemy = new Account();
+        Account enemy;
         if (Controller.currentGame.getActiveAccount().equals(Controller.currentAccount)) {
             enemy = Controller.enemyAccount;
         } else {

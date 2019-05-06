@@ -1,6 +1,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import com.sun.tools.javac.Main;
 import model.*;
 import model.menu.*;
 import view.InputException;
@@ -131,11 +132,17 @@ public class Controller {
 
                 }
             } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
-/*
-                    for (Minion minion : )
-*/
+                    for (Card card: currentAccount.getCardsInGame()) {
+                        if (dataCenter.getMinions().contains(card)){
+                            System.out.println(card);
+                        }
+                    }
             } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
-
+                for (Card card: enemyAccount.getCardsInGame()) {
+                    if (dataCenter.getMinions().contains(card)){
+                        System.out.println(card);
+                    }
+                }
             } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
 
             } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
@@ -160,11 +167,10 @@ public class Controller {
             } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
 
             } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
-
                 String name = RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(1);
                 int x = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(2));
                 int y = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(3));
-
+                game.addCardsToGame(name , x , y);
             } else if (RequestType.END_TURN.setMatcher(command).find()) {
                 currentAccount.myTurn = false;
             } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
@@ -176,14 +182,16 @@ public class Controller {
             } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
                 view.showCurrentItem();
             } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
-
+                view.showNextCard();
             } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
                 view.enteredGraveYard();
                 graveYardFunction();
             } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
 
             } else if (RequestType.END_GAME.setMatcher(command).find()) {
-
+                if (currentGame.isFinishedGame()){
+                    currentMenu = MainMenu.getInstance();
+                }
             } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
 
             } else if (RequestType.EXIT.setMatcher(command).find()) {
