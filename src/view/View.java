@@ -50,18 +50,6 @@ public class View {
         System.out.println(item.id);
     }
 
-    public void printIncrementHealth(int number) {
-        System.out.println(number + "units added to health");
-    }
-
-    public void printCollectibleDescription(Collectible collectible) {
-
-    }
-
-    public void printEnterCollectibleID() {
-        System.out.println("Enter the collectible ID: ");
-    }
-
     public void showMyMinions() {
         Account account = Controller.currentGame.getActiveAccount();
         for (Card card : account.getCardsInGame()) {
@@ -181,22 +169,12 @@ public class View {
         System.out.println("you logged out");
     }
 
-    public void enteredHelp() {
-        System.out.println("you entered help!");
-    }
 
     public void playerOptions() {
         System.out.println("1.Single player");
         System.out.println("2.Multi player");
     }
 
-    public void singlePlayerChosen() {
-        System.out.println("Singke player mode!");
-    }
-
-    public void multiPlayerChosen() {
-        System.out.println("Multi player mode!!");
-    }
 
     public void gameDeclaration(Account account2) {
         System.out.println("game is between " + Controller.currentAccount.getUsername() + " and " + account2.getUsername());
@@ -778,7 +756,8 @@ public class View {
     public void gameWon(String winnerName) {
         System.out.println(winnerName + " won the game!");
     }
-    public void showCollectible(Collectible collectible){
+
+    public void showCollectible(Collectible collectible) {
         System.out.println(collectible);
     }
 
@@ -793,5 +772,11 @@ public class View {
 
     }
 
+    public void showMenuOfBattle() {
+        System.out.println("Game info\nShow my minions\nshow opponent minions\nShow card info\nSelect card\nMove to (x,y)\nAttack a card\nAttack combo\nUse special power\nShow hand\nInsert card in (x,y)\nEnd turn\nShow collectables\nSelect collectable\nShow info\nUse location (x,y)\nShow next card\nEnter graveyard\nShow info of a card\nshow cards in graveyard\nHelp\nEnd game\nExit\nShow menu");
+    }
 
+    public void notInGraveYard() {
+        System.out.println("this card is not in graveYard!");
+    }
 }

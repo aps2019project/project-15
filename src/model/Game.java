@@ -10,7 +10,7 @@ public class Game {
     private Map map = new Map();
     private int currentTurn;
     private GameType gameType;
-    ArrayList<Flag> flags = new ArrayList<>();
+    private ArrayList<Flag> flags = new ArrayList<>();
     private ModeOfGame Mode;
     GameType type;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
@@ -21,15 +21,14 @@ public class Game {
     public Card currentCard;
     public Item currentItem;
     private Account activeAccount;
-    private int firstPlayerMP = 2;
-    private int secondPlayerMP = 2;
     private View view = View.getInstance();
 
     public Map getMap() {
         return map;
     }
-    public void addFlagsToGame(int n){
-        for(int i = 0; i < n; i++){
+
+    public void addFlagsToGame(int n) {
+        for (int i = 0; i < n; i++) {
             Flag flag = new Flag();
             flags.add(flag);
             map.addFlagToMap(flag);
@@ -53,8 +52,8 @@ public class Game {
         this.finishedGame = finishedGame;
     }
 
-    public void endGameSetter(){
-        switch (this.Mode){
+    public void endGameSetter() {
+        switch (this.Mode) {
             case killOpponent:
                 setFinishedGame(killOpponentGameEnded());
                 break;
@@ -68,27 +67,26 @@ public class Game {
 
     private boolean collectFlagModeEndGame() {
         ArrayList<Card> cardsThatOwnFlag = new ArrayList<>();
-        for(Flag flag : flags){
-            if(flag.card != null){
+        for (Flag flag : flags) {
+            if (flag.card != null) {
                 cardsThatOwnFlag.add(flag.card);
             }
         }
         int cardsOfCurrentAccount = 0;
         int cardsOfEnemyAccount = 0;
-        for(Card card : cardsThatOwnFlag){
-            if(Controller.currentAccount.getCardsInGame().contains(card)){
+        for (Card card : cardsThatOwnFlag) {
+            if (Controller.currentAccount.getCardsInGame().contains(card)) {
                 cardsOfCurrentAccount++;
             }
         }
         cardsOfEnemyAccount = cardsThatOwnFlag.size() - cardsOfCurrentAccount;
-        if(cardsOfCurrentAccount >= cardsThatOwnFlag.size()){
+        if (cardsOfCurrentAccount >= cardsThatOwnFlag.size()) {
             view.gameWon(Controller.currentAccount.getUsername());
             Controller.currentAccount.addMoney(1500);
             Controller.currentAccount.addToHistory(1, timeOfGame, Controller.enemyAccount.getUsername());
             Controller.enemyAccount.addToHistory(0, timeOfGame, Controller.currentAccount.getUsername());
             return true;
-        }
-        else if(cardsOfEnemyAccount >= cardsThatOwnFlag.size()){
+        } else if (cardsOfEnemyAccount >= cardsThatOwnFlag.size()) {
             view.gameWon(Controller.enemyAccount.getUsername());
             Controller.enemyAccount.addMoney(1500);
             Controller.currentAccount.addToHistory(0, timeOfGame, Controller.enemyAccount.getUsername());
@@ -99,16 +97,15 @@ public class Game {
     }
 
     private boolean keepFlagEndGame() {
-        for(Flag flag : flags){
-            if(flag.singleFlagModeGameWon()){
-                if(Controller.currentAccount.getMainDeck().getCards().contains(flag.card)){
+        for (Flag flag : flags) {
+            if (flag.singleFlagModeGameWon()) {
+                if (Controller.currentAccount.getMainDeck().getCards().contains(flag.card)) {
                     view.gameWon(Controller.currentAccount.getUsername());
                     Controller.currentAccount.addMoney(1000);
                     Controller.currentAccount.addToHistory(1, timeOfGame, Controller.enemyAccount.getUsername());
                     Controller.enemyAccount.addToHistory(0, timeOfGame, Controller.currentAccount.getUsername());
                     return true;
-                }
-                else{
+                } else {
                     view.gameWon(Controller.enemyAccount.getUsername());
                     Controller.enemyAccount.addMoney(1000);
                     Controller.currentAccount.addToHistory(0, timeOfGame, Controller.enemyAccount.getUsername());
@@ -121,16 +118,15 @@ public class Game {
     }
 
     private boolean killOpponentGameEnded() {
-        for(Card card : graveYard){
-            if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
-                if(Controller.currentAccount.getMainDeck().getDeckHero().equals(card)){
+        for (Card card : graveYard) {
+            if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
+                if (Controller.currentAccount.getMainDeck().getDeckHero().equals(card)) {
                     view.gameWon(Controller.enemyAccount.getUsername());
                     Controller.enemyAccount.addMoney(500);
                     Controller.currentAccount.addToHistory(0, timeOfGame, Controller.enemyAccount.getUsername());
                     Controller.enemyAccount.addToHistory(1, timeOfGame, Controller.currentAccount.getUsername());
                     return true;
-                }
-                else{
+                } else {
                     view.gameWon(Controller.currentAccount.getUsername());
                     Controller.currentAccount.addMoney(500);
                     Controller.currentAccount.addToHistory(1, timeOfGame, Controller.enemyAccount.getUsername());
@@ -146,7 +142,8 @@ public class Game {
     public void setMode(ModeOfGame mode) {
         Mode = mode;
     }
-    public void initialItemAndHeroEffect(){
+
+    public void initialItemAndHeroEffect() {
         //should be called in turn one and two
 
     }
@@ -193,9 +190,9 @@ public class Game {
                 Controller.enemyAccount.removeCardInGame(card);
             }
         }
-        for(Flag flag : flags){
-            if(flag.card != null) {
-                if (graveYard.contains(flag.card)){
+        for (Flag flag : flags) {
+            if (flag.card != null) {
+                if (graveYard.contains(flag.card)) {
                     flag.setCurrentBlock(flag.card.getCurrentBlock());
                     flag.removeCard();
                 }
@@ -251,6 +248,7 @@ public class Game {
             }
         }
     }
+
     public int getTurn() {
         return turn;
     }
@@ -474,10 +472,10 @@ public class Game {
         for (Card card : activeAccount.getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        if(activeAccount.getMainDeck().getItem().equals("KingWisom")){
+        if (activeAccount.getMainDeck().getItem().equals("KingWisom")) {
             activeAccount.getMainDeck().getItem().KingWisdom(activeAccount.getUsername());
         }
-        if(activeAccount.getMainDeck().getItem().equals("TajDanaii")){
+        if (activeAccount.getMainDeck().getItem().equals("TajDanaii")) {
             activeAccount.getMainDeck().getItem().tajeDanaii(activeAccount.getUsername());
         }
         map.checkIfCollectibleOrFlagIsTaken();
@@ -521,9 +519,9 @@ public class Game {
         activeAccount.getMainDeck().showHand();
     }
 
-    public void useItem(Item item,int x, int y){
+    public void useItem(Item item, int x, int y) {
         ArrayList<Card> effecteds = item.itemEffectOnWhat(x, y);
-        for(Card card : effecteds){
+        for (Card card : effecteds) {
             try {
                 item.itemEffect(card);
             } catch (CloneNotSupportedException e) {
@@ -531,6 +529,7 @@ public class Game {
             }
         }
     }
+
     public void addCardsToGame(String cardName, int x, int y) {
         Card card = Card.returnCardByName(cardName);
         if (card == null || !activeAccount.getMainDeck().hand.getCardsInHand().contains(card)) {
@@ -576,9 +575,10 @@ public class Game {
             Controller.currentGame.reducePlayerTwoMp(card.Mp);
         }
         cardsInGame.add(card);
+        block.cardMovedToBlock(card);
         if (activeAccount.equals(Controller.currentAccount)) {
             Controller.currentAccount.getMainDeck().hand.deleteFromHand(card);
-            if(Controller.currentAccount.getMainDeck().getItem().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+            if (Controller.currentAccount.getMainDeck().getItem().getItemName().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Item item = Controller.currentAccount.getMainDeck().getItem();
                 try {
                     item.itemEffect(card);
@@ -586,13 +586,13 @@ public class Game {
                     e.printStackTrace();
                 }
             }
-            if(Controller.currentAccount.getMainDeck().getItem().equals("assassinationDagger")){
+            if (Controller.currentAccount.getMainDeck().getItem().getItemName().equals("assassinationDagger")) {
                 Item item = Controller.currentAccount.getMainDeck().getItem();
                 item.assassinationDaggerEffect();
             }
         } else {
             Controller.enemyAccount.getMainDeck().hand.deleteFromHand(card);
-            if(Controller.currentAccount.getMainDeck().getItem().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)){
+            if (Controller.currentAccount.getMainDeck().getItem().getItemName().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Item item = Controller.currentAccount.getMainDeck().getItem();
                 try {
                     item.itemEffect(card);
@@ -600,7 +600,7 @@ public class Game {
                     e.printStackTrace();
                 }
             }
-            if(Controller.currentAccount.getMainDeck().getItem().equals("assassinationDagger")){
+            if (Controller.currentAccount.getMainDeck().getItem().getItemName().equals("assassinationDagger")) {
                 Item item = Controller.currentAccount.getMainDeck().getItem();
                 item.assassinationDaggerEffect();
             }
@@ -665,9 +665,10 @@ public class Game {
     public Account getActiveAccount() {
         return this.activeAccount;
     }
-    public void showCollectibles(){
-        for(Card card : activeAccount.getCardsInGame()){
-            for(Collectible collectible : card.getCollectibles()){
+
+    public void showCollectibles() {
+        for (Card card : activeAccount.getCardsInGame()) {
+            for (Collectible collectible : card.getCollectibles()) {
                 view.showCollectible(collectible);
             }
         }

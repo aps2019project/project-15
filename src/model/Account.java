@@ -17,16 +17,14 @@ public class Account {
 
     private boolean loggedIn = false;
     private Collection myCollection = new Collection();
-    private int numOfWins;
 
     private Deck mainDeck = new Deck("mainDeck");
 
     private ArrayList<Card> graveYard = new ArrayList<>();
 
-    ArrayList<History> historyGames = new ArrayList<>();
+    private ArrayList<History> historyGames = new ArrayList<>();
     public ArrayList<Item> myCollectibles = new ArrayList<>();
     private boolean startGame = false;
-    public ArrayList<Card> myCardsInMap = new ArrayList<>();
 
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
@@ -38,16 +36,6 @@ public class Account {
 
     void removeCardInGame(Card card) {
         cardsInGame.remove(card);
-    }
-
-    public static Account returnAccountByName(String username) {
-        DataCenter dataCenter = DataCenter.getInstance();
-        for (Account account : dataCenter.getAccounts().values()) {
-            if (account.getUsername().equals(username)) {
-                return account;
-            }
-        }
-        return null;
     }
 
     public ArrayList<Card> getGraveYard() {
@@ -87,6 +75,7 @@ public class Account {
     }
 
     public int getNumOfWins() {
+        int numOfWins = 0;
         return numOfWins;
     }
 

@@ -5,11 +5,10 @@ import java.util.Random;
 
 public class AI extends Account {
     private Game game;
-    private Deck mainDdeck;
+    private Deck mainDeck;
     private ArrayList<Card> AICards = new ArrayList<>();
 
     public void setGame(Game game) {
-
         this.game = game;
     }
 
@@ -46,7 +45,7 @@ public class AI extends Account {
         return AICards;
     }
 
-    public Deck getMainDdeck() {
-        return mainDdeck;
+    public Deck getMainDeck() {
+        return mainDeck;
     }
 }

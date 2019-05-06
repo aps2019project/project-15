@@ -13,9 +13,7 @@ public class Collection {
     private ArrayList<Card> myCards = new ArrayList<>();
     private ArrayList<Item> myItems = new ArrayList<>();
     private ArrayList<Deck> myDecks = new ArrayList<>();
-
     View view = View.getInstance();
-    private Request request = new Request();
 
     public void exitCollection() {
         view.exitCollection();
@@ -102,7 +100,7 @@ public class Collection {
         }
     }
 
-    public void addCardToDeck(Card card, String deckName) {
+    private void addCardToDeck(Card card, String deckName) {
         if (!myCards.contains(card)) {
             view.cardNotInCollection();
             return;
@@ -134,13 +132,12 @@ public class Collection {
             view.deckIsNotInCollection();
             return;
         }
-
         if (deck.getName().equals("")) {
             view.deckIsNotInCollection();
         }
     }
 
-    public void addItemToDeck(Item item, String deckName) {
+    private void addItemToDeck(Item item, String deckName) {
         if (!myItems.contains(item)) {
             view.itemNotInCollection();
             return;
@@ -248,7 +245,6 @@ public class Collection {
             view.showHeroInDeck(deck);
         }
         int i = 1;
-        //view.printItemStats(deck.getItem(), i);
         view.showItemsInDeck(deckName);
         if (deck.cards != null) {
             i = 1;
@@ -284,7 +280,7 @@ public class Collection {
         return myItems;
     }
 
-    public ArrayList<Deck> getMyDecks() {
+    ArrayList<Deck> getMyDecks() {
         return myDecks;
     }
 

@@ -2,6 +2,8 @@ package model;
 
 import controller.Controller;
 
+import java.util.Random;
+
 public class Block {
     private boolean poison = false;
     private boolean fire = false;
@@ -18,8 +20,7 @@ public class Block {
     Block(int x, int y) {
         this.x = x;
         this.y = y;
-        int m = (int) Math.random();
-        m %= 10;
+        int m = new Random().nextInt(10);
         if (m == 4) {
             poison = true;
             return;
@@ -33,11 +34,7 @@ public class Block {
         }
     }
 
-    public Card cardContain() {
-        return null;
-    }
-
-    public boolean isEmpty() {
+    boolean isEmpty() {
         return isEmpty;
     }
 
@@ -45,11 +42,11 @@ public class Block {
         return holy;
     }
 
-    public boolean isFire() {
+    private boolean isFire() {
         return fire;
     }
 
-    public boolean isPoison() {
+    private boolean isPoison() {
         return poison;
     }
 
@@ -58,14 +55,14 @@ public class Block {
         this.isEmpty = true;
     }
 
-    public void cardMoverdToBlock(Card card) {
+    public void cardMovedToBlock(Card card) {
         this.card = card;
         this.isEmpty = false;
     }
 
-    public void blockEffect() {
-        if(this.startTurn != -5){
-            if(startTurn + 3 <= Controller.currentGame.getTurn()){
+    void blockEffect() {
+        if (this.startTurn != -5) {
+            if (startTurn + 3 <= Controller.currentGame.getTurn()) {
                 this.holy = false;
             }
         }
@@ -89,7 +86,7 @@ public class Block {
         }
     }
 
-    public void setEmpty(boolean empty) {
+    void setEmpty(boolean empty) {
         isEmpty = empty;
     }
 
@@ -104,7 +101,8 @@ public class Block {
     public Card getCard() {
         return card;
     }
-    public void kaveEffect(){
+
+    void kaveEffect() {
         this.holy = true;
         startTurn = Controller.currentGame.getTurn();
     }
@@ -116,18 +114,16 @@ public class Block {
     public void setCollectible(Collectible collectible) {
         this.collectible = collectible;
     }
-    public void moveCollectible(){
+
+    void moveCollectible() {
         this.collectible = null;
     }
 
-    public void setFlag(Flag flag) {
+    void setFlag(Flag flag) {
         this.flag = flag;
     }
 
-    public Flag getFlag() {
-        return flag;
-    }
-    public void removeFlag(){
+    void removeFlag() {
         this.flag = null;
     }
 }

@@ -69,7 +69,6 @@ public class Controller {
     }
 
     private void handleRequest(Menu currentMenu, String command) throws InputException, CloneNotSupportedException {
-        DataCenter dataCenter = DataCenter.getInstance();
         if (currentMenu.equals(MainMenu.getInstance())) {
             mainMenuRequest(command);
         } else if (currentMenu.equals(AccountMenu.getInstance())) {
@@ -77,7 +76,7 @@ public class Controller {
         } else if (currentMenu.equals(BattleMenu.getInstance())) {
             battleMenuRequest(command);
         } else if (currentMenu.equals(CollectionMenu.getInstance())) {
-            collectionMenuRequest(command, dataCenter);
+            collectionMenuRequest(command);
         } else if (currentMenu.equals(ShopMenu.getInstance())) {
             shopMenuRequest(command);
         } else {
@@ -97,6 +96,7 @@ public class Controller {
             } else {
                 if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
                     view.deckIsBetween();
+                    view.playerOptions();
                     battleMenu.chooseBattleType(command);
                     gameStarted = true;
                 } else {
@@ -149,44 +149,47 @@ public class Controller {
                     id2 = RequestType.ATTACK_COMBO.getMatcher().group(3);
                     game.attackCombo(oppId, id, id2);
                 } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
-
+                    useSpecialPower();
                 } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
-
+                    currentGame.showHand();
                 } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
                     cardInGameInsert(game);
-
                 } else if (RequestType.END_TURN.setMatcher(command).find()) {
                     currentAccount.myTurn = false;
-
+                    game.switchTurn();
                 } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
                     view.showMyCollectibles();
-
                 } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
                     String name = RequestType.SELECT_COLLECTABLE.getMatcher().group(1);
                     game.currentItem = Item.getItemByName(name);
-
                 } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
                     view.showCurrentItem();
                 } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
-
+                    int x = Integer.parseInt(RequestType.USE_LOCATION.getMatcher().group(1));
+                    int y = Integer.parseInt(RequestType.USE_LOCATION.getMatcher().group(2));
+                    game.useItem(currentGame.currentItem, x, y);
                 } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
                     view.showNextCard();
                 } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
                     view.enteredGraveYard();
                     graveYardFunction();
                 } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
-
+                    if (currentAccount.getGraveYard().contains(currentGame.currentCard)) {
+                        System.out.println(currentGame.currentCard);
+                    } else {
+                        view.notInGraveYard();
+                    }
                 } else if (RequestType.END_GAME.setMatcher(command).find()) {
                     if (currentGame.isFinishedGame()) {
                         currentMenu = MainMenu.getInstance();
                     }
                 } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-
+                    view.showMenuOfBattle();
                 } else if (RequestType.EXIT.setMatcher(command).find()) {
                     exit = true;
                     break;
                 } else if (RequestType.HELP.setMatcher(command).find()) {
-                    view.showUserOptions();
+                    game.help();
                 } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
                     view.battleHelp();
                 } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
@@ -224,6 +227,8 @@ public class Controller {
         int x = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(2));
         int y = Integer.parseInt(RequestType.INSERT_CARD_IN_BLOCK.getMatcher().group(3));
         game.addCardsToGame(name, x, y);
+        Card card = Card.returnCardByName(name);
+        currentAccount.addCardInGame(card);
     }
 
     private void showMinionsFunction(Account account) {
@@ -234,7 +239,7 @@ public class Controller {
         }
     }
 
-    private void collectionMenuRequest(String command, DataCenter dataCenter) throws InputException, CloneNotSupportedException {
+    private void collectionMenuRequest(String command) throws InputException, CloneNotSupportedException {
         Collection collection = Controller.currentAccount.getMyCollection();
         if (RequestType.SHOW_COLLECTION.setMatcher(command).find()) {
             view.showCollection();
