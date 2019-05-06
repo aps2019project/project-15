@@ -105,7 +105,7 @@ public class Minion extends Card {
         }
     }
 
-    public void counterAttack(Card card) throws CloneNotSupportedException {
+    public void counterAttack(Card card) throws CloneNotSupportedException{
         if (this.isInRange(card)) {
             card.healthLevel -= this.Ap;
             if (card.healthLevel < 0) {

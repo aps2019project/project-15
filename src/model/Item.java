@@ -36,7 +36,7 @@ public class Item implements Cloneable {
         return null;
     }
 
-    public void itemEffect(Card card) throws CloneNotSupportedException {
+    public void itemEffect(Card card) throws CloneNotSupportedException{
         //todo check ghosleTamid to be called after entering a card
         //todo check that shock hammer is called after hero is attacked
         if (this.getItemName().equalsIgnoreCase("KamaneDamol")) {
@@ -118,7 +118,7 @@ public class Item implements Cloneable {
         }
     }
 
-    private void KamaneDamo(Card card) {
+    private void KamaneDamo(Card card) throws CloneNotSupportedException{
         for (Card lookingForHero : Controller.currentAccount.getCardsInGame()) {
             if (lookingForHero.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                 Hero hero = (Hero) lookingForHero;

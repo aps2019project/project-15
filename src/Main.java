@@ -11,7 +11,7 @@ public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException{
         Controller controller = new Controller();
         controller.main();
     }

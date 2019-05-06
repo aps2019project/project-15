@@ -89,7 +89,7 @@ public class Controller {
         }
     }
 
-    private void battleMenuRequest(String command) throws InputException {
+    private void battleMenuRequest(String command) throws InputException , CloneNotSupportedException{
 
         BattleMenu battleMenu = BattleMenu.getInstance();
         try {
@@ -118,7 +118,7 @@ public class Controller {
         }
     }
 
-    private void gameFunction(Game game) throws InputException, CloneNotSupportedException {
+    private void gameFunction(Game game) throws InputException , CloneNotSupportedException{
         while (!exit) {
             String command = request.getNewCommand();
             if (currentAccount.myTurn) {
