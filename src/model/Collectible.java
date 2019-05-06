@@ -4,6 +4,7 @@ import controller.Controller;
 import view.View;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Collectible extends Item {
 
@@ -39,40 +40,6 @@ public class Collectible extends Item {
         return this;
     }*/
 
-
-    public static void tir3shakh() {
-
-    }
-
-
-    public static void majoonMp() {
-
-    }
-
-    public static void majoonRoointani() {
-
-    }
-
-    public static void nefrinMarg() {
-
-    }
-
-    public static void nooshdaru() {
-
-    }
-
-    public static void randomDamage() {
-
-    }
-
-    public static void bladesOfAgility() {
-
-    }
-
-    public static void shamshirChini() {
-
-    }
-
     static Item returnItemName(String name) {
         for (Item item : allCollectibles) {
             if (item.itemName.equals(name)) {
@@ -80,5 +47,22 @@ public class Collectible extends Item {
             }
         }
         return null;
+    }
+    public static ArrayList<Collectible> getRandomCollectibles(){
+        ArrayList<Collectible> returns = new ArrayList<>();
+        Random random = new Random();
+        Collectible collectible = (Collectible) allCollectibles.get(random.nextInt(allCollectibles.size()));
+        returns.add(collectible);
+        int numbers = random.nextInt(5);
+        for(int i = 0; i < numbers; i++){
+            collectible = (Collectible) allCollectibles.get(random.nextInt(allCollectibles.size()));
+            if(!returns.contains(collectible)){
+                returns.add(collectible);
+            }
+            else {
+                numbers++;
+            }
+        }
+        return returns;
     }
 }

@@ -9,6 +9,7 @@ public class Block {
     private boolean isEmpty = true;
     int startTurn = -5;
     Card card;
+    Collectible collectible;
 
     int x;
     int y;
@@ -105,5 +106,16 @@ public class Block {
     public void kaveEffect(){
         this.holy = true;
         startTurn = Controller.currentGame.getTurn();
+    }
+
+    public Collectible getCollectible() {
+        return collectible;
+    }
+
+    public void setCollectible(Collectible collectible) {
+        this.collectible = collectible;
+    }
+    public void moveCollectible(){
+        this.collectible = null;
     }
 }

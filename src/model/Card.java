@@ -14,7 +14,7 @@ public abstract class Card implements Cloneable {
 
     private String name;
     String description = " ";
-
+    ArrayList<Collectible> collectibles = new ArrayList<>();
     private String cardIdInGame;
     ArrayList<Buff> activatedBuffs = new ArrayList<>();
     boolean sold = false;
@@ -139,6 +139,13 @@ public abstract class Card implements Cloneable {
 
     public Block getCurrentBlock() {
         return currentBlock;
+    }
+
+    public ArrayList<Collectible> getCollectibles() {
+        return collectibles;
+    }
+    public void addToCollectibles(Collectible collectible){
+        collectibles.add(collectible);
     }
 
     public String getCardIdInGame() {

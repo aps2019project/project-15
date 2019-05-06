@@ -3,7 +3,7 @@ package model;
 public class Flag extends Item {
 
     private Block currentBlock;
-
+    public static final int neededTurns = 6;
     Card card;
 
     public Card condition() {
