@@ -44,7 +44,10 @@ public class Game {
     public void setMode(ModeOfGame mode) {
         Mode = mode;
     }
+    public void initialItemAndHeroEffect(){
+        //should be called in turn one and two
 
+    }
 
     private int setInitialPlayer1Mp() {
         if (this.firstTurn == 1) {
@@ -376,6 +379,7 @@ public class Game {
         for (Card card : activeAccount.getCardsInGame()) {
             card.attackedThisTurn = false;
         }
+        map.checkIfCollectibleIsTaken();
         updateGraveYard();
         addToMana();
     }
