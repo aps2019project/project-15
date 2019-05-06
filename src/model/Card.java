@@ -134,7 +134,7 @@ public abstract class Card implements Cloneable {
     public void addActivatedBuff(Buff buff) throws CloneNotSupportedException {
         Buff buffToBeAdded = buff.clone();
         activatedBuffs.add(buffToBeAdded);
-        buff.setStartTurn(Controller.currentAccount.game.getTurn());
+        buff.setStartTurn(Controller.currentGame.getTurn());
     }
 
     public Block getCurrentBlock() {

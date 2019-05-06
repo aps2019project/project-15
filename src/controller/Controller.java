@@ -96,8 +96,6 @@ public class Controller {
                 view.gameIsLoading();
                 Game game = new Game();
                 currentGame = game;
-                currentAccount.setGame(game);
-                enemyAccount.setGame(currentGame);
                 gameFunction(game);
             } else {
                 if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {

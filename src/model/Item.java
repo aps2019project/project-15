@@ -67,11 +67,11 @@ public class Item implements Cloneable {
     }
 
     public void tajeDanaii(String username) {
-        if (Controller.currentAccount.game.getTurn() < 4) {
+        if (Controller.currentGame.getTurn() < 4) {
             if (username.equalsIgnoreCase(Controller.currentAccount.getUsername())) {
-                Controller.currentAccount.game.addPlayerOneMp(1);
+                Controller.currentGame.addPlayerOneMp(1);
             } else {
-                Controller.currentAccount.game.addPlayerTwoMp(1);
+                Controller.currentGame.addPlayerTwoMp(1);
             }
         }
     }
@@ -109,11 +109,11 @@ public class Item implements Cloneable {
     }
 
     private void MajoneMana(Card card) {
-        if (this.buff.getStartTurn() + 1 == Controller.currentAccount.game.getTurn()) {
+        if (this.buff.getStartTurn() + 1 == Controller.currentGame.getTurn()) {
             if (Controller.currentAccount.getCardsInGame().contains(card)) {
-                Controller.currentAccount.game.addPlayerOneMp(3);
+                Controller.currentGame.addPlayerOneMp(3);
             } else {
-                Controller.currentAccount.game.addPlayerTwoMp(3);
+                Controller.currentGame.addPlayerTwoMp(3);
             }
         }
     }
@@ -164,9 +164,9 @@ public class Item implements Cloneable {
     public void KingWisdom(String username) {
         //shuld be called each turn
         if (username.equalsIgnoreCase(Controller.currentAccount.getUsername())) {
-            Controller.currentAccount.game.addPlayerOneMp(1);
+            Controller.currentGame.addPlayerOneMp(1);
         } else {
-            Controller.enemyAccount.game.addPlayerTwoMp(1);
+            Controller.currentGame.addPlayerTwoMp(1);
         }
     }
 

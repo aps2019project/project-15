@@ -61,7 +61,7 @@ public class View {
     }
 
     public void showMyMinions() {
-        Account account = Controller.currentAccount.getGame().getActiveAccount();
+        Account account = Controller.currentGame.getActiveAccount();
         for (Card card : account.getCardsInGame()) {
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
@@ -72,7 +72,7 @@ public class View {
     }
 
     public void showEnemyMinion() {
-        Account account = Controller.currentAccount.getGame().getActiveAccount();
+        Account account = Controller.currentGame.getActiveAccount();
         if (account.equals(Controller.currentAccount)) {
             for (Card card : Controller.enemyAccount.getCardsInGame()) {
                 if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {

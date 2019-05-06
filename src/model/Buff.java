@@ -114,7 +114,7 @@ public class Buff implements Cloneable {
 
 
     public boolean isStillActivated() {
-        return Controller.currentAccount.game.getTurn() <= startTurn + duration;
+        return Controller.currentGame.getTurn() <= startTurn + duration;
     }
 
     public void effect() {
@@ -200,7 +200,7 @@ public class Buff implements Cloneable {
                         jadogareAzamEffect(card);
                     }
             }
-            if (this.card.getName().equalsIgnoreCase("JasoseTorani") && this.startTurn == Controller.currentAccount.game.getTurn()) {
+            if (this.card.getName().equalsIgnoreCase("JasoseTorani") && this.startTurn == Controller.currentGame.getTurn()) {
                 jasoseTorani(card);
             }
         }
@@ -231,9 +231,9 @@ public class Buff implements Cloneable {
     }
 
     private void gorgeSefidEffect() {
-        if (Controller.currentAccount.game.getTurn() == this.startTurn + 1) {
+        if (Controller.currentGame.getTurn() == this.startTurn + 1) {
             this.card.healthLevel -= 6;
-        } else if (Controller.currentAccount.game.getTurn() == this.startTurn + 2) {
+        } else if (Controller.currentGame.getTurn() == this.startTurn + 2) {
             this.card.healthLevel -= 4;
         }
         if (this.card.healthLevel < 0) {

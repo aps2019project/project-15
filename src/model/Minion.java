@@ -251,7 +251,7 @@ public class Minion extends Card {
 
     private ArrayList<Card> naneSarmaCards(Map map, Block block, ArrayList<Card> returns) {
         Account enemy = new Account();
-        if (Controller.currentAccount.getGame().getActiveAccount().equals(Controller.currentAccount)) {
+        if (Controller.currentGame.getActiveAccount().equals(Controller.currentAccount)) {
             enemy = Controller.enemyAccount;
         } else {
             enemy = Controller.currentAccount;
@@ -292,7 +292,7 @@ public class Minion extends Card {
     }
 
     private ArrayList<Card> jenCards(ArrayList<Card> returns) {
-        for (Card card : Controller.currentAccount.game.getActiveAccount().getMainDeck().getCards()) {
+        for (Card card : Controller.currentGame.getActiveAccount().getMainDeck().getCards()) {
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 returns.add(card);
             }
@@ -307,28 +307,28 @@ public class Minion extends Card {
                 Block block1 = map.getBlock(block.x + i, block.y + j);
                 if (block1 != null && block1.getCard() != null) {
                     if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
-                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                            Controller.currentGame.getActiveAccount().getCardsInGame().contains(block1.card)) {
                         returns.add(block.getCard());
                     }
                 }
                 block1 = map.getBlock(block.getX() - i, block.y - j);
                 if (block1 != null && block1.getCard() != null) {
                     if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
-                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                            Controller.currentGame.getActiveAccount().getCardsInGame().contains(block1.card)) {
                         returns.add(block.getCard());
                     }
                 }
                 block1 = map.getBlock(block.x - i, block.y + j);
                 if (block1 != null && block1.getCard() != null) {
                     if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
-                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                            Controller.currentGame.getActiveAccount().getCardsInGame().contains(block1.card)) {
                         returns.add(block.getCard());
                     }
                 }
                 block1 = map.getBlock(block.x + i, block.y - j);
                 if (block1 != null && block1.getCard() != null) {
                     if (block1.getCard().getTypeOfAttack().equals(TypeOfCard.Minion) &&
-                            Controller.currentAccount.game.getActiveAccount().getCardsInGame().contains(block1.card)) {
+                            Controller.currentGame.getActiveAccount().getCardsInGame().contains(block1.card)) {
                         returns.add(block.getCard());
                     }
                 }
