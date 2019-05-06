@@ -773,4 +773,7 @@ public class View {
             System.out.println("There is no card left in deck!");
         }
     }
+    public void gameWon(String winnerName){
+        System.out.println(winnerName + " won the game!");
+    }
 }

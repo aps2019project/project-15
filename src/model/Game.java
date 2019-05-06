@@ -51,7 +51,73 @@ public class Game {
     }
 
     public void endGameSetter(){
+        switch (this.Mode){
+            case killOpponent:
+                killOpponentGameEnded();
+                break;
+            case KeepFlag:
+                keepFlagEndGame();
+                break;
+            case CollectFlags:
+                collectFlagModeEndGame();
+                //todo handle story mode
+        }
+    }
 
+    private void collectFlagModeEndGame() {
+        ArrayList<Card> cardsThatOwnFlag = new ArrayList<>();
+        for(Flag flag : flags){
+            if(flag.card != null){
+                cardsThatOwnFlag.add(flag.card);
+            }
+        }
+        int cardsOfCurrentAccount = 0;
+        int cardsOfEnemyAccount = 0;
+        for(Card card : cardsThatOwnFlag){
+            if(Controller.currentAccount.getCardsInGame().contains(card)){
+                cardsOfCurrentAccount++;
+            }
+        }
+        cardsOfEnemyAccount = cardsThatOwnFlag.size() - cardsOfCurrentAccount;
+        if(cardsOfCurrentAccount >= cardsThatOwnFlag.size()){
+            view.gameWon(Controller.currentAccount.getUsername());
+            Controller.currentAccount.addMoney(1500);
+        }
+        else if(cardsOfEnemyAccount >= cardsThatOwnFlag.size()){
+            view.gameWon(Controller.enemyAccount.getUsername());
+            Controller.enemyAccount.addMoney(1500);
+        }
+    }
+
+    private void keepFlagEndGame() {
+        for(Flag flag : flags){
+            if(flag.singleFlagModeGameWon()){
+                if(Controller.currentAccount.getMainDeck().getCards().contains(flag.card)){
+                    view.gameWon(Controller.currentAccount.getUsername());
+                    Controller.currentAccount.addMoney(1000);
+                }
+                else{
+                    view.gameWon(Controller.enemyAccount.getUsername());
+                    Controller.enemyAccount.addMoney(1000);
+                }
+            }
+        }
+    }
+
+    private void killOpponentGameEnded() {
+        for(Card card : graveYard){
+            if(card.getTypeOfAttack().equals(TypeOfCard.Hero)){
+                if(Controller.currentAccount.getMainDeck().getDeckHero().equals(card)){
+                    view.gameWon(Controller.enemyAccount.getUsername());
+                    Controller.enemyAccount.addMoney(500);
+                }
+                else{
+                    view.gameWon(Controller.currentAccount.getUsername());
+                    Controller.currentAccount.addMoney(500);
+                }
+                setFinishedGame(true);
+            }
+        }
     }
 
     public void addToHistory() {
@@ -110,6 +176,14 @@ public class Game {
                 graveYard.add(card);
                 ghooleTakCheshm(card);
                 Controller.enemyAccount.removeCardInGame(card);
+            }
+        }
+        for(Flag flag : flags){
+            if(flag.card != null) {
+                if (graveYard.contains(flag.card)){
+                    flag.setCurrentBlock(flag.card.getCurrentBlock());
+                    flag.removeCard();
+                }
             }
         }
     }
@@ -403,6 +477,7 @@ public class Game {
         }
         map.checkIfCollectibleOrFlagIsTaken();
         updateGraveYard();
+        endGameSetter();
         addToMana();
     }
 
