@@ -102,8 +102,8 @@ public class View {
         System.out.println("To add card to deck, type 'add [card id] to deck [deck name]' ");
         System.out.println("To add item to deck, type 'add [item id] to deck [deck name]' ");
         System.out.println("To add hero to deck, type 'add [hero id] to deck [deck name]' ");
-        System.out.println("To remove a card from deck, type 'remove [card id] from [deck name]' ");
-        System.out.println("To remove an item from deck, type 'remove [item id] from [deck name]' ");
+        System.out.println("To remove a card from deck, type 'remove [card id] from deck [deck name]' ");
+        System.out.println("To remove an item from deck, type 'remove [item id] from deck [deck name]' ");
         System.out.println("To remove a hero from deck, type 'remove [hero id] from [deck name]' ");
         System.out.println("To check validity of a deck, type 'validate deck [deck name]' ");
         System.out.println("To choose your main deck, type 'select deck [deck name]' ");
@@ -755,11 +755,12 @@ public class View {
             }
         }
     }
-    public void invalidCoordinates(){
+
+    public void invalidCoordinates() {
         System.out.println("Invalid coordinates");
     }
-    public void noSpecialPower(){
+
+    public void noSpecialPower() {
         System.out.println("This card doesn't have any special power");
     }
-
 }
