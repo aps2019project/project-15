@@ -11,7 +11,6 @@ public class DataCenter {
     private ArrayList<Minion> minions = new ArrayList<>();
     private ArrayList<Spell> spells = new ArrayList<>();
     private ArrayList<Item> items = new ArrayList<>();
-
     private ArrayList<Collectible> collectibles = new ArrayList<>();
 
     public static DataCenter getInstance() {

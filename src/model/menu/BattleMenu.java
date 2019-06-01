@@ -28,6 +28,7 @@ public class BattleMenu extends Menu {
             view.getSecondUsername();
             String secondUsername = request.getNewCommand();
             Controller.enemyAccount.setUsername(secondUsername);
+            //todo second player already exists?
             addSecondPLayer();
             String setMode = request.getNewCommand();
             System.out.println(setMode);

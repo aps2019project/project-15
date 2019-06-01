@@ -13,7 +13,6 @@ public class Collectible extends Item {
     private static ArrayList<Collectible> allCollectibles = new ArrayList<>();
 
     public static ArrayList<Collectible> getAllCollectibles() {
-        allCollectibles = DataCenter.getInstance().getCollectibles();
         return allCollectibles;
     }
 
@@ -49,18 +48,18 @@ public class Collectible extends Item {
         return null;
     }
 
-    static ArrayList<Collectible> getRandomCollectibles() {
+    public static ArrayList<Collectible> getRandomCollectibles() {
         ArrayList<Collectible> returns = new ArrayList<>();
         Random random = new Random();
         int num = 1;
-        if (allCollectibles.size() > 0) {
-            num = random.nextInt(allCollectibles.size());
+        if(allCollectibles.size() > 0) {
+            num = random.nextInt(Math.abs(allCollectibles.size()));
         }
         Collectible collectible = allCollectibles.get(Math.abs(num));
         returns.add(collectible);
         int numbers = random.nextInt(5);
         for (int i = 0; i < numbers; i++) {
-            collectible = (Collectible) allCollectibles.get(random.nextInt(allCollectibles.size()));
+            collectible = allCollectibles.get(random.nextInt(allCollectibles.size()));
             if (!returns.contains(collectible)) {
                 returns.add(collectible);
             } else {
@@ -68,6 +67,9 @@ public class Collectible extends Item {
             }
         }
         return returns;
+    }
+    public static void addToCollectibles(Collectible collectible){
+        allCollectibles.add(collectible);
     }
 
     @Override

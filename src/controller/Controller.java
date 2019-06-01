@@ -92,18 +92,18 @@ public class Controller {
             if (gameStarted) {
                 view.gameIsLoading();
                 currentGame = game;
+            }
+            if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
+                view.deckIsBetween();
+                view.playerOptions();
+                battleMenu.chooseBattleType(game, command);
+                gameStarted = true;
                 gameFunction(game);
             } else {
-                if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
-                    view.deckIsBetween();
-                    view.playerOptions();
-                    battleMenu.chooseBattleType(game, command);
-                    gameStarted = true;
-                } else {
-                    view.notValidDeck();
-                    currentMenu = MainMenu.getInstance();
-                }
+                view.notValidDeck();
+                currentMenu = MainMenu.getInstance();
             }
+
         } catch (
                 InputException e) {
             throw new InputException("Invalid command");
@@ -348,6 +348,7 @@ public class Controller {
             view.printAccountMenuOfGame();
         } else if (RequestType.EXIT.setMatcher(command).find()) {
             view.exitMessage();
+            currentAccount.setLoggedIn(false);
             finishGame = true;
         } else if (RequestType.HELP.setMatcher(command).find()) {
             currentAccount.showMenu();
@@ -413,10 +414,8 @@ public class Controller {
     }
 
     private void collectibleAdder() {
-        for (Item item : dataCenter.getItems()) {
-            if (item.getPrice().equals("collectible")) {
-                Collectible.getAllCollectibles().add((Collectible) item);
-            }
+        for (Collectible collectible : dataCenter.getCollectibles()) {
+                Collectible.addToCollectibles(collectible);
         }
     }
 
