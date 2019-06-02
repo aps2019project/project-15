@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Account {
 
     private View view = View.getInstance();
-    public boolean myTurn = false;
+    public boolean myTurn = true;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
 
     private String username;
