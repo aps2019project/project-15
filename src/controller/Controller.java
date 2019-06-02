@@ -88,10 +88,8 @@ public class Controller {
         BattleMenu battleMenu = BattleMenu.getInstance();
         try {
             Game game = new Game();
-            if (gameStarted) {
-                view.gameIsLoading();
-                currentGame = game;
-            }
+            view.gameIsLoading();
+            currentGame = game;
             if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
                 view.deckIsBetween();
                 view.playerOptions();
@@ -114,86 +112,95 @@ public class Controller {
     private void gameFunction(Game game) throws InputException, CloneNotSupportedException {
         while (!exit) {
             String command = request.getNewCommand();
-            if (currentAccount.myTurn) {
-                if (RequestType.GAME_INFO.setMatcher(command).find()) {
-                    if (game.getMode().equals(ModeOfGame.killOpponent)) {
-                        System.out.println(game.player1Hp);
-                        System.out.println(game.player2Hp);
-                    }
-                } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
-                    showMinionsFunction(currentAccount);
-                } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
-                    showMinionsFunction(enemyAccount);
-                } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
-                    game.showCardInfo(RequestType.SHOW_CARD_INFO.getMatcher().group(1));
-                } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
-                    Card card = Card.returnCardByName(RequestType.SELECT_CARD.getMatcher().group(1));
-                    if (card != null) {
-                        currentGame.currentCard = card;
-                    } else {
-                        view.invalidCardId();
-                    }
-                } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
-                    moveCardFunction();
-                } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
-                    attackFunction();
-                } else if (RequestType.ATTACK_COMBO.setMatcher(command).find()) {
-                    String oppId, id, id2;
-                    oppId = RequestType.ATTACK_COMBO.getMatcher().group(1);
-                    id = RequestType.ATTACK_COMBO.getMatcher().group(2);
-                    id2 = RequestType.ATTACK_COMBO.getMatcher().group(3);
-                    game.attackCombo(oppId, id, id2);
-                } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
-                    useSpecialPower();
-                } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
-                    currentGame.showHand();
-                } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
-                    cardInGameInsert(game);
-                } else if (RequestType.END_TURN.setMatcher(command).find()) {
-                    currentAccount.myTurn = false;
-                    game.switchTurn();
-                } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
-                    view.showMyCollectibles();
-                } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
-                    String name = RequestType.SELECT_COLLECTABLE.getMatcher().group(1);
-                    game.currentItem = Item.getItemByName(name);
-                } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
-                    view.showCurrentItem();
-                } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
-                    int x = Integer.parseInt(RequestType.USE_LOCATION.getMatcher().group(1));
-                    int y = Integer.parseInt(RequestType.USE_LOCATION.getMatcher().group(2));
-                    game.useItem(currentGame.currentItem, x, y);
-                } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
-                    view.showNextCard();
-                } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
-                    view.enteredGraveYard();
-                    graveYardFunction();
-                } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
-                    if (currentAccount.getGraveYard().contains(currentGame.currentCard)) {
-                        System.out.println(currentGame.currentCard);
-                    } else {
-                        view.notInGraveYard();
-                    }
-                } else if (RequestType.END_GAME.setMatcher(command).find()) {
-                    if (currentGame.isFinishedGame()) {
-                        currentMenu = MainMenu.getInstance();
-                    }
-                } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
-                    view.showMenuOfBattle();
-                } else if (RequestType.EXIT.setMatcher(command).find()) {
-                    exit = true;
-                    break;
-                } else if (RequestType.HELP.setMatcher(command).find()) {
-                    game.help();
-                } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
-                    view.battleHelp();
-                } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
-                    view.quitGameRequest();
+            //if (currentAccount.myTurn) {
+            if (RequestType.GAME_INFO.setMatcher(command).find()) {
+                if(game == null){
+                    System.out.println("!!!");
+                }
+                if (game.getMode().equals(ModeOfGame.killOpponent)) {
+                    System.out.println(game.player1Hp);
+                    System.out.println(game.player2Hp);
+                }
+            } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
+                showMinionsFunction(currentAccount);
+            } else if (RequestType.SHOW_OPP_MINIONS.setMatcher(command).find()) {
+                showMinionsFunction(enemyAccount);
+            } else if (RequestType.SHOW_CARD_INFO.setMatcher(command).find()) {
+                game.showCardInfo(RequestType.SHOW_CARD_INFO.getMatcher().group(1));
+            } else if (RequestType.SELECT_CARD.setMatcher(command).find()) {
+                Card card = Card.returnCardByName(RequestType.SELECT_CARD.getMatcher().group(1));
+                if (card != null) {
+                    currentGame.currentCard = card;
+                } else {
+                    view.invalidCardId();
+                }
+            } else if (RequestType.MOVE_TO.setMatcher(command).find()) {
+                moveCardFunction();
+            } else if (RequestType.ATTACK_OPP.setMatcher(command).find()) {
+                attackFunction();
+            } else if (RequestType.ATTACK_COMBO.setMatcher(command).find()) {
+                String oppId, id, id2;
+                oppId = RequestType.ATTACK_COMBO.getMatcher().group(1);
+                id = RequestType.ATTACK_COMBO.getMatcher().group(2);
+                id2 = RequestType.ATTACK_COMBO.getMatcher().group(3);
+                game.attackCombo(oppId, id, id2);
+            } else if (RequestType.USE_SPECIAL_POWER.setMatcher(command).find()) {
+                useSpecialPower();
+            } else if (RequestType.SHOW_HAND.setMatcher(command).find()) {
+                currentGame.showHand();
+            } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
+                cardInGameInsert(game);
+            } else if (RequestType.END_TURN.setMatcher(command).find()) {
+                currentAccount.myTurn = false;
+                Account account = enemyAccount;
+                enemyAccount = currentAccount;
+                currentAccount = account;
+                view.turnChanged();
+                game.switchTurn();
+            } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
+                view.showMyCollectibles();
+            } else if (RequestType.SELECT_COLLECTABLE.setMatcher(command).find()) {
+                String name = RequestType.SELECT_COLLECTABLE.getMatcher().group(1);
+                game.currentItem = Item.getItemByName(name);
+            } else if (RequestType.SHOW_INFO.setMatcher(command).find()) {
+                view.showCurrentItem();
+            } else if (RequestType.USE_LOCATION.setMatcher(command).find()) {
+                int x = Integer.parseInt(RequestType.USE_LOCATION.getMatcher().group(1));
+                int y = Integer.parseInt(RequestType.USE_LOCATION.getMatcher().group(2));
+                game.useItem(currentGame.currentItem, x, y);
+            } else if (RequestType.SHOW_NEXT_CARD.setMatcher(command).find()) {
+                view.showNextCard();
+            } else if (RequestType.ENTER_GRAVEYARD.setMatcher(command).find()) {
+                view.enteredGraveYard();
+                graveYardFunction();
+            } else if (RequestType.SHOW_INFO_CARD_ID.setMatcher(command).find()) {
+                if (currentAccount.getGraveYard().contains(currentGame.currentCard)) {
+                    System.out.println(currentGame.currentCard);
+                } else {
+                    view.notInGraveYard();
+                }
+            } else if (RequestType.END_GAME.setMatcher(command).find()) {
+                if (currentGame.isFinishedGame()) {
                     currentMenu = MainMenu.getInstance();
                 }
-            } else {
-                view.notYourTurn();
+            } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
+                view.showMenuOfBattle();
+            } else if (RequestType.EXIT.setMatcher(command).find()) {
+                exit = true;
+                break;
+            } else if (RequestType.HELP.setMatcher(command).find()) {
+                game.help();
+            } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
+                view.battleHelp();
+            } else if (RequestType.QUIT_GAME.setMatcher(command).find()) {
+                view.quitGameRequest();
+                currentMenu = MainMenu.getInstance();
             }
+            //} //else {
+            //view.notYourTurn();
+            //view.turnChanged();
+            //currentAccount.myTurn = true;
+            //}
         }
     }
 
@@ -414,7 +421,7 @@ public class Controller {
 
     private void collectibleAdder() {
         for (Collectible collectible : dataCenter.getCollectibles()) {
-                Collectible.addToCollectibles(collectible);
+            Collectible.addToCollectibles(collectible);
         }
     }
 

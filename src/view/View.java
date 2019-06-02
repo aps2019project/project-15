@@ -779,4 +779,7 @@ public class View {
     public void notInGraveYard() {
         System.out.println("this card is not in graveYard!");
     }
+    public void turnChanged(){
+        System.out.println(Controller.currentAccount.getUsername() + "turn");
+    }
 }
