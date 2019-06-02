@@ -31,17 +31,23 @@ public class BattleMenu extends Menu {
             //todo second player already exists?
             addSecondPLayer();
             String setMode = request.getNewCommand();
-            System.out.println(setMode);
+            while (!RequestType.START_MULTIPLAYER_GAME.setMatcher(setMode).find()){
+                System.out.println("Invalid Mode!");
+                setMode = request.getNewCommand();
+            }
             if (RequestType.START_MULTIPLAYER_GAME.setMatcher(setMode).find()) {
                 int mode = Integer.parseInt(RequestType.START_MULTIPLAYER_GAME.getMatcher().group(1));
                 int numOfFlags = Integer.parseInt(RequestType.START_MULTIPLAYER_GAME.getMatcher().group(2));
                 if (mode == 1) {
                     Controller.currentGame.setMode(ModeOfGame.killOpponent);
+                    System.out.println("kill Opponent");
                 } else if (mode == 2) {
                     Controller.currentGame.setMode(ModeOfGame.KeepFlag);
+                    System.out.println("Keep Flags");
                     game.addFlagsToGame(numOfFlags);
                 } else if (mode == 3) {
                     Controller.currentGame.setMode(ModeOfGame.CollectFlags);
+                    System.out.println("Collect Flags");
                 } else{
                     view.invalidNumber();
                 }

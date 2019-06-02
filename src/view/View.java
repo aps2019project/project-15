@@ -51,13 +51,14 @@ public class View {
     }
 
     public void showMyMinions() {
-        Account account = Controller.currentGame.getActiveAccount();
-        for (Card card : account.getCardsInGame()) {
-            if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
-                System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
-                        + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
-                        + card.getAttackPower());
+        Account account = Controller.currentAccount;
+        if (account.getCardsInGame() != null) {
+            for (Card card : account.getCardsInGame()) {
+                showEnemyMinionsFunc(card);
             }
+        }
+        else {
+            System.out.println("You have no minions in game");
         }
     }
 
@@ -65,20 +66,20 @@ public class View {
         Account account = Controller.currentGame.getActiveAccount();
         if (account.equals(Controller.currentAccount)) {
             for (Card card : Controller.enemyAccount.getCardsInGame()) {
-                if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
-                    System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
-                            + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
-                            + card.getAttackPower());
-                }
+                showEnemyMinionsFunc(card);
             }
         } else {
             for (Card card : Controller.currentAccount.getCardsInGame()) {
-                if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
-                    System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
-                            + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
-                            + card.getAttackPower());
-                }
+                showEnemyMinionsFunc(card);
             }
+        }
+    }
+
+    private void showEnemyMinionsFunc(Card card) {
+        if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
+            System.out.println(card.getCardIdInGame() + " : " + card.getName() + ", health : " + card.getHealthLevel()
+                    + ", location : (" + card.getCurrentBlock().getX() + ", " + card.getCurrentBlock().getY() + "), power : "
+                    + card.getAttackPower());
         }
     }
 

@@ -240,6 +240,9 @@ public class Game {
     }
 
     public void switchTurn() {
+        Account account = Controller.enemyAccount;
+        Controller.enemyAccount = Controller.currentAccount;
+        Controller.currentAccount = account;
         if (this.turn == 1) {
             player2Mp++;
             this.turn = 2;

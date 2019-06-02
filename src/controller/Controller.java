@@ -151,10 +151,9 @@ public class Controller {
             } else if (RequestType.INSERT_CARD_IN_BLOCK.setMatcher(command).find()) {
                 cardInGameInsert(game);
             } else if (RequestType.END_TURN.setMatcher(command).find()) {
+/*
                 currentAccount.myTurn = false;
-                Account account = enemyAccount;
-                enemyAccount = currentAccount;
-                currentAccount = account;
+*/
                 view.turnChanged();
                 game.switchTurn();
             } else if (RequestType.SHOW_COLLECTABLES.setMatcher(command).find()) {
