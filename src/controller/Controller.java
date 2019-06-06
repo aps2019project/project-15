@@ -38,6 +38,7 @@ public class Controller {
         initEverything();
         while (!finishGame) {
             try {
+                System.out.println(currentMenu);
                 handleRequest(currentMenu, request.getNewCommand());
             } catch (InputException e) {
                 View.getInstance().printError(e);
@@ -94,8 +95,18 @@ public class Controller {
                 view.deckIsBetween();
                 view.playerOptions();
                 battleMenu.chooseBattleType(game, command);
+                if(exit){
+                    exit = false;
+                    Controller.currentMenu = MainMenu.getInstance();
+
+                }
                 gameStarted = true;
                 gameFunction(game);
+                if(exit){
+                    exit = false;
+                    currentMenu = MainMenu.getInstance();
+                    //todo exit from here!!!!!!
+                }
             } else {
                 view.notValidDeck();
                 currentMenu = MainMenu.getInstance();
@@ -108,6 +119,7 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
 
     private void gameFunction(Game game) throws InputException, CloneNotSupportedException {
         while (!exit) {
@@ -186,7 +198,7 @@ public class Controller {
                 view.showMenuOfBattle();
             } else if (RequestType.EXIT.setMatcher(command).find()) {
                 exit = true;
-                break;
+                return;
             } else if (RequestType.HELP.setMatcher(command).find()) {
                 game.help();
             } else if (RequestType.HELP_MENU.setMatcher(command).find()) {
@@ -353,7 +365,6 @@ public class Controller {
             view.printAccountMenuOfGame();
         } else if (RequestType.EXIT.setMatcher(command).find()) {
             view.exitMessage();
-            currentAccount.setLoggedIn(false);
             finishGame = true;
         } else if (RequestType.HELP.setMatcher(command).find()) {
             currentAccount.showMenu();
@@ -385,6 +396,7 @@ public class Controller {
             currentMenu = BattleMenu.getInstance();
         } else if (RequestType.EXIT.setMatcher(command).find()) {
             view.exitMessage();
+            currentAccount.setLoggedIn(false);
             currentMenu = AccountMenu.getInstance();
         } else {
             throw new InputException("Invalid command");
@@ -462,4 +474,7 @@ public class Controller {
         currentMenu = AccountMenu.getInstance();
     }
 
+    public void setExit(boolean exit) {
+        this.exit = exit;
+    }
 }

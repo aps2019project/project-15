@@ -7,6 +7,7 @@ import model.menu.CollectionMenu;
 import model.menu.ShopMenu;
 import model.Hero;
 
+
 public class View {
     private static View ourInstance = new View();
 
@@ -117,7 +118,7 @@ public class View {
     public void accountMenuHelp() {
         System.out.println("To create account , enter 'create account [username]' ");
         System.out.println("To login , enter 'login [username]' ");
-        System.out.println("To see leaderboard , type 'enter leaderboard' ");
+        System.out.println("To see leaderboard , type 'show leaderboard' ");
     }
 
     public void battleHelp() {
@@ -782,5 +783,11 @@ public class View {
     }
     public void turnChanged(){
         System.out.println(Controller.currentAccount.getUsername() + "turn");
+    }
+    public void rightPassword(){
+        System.out.println("password is not correct!");
+    }
+    public void enemyWithoutMainDeck(){
+        System.out.println("enemy doesn't have a main deck, log in with enemy account to choose a main deck or chose another enemy.");
     }
 }

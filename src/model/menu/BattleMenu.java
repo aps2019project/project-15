@@ -2,6 +2,7 @@ package model.menu;
 
 import controller.Controller;
 import model.Account;
+import model.DataCenter;
 import model.Game;
 import model.ModeOfGame;
 import view.InputException;
@@ -25,11 +26,27 @@ public class BattleMenu extends Menu {
             view.singlePlayerMode();
             chooseBattleMode();
         } else if (RequestType.MULTI_PLAYER.setMatcher(command).find()) {
-            view.getSecondUsername();
-            String secondUsername = request.getNewCommand();
-            Controller.enemyAccount.setUsername(secondUsername);
-            //todo second player already exists?
-            addSecondPLayer();
+            boolean secondPlayerChosen = false;
+            while (!secondPlayerChosen) {
+                view.getSecondUsername();
+                String secondUsername = request.getNewCommand();
+                if(RequestType.EXIT.setMatcher(secondUsername).find()){
+                    Controller.getInstance().setExit(false);
+                    return;
+                }
+                Controller.enemyAccount = DataCenter.getInstance().getAccountByName(secondUsername);
+                if (Controller.enemyAccount == null) {
+                    Controller.enemyAccount.setUsername(secondUsername);
+                    addSecondPLayer();
+                } else {
+                    loginToSecondPlayer();
+                }
+                secondPlayerChosen = true;
+                if (Controller.enemyAccount.getMainDeck().getDeckHero() == null) {
+                    view.enemyWithoutMainDeck();
+                    secondPlayerChosen = false;
+                }
+            }
             String setMode = request.getNewCommand();
             while (!RequestType.START_MULTIPLAYER_GAME.setMatcher(setMode).find()){
                 System.out.println("Invalid Mode!");
@@ -59,6 +76,16 @@ public class BattleMenu extends Menu {
         } else {
             throw new InputException("Invalid command");
         }
+    }
+
+    private void loginToSecondPlayer() {
+        view.getSecondPassword();
+        String password = request.getNewCommand();
+        while (!password.equals(Controller.enemyAccount.getPassword())){
+            view.rightPassword();
+            password = request.getNewCommand();
+        }
+        view.gameIsBetween(Controller.currentAccount, Controller.enemyAccount);
     }
 
     private void addSecondPLayer() {
