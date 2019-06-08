@@ -1,5 +1,6 @@
 package model.menu;
 
+import controller.Controller;
 import model.DataCenter;
 import model.Account;
 import view.View;
@@ -34,6 +35,7 @@ public class AccountMenu extends Menu {
                 if (account.getPassword().equals(password)) {
                     view.usernameLoggedIn(account);
                     loggedIn = true;
+                    Controller.currentAccount = account;
                 } else {
                     view.incorrectPassword();
                 }
