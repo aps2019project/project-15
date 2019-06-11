@@ -14,12 +14,10 @@ public class Main extends Application {
         Parent accountMenu = FXMLLoader.load(AccountMenu.class.getResource("AccountMenu.fxml"));
 
 
-
         primaryStage.setTitle("DUELYST");
         primaryStage.setScene(new Scene(accountMenu, 1000, 700));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);
