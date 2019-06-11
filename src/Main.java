@@ -17,7 +17,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
 
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(root, 1000, 700));
+        primaryStage.setScene(new Scene(root, 3000, 1000));
         primaryStage.show();
     }
 

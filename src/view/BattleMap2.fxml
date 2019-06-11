@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="909.0" prefWidth="1613.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="916.0" fitWidth="1621.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/maps/redrock/background@2x.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="912.0" fitWidth="1621.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/maps/redrock/midground@2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="932.0" fitWidth="647.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/maps/redrock/foreground@2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="922.0" fitWidth="1621.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../resources/maps/redrock/midground_glow@2x.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="502.0" layoutY="310.0" prefHeight="72.0" prefWidth="602.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="502.0" layoutY="382.0" prefHeight="72.0" prefWidth="602.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="502.0" layoutY="456.0" prefHeight="72.0" prefWidth="602.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="502.0" layoutY="528.0" prefHeight="72.0" prefWidth="602.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+      <HBox layoutX="502.0" layoutY="600.0" prefHeight="72.0" prefWidth="602.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

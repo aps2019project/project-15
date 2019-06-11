@@ -16,7 +16,7 @@ public class Controller {
     private Request request = new Request();
     private static Controller controller = new Controller();
     private View view = View.getInstance();
-    public static Menu currentMenu = new AccountMenu();
+    public static Menu currentMenu = new model.menu.AccountMenu();
     private boolean finishGame = false;
     private static DataCenter dataCenter = DataCenter.getInstance();
     private Shop shop = Shop.getInstance();
@@ -68,7 +68,7 @@ public class Controller {
     private void handleRequest(Menu currentMenu, String command) throws InputException, CloneNotSupportedException {
         if (currentMenu.equals(MainMenu.getInstance())) {
             mainMenuRequest(command);
-        } else if (currentMenu.equals(AccountMenu.getInstance())) {
+        } else if (currentMenu.equals(model.menu.AccountMenu.getInstance())) {
             accountMenuRequest(command);
         } else if (currentMenu.equals(BattleMenu.getInstance())) {
             battleMenuRequest(command);
@@ -295,7 +295,7 @@ public class Controller {
         }
     }
 
-    private void RegisterAccountFunction(AccountMenu accountMenu) {
+    private void RegisterAccountFunction(model.menu.AccountMenu accountMenu) {
         String command;
         String username = RequestType.CREATE_ACCOUNT.getMatcher().group(1);
         while (true) {
@@ -344,7 +344,7 @@ public class Controller {
     }
 
     private void accountMenuRequest(String command) throws InputException {
-        AccountMenu accountMenu = AccountMenu.getInstance();
+        model.menu.AccountMenu accountMenu = model.menu.AccountMenu.getInstance();
         if (RequestType.CREATE_ACCOUNT.setMatcher(command).find()) {
             RegisterAccountFunction(accountMenu);
         } else if (RequestType.LOGIN.setMatcher(command).find()) {
@@ -377,7 +377,7 @@ public class Controller {
             view.saveEverything();
         } else if (RequestType.LOGOUT.setMatcher(command).find()) {
             view.logOutMessage();
-            currentMenu = AccountMenu.getInstance();
+            currentMenu = model.menu.AccountMenu.getInstance();
             Account account = Controller.currentAccount;
             account.setLoggedIn(false);
         } else if (RequestType.SHOW_MENU.setMatcher(command).find()) {
@@ -394,7 +394,7 @@ public class Controller {
         } else if (RequestType.EXIT.setMatcher(command).find()) {
             view.exitMessage();
             currentAccount.setLoggedIn(false);
-            currentMenu = AccountMenu.getInstance();
+            currentMenu =model.menu.AccountMenu.getInstance();
         } else {
             throw new InputException("Invalid command");
         }
@@ -468,7 +468,7 @@ public class Controller {
     }
 
     private void setCurrentMenu() {
-        currentMenu = AccountMenu.getInstance();
+        currentMenu = model.menu.AccountMenu.getInstance();
     }
 
     public void setExit(boolean exit) {
