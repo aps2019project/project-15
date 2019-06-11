@@ -13,11 +13,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent mainMenu = FXMLLoader.load(Graphic.class.getResource("Graphic.fxml"));
-        //Parent root = FXMLLoader.load(AccountMenu.class.getResource("AccountMenu.fxml"));
-        Parent root = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
+        Parent AccountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
+        Parent CollectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
+        Parent ShopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
 
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(root, 3000, 1000));
+        primaryStage.setScene(new Scene(ShopMenu, 3000, 1000));
         primaryStage.show();
     }
 

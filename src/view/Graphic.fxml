@@ -26,7 +26,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Text fill="#e8154a" fontSmoothingType="LCD" layoutX="255.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DUELYST" textAlignment="CENTER" wrappingWidth="212.11572265625">
+      <Text fx:id="name" fill="#e8154a" fontSmoothingType="LCD" layoutX="255.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DUELYST" textAlignment="CENTER" wrappingWidth="212.11572265625">
          <font>
             <Font size="44.0" />
          </font>
