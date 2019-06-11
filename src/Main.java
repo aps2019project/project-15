@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import view.AccountMenu;
 import view.Graphic;
 import view.PersonOverview;
 
@@ -13,10 +14,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Graphic.class.getResource("Graphic.fxml"));
+        Parent mainMenu = FXMLLoader.load(Graphic.class.getResource("Graphic.fxml"));
+        Parent accountMenu = FXMLLoader.load(AccountMenu.class.getResource("AccountMenu.fxml"));
 
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 400));
+
+
+        primaryStage.setTitle("DUELYST");
+        primaryStage.setScene(new Scene(accountMenu, 1000, 700));
         primaryStage.show();
     }
 
