@@ -2,13 +2,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import view.AccountMenu;
 import view.Graphic;
-import view.PersonOverview;
-
-import java.awt.*;
 
 public class Main extends Application {
 
