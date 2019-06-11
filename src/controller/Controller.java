@@ -3,10 +3,7 @@ package controller;
 import com.google.gson.Gson;
 import model.*;
 import model.menu.*;
-import view.InputException;
-import view.Request;
-import view.RequestType;
-import view.View;
+import view.*;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -75,7 +72,7 @@ public class Controller {
             accountMenuRequest(command);
         } else if (currentMenu.equals(BattleMenu.getInstance())) {
             battleMenuRequest(command);
-        } else if (currentMenu.equals(CollectionMenu.getInstance())) {
+        } else if (currentMenu.equals(model.menu.CollectionMenu.getInstance())) {
             collectionMenuRequest(command);
         } else if (currentMenu.equals(ShopMenu.getInstance())) {
             shopMenuRequest(command);
