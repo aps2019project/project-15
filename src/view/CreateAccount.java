@@ -25,14 +25,23 @@ public class CreateAccount {
     public void createAccount(MouseEvent mouseEvent) throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        AccountMenu accountMenu = new AccountMenu();
-        Controller.currentAccount = accountMenu.register(username , password);
-        System.out.println("Account created!");
-        Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
-        Stage primaryStage = UI.getInstance().getPrimaryStage();
-        primaryStage.setTitle("Duelyst");
-        primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
-        primaryStage.show();
+        boolean lenght = false;
+        if(password.length() < 4){
+            view.View.getInstance().shortPassword();
+        }
+        else {
+            lenght = true;
+        }
+        if(lenght) {
+            AccountMenu accountMenu = new AccountMenu();
+            Controller.currentAccount = accountMenu.register(username, password);
+            System.out.println("Account created!");
+            Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
+            Stage primaryStage = UI.getInstance().getPrimaryStage();
+            primaryStage.setTitle("Duelyst");
+            primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
+            primaryStage.show();
+        }
     }
 
     public void exit(MouseEvent mouseEvent) throws IOException {

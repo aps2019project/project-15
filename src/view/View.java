@@ -410,7 +410,7 @@ public class View {
     }
 
     public void shortPassword() {
-        System.out.println("password is too short! try again.");
+        alertMmessage("password is too short! try again.");
     }
 
     public void invalidUsername() {

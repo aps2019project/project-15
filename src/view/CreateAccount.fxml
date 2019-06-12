@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1914.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../resources/scenes/load/scene_load_background@2x.jpg" />
+            <Image url="@/scenes/load/scene_load_background@2x.jpg" />
          </image>
       </ImageView>
       <Button layoutX="731.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="66.0" prefWidth="308.0" text="Create account">

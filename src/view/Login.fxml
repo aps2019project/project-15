@@ -34,7 +34,7 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Button layoutX="831.0" layoutY="708.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" text="Return" />
+      <Button layoutX="831.0" layoutY="708.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="161.0" text="Return" onMouseClicked="#exit"/>
       <Label layoutX="201.0" layoutY="45.0" prefHeight="273.0" prefWidth="273.0" text="Login!">
          <font>
             <Font name="Norasi Bold Italic" size="88.0" />
