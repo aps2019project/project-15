@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AccountMenu {
+
     public void createAccount(MouseEvent mouseEvent) throws IOException {
         Parent createAccount = FXMLLoader.load(view.CreateAccount.class.getResource("CreateAccount.fxml"));
         Stage primaryStage = UI.getInstance().getPrimaryStage();

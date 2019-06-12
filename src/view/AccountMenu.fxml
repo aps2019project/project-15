@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AccountMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1042.0" prefWidth="1914.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AccountMenu">
     <children>
-        <ImageView fitHeight="241.0" fitWidth="1920.0" layoutY="120.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" scaleY="2.1">
+        <ImageView fitHeight="1074.0" fitWidth="1920.0" layoutY="-4.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@/scenes/frostfire/foreground.png" />
+                <Image url="@/scenes/frostfire/background@2x.jpg" />
             </image>
             <cursor>
                 <Cursor fx:constant="S_RESIZE" />
@@ -27,14 +27,14 @@
                 </DisplacementMap>
             </effect>
         </ImageView>
-        <VBox layoutX="14.0" layoutY="71.0" prefHeight="351.0" prefWidth="176.0" spacing="25.0">
+        <VBox layoutX="14.0" layoutY="71.0" prefHeight="672.0" prefWidth="224.0" spacing="25.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" onMouseClicked="#login" text="Login">
+                <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="100.0" prefWidth="160.0" text="Login">
                     <padding>
                         <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" onMouseClicked="#createAccount" text="Create account">
+                <Button mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="100.0" prefWidth="160.0" text="Create account">
                     <padding>
                         <Insets bottom="10.0" top="10.0" />
                     </padding>
@@ -54,7 +54,7 @@
                         <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" onMouseClicked="#exit" text="Exit">
+                <Button mnemonicParsing="false" onMouseClicked="#exit" prefHeight="100.0" prefWidth="160.0" text="Exit">
                     <padding>
                         <Insets bottom="10.0" top="10.0" />
                     </padding>
@@ -64,5 +64,14 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </VBox>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="167.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-10.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="401.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="566.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="447.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="385.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
