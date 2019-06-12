@@ -1,9 +1,15 @@
 package view;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Graphic {
     @FXML
@@ -18,7 +24,12 @@ public class Graphic {
         System.out.println("help");
     }
 
-    public void shopMenufunc(MouseEvent mouseEvent) {
+    public void shopMenufunc(MouseEvent mouseEvent) throws IOException {
+        Parent shopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
+
+/*        primaryStage.setTitle("Shop menu!");
+        primaryStage.setScene(new Scene(shopMenu, 3000, 1000));
+        primaryStage.show();*/
         System.out.println("shop menu function");
     }
 
