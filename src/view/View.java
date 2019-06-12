@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import javafx.scene.control.Alert;
 import model.DataCenter;
 import model.*;
 import model.menu.CollectionMenu;
@@ -409,10 +410,11 @@ public class View {
     }
 
     public void shortPassword() {
-        System.out.println("password is too short! try again.");
+        alertMmessage("password is too short! try again.");
     }
 
     public void invalidUsername() {
+        alertMmessage("Username does not exist");
         System.out.println("username is not valid!");
     }
 
@@ -470,11 +472,19 @@ public class View {
     }
 
     public void incorrectPassword() {
+        alertMmessage("your password is incorrect!");
         System.out.println("your password is incorrect!");
 
     }
 
+    private void alertMmessage(String s) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setContentText(s);
+        alert.show();
+    }
+
     public void alreadyLoggedIn() {
+        alertMmessage("you have already logged in!");
         System.out.println("you have already logged in!");
     }
 

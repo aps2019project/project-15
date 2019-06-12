@@ -92,18 +92,8 @@ public class Controller {
                 view.deckIsBetween();
                 view.playerOptions();
                 battleMenu.chooseBattleType(game, command);
-                if(exit){
-                    exit = false;
-                    Controller.currentMenu = MainMenu.getInstance();
-
-                }
                 gameStarted = true;
                 gameFunction(game);
-                if(exit){
-                    exit = false;
-                    currentMenu = MainMenu.getInstance();
-                    //todo exit from here!!!!!!
-                }
             } else {
                 view.notValidDeck();
                 currentMenu = MainMenu.getInstance();
@@ -353,7 +343,7 @@ public class Controller {
                 String username = RequestType.LOGIN.getMatcher().group(1);
                 view.enterPassword();
                 command = request.getNewCommand();
-                ok = accountMenu.loginFunction(username, command, dataCenter);
+                ok = accountMenu.loginFunction(username, command);
             }
             currentMenu = MainMenu.getInstance();
         } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {

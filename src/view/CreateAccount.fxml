@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.Light?>
+<?import javafx.scene.effect.Light.Distant?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-border-color: green;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CreateAccount">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1914.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/scenes/load/scene_load_background@2x.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="731.0" layoutY="383.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="66.0" prefWidth="308.0" text="Create account">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <effect>
+            <Lighting specularConstant="0.34">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant color="#c0ff12" />
+               </light>
+            </Lighting>
+         </effect></Button>
+      <TextField fx:id="usernameField" layoutX="731.0" layoutY="115.0" prefHeight="60.0" prefWidth="268.0" promptText="username" />
+      <PasswordField fx:id="passwordField" layoutX="731.0" layoutY="210.0" prefHeight="60.0" prefWidth="268.0" promptText="password" />
+      <Button layoutX="731.0" layoutY="530.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="249.0" onMouseClicked="#exit" text="Return">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="162.0" layoutY="194.0" prefHeight="99.0" prefWidth="255.0" style="-fx-background-color: lightblue; -fx-background-radius: 100; -fx-background-size: 15;" text="create your account!" textFill="#ff0808">
+         <font>
+            <Font name="FreeSerif Italic" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

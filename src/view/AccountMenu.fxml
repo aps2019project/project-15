@@ -10,59 +10,58 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AccountMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1042.0" prefWidth="1914.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.AccountMenu">
     <children>
-        <ImageView fitHeight="241.0" fitWidth="764.0" layoutY="120.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" scaleY="2.1">
+        <ImageView fitHeight="1074.0" fitWidth="1920.0" layoutY="-4.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@/scenes/frostfire/foreground.png"/>
+                <Image url="@/scenes/frostfire/background@2x.jpg" />
             </image>
             <cursor>
-                <Cursor fx:constant="S_RESIZE"/>
+                <Cursor fx:constant="S_RESIZE" />
             </cursor>
             <effect>
                 <DisplacementMap>
                     <mapData>
-                        <FloatMap/>
+                        <FloatMap />
                     </mapData>
                 </DisplacementMap>
             </effect>
         </ImageView>
-        <VBox layoutX="14.0" layoutY="71.0" prefHeight="351.0" prefWidth="176.0" spacing="25.0">
+        <VBox layoutX="14.0" layoutY="71.0" prefHeight="672.0" prefWidth="224.0" spacing="25.0">
             <children>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Login">
+                <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="100.0" prefWidth="160.0" text="Login">
                     <padding>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Create account">
+                <Button mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="100.0" prefWidth="160.0" text="Create account">
                     <padding>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
                 <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Show leaderboard">
                     <padding>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
                 <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Help">
                     <padding>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
                 <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Show Menu">
                     <padding>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Exit">
+                <Button mnemonicParsing="false" onMouseClicked="#exit" prefHeight="100.0" prefWidth="160.0" text="Exit">
                     <padding>
-                        <Insets bottom="10.0" top="10.0"/>
+                        <Insets bottom="10.0" top="10.0" />
                     </padding>
                 </Button>
             </children>
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </VBox>
     </children>
