@@ -9,7 +9,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import model.Account;
 import model.menu.AccountMenu;
 
 import java.io.IOException;
@@ -21,18 +20,17 @@ public class CreateAccount {
     @FXML
     public PasswordField passwordField;
 
-
     public void createAccount(MouseEvent mouseEvent) throws IOException {
+
         String username = usernameField.getText();
         String password = passwordField.getText();
         boolean lenght = false;
-        if(password.length() < 4){
+        if (password.length() < 4) {
             view.View.getInstance().shortPassword();
-        }
-        else {
+        } else {
             lenght = true;
         }
-        if(lenght) {
+        if (lenght) {
             AccountMenu accountMenu = new AccountMenu();
             Controller.currentAccount = accountMenu.register(username, password);
             System.out.println("Account created!");
