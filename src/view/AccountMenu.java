@@ -15,6 +15,7 @@ public class AccountMenu {
         primaryStage.setTitle("New Account!");
         primaryStage.setScene(new Scene(createAccount, 3000, 1000));
         primaryStage.show();
+        System.out.println("ok");
     }
 
     public void exit(MouseEvent mouseEvent) {

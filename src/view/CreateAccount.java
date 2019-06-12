@@ -13,7 +13,6 @@ import model.Account;
 import model.menu.AccountMenu;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class CreateAccount {
 
@@ -26,7 +25,6 @@ public class CreateAccount {
     public void createAccount(MouseEvent mouseEvent) throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-        Account account = new Account();
         AccountMenu accountMenu = new AccountMenu();
         Controller.currentAccount = accountMenu.register(username , password);
         System.out.println("Account created!");
