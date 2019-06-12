@@ -14,7 +14,7 @@
     <children>
         <ImageView fitHeight="1036.0" fitWidth="2415.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@/scenes/frostfire/background@2x.jpg"/>
+                <Image url="/scenes/frostfire/background@2x.jpg"/>
             </image>
         </ImageView>
         <VBox layoutX="57.0" layoutY="225.0" prefHeight="687.0" prefWidth="199.0" spacing="100.0">
