@@ -26,18 +26,28 @@ public class Graphic {
 
     public void shopMenufunc(MouseEvent mouseEvent) throws IOException {
         Parent shopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
-
-/*        primaryStage.setTitle("Shop menu!");
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Shop menu!");
         primaryStage.setScene(new Scene(shopMenu, 3000, 1000));
-        primaryStage.show();*/
+        primaryStage.show();
         System.out.println("shop menu function");
     }
 
-    public void collectionMenufunc(MouseEvent mouseEvent) {
+    public void collectionMenufunc(MouseEvent mouseEvent) throws IOException {
         System.out.println("collection menu function");
+        Parent CollectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Collection menu");
+        primaryStage.setScene(new Scene(CollectionMenu, 3000, 1000));
+        primaryStage.show();
     }
 
-    public void battleMenuFunc(MouseEvent mouseEvent) {
+    public void battleMenuFunc(MouseEvent mouseEvent) throws IOException {
         System.out.println("battle menu function");
+        Parent battleMenu = FXMLLoader.load(view.BattleMenuController.class.getResource("BattleMenuController.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Battle menu");
+        primaryStage.setScene(new Scene(battleMenu, 3000, 1000));
+        primaryStage.show();
     }
 }
