@@ -92,18 +92,8 @@ public class Controller {
                 view.deckIsBetween();
                 view.playerOptions();
                 battleMenu.chooseBattleType(game, command);
-                if(exit){
-                    exit = false;
-                    Controller.currentMenu = MainMenu.getInstance();
-
-                }
                 gameStarted = true;
                 gameFunction(game);
-                if(exit){
-                    exit = false;
-                    currentMenu = MainMenu.getInstance();
-                    //todo exit from here!!!!!!
-                }
             } else {
                 view.notValidDeck();
                 currentMenu = MainMenu.getInstance();
