@@ -18,7 +18,7 @@ public class Main extends Application {
         Parent ShopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
 
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(ShopMenu, 3000, 1000));
+        primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
         primaryStage.show();
     }
 
