@@ -17,6 +17,7 @@ public class Graphic {
     public Text name;
 
     public void exit(MouseEvent mouseEvent) {
+        UI.getInstance().getPrimaryStage().close();
         System.out.println("you clicked exit");
     }
 
@@ -24,7 +25,7 @@ public class Graphic {
         System.out.println("help");
     }
 
-    public void shopMenufunc(MouseEvent mouseEvent) throws IOException {
+    public void shopMenuFunc(MouseEvent mouseEvent) throws IOException {
         Parent shopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
         Stage primaryStage = UI.getInstance().getPrimaryStage();
         primaryStage.setTitle("Shop menu!");
@@ -33,7 +34,7 @@ public class Graphic {
         System.out.println("shop menu function");
     }
 
-    public void collectionMenufunc(MouseEvent mouseEvent) throws IOException {
+    public void collectionMenuFunc(MouseEvent mouseEvent) throws IOException {
         System.out.println("collection menu function");
         Parent CollectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
         Stage primaryStage = UI.getInstance().getPrimaryStage();
