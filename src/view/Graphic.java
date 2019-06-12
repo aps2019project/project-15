@@ -17,7 +17,6 @@ public class Graphic {
     public Text name;
 
     public void exit(MouseEvent mouseEvent) {
-        UI.getInstance().getPrimaryStage().close();
         System.out.println("you clicked exit");
     }
 

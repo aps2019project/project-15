@@ -35,7 +35,7 @@
                         <Insets bottom="10.0" top="10.0"/>
                     </padding>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Create account">
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" onMouseClicked="#createAccount" text="Create account">
                     <padding>
                         <Insets bottom="10.0" top="10.0"/>
                     </padding>
@@ -55,7 +55,7 @@
                         <Insets bottom="10.0" top="10.0"/>
                     </padding>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" text="Exit">
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" onMouseClicked="#exit" text="Exit">
                     <padding>
                         <Insets bottom="10.0" top="10.0"/>
                     </padding>
