@@ -35,6 +35,5 @@ public class CreateAccount {
         primaryStage.setTitle("Duelyst");
         primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
         primaryStage.show();
-        System.out.println("shop menu function");
     }
 }

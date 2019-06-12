@@ -27,8 +27,8 @@ public class AccountMenu extends Menu {
         return account;
     }
 
-    public boolean loginFunction(String username, String password, DataCenter dataCenter) {
-        Account account = dataCenter.getAccountByName(username);
+    public boolean loginFunction(String username, String password) {
+        Account account = DataCenter.getInstance().getAccountByName(username);
         boolean loggedIn = false;
         if (account != null) {
             if (!account.isLoggedIn()) {

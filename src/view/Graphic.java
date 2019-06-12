@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,8 +17,14 @@ public class Graphic {
     public ImageView image;
     public Text name;
 
-    public void exit(MouseEvent mouseEvent) {
+    public void exit(MouseEvent mouseEvent) throws IOException{
         System.out.println("you clicked exit");
+        Controller.currentAccount.setLoggedIn(false);
+        Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Account Menu!");
+        primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
+        primaryStage.show();
     }
 
     public void help(MouseEvent mouseEvent) {

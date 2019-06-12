@@ -343,7 +343,7 @@ public class Controller {
                 String username = RequestType.LOGIN.getMatcher().group(1);
                 view.enterPassword();
                 command = request.getNewCommand();
-                ok = accountMenu.loginFunction(username, command, dataCenter);
+                ok = accountMenu.loginFunction(username, command);
             }
             currentMenu = MainMenu.getInstance();
         } else if (RequestType.SHOW_LEADER_BOARD.setMatcher(command).find()) {

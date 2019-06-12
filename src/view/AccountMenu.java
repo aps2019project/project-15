@@ -20,4 +20,12 @@ public class AccountMenu {
     public void exit(MouseEvent mouseEvent) {
         UI.getInstance().getPrimaryStage().close();
     }
+
+    public void login(MouseEvent mouseEvent) throws IOException {
+        Parent login = FXMLLoader.load(view.Login.class.getResource("Login.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Login!");
+        primaryStage.setScene(new Scene(login, 3000, 1000));
+        primaryStage.show();
+    }
 }
