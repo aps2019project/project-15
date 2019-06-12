@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CollectionMenu">
     <children>
       <ImageView fitHeight="757.0" fitWidth="959.0" layoutX="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,7 +35,7 @@
                 <Button mnemonicParsing="false" text="Show deck" />
                 <Button mnemonicParsing="false" text="show all decks" />
                 <Button mnemonicParsing="false" text="Button" />
-                <Button mnemonicParsing="false" text="Exit" />
+                <Button mnemonicParsing="false" text="Exit" onMouseClicked="#exit"/>
                 <Button mnemonicParsing="false" text="Button" />
                 <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="327.0">
                     <buttons>

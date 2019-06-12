@@ -36,4 +36,13 @@ public class CreateAccount {
         primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
         primaryStage.show();
     }
+
+    public void exit(MouseEvent mouseEvent) throws IOException {
+        Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Account Menu!");
+        primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
+        primaryStage.show();
+    }
+
 }

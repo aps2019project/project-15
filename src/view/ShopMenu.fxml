@@ -21,7 +21,7 @@
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Buy card"/>
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Sell card"/>
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Help"/>
-                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Exit"/>
+                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Exit" onMouseClicked="#exit"/>
             </children>
         </VBox>
         <Label layoutX="539.0" layoutY="17.0" prefHeight="82.0" prefWidth="191.0" text="Shop">
