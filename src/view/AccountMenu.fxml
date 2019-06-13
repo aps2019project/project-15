@@ -84,7 +84,7 @@
                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
         </VBox>
-      <Label contentDisplay="CENTER" layoutX="691.0" layoutY="14.0" prefHeight="137.0" prefWidth="370.0" text="Welcome!!! :-)" textFill="#ae1313">
+      <Label contentDisplay="CENTER" layoutX="691.0" layoutY="14.0" prefHeight="137.0" prefWidth="370.0" text="Welcome!!! :-) " textFill="#ae1313">
          <font>
             <Font name="Chilanka Regular" size="60.0" />
          </font>
