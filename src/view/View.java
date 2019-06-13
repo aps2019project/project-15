@@ -58,8 +58,7 @@ public class View {
             for (Card card : account.getCardsInGame()) {
                 showEnemyMinionsFunc(card);
             }
-        }
-        else {
+        } else {
             System.out.println("You have no minions in game");
         }
     }
@@ -682,7 +681,7 @@ public class View {
     }
 
     public void notValidDeck() {
-        System.out.println("you have not chosen a valid deck!");
+        alertMmessage("you have not chosen a valid deck!");
     }
 
     public void invalidCardId() {
@@ -791,13 +790,17 @@ public class View {
     public void notInGraveYard() {
         System.out.println("this card is not in graveYard!");
     }
-    public void turnChanged(){
+
+    public void turnChanged() {
         System.out.println(Controller.currentAccount.getUsername() + "turn");
     }
-    public void rightPassword(){
+
+    public void rightPassword() {
         System.out.println("password is not correct!");
     }
-    public void enemyWithoutMainDeck(){
+
+    public void enemyWithoutMainDeck() {
         System.out.println("enemy doesn't have a main deck, log in with enemy account to choose a main deck or chose another enemy.");
+
     }
 }
