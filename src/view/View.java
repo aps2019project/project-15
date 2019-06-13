@@ -682,7 +682,7 @@ public class View {
     }
 
     public void notValidDeck() {
-        System.out.println("you have not chosen a valid deck!");
+        alertMmessage("you have not chosen a valid deck!");
     }
 
     public void invalidCardId() {
