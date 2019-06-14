@@ -35,7 +35,6 @@ public class ShopMenuController {
         primaryStage.show();
     }
     public void initialize(){
-        System.out.println("initializing");
         for(Card card : Shop.getInstance().getAllHeroes()){
             hero.getChildren().add(cardInfo(card));
         }
@@ -69,7 +68,9 @@ public class ShopMenuController {
                 Hero hero = (Hero) card;
                 text.setText(hero.toString());
         }
-        cardBackground.setOpacity(0.7);
+        cardBackground.setOpacity(0.6);
+        cardBackground.setFitHeight(300.0);
+        cardBackground.setFitWidth(230.0);
         text.setStyle("-fx-font-weight : bold ; -fx-font-size : 16");
         cardInfo.setAlignment(Pos.CENTER);
         cardInfo.getChildren().addAll(cardBackground, text);

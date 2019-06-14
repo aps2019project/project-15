@@ -7,6 +7,6 @@
   "Ap": 1,
   "attackType": "melee",
   "range": 0,
-  "activationType": "12 holy buffs for 12 turns",
+  "activationType": "12 holy \nbuffs for 12 turns",
   "activationTime": "Passive"
 }

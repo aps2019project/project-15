@@ -7,6 +7,6 @@
   "Ap": 12,
   "attackType": "melee",
   "range": 0,
-  "activationType": "can not be poisoned",
+  "activationType": "can not \nbe poisoned",
   "activationTime": "On Defend"
 }

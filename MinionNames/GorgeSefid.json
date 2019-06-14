@@ -7,6 +7,6 @@
   "Ap": 2,
   "attackType": "melee",
   "range": 0,
-  "activationType": "after attacking a minion \nloses 6 units of hp in the next turn\n and 4 units in the turn after that\n for 2 turns",
+  "activationType": "after \nattacking a minion loses \n6 units of hp in the next turn\n and 4 units in the turn after \nthat for 2 turns",
   "activationTime": "On Attack"
 }

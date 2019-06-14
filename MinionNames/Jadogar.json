@@ -7,6 +7,6 @@
   "Ap": 4,
   "attackType": "ranged",
   "range": 3,
-  "activationType": "to itself and each self minion\n 8 blocks around it gives a buff with\n 2 units of ap increase and a buff\n with 1 unit of hp decrease",
+  "activationType": "to itself and \neach self minion 8 blocks \naround it gives a buff with \n2 units of ap increase and \na buff with 1 unit of \nhp decrease",
   "activationTime": "Passive"
 }

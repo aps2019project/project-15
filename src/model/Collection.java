@@ -19,6 +19,9 @@ public class Collection {
         view.exitCollection();
         Controller.currentMenu = MainMenu.getInstance();
     }
+    public ArrayList<Card> myCards(){
+        return myCards;
+    }
 
     public void showCollection() {
         view.heroStats();

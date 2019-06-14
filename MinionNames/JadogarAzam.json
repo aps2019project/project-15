@@ -7,6 +7,6 @@
   "Ap": 6,
   "attackType": "ranged",
   "range": 5,
-  "activationType": "gives itself and each self minion\n in 8 neighbour blocks a buff with 2 units\n of ap increase and a buff for\n the rest of the game",
+  "activationType": "gives itself \nand each self minion in 8 \nneighbour blocks a buff \nwith 2 units of ap increase\n and a buff for the\n rest of the game",
   "activationTime": "Passive"
 }

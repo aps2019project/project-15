@@ -6,7 +6,7 @@
   "Ap": 4,
   "counterAttack": "melee",
   "attackArea": 0,
-  "description": "disarm 1 force",
+  "description": "disarm 1 \nforce",
   "manaSpecialPower": 0,
   "coolDown": 1
 }

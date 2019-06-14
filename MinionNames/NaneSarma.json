@@ -7,6 +7,6 @@
   "Ap": 4,
   "attackType": "ranged",
   "range": 5,
-  "activationType": "enemy minions in 8 neighbour blocks\n are stunned for 1 turn",
+  "activationType": "enemy \nminions in 8 neighbour \nblocks are stunned for \n1 turn",
   "activationTime": "On Spawn"
 }

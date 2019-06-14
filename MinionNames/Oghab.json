@@ -7,6 +7,6 @@
   "Ap": 2,
   "attackType": "ranged",
   "range": 3,
-  "activationType": "power buff with hp increase for 10 units",
+  "activationType": "power buff \nwith hp increase for 10 units",
   "activationTime": "passive"
 }

@@ -6,7 +6,7 @@
   "Ap": 4,
   "counterAttack": "melee",
   "attackArea": 0,
-  "description": "stun all enemy forces for 1 turn",
+  "description": "stun all \nenemy forces for 1 turn",
   "manaSpecialPower": 5,
   "coolDown": 8
 }

@@ -6,7 +6,7 @@
   "Ap": 3,
   "counterAttack": "ranged",
   "attackArea": 3,
-  "description": "dispel one of enemy forces",
+  "description": "dispel one \nof enemy forces",
   "manaSpecialPower": 1,
   "coolDown": 2
 }
