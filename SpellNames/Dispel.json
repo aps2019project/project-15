@@ -4,5 +4,5 @@
   "id": "162",
   "mp": 0,
   "range": "1 self or enemy force",
-  "description": "destroys enemy positive buff and self negetive buff"
+  "description": "destroys enemy positive buff \nand self negative buff"
 }

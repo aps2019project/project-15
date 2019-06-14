@@ -7,6 +7,6 @@
   "Ap": 4,
   "attackType": "melee",
   "range": 0,
-  "activationType": "the attacked force will lose all positive effects",
+  "activationType": "the attacked force will lose\n all positive effects",
   "activationTime": "On Attack"
 }

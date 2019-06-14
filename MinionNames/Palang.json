@@ -7,6 +7,6 @@
   "Ap": 2,
   "attackType": "melee",
   "range": 0,
-  "activationType": "the next turn of its attack to a minion the minion loses 8 hp",
+  "activationType": "the next turn of its attack to \na minion the minion loses 8 hp",
   "activationTime": "On Attack"
 }

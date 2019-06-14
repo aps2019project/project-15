@@ -7,6 +7,6 @@
   "Ap": 6,
   "attackType": "melee",
   "range": 0,
-  "activationType": "Force the enemy for 1 round disarm and for 4 turns Poisoning",
+  "activationType": "Force the enemy for 1 round\n disarm and for 4 turns Poisoning",
   "activationTime": "On Attack"
 }

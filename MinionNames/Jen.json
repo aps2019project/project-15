@@ -7,6 +7,6 @@
   "Ap": 4,
   "attackType": "ranged",
   "range": 4,
-  "activationType": "gives all self minion a power buff with 1 unit of ap for the rest of the game",
+  "activationType": "gives all self minion a power buff \nwith 1 unit of ap for the rest of the game",
   "activationTime": "On Turn"
 }

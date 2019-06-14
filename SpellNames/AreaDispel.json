@@ -4,5 +4,5 @@
   "id": "152",
   "mp": 2,
   "range": "2*2 square",
-  "description": "destroys enemy positive buffs and your own negative buffs"
+  "description": "destroys enemy positive buffs\n and your own negative buffs"
 }

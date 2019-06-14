@@ -7,6 +7,6 @@
   "Ap": 1,
   "attackType": "melee",
   "range": 0,
-  "activationType": "a weakness buff the minion loses 6 hp in the next turn",
+  "activationType": "a weakness buff the minion \nloses 6 hp in the next turn",
   "activationTime": "On Attack"
 }
