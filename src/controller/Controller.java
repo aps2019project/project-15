@@ -46,7 +46,7 @@ public class Controller {
         }
     }
 
-    private void initEverything() {
+    public void initEverything() {
         try {
             setCurrentMenu();
             addJSONFiles();

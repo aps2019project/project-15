@@ -77,17 +77,17 @@
             </Label>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <content>
-                  <HBox prefHeight="216.0" prefWidth="1140.0" />
+                  <HBox fx:id="hero" prefHeight="216.0" prefWidth="1140.0" />
                </content>
             </ScrollPane>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <content>
-                  <HBox alignment="CENTER" prefHeight="220.0" prefWidth="1142.0" />
+                  <HBox fx:id="minion" alignment="CENTER" prefHeight="220.0" prefWidth="1142.0" />
                </content>
             </ScrollPane>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <content>
-                  <HBox prefHeight="221.0" prefWidth="1137.0" />
+                  <HBox fx:id="spell" prefHeight="221.0" prefWidth="1137.0" />
                </content>
             </ScrollPane>
          </children>

@@ -34,7 +34,7 @@ public class leaderboard {
         primaryStage.show();
     }
 
-    public void show(MouseEvent mouseEvent) {
+    public void initialize() {
         this.setLeaderBoard();
     }
 }

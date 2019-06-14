@@ -6,7 +6,7 @@
   "Ap": 2,
   "counterAttack": "ranged",
   "attackArea": 6,
-  "description": "a weakness buff with 4 units of ap decrease to all forces which exist at hero row",
+  "description": "a weakness buff with 4 units of ap decrease \nto all forces which exist at hero row",
   "manaSpecialPower": 2,
   "coolDown": 2
 }
