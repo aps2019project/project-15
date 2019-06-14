@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ShopMenuController {
+public class BattleMenu {
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
         Stage primaryStage = UI.getInstance().getPrimaryStage();
