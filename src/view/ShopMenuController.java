@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -24,6 +25,7 @@ public class ShopMenuController {
     public HBox minion;
     public HBox spell;
     public TextArea cardName;
+    public TextField SellOrBuy;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
@@ -33,7 +35,8 @@ public class ShopMenuController {
         primaryStage.show();
     }
     public void initialize(){
-        cardName.setBackground(Background.EMPTY);
+        SellOrBuy.setText("remaining money : " + Controller.currentAccount.getMoney());
+        SellOrBuy.setOpacity(0.7);
         for(Card card : Shop.getInstance().getAllHeroes()){
             hero.getChildren().add(cardInfo(card));
         }
@@ -77,12 +80,19 @@ public class ShopMenuController {
     }
 
     public void buy(MouseEvent mouseEvent) {
-        Shop.getInstance().buy(cardName.getText());
-
+        boolean bought = Shop.getInstance().buy(cardName.getText());
+        if(bought){
+            SellOrBuy.setText("Card is Bought!" + " remaining money : " + Controller.currentAccount.getMoney());
+            SellOrBuy.setVisible(true);
+        }
     }
 
     public void sell(MouseEvent mouseEvent) {
-        Shop.getInstance().sell(cardName.getText());
+        boolean sold = Shop.getInstance().sell(cardName.getText());
+        if(sold){
+            SellOrBuy.setText("Card is Sold!"+ " remaining money : " + Controller.currentAccount.getMoney() );
+            SellOrBuy.setVisible(true);
+        }
     }
     //public Pane itemInfo(Item item){
 

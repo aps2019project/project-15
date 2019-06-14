@@ -50,6 +50,7 @@
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Return" />
             </children>
         </VBox>
+        <TextField fx:id="SellOrBuy" prefHeight="50" prefWidth="300" layoutX="900.0" layoutY="0.0" style="-fx-background-color : limegreen;" />
       <GridPane layoutX="319.0" layoutY="92.0" prefHeight="834.0" prefWidth="1480.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="163.0" />
