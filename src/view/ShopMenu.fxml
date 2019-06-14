@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TextArea?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1874.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShopMenuController">
     <children>
         <ImageView fitHeight="1032.0" fitWidth="1920.0" layoutX="5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
@@ -37,14 +38,14 @@
                       <Font name="DejaVu Serif Bold" size="81.0" />
                   </font>
               </Label>
-            <TextField fx:id="cardId" prefHeight="65.0" prefWidth="343.0" promptText="enter card id" scaleX="0.6" style="-fx-background-color: orange;">
+            <TextArea fx:id="cardName" prefHeight="65.0" prefWidth="343.0" promptText="enter card name" scaleX="0.6" style="-fx-background-color: orange;">
                <font>
                   <Font size="22.0" />
                </font>
-            </TextField>
+            </TextArea>
             <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Search card" />
-                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Buy card" />
-                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Sell card" />
+                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Buy card" onMouseClicked="#buy"/>
+                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Sell card" onMouseClicked="#sell"/>
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Help" />
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Return" />
             </children>

@@ -1,16 +1,14 @@
 package view;
 
-import controller.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
-import javafx.scene.effect.BlendMode;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -20,12 +18,12 @@ import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class ShopMenuController {
     public HBox hero;
     public HBox minion;
     public HBox spell;
+    public TextArea cardName;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
@@ -35,6 +33,7 @@ public class ShopMenuController {
         primaryStage.show();
     }
     public void initialize(){
+        cardName.setBackground(Background.EMPTY);
         for(Card card : Shop.getInstance().getAllHeroes()){
             hero.getChildren().add(cardInfo(card));
         }
@@ -75,6 +74,15 @@ public class ShopMenuController {
         cardInfo.setAlignment(Pos.CENTER);
         cardInfo.getChildren().addAll(cardBackground, text);
         return cardInfo;
+    }
+
+    public void buy(MouseEvent mouseEvent) {
+        Shop.getInstance().buy(cardName.getText());
+
+    }
+
+    public void sell(MouseEvent mouseEvent) {
+        Shop.getInstance().sell(cardName.getText());
     }
     //public Pane itemInfo(Item item){
 

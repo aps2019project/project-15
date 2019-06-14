@@ -439,15 +439,15 @@ public class View {
     }
 
     public void itemOrCardIsNotInShop() {
-        System.out.println("No card or item with this name exists in shop");
+        alertMmessage("No card or item with this name exists in shop");
     }
 
     public void notEnoughMoney() {
-        System.out.println("You don't have enough money");
+        alertMmessage("You don't have enough money");
     }
 
     public void tooManyItemsInMyCollection() {
-        System.out.println("You already have 3 items in your collection");
+        alertMmessage("You already have 3 items in your collection");
     }
 
     public void itemBought() {
@@ -459,7 +459,7 @@ public class View {
     }
 
     public void notOwnThisCardOrItem() {
-        System.out.println("You don't own any card or item with this name");
+        alertMmessage("You don't own any card or item with this name");
     }
 
     public void cardSold() {
