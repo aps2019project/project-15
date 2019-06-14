@@ -47,7 +47,7 @@
                   <Font name="Jamrul" size="18.0" />
                </font>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Show leaderboard">
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0" style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Show leaderboard" onMouseClicked="#showLeaderBoard">
                     <padding>
                         <Insets bottom="10.0" top="10.0" />
                     </padding>
