@@ -54,7 +54,7 @@ public class Graphic {
         if (Controller.currentAccount.getMainDeck() == null || !Controller.currentAccount.getMainDeck().validated) {
             View.getInstance().notValidDeck();
         } else {
-            Parent battleMenu = FXMLLoader.load(view.BattleMenuController.class.getResource("BattleMenuController.fxml"));
+            Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
             Stage primaryStage = UI.getInstance().getPrimaryStage();
             primaryStage.setTitle("Battle menu");
             primaryStage.setScene(new Scene(battleMenu, 3000, 1000));
