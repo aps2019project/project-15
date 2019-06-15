@@ -121,7 +121,6 @@ public class Shop {
         return false;
     }
 
-
     public void show() {
         view.showMinions();
         view.showSpells();

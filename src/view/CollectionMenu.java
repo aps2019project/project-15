@@ -52,17 +52,17 @@ public class CollectionMenu {
                     spells.getChildren().add(cardInfo(card));
             }
         }
-        for(Item item : Controller.currentAccount.getMyCollection().myItems()){
+        for (Item item : Controller.currentAccount.getMyCollection().myItems()) {
             items.getChildren().add(itemInfo(item));
         }
-        for(Deck deck : Controller.currentAccount.getMyCollection().myDecks()){
+        for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
 
         }
     }
     //private Pane deckInfo(Deck deck){
 
     //}
-    private Pane itemInfo(Item item){
+    private Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
         Image image = new Image("card_backgrounds/card_back_gauntlet.png");
