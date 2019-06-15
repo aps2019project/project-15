@@ -96,7 +96,7 @@ public class Shop {
             view.notEnoughMoney();
             return false;
         }
-        if (item != null && item.getPrice().matches("\\d+") && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
+        if (item != null && item.getPrice().matches("\\d+") && Controller.currentAccount.getMyCollection().myItems().size() >= 3) {
             view.tooManyItemsInMyCollection();
             return false;
         }
@@ -155,7 +155,7 @@ public class Shop {
         Card card = Card.returnCardByName(name);
         card = Controller.currentAccount.getMyCollection().findCardInCollection(card);
         boolean realItem = false;
-        if (Controller.currentAccount.getMyCollection().getMyItems().contains(item)) {
+        if (Controller.currentAccount.getMyCollection().myItems().contains(item)) {
             realItem = true;
         }
         if (card == null && item == null && !realItem) {
@@ -168,7 +168,7 @@ public class Shop {
             Controller.currentAccount.getMyCollection().removeCardFromCollection(card);
             Controller.currentAccount.addMoney(card.getPrice());
             card.numOfCardInCollection--;
-            for (Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()) {
+            for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
                 deck.getCards().remove(card);
             }
             view.cardSold();
@@ -178,7 +178,7 @@ public class Shop {
         if (item != null && realItem) {
             Controller.currentAccount.getMyCollection().removeItemFromCollection(item);
             Controller.currentAccount.addMoney(Integer.parseInt(item.getPrice()));
-            for (Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()) {
+            for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
                 deck.getCards().remove(card);
             }
             view.itemSold();

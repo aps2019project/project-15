@@ -88,7 +88,7 @@ public class Deck {
     }
 
     public static Deck returnDeckByName(String name) {
-        for (Deck deck : Controller.currentAccount.getMyCollection().getMyDecks()) {
+        for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
             if (deck.name.equals(name)) {
                 return deck;
             }

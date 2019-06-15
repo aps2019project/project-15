@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -26,6 +27,8 @@ public class CollectionMenu {
     public Button mycards;
     public Button myitems;
     public Button mydecks;
+    public GridPane cards;
+    public GridPane myItems;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -36,6 +39,7 @@ public class CollectionMenu {
     }
 
     public void initialize() {
+        myItems.setVisible(false);
         for (Card card : Controller.currentAccount.getMyCollection().myCards()) {
             switch (card.getTypeOfAttack()) {
                 case Hero:
@@ -49,7 +53,7 @@ public class CollectionMenu {
             }
         }
         for(Item item : Controller.currentAccount.getMyCollection().myItems()){
-
+            items.getChildren().add(itemInfo(item));
         }
         for(Deck deck : Controller.currentAccount.getMyCollection().myDecks()){
 
@@ -65,7 +69,7 @@ public class CollectionMenu {
         imageView.setImage(image);
         Text text = new Text();
         text.setText(item.toString());
-        imageView.setOpacity(0.6);
+        imageView.setOpacity(0.5);
         text.setStyle("-fx-font-weight : bold ; -fx-font-size : 16");
         imageView.setFitHeight(340.0);
         imageView.setFitWidth(250.0);
@@ -107,9 +111,13 @@ public class CollectionMenu {
     }
 
     public void showCards(MouseEvent mouseEvent) {
+        myItems.setVisible(false);
+        cards.setVisible(true);
     }
 
     public void showItems(MouseEvent mouseEvent) {
+        cards.setVisible(false);
+        myItems.setVisible(true);
     }
 
     public void showDecks(MouseEvent mouseEvent) {
