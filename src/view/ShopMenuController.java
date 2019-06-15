@@ -1,20 +1,19 @@
 package view;
 
 import controller.Controller;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
@@ -26,6 +25,7 @@ public class ShopMenuController {
     public HBox minion;
     public HBox spell;
     public TextArea cardName;
+    public AnchorPane shop;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
@@ -97,6 +97,39 @@ public class ShopMenuController {
             alert.show();
         }
     }
+
+    public void search(MouseEvent mouseEvent) {
+        Card card = Card.returnCardByName(cardName.getText());
+        if(card == null){
+            View.getInstance().itemOrCardIsNotInShop();
+        }
+        else{
+            StackPane result = new StackPane();
+            ImageView imageView = new ImageView();
+            Image image = new Image("card_backgrounds/card_back_snowchaser@2x.png");
+            imageView.setImage(image);
+            StringBuilder info = new StringBuilder();
+            info.append("type : " + card.getTypeOfAttack() + "\n");
+            info.append(card.toString());
+            Text text = new Text(info.toString());
+            text.setStyle("-fx-font-size : 16; -fx-font-weight : bold");
+            Button button = new Button("return");
+            button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 16");
+            result.getChildren().addAll(imageView, text);
+            result.relocate(800, 200);
+            button.relocate(978, 800);
+            button.setPrefSize(100, 50);
+            shop.getChildren().addAll(result, button);
+            button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    shop.getChildren().removeAll(result, button);
+                }
+            });
+            UI.getInstance().getPrimaryStage().show();
+        }
+    }
+    //public Pane itemInfo(Item item){
 
     //public Pane itemInfo(Item item){
 
