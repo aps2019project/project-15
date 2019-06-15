@@ -247,7 +247,7 @@ public class View {
     }
 
     public void deckAlreadyExists() {
-        System.out.println("A deck already exists with this name");
+        alertMmessage("A deck already exists with this name");
     }
 
     public void cardNotInCollection() {
@@ -802,5 +802,8 @@ public class View {
     public void enemyWithoutMainDeck() {
         System.out.println("enemy doesn't have a main deck, log in with enemy account to choose a main deck or chose another enemy.");
 
+    }
+    public void deckNameNotEntered(){
+        alertMmessage("Enter the name of the deck");
     }
 }
