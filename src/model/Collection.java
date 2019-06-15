@@ -22,6 +22,12 @@ public class Collection {
     public ArrayList<Card> myCards(){
         return myCards;
     }
+    public ArrayList<Item> myItems(){
+        return myItems;
+    }
+    public ArrayList<Deck> myDecks(){
+        return myDecks;
+    }
 
     public void showCollection() {
         view.heroStats();
@@ -55,7 +61,7 @@ public class Collection {
     }
 
     boolean hasCard(Card card) {
-        return this.getMyCards().contains(card);
+        return this.myCards().contains(card);
     }
 
     public void searchInCollection(String name) {
@@ -78,7 +84,7 @@ public class Collection {
     }
 
     public void createDeck(String name) {
-        if (Controller.currentAccount.getMyCollection().getMyDecks() != null) {
+        if (Controller.currentAccount.getMyCollection().myDecks() != null) {
             for (Deck item : myDecks) {
                 if (item.getName().equals(name)) {
                     view.deckAlreadyExists();
@@ -275,18 +281,6 @@ public class Collection {
 
     }
 
-    private ArrayList<Card> getMyCards() {
-        return myCards;
-    }
-
-    ArrayList<Item> getMyItems() {
-        return myItems;
-    }
-
-    ArrayList<Deck> getMyDecks() {
-        return myDecks;
-    }
-
     void addCardToCollection(Card card) {
         this.myCards.add(card);
     }
@@ -310,7 +304,7 @@ public class Collection {
     }
 
     Item findItemInCollection(Item item) {
-        for (Item item1 : this.getMyItems()) {
+        for (Item item1 : this.myItems()) {
             if (item1 == item) {
                 return item1;
             }

@@ -13,10 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import model.Card;
-import model.Hero;
-import model.Minion;
-import model.Spell;
+import model.*;
 
 import java.io.IOException;
 
@@ -46,6 +43,30 @@ public class CollectionMenu {
                     spells.getChildren().add(cardInfo(card));
             }
         }
+        for(Item item : Controller.currentAccount.getMyCollection().myItems()){
+
+        }
+        for(Deck deck : Controller.currentAccount.getMyCollection().myDecks()){
+
+        }
+    }
+    //private Pane deckInfo(Deck deck){
+
+    //}
+    private Pane itemInfo(Item item){
+        StackPane itemInfo = new StackPane();
+        ImageView imageView = new ImageView();
+        Image image = new Image("card_backgrounds/card_back_gauntlet.png");
+        imageView.setImage(image);
+        Text text = new Text();
+        text.setText(item.toString());
+        imageView.setOpacity(0.6);
+        text.setStyle("-fx-font-weight : bold ; -fx-font-size : 16");
+        imageView.setFitHeight(340.0);
+        imageView.setFitWidth(250.0);
+        itemInfo.setAlignment(Pos.CENTER);
+        itemInfo.getChildren().addAll(imageView, text);
+        return itemInfo;
     }
 
     private Pane cardInfo(Card card) {
@@ -78,5 +99,14 @@ public class CollectionMenu {
         cardInfo.setAlignment(Pos.CENTER);
         cardInfo.getChildren().addAll(cardBackground, text);
         return cardInfo;
+    }
+
+    public void showCards(MouseEvent mouseEvent) {
+    }
+
+    public void showItems(MouseEvent mouseEvent) {
+    }
+
+    public void showDecks(MouseEvent mouseEvent) {
     }
 }
