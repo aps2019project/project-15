@@ -100,21 +100,18 @@ public class ShopMenuController {
 
     public void search(MouseEvent mouseEvent) {
         Card card = Card.returnCardByName(cardName.getText());
-        if(card == null){
+        if (card == null) {
             View.getInstance().itemOrCardIsNotInShop();
-        }
-        else{
+        } else {
             StackPane result = new StackPane();
             ImageView imageView = new ImageView();
             Image image = new Image("card_backgrounds/card_back_snowchaser@2x.png");
             imageView.setImage(image);
-            StringBuilder info = new StringBuilder();
-            info.append("type : " + card.getTypeOfAttack() + "\n");
-            info.append(card.toString());
-            Text text = new Text(info.toString());
-            text.setStyle("-fx-font-size : 16; -fx-font-weight : bold");
-            Button button = new Button("return");
-            button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 16");
+            String info = ("Type : " + card.getTypeOfAttack() + "\n") + card.toString();
+            Text text = new Text(info);
+            text.setStyle("-fx-font-size : 16; -fx-font-weight : bolder");
+            Button button = new Button("Return");
+            button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 16; -fx-font-weight: bold");
             result.getChildren().addAll(imageView, text);
             result.relocate(800, 200);
             button.relocate(978, 800);
