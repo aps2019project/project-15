@@ -36,5 +36,6 @@ public class leaderboard {
 
     public void initialize() {
         this.setLeaderBoard();
+        leaderBoard.setStyle("-fx-font-size : 23");
     }
 }
