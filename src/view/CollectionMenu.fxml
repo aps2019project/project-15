@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -41,11 +40,17 @@
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Search" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="createDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Create deck" textAlignment="CENTER" onMouseClicked="#createDeck">
                     <VBox.margin>
@@ -54,55 +59,69 @@
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="addToDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Add to deck" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="removeFromDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Remove from deck" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="validateDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Validate deck" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="selectDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Select deck" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="deleteDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Delete deck" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button fx:id="showDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Show deck" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
                 <Button mnemonicParsing="false" onMouseClicked="#exit" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="ًReturn" textAlignment="CENTER">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="MOVE" />
+               </cursor>
                 </Button>
             </children>
-            <effect>
-                <Lighting diffuseConstant="1.62" specularConstant="0.0">
-                    <bumpInput>
-                        <Shadow />
-                    </bumpInput>
-                    <light>
-                        <Light.Distant color="#4fb6ff" />
-                    </light>
-                </Lighting>
-            </effect>
         </VBox>
-        <Label layoutX="511.0" layoutY="66.0" prefHeight="99.0" prefWidth="304.0" rotate="-31.0" text="Collection">
+        <Label layoutX="293.0" layoutY="68.0" prefHeight="140.0" prefWidth="364.0" rotate="-31.0" text="Collection">
             <font>
                 <Font name="Ubuntu Mono Bold Italic" size="50.0" />
             </font>
@@ -205,6 +224,11 @@
                         <VBox fx:id="deckNames" prefHeight="300.0" prefWidth="230.0" />
                     </content>
                 </ScrollPane>
+                <ScrollPane prefHeight="500.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <content>
+                  <HBox prefHeight="194.0" prefWidth="882.0" />
+               </content>
+                </ScrollPane>
                 <Label prefHeight="187.0" prefWidth="217.0" text="Decks" textFill="#bf1f74">
                     <font>
                         <Font name="Ani" size="75.0" />
@@ -215,11 +239,6 @@
                         <Font name="Ani" size="73.0" />
                     </font>
                 </Label>
-                <ScrollPane prefHeight="500.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <content>
-                        <VBox fx:id="cardsInDeck" prefHeight="500.0" prefWidth="200.0" />
-                    </content>
-                </ScrollPane>
             </children>
         </GridPane>
     </children>
