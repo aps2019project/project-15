@@ -116,6 +116,7 @@ public class Shop {
         if (Controller.currentAccount.getMyCollection().addItemToCollection(item)) {
             view.itemBought();
             view.remainingMoney();
+            return true;
         }
         return false;
     }

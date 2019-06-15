@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -26,6 +25,9 @@ public class ShopMenuController {
     public HBox spell;
     public TextArea cardName;
     public AnchorPane shop;
+    public GridPane showCardSection;
+    public GridPane showItemSection;
+    public HBox Item;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
@@ -36,6 +38,7 @@ public class ShopMenuController {
     }
 
     public void initialize() {
+        showItemSection.setVisible(false);
         cardName.setBackground(Background.EMPTY);
         for (Card card : Shop.getInstance().getAllHeroes()) {
             hero.getChildren().add(cardInfo(card));
@@ -46,6 +49,24 @@ public class ShopMenuController {
         for (Card card : Shop.getInstance().getAllSpells()) {
             spell.getChildren().add(cardInfo(card));
         }
+        for(Item item : Shop.getInstance().getAllItems()){
+            Item.getChildren().add(itemInfo(item));
+        }
+    }
+    private Pane itemInfo(Item item){
+        StackPane itemInfo = new StackPane();
+        ImageView imageView = new ImageView();
+        Image image = new Image("card_backgrounds/card_back_gauntlet.png");
+        imageView.setImage(image);
+        Text text = new Text();
+        text.setText(item.toString());
+        imageView.setOpacity(0.6);
+        text.setStyle("-fx-font-weight : bold ; -fx-font-size : 16");
+        imageView.setFitHeight(340.0);
+        imageView.setFitWidth(250.0);
+        itemInfo.setAlignment(Pos.CENTER);
+        itemInfo.getChildren().addAll(imageView, text);
+        return itemInfo;
     }
 
     private Pane cardInfo(Card card) {
@@ -100,36 +121,52 @@ public class ShopMenuController {
 
     public void search(MouseEvent mouseEvent) {
         Card card = Card.returnCardByName(cardName.getText());
-        if(card == null){
+        model.Item item = model.Item.getItemByName(cardName.getText());
+        StackPane result = new StackPane();
+        ImageView imageView = new ImageView();
+        Image image = new Image("card_backgrounds/card_back_snowchaser@2x.png");
+        imageView.setImage(image);
+        Text text = new Text();
+        text.setStyle("-fx-font-size : 16; -fx-font-weight : bold");
+        Button button = new Button("return");
+        button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 16");
+        StringBuilder info = new StringBuilder();
+        if(card == null && item == null){
             View.getInstance().itemOrCardIsNotInShop();
+            return;
         }
-        else{
-            StackPane result = new StackPane();
-            ImageView imageView = new ImageView();
-            Image image = new Image("card_backgrounds/card_back_snowchaser@2x.png");
-            imageView.setImage(image);
-            StringBuilder info = new StringBuilder();
+        else if(card != null){
             info.append("type : " + card.getTypeOfAttack() + "\n");
             info.append(card.toString());
-            Text text = new Text(info.toString());
-            text.setStyle("-fx-font-size : 16; -fx-font-weight : bold");
-            Button button = new Button("return");
-            button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 16");
-            result.getChildren().addAll(imageView, text);
-            result.relocate(800, 200);
-            button.relocate(978, 800);
-            button.setPrefSize(100, 50);
-            shop.getChildren().addAll(result, button);
-            button.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    shop.getChildren().removeAll(result, button);
-                }
-            });
-            UI.getInstance().getPrimaryStage().show();
         }
+        else{
+            info.append("type : Item\n");
+            info.append(item.toString());
+        }
+        text.setText(info.toString());
+        result.getChildren().addAll(imageView, text);
+        result.relocate(800, 200);
+        button.relocate(978, 800);
+        button.setPrefSize(100, 50);
+        shop.getChildren().addAll(result, button);
+        button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                shop.getChildren().removeAll(result, button);
+            }
+        });
+        UI.getInstance().getPrimaryStage().show();
     }
-    //public Pane itemInfo(Item item){
+
+    public void cardsDisplay(MouseEvent mouseEvent) {
+        showItemSection.setVisible(false);
+        showCardSection.setVisible(true);
+    }
+
+    public void itemDisplay(MouseEvent mouseEvent) {
+        showCardSection.setVisible(false);
+        showItemSection.setVisible(true);
+    }
 
     //public Pane itemInfo(Item item){
 

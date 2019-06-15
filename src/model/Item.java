@@ -27,7 +27,7 @@ public class Item implements Cloneable {
     }
 
     public static Item getItemByName(String name) {
-        for (Item item : Controller.currentAccount.getMyCollection().getMyItems()) {
+        for (Item item : Shop.getInstance().getAllItems()) {
             if (item.getItemName().equalsIgnoreCase(name)) {
                 return item;
             }
