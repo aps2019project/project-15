@@ -1,97 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.BoxBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.TextArea?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1874.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ShopMenuController">
     <children>
         <ImageView fitHeight="1032.0" fitWidth="1920.0" layoutX="5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@/maps/vanar/background@2x.jpg" />
+                <Image url="@/maps/vanar/background@2x.jpg"/>
             </image>
         </ImageView>
-      <ImageView fitHeight="1068.0" fitWidth="1554.0" layoutX="288.0" layoutY="-159.0" pickOnBounds="true" preserveRatio="true" scaleY="1.1">
-         <image>
-            <Image url="@/tutorial/tooltip_up@2x.png" />
-         </image>
-         <effect>
-            <BoxBlur />
-         </effect>
-      </ImageView>
+        <ImageView fitHeight="1068.0" fitWidth="1554.0" layoutX="288.0" layoutY="-159.0" pickOnBounds="true" preserveRatio="true" scaleY="1.1">
+            <image>
+                <Image url="@/tutorial/tooltip_up@2x.png"/>
+            </image>
+            <effect>
+                <BoxBlur/>
+            </effect>
+        </ImageView>
         <VBox alignment="CENTER" layoutX="14.0" layoutY="9.0" prefHeight="947.0" prefWidth="305.0" spacing="100.0">
             <children>
-              <Label alignment="BOTTOM_LEFT" prefHeight="97.0" prefWidth="233.0" rotate="-18.4" text="Shop">
-                  <font>
-                      <Font name="DejaVu Serif Bold" size="81.0" />
-                  </font>
-              </Label>
-            <TextArea fx:id="cardName" prefHeight="65.0" prefWidth="343.0" promptText="enter card name" scaleX="0.6" style="-fx-background-color: orange;">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </TextArea>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Search card" />
+                <Label alignment="BOTTOM_LEFT" prefHeight="97.0" prefWidth="233.0" rotate="-18.4" text="Shop">
+                    <font>
+                        <Font name="DejaVu Serif Bold" size="81.0"/>
+                    </font>
+                </Label>
+                <TextArea fx:id="cardName" prefHeight="65.0" prefWidth="343.0" promptText="enter card name" scaleX="0.6" style="-fx-background-color: orange;">
+                    <font>
+                        <Font size="22.0"/>
+                    </font>
+                </TextArea>
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Search card"/>
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Buy card" onMouseClicked="#buy"/>
                 <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Sell card" onMouseClicked="#sell"/>
-                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Help" />
-                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Return" />
+                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Help"/>
+                <Button alignment="CENTER" layoutX="20.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="60.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: orange;" text="Return"/>
             </children>
         </VBox>
-      <GridPane layoutX="319.0" layoutY="92.0" prefHeight="834.0" prefWidth="1480.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="163.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1328.0" minWidth="10.0" prefWidth="1328.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label prefHeight="87.0" prefWidth="159.0" rotate="-49.2" text="Heroes:" textFill="#87f007">
-               <font>
-                  <Font name="Ani" size="48.0" />
-               </font>
-            </Label>
-            <Label prefHeight="107.0" prefWidth="173.0" rotate="-48.6" text="Minions:" textFill="#87f007" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Ani" size="45.0" />
-               </font>
-            </Label>
-            <Label prefHeight="71.0" prefWidth="166.0" rotate="-48.2" text="Spells:" textFill="#87f007" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Ani" size="47.0" />
-               </font>
-            </Label>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <content>
-                  <HBox fx:id="hero" prefHeight="220.0" prefWidth="1140.0" />
-               </content>
-            </ScrollPane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <content>
-                  <HBox fx:id="minion" alignment="CENTER" prefHeight="220.0" prefWidth="1142.0" />
-               </content>
-            </ScrollPane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <content>
-                  <HBox fx:id="spell" prefHeight="220.0" prefWidth="1137.0" />
-               </content>
-            </ScrollPane>
-         </children>
-      </GridPane>
+        <GridPane layoutX="319.0" layoutY="92.0" prefHeight="834.0" prefWidth="1480.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="163.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1328.0" minWidth="10.0" prefWidth="1328.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label prefHeight="87.0" prefWidth="159.0" rotate="-49.2" text="Heroes:" textFill="#87f007">
+                    <font>
+                        <Font name="Ani" size="48.0"/>
+                    </font>
+                </Label>
+                <Label prefHeight="107.0" prefWidth="173.0" rotate="-48.6" text="Minions:" textFill="#87f007" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Ani" size="45.0"/>
+                    </font>
+                </Label>
+                <Label prefHeight="71.0" prefWidth="166.0" rotate="-48.2" text="Spells:" textFill="#87f007" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Ani" size="47.0"/>
+                    </font>
+                </Label>
+                <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                    <content>
+                        <HBox fx:id="hero" prefHeight="220.0" prefWidth="1140.0"/>
+                    </content>
+                </ScrollPane>
+                <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <content>
+                        <HBox fx:id="minion" alignment="CENTER" prefHeight="220.0" prefWidth="1142.0"/>
+                    </content>
+                </ScrollPane>
+                <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <content>
+                        <HBox fx:id="spell" prefHeight="220.0" prefWidth="1137.0"/>
+                    </content>
+                </ScrollPane>
+            </children>
+        </GridPane>
     </children>
 </AnchorPane>

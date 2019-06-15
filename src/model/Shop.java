@@ -81,24 +81,24 @@ public class Shop {
         return 0;
     }
 
-    public void buy(String name) {
+    public boolean buy(String name) {
         Card card = Card.returnCardByName(name);
         Item item = findItemByName(name);
         if (card == null && item == null) {
             view.itemOrCardIsNotInShop();
-            return;
+            return false;
         }
         if (card != null && card.price > Controller.currentAccount.getMoney()) {
             view.notEnoughMoney();
-            return;
+            return false;
         }
         if (item != null && item.getPrice().matches("\\d+") && Integer.parseInt(item.price) > Controller.currentAccount.getMoney()) {
             view.notEnoughMoney();
-            return;
+            return false;
         }
         if (item != null && item.getPrice().matches("\\d+") && Controller.currentAccount.getMyCollection().getMyItems().size() >= 3) {
             view.tooManyItemsInMyCollection();
-            return;
+            return false;
         }
         if (card != null) {
             Controller.currentAccount.reduceMoney(card.getPrice());
@@ -106,7 +106,7 @@ public class Shop {
             card.numOfCardInCollection++;
             view.cardBought();
             view.remainingMoney();
-            return;
+            return true;
         }
         if (item.getPrice().matches("[0-9]+")) {
             Controller.currentAccount.reduceMoney(Integer.parseInt(item.getPrice()));
@@ -117,6 +117,7 @@ public class Shop {
             view.itemBought();
             view.remainingMoney();
         }
+        return false;
     }
 
 
@@ -148,7 +149,7 @@ public class Shop {
         view.printShopHelpMenu();
     }
 
-    public void sell(String name) {
+    public boolean sell(String name) {
         Item item = Item.getItemByName(name);
         Card card = Card.returnCardByName(name);
         card = Controller.currentAccount.getMyCollection().findCardInCollection(card);
@@ -159,7 +160,7 @@ public class Shop {
         if (card == null && item == null && !realItem) {
             view.notOwnThisCardOrItem();
             view.remainingMoney();
-            return;
+            return false;
         }
         if (card != null) {
             Controller.currentAccount.sellCard(card);
@@ -171,7 +172,7 @@ public class Shop {
             }
             view.cardSold();
             view.remainingMoney();
-            return;
+            return true;
         }
         if (item != null && realItem) {
             Controller.currentAccount.getMyCollection().removeItemFromCollection(item);
@@ -181,7 +182,9 @@ public class Shop {
             }
             view.itemSold();
             view.remainingMoney();
+            return true;
         }
+        return false;
     }
 
     public boolean isSold(String name) {

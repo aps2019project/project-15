@@ -1,9 +1,11 @@
 package view;
 
+import controller.Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -32,23 +34,25 @@ public class ShopMenuController {
         primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
         primaryStage.show();
     }
-    public void initialize(){
+
+    public void initialize() {
         cardName.setBackground(Background.EMPTY);
-        for(Card card : Shop.getInstance().getAllHeroes()){
+        for (Card card : Shop.getInstance().getAllHeroes()) {
             hero.getChildren().add(cardInfo(card));
         }
-        for(Card card : Shop.getInstance().getAllMinions()){
+        for (Card card : Shop.getInstance().getAllMinions()) {
             minion.getChildren().add(cardInfo(card));
         }
-        for(Card card : Shop.getInstance().getAllSpells()){
+        for (Card card : Shop.getInstance().getAllSpells()) {
             spell.getChildren().add(cardInfo(card));
         }
     }
-    private Pane cardInfo(Card card){
+
+    private Pane cardInfo(Card card) {
         StackPane cardInfo = new StackPane();
         ImageView cardBackground = new ImageView();
         Text text = new Text();
-        switch (card.getTypeOfAttack()){
+        switch (card.getTypeOfAttack()) {
             case Spell:
                 Image image = new Image("card_backgrounds/card_back_agenor@2x.png");
                 cardBackground.setImage(image);
@@ -77,13 +81,23 @@ public class ShopMenuController {
     }
 
     public void buy(MouseEvent mouseEvent) {
-        Shop.getInstance().buy(cardName.getText());
-
+        if (Shop.getInstance().buy(cardName.getText())) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Bought!");
+            alert.setContentText("Remaining money: " + Controller.currentAccount.getMoney());
+            alert.show();
+        }
     }
 
     public void sell(MouseEvent mouseEvent) {
-        Shop.getInstance().sell(cardName.getText());
+        if (Shop.getInstance().sell(cardName.getText())) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Sold!");
+            alert.setContentText("Remaining money: " + Controller.currentAccount.getMoney());
+            alert.show();
+        }
     }
+
     //public Pane itemInfo(Item item){
 
     //}

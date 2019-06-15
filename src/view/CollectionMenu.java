@@ -32,9 +32,10 @@ public class CollectionMenu {
         primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
         primaryStage.show();
     }
-    public void initialize(){
-        for(Card card : Controller.currentAccount.getMyCollection().myCards()){
-            switch (card.getTypeOfAttack()){
+
+    public void initialize() {
+        for (Card card : Controller.currentAccount.getMyCollection().myCards()) {
+            switch (card.getTypeOfAttack()) {
                 case Hero:
                     heroes.getChildren().add(cardInfo(card));
                     break;
@@ -46,11 +47,12 @@ public class CollectionMenu {
             }
         }
     }
-    private Pane cardInfo(Card card){
+
+    private Pane cardInfo(Card card) {
         StackPane cardInfo = new StackPane();
         ImageView cardBackground = new ImageView();
         Text text = new Text();
-        switch (card.getTypeOfAttack()){
+        switch (card.getTypeOfAttack()) {
             case Spell:
                 Image image = new Image("card_backgrounds/card_back_agenor@2x.png");
                 cardBackground.setImage(image);
