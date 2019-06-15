@@ -30,6 +30,7 @@ public class CollectionMenu {
     public GridPane myDecks;
     public VBox deckNames;
     public VBox cardsInDeck;
+    public TextArea entry;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -57,6 +58,10 @@ public class CollectionMenu {
         for (Item item : Controller.currentAccount.getMyCollection().myItems()) {
             items.getChildren().add(itemInfo(item));
         }
+        updateDeckDisplay();
+    }
+
+    private void updateDeckDisplay() {
         for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
             TextArea textArea = new TextArea(deck.getName());
             textArea.setPrefSize(230, 300);
@@ -71,6 +76,7 @@ public class CollectionMenu {
             cardsInDeck.getChildren().add(deckContains);
         }
     }
+
     private Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
@@ -135,5 +141,14 @@ public class CollectionMenu {
         cards.setVisible(false);
         myItems.setVisible(false);
         myDecks.setVisible(true);
+    }
+
+    public void createDeck(MouseEvent mouseEvent) {
+        System.out.println(entry.getText());
+        if(entry.getText().equalsIgnoreCase("")){
+            View.getInstance().deckNameNotEntered();
+        }
+        Controller.currentAccount.getMyCollection().createDeck(entry.getText());
+        updateDeckDisplay();
     }
 }

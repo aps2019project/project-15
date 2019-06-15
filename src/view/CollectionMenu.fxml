@@ -18,18 +18,20 @@
 
 <?import javafx.scene.effect.Light?>
 <?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.control.TextArea?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1070.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CollectionMenu">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="994.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0">
             <image>
-                <Image url="@../../resources/scenes/scene_glow_enemy@2x.png" />
+                <Image url="@/scenes/scene_glow_enemy@2x.png" />
             </image>
         </ImageView>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="55.0" layoutY="614.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../resources/scenes/obsidian_woods/obsidian_woods_cliff@2x.png" />
+                <Image url="@/scenes/obsidian_woods/obsidian_woods_cliff@2x.png" />
             </image>
         </ImageView>
+        <TextArea fx:id="entry" layoutX="300" layoutY="200" prefWidth="200" prefHeight="75" />
         <VBox alignment="CENTER" fillWidth="false" layoutX="42.0" layoutY="11.0" prefHeight="935.0" prefWidth="173.0" spacing="40.0" style="-fx-background-color: #e8f2ef;">
             <children>
                 <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Show Collection" textAlignment="CENTER">
@@ -45,7 +47,7 @@
                         <Font name="KacstPoster" size="19.0" />
                     </font>
                 </Button>
-                <Button fx:id="createDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Create deck" textAlignment="CENTER">
+                <Button fx:id="createDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Create deck" textAlignment="CENTER" onMouseClicked="#createDeck">
                     <VBox.margin>
                         <Insets />
                     </VBox.margin>
