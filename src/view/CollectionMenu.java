@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +25,10 @@ public class CollectionMenu {
     public HBox heroes;
     public HBox minions;
     public HBox spells;
+    public HBox items;
+    public Button mycards;
+    public Button myitems;
+    public Button mydecks;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -78,5 +83,14 @@ public class CollectionMenu {
         cardInfo.setAlignment(Pos.CENTER);
         cardInfo.getChildren().addAll(cardBackground, text);
         return cardInfo;
+    }
+
+    public void showCards(MouseEvent mouseEvent) {
+    }
+
+    public void showItems(MouseEvent mouseEvent) {
+    }
+
+    public void showDecks(MouseEvent mouseEvent) {
     }
 }
