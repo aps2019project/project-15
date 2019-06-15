@@ -172,5 +172,26 @@
             </Button>
          </children>
       </VBox>
+      <GridPane layoutX="717.0" layoutY="292.0" prefHeight="379.0" prefWidth="1174.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="581.0" minWidth="10.0" prefWidth="222.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="954.0" minWidth="10.0" prefWidth="952.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="267.0" prefWidth="670.0" text="Items" textFill="#e4ce0a">
+               <font>
+                  <Font name="Ani" size="95.0" />
+               </font>
+            </Label>
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <content>
+                  <HBox fx:id="items" prefHeight="355.0" prefWidth="969.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </GridPane>
     </children>
 </Pane>
