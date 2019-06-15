@@ -6,13 +6,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
@@ -29,6 +27,9 @@ public class CollectionMenu {
     public Button mydecks;
     public GridPane cards;
     public GridPane myItems;
+    public GridPane myDecks;
+    public VBox deckNames;
+    public VBox cardsInDeck;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -40,6 +41,7 @@ public class CollectionMenu {
 
     public void initialize() {
         myItems.setVisible(false);
+        myDecks.setVisible(false);
         for (Card card : Controller.currentAccount.getMyCollection().myCards()) {
             switch (card.getTypeOfAttack()) {
                 case Hero:
@@ -56,12 +58,19 @@ public class CollectionMenu {
             items.getChildren().add(itemInfo(item));
         }
         for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
-
+            TextArea textArea = new TextArea(deck.getName());
+            textArea.setPrefSize(230, 300);
+            deckNames.getChildren().add(textArea);
+            HBox deckContains = new HBox();
+            for(Card card : deck.getCards()){
+                deckContains.getChildren().add(cardInfo(card));
+            }
+            if(deck.getItem() != null){
+                deckContains.getChildren().add(itemInfo(deck.getItem()));
+            }
+            cardsInDeck.getChildren().add(deckContains);
         }
     }
-    //private Pane deckInfo(Deck deck){
-
-    //}
     private Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
@@ -112,14 +121,19 @@ public class CollectionMenu {
 
     public void showCards(MouseEvent mouseEvent) {
         myItems.setVisible(false);
+        myDecks.setVisible(false);
         cards.setVisible(true);
     }
 
     public void showItems(MouseEvent mouseEvent) {
         cards.setVisible(false);
+        myDecks.setVisible(false);
         myItems.setVisible(true);
     }
 
     public void showDecks(MouseEvent mouseEvent) {
+        cards.setVisible(false);
+        myItems.setVisible(false);
+        myDecks.setVisible(true);
     }
 }
