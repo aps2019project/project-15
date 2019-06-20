@@ -9,10 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
@@ -28,6 +32,8 @@ public class ShopMenuController {
     public GridPane showCardSection;
     public GridPane showItemSection;
     public HBox Item;
+    public Circle circle;
+    public TextField trades;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
@@ -49,11 +55,12 @@ public class ShopMenuController {
         for (Card card : Shop.getInstance().getAllSpells()) {
             spell.getChildren().add(cardInfo(card));
         }
-        for(Item item : Shop.getInstance().getAllItems()){
+        for (Item item : Shop.getInstance().getAllItems()) {
             Item.getChildren().add(itemInfo(item));
         }
     }
-    private Pane itemInfo(Item item){
+
+    private Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
         Image image = new Image("card_backgrounds/card_back_gauntlet.png");
@@ -103,19 +110,15 @@ public class ShopMenuController {
 
     public void buy(MouseEvent mouseEvent) {
         if (Shop.getInstance().buy(cardName.getText())) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("Bought!");
-            alert.setContentText("Remaining money: " + Controller.currentAccount.getMoney());
-            alert.show();
+            trades.setText("< " + cardName.getText() + " >" + " is Bought!  Remaining money: " + Controller.currentAccount.getMoney());
+            circle.setFill(Color.GREEN);
         }
     }
 
     public void sell(MouseEvent mouseEvent) {
         if (Shop.getInstance().sell(cardName.getText())) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("Sold!");
-            alert.setContentText("Remaining money: " + Controller.currentAccount.getMoney());
-            alert.show();
+            trades.setText("< " + cardName.getText() + " >" + " is sold! Remaining money: " + Controller.currentAccount.getMoney());
+            circle.setFill(Color.RED);
         }
     }
 
@@ -127,19 +130,17 @@ public class ShopMenuController {
         Image image = new Image("card_backgrounds/card_back_snowchaser@2x.png");
         imageView.setImage(image);
         Text text = new Text();
-        text.setStyle("-fx-font-size : 16; -fx-font-weight : bold");
+        text.setStyle("-fx-font-size : 16; -fx-font-weight : bolder");
         Button button = new Button("return");
-        button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 16");
+        button.setStyle("-fx-background-color : #1919FF; -fx-font-size : 17");
         StringBuilder info = new StringBuilder();
-        if(card == null && item == null){
+        if (card == null && item == null) {
             View.getInstance().itemOrCardIsNotInShop();
             return;
-        }
-        else if(card != null){
-            info.append("type : " + card.getTypeOfAttack() + "\n");
+        } else if (card != null) {
+            info.append("type : ").append(card.getTypeOfAttack()).append("\n");
             info.append(card.toString());
-        }
-        else{
+        } else {
             info.append("type : Item\n");
             info.append(item.toString());
         }
