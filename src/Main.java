@@ -3,9 +3,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import view.Graphic;
 import view.UI;
+
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
 
 public class Main extends Application {
 
@@ -13,6 +18,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        /*String path = this.getClass().getResource("/Taylor-Davis-Pirates-Of-Caribbean-.mp3").toString();
+        Media media = new Media(path);
+        MediaPlayer mp = new MediaPlayer(media);
+        mp.play();*/
+
+
         UI.setPrimaryStage(primaryStage);
         Parent mainMenu = FXMLLoader.load(Graphic.class.getResource("Graphic.fxml"));
         Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
@@ -22,7 +33,7 @@ public class Main extends Application {
         Parent battleMap2 = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap2.fxml"));
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(CollectionMenu, 3000, 1000));
+        primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
         primaryStage.show();
     }
 
