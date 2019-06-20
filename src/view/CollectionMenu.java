@@ -201,5 +201,22 @@ public class CollectionMenu {
     }
 
     public void removeFromDeck(MouseEvent mouseEvent) {
+        if(entryCheck()){
+            if(entry.getText().matches("[\\d]+")){
+                DeckName.setVisible(true);
+                submit.setVisible(true);
+                submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        DeckName.setVisible(false);
+                        submit.setVisible(false);
+                        Controller.currentAccount.getMyCollection().removeCardOrItemFromDeck(entry.getText(), DeckName.getText());
+                    }
+                });
+            }
+            else {
+                View.getInstance().enterCardId();
+            }
+        }
     }
 }

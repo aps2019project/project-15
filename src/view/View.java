@@ -718,7 +718,7 @@ public class View {
     }
 
     public void invalidItemID() {
-        System.out.println("Item is not valid");
+        alertMmessage("Item is not valid");
     }
 
     public void validatedDeck(String name) {
