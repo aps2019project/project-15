@@ -251,19 +251,19 @@ public class View {
     }
 
     public void cardNotInCollection() {
-        System.out.println("card is not in your collection");
+        alertMmessage("card is not in your collection");
     }
 
     public void cardIsAlreadyInDeck() {
-        System.out.println("card is already in deck");
+        alertMmessage("card is already in deck");
     }
 
     public void deckIsNotInCollection() {
-        System.out.println("deck with such name does not exist in collection");
+        alertMmessage("deck with such name does not exist in collection");
     }
 
     public void tooManyCardsInDeck() {
-        System.out.println("there are already 20 cards in deck");
+        alertMmessage("there are already 20 cards in deck");
     }
 
     public void heroInDeck() {
@@ -271,7 +271,7 @@ public class View {
     }
 
     public void itemNotInCollection() {
-        System.out.println("Item is not in your collection");
+        alertMmessage("Item is not in your collection");
     }
 
     public void itemIsAlreadyInDeck() {
@@ -279,7 +279,7 @@ public class View {
     }
 
     public void tooManyItems() {
-        System.out.println("there is already an item in this deck");
+        alertMmessage("there is already an item in this deck");
     }
 
     public void cardIsNotInDeck() {
@@ -718,7 +718,7 @@ public class View {
     }
 
     public void invalidItemID() {
-        System.out.println("Item is not valid");
+        alertMmessage("Item is not valid");
     }
 
     public void validatedDeck(String name) {
@@ -727,7 +727,7 @@ public class View {
     }
 
     public void couldNotBeValidated(String name) {
-        System.out.println("deck " + name + " could not be validated!");
+        alertMmessage("deck " + name + " could not be validated!");
 
     }
 
@@ -805,5 +805,8 @@ public class View {
     }
     public void deckNameNotEntered(){
         alertMmessage("Enter the name of the deck");
+    }
+    public void enterCardId(){
+        alertMmessage("Enter the card's Id");
     }
 }

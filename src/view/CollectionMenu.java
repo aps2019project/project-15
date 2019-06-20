@@ -1,6 +1,7 @@
 package view;
 
 import controller.Controller;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -15,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class CollectionMenu {
@@ -31,6 +33,8 @@ public class CollectionMenu {
     public VBox deckNames;
     public VBox cardsInDeck;
     public TextArea entry;
+    public TextArea DeckName;
+    public Button submit;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -58,13 +62,10 @@ public class CollectionMenu {
         for (Item item : Controller.currentAccount.getMyCollection().myItems()) {
             items.getChildren().add(itemInfo(item));
         }
-        updateDeckDisplay();
-    }
-
-    private void updateDeckDisplay() {
         for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
             TextArea textArea = new TextArea(deck.getName());
-            textArea.setPrefSize(230, 300);
+            textArea.setStyle("-fx-background-color : ");
+            textArea.setPrefSize(250, 340);
             deckNames.getChildren().add(textArea);
             HBox deckContains = new HBox();
             for(Card card : deck.getCards()){
@@ -76,6 +77,7 @@ public class CollectionMenu {
             cardsInDeck.getChildren().add(deckContains);
         }
     }
+
 
     private Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
@@ -144,11 +146,77 @@ public class CollectionMenu {
     }
 
     public void createDeck(MouseEvent mouseEvent) {
-        System.out.println(entry.getText());
-        if(entry.getText().equalsIgnoreCase("")){
-            View.getInstance().deckNameNotEntered();
+        if(entryCheck()) {
+            Controller.currentAccount.getMyCollection().createDeck(entry.getText());
         }
-        Controller.currentAccount.getMyCollection().createDeck(entry.getText());
-        updateDeckDisplay();
+    }
+
+    public void deleteDeck(MouseEvent mouseEvent) {
+        if(entryCheck()) {
+            Controller.currentAccount.getMyCollection().
+                    deleteDeck(entry.getText());
+        }
+    }
+
+    private boolean entryCheck() {
+        if (entry.getText().equalsIgnoreCase("")) {
+            View.getInstance().deckNameNotEntered();
+            return false;
+        }
+        return true;
+    }
+
+    public void validate(MouseEvent mouseEvent) {
+        if(entryCheck()){
+            Controller.currentAccount.getMyCollection().validateDeck(entry.getText());
+        }
+    }
+
+    public void addToDeck(MouseEvent mouseEvent) {
+        if(entryCheck()){
+            if(entry.getText().matches("[\\d]+")){
+                DeckName.setVisible(true);
+                submit.setVisible(true);
+                submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        DeckName.setVisible(false);
+                        submit.setVisible(false);
+                        Controller.currentAccount.getMyCollection().cardOrItemToDeck(entry.getText(), DeckName.getText());
+                    }
+                });
+            }
+            else {
+                View.getInstance().enterCardId();
+            }
+        }
+    }
+
+    public void selectDeck(MouseEvent mouseEvent) {
+        try {
+            Controller.currentAccount.getMyCollection().selectDeck(entry.getText());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removeFromDeck(MouseEvent mouseEvent) {
+        if(entryCheck()){
+            if(entry.getText().matches("[\\d]+")){
+                DeckName.setVisible(true);
+                submit.setVisible(true);
+                submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        DeckName.setVisible(false);
+                        submit.setVisible(false);
+                        Controller.currentAccount.getMyCollection().removeCardOrItemFromDeck(entry.getText(), DeckName.getText());
+                    }
+                });
+            }
+            else {
+                View.getInstance().enterCardId();
+            }
+        }
     }
 }

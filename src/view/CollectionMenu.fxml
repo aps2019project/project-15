@@ -14,7 +14,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.effect.Light?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.control.TextArea?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1070.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CollectionMenu">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="994.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" scaleX="2.0">
@@ -27,6 +29,9 @@
                 <Image url="@../../resources/scenes/obsidian_woods/obsidian_woods_cliff@2x.png"/>
             </image>
         </ImageView>
+        <TextArea fx:id="entry" layoutX="300" layoutY="100" prefWidth="200" prefHeight="75" />
+        <TextArea fx:id="DeckName" layoutX="300" layoutY="200" prefWidth="200" prefHeight="50" promptText="enter deck name" visible="false"/>
+        <Button fx:id="submit" layoutX="350" layoutY="265" prefWidth="100" prefHeight="50" text="submit" visible="false" style="-fx-background-radius: 20; -fx-background-color: pink;" />
         <VBox alignment="CENTER" fillWidth="false" layoutX="42.0" layoutY="11.0" prefHeight="859.0" prefWidth="183.0" spacing="40.0" style="-fx-background-color: f7b4d0; -fx-background-radius: 50; -fx-border-radius: 20;">
             <children>
                 <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Show Collection" textAlignment="CENTER">
@@ -48,7 +53,7 @@
                         <Cursor fx:constant="MOVE"/>
                     </cursor>
                 </Button>
-                <Button fx:id="createDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Create deck" textAlignment="CENTER">
+                <Button fx:id="createDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Create deck" textAlignment="CENTER" onMouseClicked="#createDeck">
                     <VBox.margin>
                         <Insets/>
                     </VBox.margin>
@@ -59,7 +64,7 @@
                         <Cursor fx:constant="MOVE"/>
                     </cursor>
                 </Button>
-                <Button fx:id="addToDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Add to deck" textAlignment="CENTER">
+                <Button fx:id="addToDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Add to deck" textAlignment="CENTER" onMouseClicked="#addToDeck">
                     <font>
                         <Font name="KacstPoster" size="19.0"/>
                     </font>
@@ -67,7 +72,7 @@
                         <Cursor fx:constant="MOVE"/>
                     </cursor>
                 </Button>
-                <Button fx:id="removeFromDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Remove from deck" textAlignment="CENTER">
+                <Button fx:id="removeFromDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Remove from deck" textAlignment="CENTER" onMouseClicked="#removeFromDeck">
                     <font>
                         <Font name="KacstPoster" size="19.0"/>
                     </font>
@@ -75,7 +80,7 @@
                         <Cursor fx:constant="MOVE"/>
                     </cursor>
                 </Button>
-                <Button fx:id="validateDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Validate deck" textAlignment="CENTER">
+                <Button fx:id="validateDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Validate deck" textAlignment="CENTER" onMouseClicked="#validate">
                     <font>
                         <Font name="KacstPoster" size="19.0"/>
                     </font>
@@ -83,7 +88,7 @@
                         <Cursor fx:constant="MOVE"/>
                     </cursor>
                 </Button>
-                <Button fx:id="selectDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Select deck" textAlignment="CENTER">
+                <Button fx:id="selectDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Select deck" textAlignment="CENTER" onMouseClicked="#selectDeck">
                     <font>
                         <Font name="KacstPoster" size="19.0"/>
                     </font>
@@ -221,9 +226,9 @@
                     </content>
                 </ScrollPane>
                 <ScrollPane prefHeight="500.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <content>
-                        <HBox prefHeight="194.0" prefWidth="882.0"/>
-                    </content>
+               <content>
+                  <VBox fx:id="cardsInDeck" prefHeight="194.0" prefWidth="882.0" />
+               </content>
                 </ScrollPane>
                 <Label prefHeight="187.0" prefWidth="217.0" text="Decks" textFill="#bf1f74">
                     <font>
