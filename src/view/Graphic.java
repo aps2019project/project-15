@@ -50,14 +50,14 @@ public class Graphic {
 
     public void battleMenuFunc(MouseEvent mouseEvent) throws IOException {
         System.out.println("battle menu function");
-        if (Controller.currentAccount.getMainDeck() == null || !Controller.currentAccount.getMainDeck().validated) {
+        /*if (Controller.currentAccount.getMainDeck() == null || !Controller.currentAccount.getMainDeck().validated) {
             View.getInstance().notValidDeck();
-        } else {
-            Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
+        } else {*/
+            Parent battleMenu = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
             Stage primaryStage = UI.getInstance().getPrimaryStage();
             primaryStage.setTitle("Battle menu");
             primaryStage.setScene(new Scene(battleMenu, 3000, 1000));
             primaryStage.show();
-        }
+        //}
     }
 }

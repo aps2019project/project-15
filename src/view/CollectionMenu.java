@@ -126,6 +126,18 @@ public class CollectionMenu {
         return cardInfo;
     }
 
+    public Pane deckInfo(Deck deck) {
+        StackPane deckInfo = new StackPane();
+        Text text = new Text();
+        text.setText(deck.toString());
+        ImageView background = new ImageView();
+        Image image = new Image("card_backgrounds/card_back_lyonar_gears@2x.png");
+        background.setImage(image);
+        deckInfo.getChildren().addAll(background, text);
+        deckInfo.setPrefSize(100 , 100);
+        return deckInfo;
+    }
+
     public void showCards(MouseEvent mouseEvent) {
         myItems.setVisible(false);
         myDecks.setVisible(false);
@@ -147,13 +159,14 @@ public class CollectionMenu {
     public void createDeck(MouseEvent mouseEvent) {
         if (entryCheck()) {
             Controller.currentAccount.getMyCollection().createDeck(entry.getText());
+            Deck deck = Deck.returnDeckByName(entry.getText());
+            myDecks.getChildren().add(deckInfo(deck));
         }
     }
 
     public void deleteDeck(MouseEvent mouseEvent) {
         if (entryCheck()) {
-            Controller.currentAccount.getMyCollection().
-                    deleteDeck(entry.getText());
+            Controller.currentAccount.getMyCollection().deleteDeck(entry.getText());
         }
     }
 

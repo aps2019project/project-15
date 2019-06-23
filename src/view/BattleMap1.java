@@ -16,4 +16,7 @@ public class BattleMap1 {
     public void changeColor(MouseEvent mouseEvent) {
 
     }
+
+    public void endTurn(MouseEvent mouseEvent) {
+    }
 }
