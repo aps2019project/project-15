@@ -23,7 +23,7 @@ public class Main extends Application {
         Parent battleMap2 = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap2.fxml"));
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
+        primaryStage.setScene(new Scene(battleMap, 3000, 1000));
         primaryStage.show();
     }
 

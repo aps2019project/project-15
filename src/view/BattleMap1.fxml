@@ -31,7 +31,7 @@
             <Image url="@../../resources/maps/abyssian/midground_river@2x.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="522.0" layoutY="336.0" prefHeight="436.0" prefWidth="791.0">
+      <GridPane layoutX="522.0" layoutY="319.0" prefHeight="484.0" prefWidth="878.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -51,58 +51,58 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Pane prefHeight="58.0" prefWidth="71.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" styleClass="border" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="4" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="58.0" prefWidth="71.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" styleClass="border" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="84.0" prefWidth="83.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Pane onMouseEntered="#changeColor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="3" />
          </children>
       </GridPane>
-      <ImageView fitHeight="106.0" fitWidth="243.0" layoutX="1561.0" layoutY="846.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="106.0" fitWidth="243.0" layoutX="1593.0" layoutY="890.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../resources/ui/button_end_turn_mine@2x.png" />
          </image>
       </ImageView>
-      <Text fill="WHITE" layoutX="1617.0" layoutY="898.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="END TURN" textAlignment="CENTER" wrappingWidth="131.99999648332596" />
+      <Text fill="WHITE" layoutX="1639.0" layoutY="945.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="END TURN" textAlignment="CENTER" wrappingWidth="150.99999648332596" />
    </children>
 </AnchorPane>

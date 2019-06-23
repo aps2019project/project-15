@@ -64,14 +64,14 @@ public class CollectionMenu {
         }
         for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
             TextArea textArea = new TextArea(deck.getName());
-            textArea.setStyle("-fx-background-color : ");
+            textArea.setStyle("-fx-background-color : bisque ");
             textArea.setPrefSize(250, 340);
             deckNames.getChildren().add(textArea);
             HBox deckContains = new HBox();
-            for(Card card : deck.getCards()){
+            for (Card card : deck.getCards()) {
                 deckContains.getChildren().add(cardInfo(card));
             }
-            if(deck.getItem() != null){
+            if (deck.getItem() != null) {
                 deckContains.getChildren().add(itemInfo(deck.getItem()));
             }
             cardsInDeck.getChildren().add(deckContains);
@@ -146,13 +146,13 @@ public class CollectionMenu {
     }
 
     public void createDeck(MouseEvent mouseEvent) {
-        if(entryCheck()) {
+        if (entryCheck()) {
             Controller.currentAccount.getMyCollection().createDeck(entry.getText());
         }
     }
 
     public void deleteDeck(MouseEvent mouseEvent) {
-        if(entryCheck()) {
+        if (entryCheck()) {
             Controller.currentAccount.getMyCollection().
                     deleteDeck(entry.getText());
         }
@@ -167,14 +167,14 @@ public class CollectionMenu {
     }
 
     public void validate(MouseEvent mouseEvent) {
-        if(entryCheck()){
+        if (entryCheck()) {
             Controller.currentAccount.getMyCollection().validateDeck(entry.getText());
         }
     }
 
     public void addToDeck(MouseEvent mouseEvent) {
-        if(entryCheck()){
-            if(entry.getText().matches("[\\d]+")){
+        if (entryCheck()) {
+            if (entry.getText().matches("[\\d]+")) {
                 DeckName.setVisible(true);
                 submit.setVisible(true);
                 submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -185,8 +185,7 @@ public class CollectionMenu {
                         Controller.currentAccount.getMyCollection().cardOrItemToDeck(entry.getText(), DeckName.getText());
                     }
                 });
-            }
-            else {
+            } else {
                 View.getInstance().enterCardId();
             }
         }
@@ -201,8 +200,8 @@ public class CollectionMenu {
     }
 
     public void removeFromDeck(MouseEvent mouseEvent) {
-        if(entryCheck()){
-            if(entry.getText().matches("[\\d]+")){
+        if (entryCheck()) {
+            if (entry.getText().matches("[\\d]+")) {
                 DeckName.setVisible(true);
                 submit.setVisible(true);
                 submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -213,8 +212,7 @@ public class CollectionMenu {
                         Controller.currentAccount.getMyCollection().removeCardOrItemFromDeck(entry.getText(), DeckName.getText());
                     }
                 });
-            }
-            else {
+            } else {
                 View.getInstance().enterCardId();
             }
         }
