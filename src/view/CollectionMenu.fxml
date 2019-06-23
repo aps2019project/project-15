@@ -101,7 +101,7 @@
                         <Cursor fx:constant="MOVE" />
                     </cursor>
                 </Button>
-                <Button fx:id="deleteDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Delete deck" textAlignment="CENTER">
+                <Button fx:id="deleteDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Delete deck" textAlignment="CENTER" onMouseClicked="#deleteDeck">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
@@ -109,7 +109,7 @@
                         <Cursor fx:constant="MOVE" />
                     </cursor>
                 </Button>
-                <Button fx:id="showDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Show deck" textAlignment="CENTER">
+                <Button fx:id="showDeck" mnemonicParsing="false" prefHeight="45.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-background-color: pink;" text="Show deck" textAlignment="CENTER" onMouseClicked="#goToDeck">
                     <font>
                         <Font name="KacstPoster" size="19.0" />
                     </font>
