@@ -25,7 +25,7 @@ public class Main extends Application {
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(deckDetails, 3000, 1000));
+        primaryStage.setScene(new Scene(battleMap, 3000, 1000));
         primaryStage.show();
     }
 
