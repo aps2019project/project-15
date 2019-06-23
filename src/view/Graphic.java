@@ -41,7 +41,6 @@ public class Graphic {
     }
 
     public void collectionMenuFunc(MouseEvent mouseEvent) throws IOException {
-        System.out.println("collection menu function");
         Parent CollectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
         Stage primaryStage = UI.getInstance().getPrimaryStage();
         primaryStage.setTitle("Collection menu");

@@ -16,7 +16,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.*;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class CollectionMenu {
@@ -218,5 +217,14 @@ public class CollectionMenu {
                 View.getInstance().enterCardId();
             }
         }
+    }
+
+    public void goToDeck(MouseEvent mouseEvent) throws IOException {
+        DeckDetails.deckName = entry.getText();
+        Parent deckDetail = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Deck");
+        primaryStage.setScene(new Scene(deckDetail, 3000, 1000));
+        primaryStage.show();
     }
 }
