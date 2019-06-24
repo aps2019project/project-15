@@ -126,7 +126,7 @@ public class Collection {
                 for (Card item : deck.getCards()) {
                     if (item.getTypeOfAttack().equals(TypeOfCard.Hero)) {
                         view.heroInDeck();
-                        break;
+                        return;
                     }
                 }
                 deck.addCard(card);

@@ -18,7 +18,7 @@ import model.*;
 
 import java.io.IOException;
 
-public class CollectionMenu {
+public class CollectionMenu implements Info{
     public HBox heroes;
     public HBox minions;
     public HBox spells;
@@ -78,7 +78,7 @@ public class CollectionMenu {
     }
 
 
-    private Pane itemInfo(Item item) {
+    public Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
         Image image = new Image("card_backgrounds/card_back_gauntlet.png");
@@ -94,7 +94,7 @@ public class CollectionMenu {
         return itemInfo;
     }
 
-    private Pane cardInfo(Card card) {
+    public Pane cardInfo(Card card) {
         StackPane cardInfo = new StackPane();
         ImageView cardBackground = new ImageView();
         Text text = new Text();
@@ -254,11 +254,19 @@ public class CollectionMenu {
     }
 
     public void goToDeck(MouseEvent mouseEvent) throws IOException {
-        DeckDetails.deckName = entry.getText();
-        Parent deckDetail = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
-        Stage primaryStage = UI.getInstance().getPrimaryStage();
-        primaryStage.setTitle("Deck");
-        primaryStage.setScene(new Scene(deckDetail, 3000, 1000));
-        primaryStage.show();
+        if(entryCheck()){
+            for(Deck deck : Controller.currentAccount.getMyCollection().myDecks()){
+                if(deck.getName().equalsIgnoreCase(entry.getText())){
+                    DeckDetails.deck = deck;
+                    Parent deckDetail = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
+                    Stage primaryStage = UI.getInstance().getPrimaryStage();
+                    primaryStage.setTitle("Deck");
+                    primaryStage.setScene(new Scene(deckDetail, 3000, 1000));
+                    primaryStage.show();
+                    return;
+                }
+            }
+            View.getInstance().notValidDeck();
+        }
     }
 }

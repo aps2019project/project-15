@@ -267,7 +267,7 @@ public class View {
     }
 
     public void heroInDeck() {
-        System.out.println("A hero is already in deck");
+        alertMmessage("A hero is already in deck");
     }
 
     public void itemNotInCollection() {
@@ -814,5 +814,8 @@ public class View {
 
     public void deckHasItem() {
         alertMmessage("Deck has already an item!");
+    }
+    public void deckNameNotValid(){
+        alertMmessage("no deck with such name exists!");
     }
 }

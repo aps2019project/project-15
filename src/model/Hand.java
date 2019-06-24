@@ -56,7 +56,7 @@ public class Hand {
     }
 
     public ArrayList<Card> returnHand() {
-        if (cardsInHand.size() < 5) {
+        while (cardsInHand.size() < 5) {
             addToHand();
         }
         return cardsInHand;
