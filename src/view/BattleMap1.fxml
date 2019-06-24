@@ -194,7 +194,7 @@
             <Image url="@/ui/button_primary_left.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER_RIGHT" layoutX="1571.0" layoutY="940.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="9.0" prefWidth="111.0" text="Menu" textFill="#fffafa">
+      <Label alignment="CENTER_RIGHT" onMouseClicked="#exit" layoutX="1571.0" layoutY="940.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="9.0" prefWidth="111.0" text="Menu" textFill="#fffafa">
          <font>
             <Font size="24.0" />
          </font>

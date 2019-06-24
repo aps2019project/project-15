@@ -1,6 +1,8 @@
 package view;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.effect.*;
 import javafx.scene.effect.Effect;
@@ -14,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.effect.Effect;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -52,6 +55,14 @@ public class BattleMap1 extends Application {
 
     public void setCurrentPaneEntered(MouseEvent mouseEvent) {
 
+    }
+
+    public void exit(MouseEvent mouseEvent) throws IOException {
+        Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Duelyst");
+        primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
+        primaryStage.show();
     }
 
     public void endTurn(MouseEvent mouseEvent) {
