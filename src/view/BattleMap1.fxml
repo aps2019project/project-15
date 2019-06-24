@@ -107,7 +107,8 @@
                 <Image url="@/ui/button_end_turn_mine@2x.png" />
             </image>
         </ImageView>
-        <HBox layoutX="325.0" layoutY="791.0" prefHeight="194.0" prefWidth="1220.0" spacing="40.0">
+        <Text fill="WHITE" layoutX="1636.0" layoutY="897.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="END TURN" textAlignment="CENTER" wrappingWidth="150.99999648332596" />
+        <HBox layoutX="416.0" layoutY="833.0" prefHeight="194.0" prefWidth="1220.0" spacing="40.0">
             <children>
                 <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
@@ -141,7 +142,6 @@
                 </ImageView>
             </children>
         </HBox>
-        <Text fill="WHITE" layoutX="1636.0" layoutY="897.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="END TURN" textAlignment="CENTER" wrappingWidth="150.99999648332596" />
         <StackPane layoutX="14.0" layoutY="710.0" prefHeight="254.0" prefWidth="271.0">
             <children>
                 <ImageView fitHeight="202.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true">
@@ -161,15 +161,44 @@
                 </ImageView>
             </children>
         </StackPane>
-        <ImageView fitHeight="181.0" fitWidth="181.0" layoutX="37.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@/ui/rewards/spirit_reward_bg.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="181.0" fitWidth="191.0" layoutX="1593.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@/ui/rewards/spirit_reward_bg.png" />
-            </image>
-        </ImageView>
+      <StackPane layoutX="14.0" layoutY="14.0" prefHeight="194.0" prefWidth="225.0">
+         <children>
+              <ImageView fitHeight="181.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@/ui/rewards/spirit_reward_bg.png" />
+                  </image>
+              </ImageView>
+            <ImageView fitHeight="176.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/dialogue/speech_portrait_songhai@2x.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <StackPane layoutX="1577.0" prefHeight="240.0" prefWidth="338.0">
+         <children>
+              <ImageView fitHeight="181.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@/ui/rewards/spirit_reward_bg.png" />
+                  </image>
+              </ImageView>
+            <ImageView fitHeight="211.0" fitWidth="214.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/dialogue/speech_portrait_songhaialt@2x.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <ImageView fitHeight="60.0" fitWidth="163.0" layoutX="1545.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/ui/button_primary@2x.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER_RIGHT" layoutX="1571.0" layoutY="940.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="9.0" prefWidth="111.0" text="Menu" textFill="#fffafa">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1708.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>
