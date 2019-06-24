@@ -3,16 +3,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import view.Graphic;
 import view.UI;
-
-import java.net.URISyntaxException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Main extends Application {
 
@@ -32,10 +25,8 @@ public class Main extends Application {
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
+        primaryStage.setScene(new Scene(battleMap, 3000, 1000));
         primaryStage.show();
-
-
     }
 
     public static void main(String[] args) {
