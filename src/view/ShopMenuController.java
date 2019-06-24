@@ -23,7 +23,7 @@ import model.*;
 
 import java.io.IOException;
 
-public class ShopMenuController {
+public class ShopMenuController implements Info{
     public HBox hero;
     public HBox minion;
     public HBox spell;
@@ -60,7 +60,7 @@ public class ShopMenuController {
         }
     }
 
-    private Pane itemInfo(Item item) {
+    public Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
         Image image = new Image("card_backgrounds/card_back_gauntlet.png");
@@ -76,7 +76,7 @@ public class ShopMenuController {
         return itemInfo;
     }
 
-    private Pane cardInfo(Card card) {
+    public Pane cardInfo(Card card) {
         StackPane cardInfo = new StackPane();
         ImageView cardBackground = new ImageView();
         Text text = new Text();

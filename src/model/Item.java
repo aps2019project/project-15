@@ -213,7 +213,7 @@ public class Item implements Cloneable {
     }
 
 
-    static Item getItemById(String id) {
+    public static Item getItemById(String id) {
         for (Item item : Shop.getInstance().getAllItems()) {
             if (item.getId().equals(id)) {
                 return item;

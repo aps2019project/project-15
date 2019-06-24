@@ -17,8 +17,10 @@ import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class CollectionMenu {
+public class CollectionMenu implements Info {
     public HBox heroes;
     public HBox minions;
     public HBox spells;
@@ -34,6 +36,7 @@ public class CollectionMenu {
     public TextArea entry;
     public TextArea DeckName;
     public Button submit;
+    Map<String, HBox> decks = new HashMap<>();
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -62,23 +65,21 @@ public class CollectionMenu {
             items.getChildren().add(itemInfo(item));
         }
         for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
-            TextArea textArea = new TextArea(deck.getName());
-            textArea.setStyle("-fx-background-color : bisque ");
-            textArea.setPrefSize(250, 340);
-            deckNames.getChildren().add(textArea);
             HBox deckContains = new HBox();
+            deckNames.getChildren().addAll(deckInfo(deck));
+            cardsInDeck.getChildren().add(deckContains);
+            decks.put(deck.getName(), deckContains);
             for (Card card : deck.getCards()) {
                 deckContains.getChildren().add(cardInfo(card));
             }
             if (deck.getItem() != null) {
                 deckContains.getChildren().add(itemInfo(deck.getItem()));
             }
-            cardsInDeck.getChildren().add(deckContains);
         }
     }
 
 
-    private Pane itemInfo(Item item) {
+    public Pane itemInfo(Item item) {
         StackPane itemInfo = new StackPane();
         ImageView imageView = new ImageView();
         Image image = new Image("card_backgrounds/card_back_gauntlet.png");
@@ -94,7 +95,7 @@ public class CollectionMenu {
         return itemInfo;
     }
 
-    private Pane cardInfo(Card card) {
+    public Pane cardInfo(Card card) {
         StackPane cardInfo = new StackPane();
         ImageView cardBackground = new ImageView();
         Text text = new Text();
@@ -118,24 +119,26 @@ public class CollectionMenu {
                 text.setText(hero.toString());
         }
         cardBackground.setOpacity(0.6);
-        cardBackground.setFitHeight(300.0);
-        cardBackground.setFitWidth(230.0);
+        cardBackground.setFitHeight(340.0);
+        cardBackground.setFitWidth(250.0);
         text.setStyle("-fx-font-weight : bold ; -fx-font-size : 16");
         cardInfo.setAlignment(Pos.CENTER);
         cardInfo.getChildren().addAll(cardBackground, text);
         return cardInfo;
     }
 
-    public Pane deckInfo(Deck deck) {
-        assert deck != null;
+    private Pane deckInfo(Deck deck) {
+        Text text = new Text(deck.getName());
+        text.setStyle("-fx-background-color : bisque ; -fx-font-weight: bolder");
         StackPane deckInfo = new StackPane();
         ImageView background = new ImageView();
         Image image = new Image("/card_backgrounds/neutral_prismatic_artifact@2x.png");
         background.setImage(image);
-        background.setFitHeight(300);
-        background.setFitWidth(230);
+        background.setFitHeight(340);
+        background.setFitWidth(250);
+        background.setOpacity(0.68);
+        deckInfo.getChildren().addAll(background , text);
         deckInfo.setAlignment(Pos.CENTER);
-        deckInfo.getChildren().add(background);
         return deckInfo;
     }
 
@@ -162,12 +165,12 @@ public class CollectionMenu {
         if (entryCheck()) {
             Controller.currentAccount.getMyCollection().createDeck(entry.getText());
             Deck deck = Deck.returnDeckByName(entry.getText());
-            assert deck != null;
-            TextArea textArea = new TextArea(deck.getName());
-            textArea.setStyle("-fx-background-color : bisque ; -fx-font-weight: bolder");
-            textArea.setPrefSize(250, 340);
-            Pane pane = deckInfo(deck);
-            deckNames.getChildren().addAll(pane , textArea);
+            if(deck != null) {
+                HBox hBox = new HBox();
+                deckNames.getChildren().addAll(deckInfo(deck));
+                cardsInDeck.getChildren().add(hBox);
+                decks.put(deck.getName(), hBox);
+            }
         }
     }
 
@@ -201,23 +204,18 @@ public class CollectionMenu {
                     public void handle(MouseEvent event) {
                         DeckName.setVisible(false);
                         submit.setVisible(false);
-                        Controller.currentAccount.getMyCollection().cardOrItemToDeck(entry.getText(), DeckName.getText());
-                        HBox deckContains = new HBox();
-                        Deck deck = Deck.returnDeckByName(DeckName.getText());
-                        Card card = Card.returnCardByName(entry.getText());
-                        Item item = Item.getItemByName(entry.getText());
-                        assert deck != null;
-                        assert deck.getCards() != null;
-                        if (card != null) {
-                            deckContains.getChildren().add(cardInfo(card));
-                        } else if (item != null) {
-                            if (deck.getItem() == null) {
-                                deckContains.getChildren().add(itemInfo(item));
-                            } else {
-                                View.getInstance().deckHasItem();
+                        if (Controller.currentAccount.getMyCollection().cardOrItemToDeck(entry.getText(), DeckName.getText())) {
+                            HBox hBox = decks.get(DeckName.getText());
+                            Card card = Card.returnCardById(entry.getText());
+                            Item item = Item.getItemById(entry.getText());
+                            if (hBox != null) {
+                                if (card != null) {
+                                    hBox.getChildren().add(cardInfo(card));
+                                } else if (item != null) {
+                                    hBox.getChildren().add(itemInfo(item));
+                                }
                             }
                         }
-                        cardsInDeck.getChildren().add(deckContains);
                     }
                 });
             } else {
@@ -244,7 +242,18 @@ public class CollectionMenu {
                     public void handle(MouseEvent event) {
                         DeckName.setVisible(false);
                         submit.setVisible(false);
-                        Controller.currentAccount.getMyCollection().removeCardOrItemFromDeck(entry.getText(), DeckName.getText());
+                        if (Controller.currentAccount.getMyCollection().removeCardOrItemFromDeck(entry.getText(), DeckName.getText())) {
+                            HBox hBox = decks.get(DeckName.getText());
+                            Card card = Card.returnCardById(entry.getText());
+                            Item item = Item.getItemById(entry.getText());
+                            if (hBox != null) {
+                                if (card != null) {
+                                    hBox.getChildren().remove(cardInfo(card));
+                                } else if (item != null) {
+                                    hBox.getChildren().remove(itemInfo(item));
+                                }
+                            }
+                        }
                     }
                 });
             } else {
@@ -254,11 +263,19 @@ public class CollectionMenu {
     }
 
     public void goToDeck(MouseEvent mouseEvent) throws IOException {
-        DeckDetails.deckName = entry.getText();
-        Parent deckDetail = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
-        Stage primaryStage = UI.getInstance().getPrimaryStage();
-        primaryStage.setTitle("Deck");
-        primaryStage.setScene(new Scene(deckDetail, 3000, 1000));
-        primaryStage.show();
+        if (entryCheck()) {
+            for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
+                if (deck.getName().equalsIgnoreCase(entry.getText())) {
+                    DeckDetails.deck = deck;
+                    Parent deckDetail = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
+                    Stage primaryStage = UI.getInstance().getPrimaryStage();
+                    primaryStage.setTitle("Deck");
+                    primaryStage.setScene(new Scene(deckDetail, 3000, 1000));
+                    primaryStage.show();
+                    return;
+                }
+            }
+            View.getInstance().notValidDeck();
+        }
     }
 }
