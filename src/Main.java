@@ -3,13 +3,21 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import view.Graphic;
 import view.UI;
 
+import java.net.URISyntaxException;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Main extends Application {
 
     static Controller controller = new Controller();
+    private int counter = 1;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -26,6 +34,8 @@ public class Main extends Application {
         primaryStage.setTitle("DUELYST");
         primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
         primaryStage.show();
+
+
     }
 
     public static void main(String[] args) {

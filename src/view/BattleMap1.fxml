@@ -108,7 +108,7 @@
             </image>
         </ImageView>
         <Text fill="WHITE" layoutX="1636.0" layoutY="897.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="END TURN" textAlignment="CENTER" wrappingWidth="150.99999648332596" />
-        <HBox layoutX="416.0" layoutY="833.0" prefHeight="194.0" prefWidth="1220.0" spacing="40.0">
+        <HBox layoutX="306.0" layoutY="833.0" prefHeight="194.0" prefWidth="1009.0" spacing="40.0">
             <children>
                 <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
@@ -135,7 +135,7 @@
                         <Image url="@/ui/card_background.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fitHeight="180.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
@@ -189,9 +189,9 @@
             </ImageView>
          </children>
       </StackPane>
-      <ImageView fitHeight="60.0" fitWidth="163.0" layoutX="1545.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="60.0" fitWidth="163.0" layoutX="1529.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/ui/button_primary@2x.png" />
+            <Image url="@/ui/button_primary_left.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER_RIGHT" layoutX="1571.0" layoutY="940.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="9.0" prefWidth="111.0" text="Menu" textFill="#fffafa">
@@ -200,5 +200,15 @@
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1708.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="51.0" fitWidth="163.0" layoutX="1682.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/ui/button_primary_right.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="1689.0" layoutY="940.0" prefHeight="30.0" prefWidth="135.0" text="Friends (0)" textFill="#e8e0e0" textOverrun="CLIP">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
