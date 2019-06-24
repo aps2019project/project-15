@@ -65,12 +65,8 @@ public class CollectionMenu implements Info {
             items.getChildren().add(itemInfo(item));
         }
         for (Deck deck : Controller.currentAccount.getMyCollection().myDecks()) {
-            TextArea textArea = new TextArea(deck.getName());
-            textArea.setStyle("-fx-background-color : bisque ; -fx-font-weight: bolder");
-            textArea.setPrefSize(250, 340);
-            Pane pane = deckInfo(deck);
             HBox deckContains = new HBox();
-            deckNames.getChildren().addAll(pane, textArea);
+            deckNames.getChildren().addAll(deckInfo(deck));
             cardsInDeck.getChildren().add(deckContains);
             decks.put(deck.getName(), deckContains);
             for (Card card : deck.getCards()) {
@@ -131,16 +127,18 @@ public class CollectionMenu implements Info {
         return cardInfo;
     }
 
-    public Pane deckInfo(Deck deck) {
-        assert deck != null;
+    private Pane deckInfo(Deck deck) {
+        Text text = new Text(deck.getName());
+        text.setStyle("-fx-background-color : bisque ; -fx-font-weight: bolder");
         StackPane deckInfo = new StackPane();
         ImageView background = new ImageView();
         Image image = new Image("/card_backgrounds/neutral_prismatic_artifact@2x.png");
         background.setImage(image);
-        background.setFitHeight(300);
-        background.setFitWidth(230);
+        background.setFitHeight(340);
+        background.setFitWidth(250);
+        background.setOpacity(0.68);
+        deckInfo.getChildren().addAll(background , text);
         deckInfo.setAlignment(Pos.CENTER);
-        deckInfo.getChildren().add(background);
         return deckInfo;
     }
 
@@ -167,15 +165,12 @@ public class CollectionMenu implements Info {
         if (entryCheck()) {
             Controller.currentAccount.getMyCollection().createDeck(entry.getText());
             Deck deck = Deck.returnDeckByName(entry.getText());
-            assert deck != null;
-            TextArea textArea = new TextArea(deck.getName());
-            textArea.setStyle("-fx-background-color : bisque ; -fx-font-weight: bolder");
-            textArea.setPrefSize(250, 340);
-            Pane pane = deckInfo(deck);
-            HBox hBox = new HBox();
-            deckNames.getChildren().addAll(pane, textArea);
-            cardsInDeck.getChildren().add(hBox);
-            decks.put(deck.getName(), hBox);
+            if(deck != null) {
+                HBox hBox = new HBox();
+                deckNames.getChildren().addAll(deckInfo(deck));
+                cardsInDeck.getChildren().add(hBox);
+                decks.put(deck.getName(), hBox);
+            }
         }
     }
 
