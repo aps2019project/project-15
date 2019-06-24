@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.Graphic;
 import view.UI;
-import view.View;
 
 public class Main extends Application {
 
@@ -18,14 +17,14 @@ public class Main extends Application {
         UI.setPrimaryStage(primaryStage);
         Parent mainMenu = FXMLLoader.load(Graphic.class.getResource("Graphic.fxml"));
         Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
-        Parent CollectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
+        Parent collectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
         Parent ShopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
         Parent battleMap = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
         Parent battleMap2 = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap2.fxml"));
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
         primaryStage.setTitle("DUELYST");
-        primaryStage.setScene(new Scene(deckDetails, 3000, 1000));
+        primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
         primaryStage.show();
     }
 

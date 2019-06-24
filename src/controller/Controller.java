@@ -114,7 +114,7 @@ public class Controller {
             String command = request.getNewCommand();
             //if (currentAccount.myTurn) {
             if (RequestType.GAME_INFO.setMatcher(command).find()) {
-                if(game == null){
+                if (game == null) {
                     System.out.println("!!!");
                 }
                 if (game.getMode().equals(ModeOfGame.killOpponent)) {
@@ -385,7 +385,7 @@ public class Controller {
         } else if (RequestType.EXIT.setMatcher(command).find()) {
             view.exitMessage();
             currentAccount.setLoggedIn(false);
-            currentMenu =model.menu.AccountMenu.getInstance();
+            currentMenu = model.menu.AccountMenu.getInstance();
         } else {
             throw new InputException("Invalid command");
         }
@@ -426,7 +426,7 @@ public class Controller {
 
     private void addJSONFiles() throws IOException {
         final String[] paths = {
-                "HeroNames", "ItemNames", "SpellNames", "MinionNames", "Collectibles",
+                "HeroNames", "ItemNames", "SpellNames", "MinionNames", "Collectibles", "Accounts",
         };
         for (String path : paths) {
             File directory = new File(path);
@@ -443,6 +443,8 @@ public class Controller {
                         addCard(file, Spell.class, dataCenter.getSpells());
                     } else if (path.contains("Collectibles")) {
                         addCard(file, Collectible.class, dataCenter.getCollectibles());
+                    } else if (path.contains("Accounts")) {
+                        //TODO
                     }
                 }
             }

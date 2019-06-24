@@ -803,10 +803,16 @@ public class View {
         System.out.println("enemy doesn't have a main deck, log in with enemy account to choose a main deck or chose another enemy.");
 
     }
-    public void deckNameNotEntered(){
+
+    public void deckNameNotEntered() {
         alertMmessage("Enter the name of the deck");
     }
-    public void enterCardId(){
+
+    public void enterCardId() {
         alertMmessage("Enter the card's Id");
+    }
+
+    public void deckHasItem() {
+        alertMmessage("Deck has already an item!");
     }
 }

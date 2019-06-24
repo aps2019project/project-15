@@ -126,6 +126,19 @@ public class CollectionMenu {
         return cardInfo;
     }
 
+    public Pane deckInfo(Deck deck) {
+        assert deck != null;
+        StackPane deckInfo = new StackPane();
+        ImageView background = new ImageView();
+        Image image = new Image("/card_backgrounds/neutral_prismatic_artifact@2x.png");
+        background.setImage(image);
+        background.setFitHeight(300);
+        background.setFitWidth(230);
+        deckInfo.setAlignment(Pos.CENTER);
+        deckInfo.getChildren().add(background);
+        return deckInfo;
+    }
+
     public void showCards(MouseEvent mouseEvent) {
         myItems.setVisible(false);
         myDecks.setVisible(false);
@@ -142,18 +155,25 @@ public class CollectionMenu {
         cards.setVisible(false);
         myItems.setVisible(false);
         myDecks.setVisible(true);
+
     }
 
     public void createDeck(MouseEvent mouseEvent) {
         if (entryCheck()) {
             Controller.currentAccount.getMyCollection().createDeck(entry.getText());
+            Deck deck = Deck.returnDeckByName(entry.getText());
+            assert deck != null;
+            TextArea textArea = new TextArea(deck.getName());
+            textArea.setStyle("-fx-background-color : bisque ; -fx-font-weight: bolder");
+            textArea.setPrefSize(250, 340);
+            Pane pane = deckInfo(deck);
+            deckNames.getChildren().addAll(pane , textArea);
         }
     }
 
     public void deleteDeck(MouseEvent mouseEvent) {
         if (entryCheck()) {
-            Controller.currentAccount.getMyCollection().
-                    deleteDeck(entry.getText());
+            Controller.currentAccount.getMyCollection().deleteDeck(entry.getText());
         }
     }
 
@@ -182,6 +202,22 @@ public class CollectionMenu {
                         DeckName.setVisible(false);
                         submit.setVisible(false);
                         Controller.currentAccount.getMyCollection().cardOrItemToDeck(entry.getText(), DeckName.getText());
+                        HBox deckContains = new HBox();
+                        Deck deck = Deck.returnDeckByName(DeckName.getText());
+                        Card card = Card.returnCardByName(entry.getText());
+                        Item item = Item.getItemByName(entry.getText());
+                        assert deck != null;
+                        assert deck.getCards() != null;
+                        if (card != null) {
+                            deckContains.getChildren().add(cardInfo(card));
+                        } else if (item != null) {
+                            if (deck.getItem() == null) {
+                                deckContains.getChildren().add(itemInfo(item));
+                            } else {
+                                View.getInstance().deckHasItem();
+                            }
+                        }
+                        cardsInDeck.getChildren().add(deckContains);
                     }
                 });
             } else {

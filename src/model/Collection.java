@@ -2,9 +2,7 @@ package model;
 
 import controller.Controller;
 import model.menu.MainMenu;
-import view.Request;
 import view.View;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -19,13 +17,16 @@ public class Collection {
         view.exitCollection();
         Controller.currentMenu = MainMenu.getInstance();
     }
-    public ArrayList<Card> myCards(){
+
+    public ArrayList<Card> myCards() {
         return myCards;
     }
-    public ArrayList<Item> myItems(){
+
+    public ArrayList<Item> myItems() {
         return myItems;
     }
-    public ArrayList<Deck> myDecks(){
+
+    public ArrayList<Deck> myDecks() {
         return myDecks;
     }
 
