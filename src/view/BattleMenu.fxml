@@ -13,8 +13,12 @@
             <Image url="@/scenes/obsidian_woods/obsidian_woods_background@2x.jpg" />
          </image>
       </ImageView>
-      <Button accessibleText="Single Player" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" text="Single Player" textAlignment="CENTER" style="-fx-background-color : #DD99FF ; -fx-font-weight : bold ; -fx-font-size : 20 ; -fx-font-style : italic" prefWidth="200.0" prefHeight="100.0" textFill="#F7E6FF" />
-      <Button accessibleText="Multi Player" layoutX="100.0" layoutY="460.0" mnemonicParsing="false" text="Multi Player" style="-fx-background-color : #DD99FF ; -fx-font-weight : bold ; -fx-font-size : 20 ; -fx-font-style : italic" prefWidth="200.0" prefHeight="100.0" textFill="#F7E6FF"/>
+      <Button accessibleText="Single Player" layoutX="100.0" layoutY="100.0" mnemonicParsing="false" text="Single Player"
+              textAlignment="CENTER" style="-fx-background-color : #DD99FF ; -fx-font-weight : bold ; -fx-font-size : 20 ; -fx-font-style : italic"
+              prefWidth="200.0" prefHeight="100.0" textFill="#F7E6FF" onMouseClicked="#singlePlayer"/>
+      <Button accessibleText="Multi Player" layoutX="100.0" layoutY="460.0" mnemonicParsing="false" text="Multi Player"
+              style="-fx-background-color : #DD99FF ; -fx-font-weight : bold ; -fx-font-size : 20 ; -fx-font-style : italic"
+              prefWidth="200.0" prefHeight="100.0" textFill="#F7E6FF" onMouseClicked="#multiPlayer"/>
       <Button accessibleText="Rterurn" layoutX="175.0" layoutY="820.0" mnemonicParsing="false" text="Return" style="-fx-background-color : #DD99FF" onMouseClicked="#exit" textFill="#F7E6FF"/>
    </children>
 </AnchorPane>

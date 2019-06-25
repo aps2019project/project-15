@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class AI extends Account {
+    private static AI ai = new AI();
     private Game game;
     private Deck mainDeck;
     private ArrayList<Card> AICards = new ArrayList<>();
@@ -11,7 +12,12 @@ public class AI extends Account {
     public void setGame(Game game) {
         this.game = game;
     }
+    public static AI getInstance(){
+        return ai;
+    }
+    private AI(){
 
+    }
     private void insertCard() {
     }
 

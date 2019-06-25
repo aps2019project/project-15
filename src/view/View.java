@@ -472,7 +472,6 @@ public class View {
 
     public void incorrectPassword() {
         alertMmessage("your password is incorrect!");
-        System.out.println("your password is incorrect!");
 
     }
 
@@ -526,8 +525,7 @@ public class View {
     }
 
     public void getSecondUsername() {
-        System.out.println("multi player mode!");
-        System.out.println("enter second player username: ");
+        alertMmessage("enter second player username!");
     }
 
     public void getSecondPassword() {
@@ -811,11 +809,10 @@ public class View {
     public void enterCardId() {
         alertMmessage("Enter the card's Id");
     }
-
-    public void deckHasItem() {
-        alertMmessage("Deck has already an item!");
+    public void flagsNumber(){
+        alertMmessage("enter number of flags");
     }
-    public void deckNameNotValid(){
-        alertMmessage("no deck with such name exists!");
+    public void accountNotExists(){
+        alertMmessage("no account with such name exists!!!");
     }
 }

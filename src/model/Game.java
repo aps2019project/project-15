@@ -213,20 +213,20 @@ public class Game {
 
     public void setTypeOfGame(int number) {
         switch (number) {
-            case (1): {
+            case (0): {
                 Mode = ModeOfGame.StoryMode;
                 break;
             }
-            case (2): {
+            case (1): {
                 Mode = ModeOfGame.killOpponent;
 
                 break;
             }
-            case (3): {
+            case (2): {
                 Mode = ModeOfGame.KeepFlag;
                 break;
             }
-            case (4): {
+            case (3): {
                 Mode = ModeOfGame.CollectFlags;
                 break;
             }

@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.Account;
+import model.Game;
 
 import java.io.IOException;
 
@@ -19,7 +20,6 @@ public class Graphic {
     public Text name;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
-        //Account.saveAccounts();
         System.out.println("you clicked exit");
         Controller.currentAccount.setLoggedIn(false);
         Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
@@ -51,7 +51,7 @@ public class Graphic {
     }
 
     public void battleMenuFunc(MouseEvent mouseEvent) throws IOException {
-        System.out.println("battle menu function");
+        Controller.currentGame = new Game();
         if (Controller.currentAccount.getMainDeck() == null || !Controller.currentAccount.getMainDeck().validated) {
             View.getInstance().notValidDeck();
         } else {
