@@ -58,6 +58,9 @@ public class DataCenter {
     public HashMap<String, Account> getAccounts() {
         return accounts;
     }
+    public void putAccount(Account account){
+        accounts.put(account.getUsername(), account);
+    }
 
 
 }

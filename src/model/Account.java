@@ -13,7 +13,6 @@ public class Account {
     private View view = View.getInstance();
     public boolean myTurn = true;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
-    private static ArrayList<Account> allAccounts = new ArrayList<>();
     private String username;
     private String password;
     private int money = 15000;
@@ -25,12 +24,9 @@ public class Account {
     public ArrayList<Item> myCollectibles = new ArrayList<>();
 
     public Account() {
-        allAccounts.add(this);
+        DataCenter.getInstance().putAccount(this);
     }
 
-    public static ArrayList<Account> getAllAccounts() {
-        return allAccounts;
-    }
 
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
@@ -121,7 +117,7 @@ public class Account {
         YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
         try {
             Writer writer = new FileWriter("accounts.json");
-            String string = yaGson.toJson(allAccounts);
+            String string = yaGson.toJson(DataCenter.getInstance().getAccounts());
             writer.write(string);
             writer.close();
 

@@ -639,4 +639,8 @@ public class Game {
     public int getPlayer2Mp() {
         return player2Mp;
     }
+
+    public ArrayList<Card> getCardsInGame() {
+        return cardsInGame;
+    }
 }

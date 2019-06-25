@@ -7,11 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Account;
-import view.BattleMap1;
+import model.DataCenter;
 import view.Graphic;
 import view.UI;
 
-import javax.swing.text.html.ImageView;
 import java.io.FileReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
@@ -32,6 +31,8 @@ public class Main extends Application {
         //Parent battleMap = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
+        Parent singlePlayer = FXMLLoader.load(view.singlePlayerBattleOptions.class.getResource("singlePlayerBattleOptions.fxml"));
+        Parent multiPlayer = FXMLLoader.load(view.MultiPlayer.class.getResource("MultiPlayer.fxml"));
         primaryStage.setTitle("DUELYST");
         primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
 
@@ -54,7 +55,7 @@ public class Main extends Application {
             Account[] accounts = yaGson.fromJson(reader, (Type) Account[].class);
             if (accounts != null) {
                 for (Account account : accounts) {
-                    Account.getAllAccounts().add(account);
+                    DataCenter.getInstance().putAccount(account);
                     System.out.println(account.getUsername());
                 }
             }
