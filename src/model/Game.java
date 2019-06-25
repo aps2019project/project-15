@@ -633,4 +633,8 @@ public class Game {
             }
         }
     }
+    public ArrayList<Card> getCardsInGame (){
+        ArrayList<Card> cardsInGame = this.cardsInGame;
+        return cardsInGame;
+    }
 }

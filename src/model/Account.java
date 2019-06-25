@@ -1,7 +1,11 @@
 package model;
 
+import com.gilecode.yagson.YaGson;
+import com.gilecode.yagson.YaGsonBuilder;
 import view.View;
 
+import java.io.FileWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 
 public class Account {
@@ -9,7 +13,7 @@ public class Account {
     private View view = View.getInstance();
     public boolean myTurn = true;
     private ArrayList<Card> cardsInGame = new ArrayList<>();
-
+    private static ArrayList<Account> allAccounts = new ArrayList<>();
     private String username;
     private String password;
     private int money = 15000;
@@ -19,6 +23,15 @@ public class Account {
     private ArrayList<Card> graveYard = new ArrayList<>();
     private ArrayList<History> historyGames = new ArrayList<>();
     public ArrayList<Item> myCollectibles = new ArrayList<>();
+
+    public Account() {
+        allAccounts.add(this);
+    }
+
+    public static ArrayList<Account> getAllAccounts() {
+        return allAccounts;
+    }
+
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }
@@ -101,6 +114,22 @@ public class Account {
     void sellCard(Card card) {
         card.owned = false;
         card.sold = true;
+    }
+
+    public static void saveAccounts() {
+
+        YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
+        try {
+            Writer writer = new FileWriter("accounts.json");
+            String string = yaGson.toJson(allAccounts);
+            writer.write(string);
+            writer.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     boolean soldCard(Card card) {

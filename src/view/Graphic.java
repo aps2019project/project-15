@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.Account;
 
 import java.io.IOException;
 
@@ -18,6 +19,7 @@ public class Graphic {
     public Text name;
 
     public void exit(MouseEvent mouseEvent) throws IOException {
+        Account.saveAccounts();
         System.out.println("you clicked exit");
         Controller.currentAccount.setLoggedIn(false);
         Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
