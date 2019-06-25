@@ -34,8 +34,6 @@ public class Game {
 
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
-    public int player1Hp = -1;
-    public int player2Hp = -1;
     private int firstTurn;
     boolean done = false;
     private boolean finishedGame = false;
@@ -633,8 +631,12 @@ public class Game {
             }
         }
     }
-    public ArrayList<Card> getCardsInGame (){
-        ArrayList<Card> cardsInGame = this.cardsInGame;
-        return cardsInGame;
+
+    public int getPlayer1Mp() {
+        return player1Mp;
+    }
+
+    public int getPlayer2Mp() {
+        return player2Mp;
     }
 }

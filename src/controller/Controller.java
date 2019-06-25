@@ -118,8 +118,8 @@ public class Controller {
                     System.out.println("!!!");
                 }
                 if (game.getMode().equals(ModeOfGame.killOpponent)) {
-                    System.out.println(game.player1Hp);
-                    System.out.println(game.player2Hp);
+                    System.out.println(game.getPlayer1Mp());
+                    System.out.println(game.getPlayer2Mp());
                 }
             } else if (RequestType.SHOW_MY_MINIONS.setMatcher(command).find()) {
                 showMinionsFunction(currentAccount);

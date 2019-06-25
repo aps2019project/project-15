@@ -19,6 +19,7 @@ import java.lang.reflect.Type;
 public class Main extends Application {
 
     static Controller controller = new Controller();
+    private int counter = 1;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
