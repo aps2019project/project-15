@@ -1,11 +1,21 @@
+
+import com.gilecode.yagson.YaGson;
+import com.gilecode.yagson.YaGsonBuilder;
 import controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Account;
+import model.DataCenter;
 import view.Graphic;
 import view.UI;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.HashMap;
 
 public class Main extends Application {
 
@@ -21,17 +31,38 @@ public class Main extends Application {
         Parent collectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
         Parent ShopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
         Parent battleMap = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
-        Parent battleMap2 = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap2.fxml"));
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
+        Parent singlePlayer = FXMLLoader.load(view.singlePlayerBattleOptions.class.getResource("singlePlayerBattleOptions.fxml"));
+        Parent multiPlayer = FXMLLoader.load(view.MultiPlayer.class.getResource("MultiPlayer.fxml"));
         primaryStage.setTitle("DUELYST");
         primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
+
         primaryStage.show();
     }
 
     public static void main(String[] args) {
-        Controller.getInstance().initEverything();
-        launch(args);
+        try {
+            loadAccounts();
+            Controller.getInstance().initEverything();
+            launch(args);
+        } finally {
+            Account.saveAccounts();
+            Controller.currentAccount.setLoggedIn(false);
+        }
 
+    }
+
+    private static void loadAccounts() {
+        try {
+            YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
+            Reader reader = new FileReader("accounts.json");
+            HashMap<String, Account> accounts = yaGson.fromJson(reader, (Type) Account[].class);
+            if (accounts != null) {
+                DataCenter.getInstance().setAccounts(accounts);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

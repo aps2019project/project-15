@@ -20,6 +20,13 @@ import java.util.TimerTask;
 public class BattleMap1 extends Application {
 
     public GridPane gridPane;
+    public ImageView firstCard;
+    public ImageView secondCard;
+    public ImageView thirdCard;
+    public ImageView fourthCard;
+    public ImageView fifthCard;
+    public ImageView sixthCard;
+
     private int counter = 1;
 
     public Pane block00;
