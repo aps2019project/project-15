@@ -14,6 +14,7 @@ import view.UI;
 import java.io.FileReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 
 public class Main extends Application {
 
@@ -28,7 +29,7 @@ public class Main extends Application {
         Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
         Parent collectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
         Parent ShopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
-        Parent battleMap = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
+        //Parent battleMap = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
         Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
         Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
         Parent singlePlayer = FXMLLoader.load(view.singlePlayerBattleOptions.class.getResource("singlePlayerBattleOptions.fxml"));
@@ -44,8 +45,7 @@ public class Main extends Application {
             loadAccounts();
             Controller.getInstance().initEverything();
             launch(args);
-        }
-        finally {
+        } finally {
             Account.saveAccounts();
             Controller.currentAccount.setLoggedIn(false);
         }
@@ -56,12 +56,9 @@ public class Main extends Application {
         try {
             YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
             Reader reader = new FileReader("accounts.json");
-            Account[] accounts = yaGson.fromJson(reader, (Type) Account[].class);
+            HashMap<String, Account> accounts = yaGson.fromJson(reader, (Type) Account[].class);
             if (accounts != null) {
-                for (Account account : accounts) {
-                    DataCenter.getInstance().putAccount(account);
-                    System.out.println(account.getUsername());
-                }
+                DataCenter.getInstance().setAccounts(accounts);
             }
         } catch (Exception e) {
             e.printStackTrace();
