@@ -12,12 +12,14 @@ public class DataCenter {
     private ArrayList<Spell> spells = new ArrayList<>();
     private ArrayList<Item> items = new ArrayList<>();
     private ArrayList<Collectible> collectibles = new ArrayList<>();
+    private HashMap<String, Account> accounts = new HashMap<>();
+
 
     public static DataCenter getInstance() {
         return ourInstance;
     }
-
     public View view = View.getInstance();
+
 
     private DataCenter() {
 
@@ -42,8 +44,6 @@ public class DataCenter {
     public ArrayList<Item> getItems() {
         return items;
     }
-
-    private HashMap<String, Account> accounts = new HashMap<>();
 
     public Account getAccountByName(String name) {
         for (Account account : accounts.values()

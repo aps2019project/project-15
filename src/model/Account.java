@@ -4,28 +4,30 @@ import com.gilecode.yagson.YaGson;
 import com.gilecode.yagson.YaGsonBuilder;
 import view.View;
 
+import javax.xml.crypto.Data;
 import java.io.FileWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
 public class Account {
 
-    private View view = View.getInstance();
-    public boolean myTurn = true;
-    private ArrayList<Card> cardsInGame = new ArrayList<>();
+    transient private View view = View.getInstance();
+    transient public boolean myTurn = true;
+    transient private ArrayList<Card> cardsInGame = new ArrayList<>();
     private String username;
     private String password;
     private int money = 15000;
     private boolean loggedIn = false;
     private Collection myCollection = new Collection();
     private Deck mainDeck = new Deck("mainDeck");
-    private ArrayList<Card> graveYard = new ArrayList<>();
+    transient private ArrayList<Card> graveYard = new ArrayList<>();
     private ArrayList<History> historyGames = new ArrayList<>();
-    public ArrayList<Item> myCollectibles = new ArrayList<>();
+    transient public ArrayList<Item> myCollectibles = new ArrayList<>();
 
     public Account() {
         DataCenter.getInstance().putAccount(this);
     }
+
 
 
     public ArrayList<Card> getCardsInGame() {
@@ -114,10 +116,13 @@ public class Account {
 
     public static void saveAccounts() {
 
+        ArrayList<Account> accounts = new ArrayList<>(DataCenter.getInstance().getAccounts().values());
+
+
         YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
         try {
             Writer writer = new FileWriter("accounts.json");
-            String string = yaGson.toJson(DataCenter.getInstance().getAccounts());
+            String string = yaGson.toJson(accounts);
             writer.write(string);
             writer.close();
 

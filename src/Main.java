@@ -15,6 +15,7 @@ import view.UI;
 import java.io.FileReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main extends Application {
@@ -38,11 +39,8 @@ public class Main extends Application {
             loadAccounts();
             Controller.getInstance().initEverything();
             launch(args);
-        }
-        finally {
-            Account.saveAccounts();
+        } finally {
             Controller.currentAccount.setLoggedIn(false);
-            Account.saveAccounts();
         }
 
     }
@@ -51,9 +49,12 @@ public class Main extends Application {
         try {
             YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
             Reader reader = new FileReader("accounts.json");
-            HashMap<String, Account> accounts = yaGson.fromJson(reader, (Type) Account[].class);
+            Account[] accounts = yaGson.fromJson(reader, (Type) Account[].class);
             if (accounts != null) {
-                DataCenter.getInstance().setAccounts(accounts);
+                for (Account account : accounts) {
+                    DataCenter.getInstance().getAccounts().put(account.getUsername(), account);
+                    System.out.println(account.getUsername());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
