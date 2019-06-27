@@ -2,9 +2,14 @@ package controller;
 
 import com.google.gson.Gson;
 import model.*;
-import model.menu.*;
 import model.menu.BattleMenu;
-import view.*;
+import model.menu.MainMenu;
+import model.menu.Menu;
+import model.menu.ShopMenu;
+import view.InputException;
+import view.Request;
+import view.RequestType;
+import view.View;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,7 +31,7 @@ public class Controller {
     private boolean gameStarted = false;
     private boolean exit = false;
     public static Game currentGame;
-
+    public static File[] files = new File[10];
     public static Controller getInstance() {
         return controller;
     }
