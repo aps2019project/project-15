@@ -9,14 +9,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Account;
 import model.DataCenter;
-import view.Graphic;
 import view.UI;
 
 import java.io.FileReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main extends Application {
 
@@ -40,6 +37,7 @@ public class Main extends Application {
             Controller.getInstance().initEverything();
             launch(args);
         } finally {
+
             Controller.currentAccount.setLoggedIn(false);
         }
 
@@ -55,6 +53,9 @@ public class Main extends Application {
                     DataCenter.getInstance().getAccounts().put(account.getUsername(), account);
                     System.out.println(account.getUsername());
                 }
+            }
+            for (Account account : DataCenter.getInstance().getAccounts().values()) {
+                account.setLoggedIn(false);
             }
         } catch (Exception e) {
             e.printStackTrace();
