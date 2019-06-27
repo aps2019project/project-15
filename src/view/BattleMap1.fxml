@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.TextField?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BattleMap1">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="1.0" layoutY="-98.0" pickOnBounds="true" preserveRatio="true" scaleX="1.2" scaleY="1.2">
@@ -141,6 +142,14 @@
                     </image>
                 </ImageView>
             </children>
+        </HBox>
+        <HBox layoutX="306.0" layoutY="800.0" prefHeight="194.0" prefWidth="1009.0" spacing="70.0">
+            <Label fx:id="firstCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
+            <Label fx:id="secondCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
+            <Label fx:id="thirdCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
+            <Label fx:id="fourthCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
+            <Label fx:id="fifthCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
+            <Label fx:id="sixthCardName" prefHeight="50" prefWidth="173" scaleX="1.1" scaleY="1.1"/>
         </HBox>
         <StackPane layoutX="14.0" layoutY="710.0" prefHeight="254.0" prefWidth="271.0">
             <children>

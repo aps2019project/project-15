@@ -629,7 +629,7 @@ public class View {
     }
 
     public void showHand(Hand hand) {
-        for (Card card : hand.getCardsInHand()) {
+        for (Card card : hand.returnHand()) {
             System.out.println(card);
         }
     }

@@ -26,15 +26,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         UI.setPrimaryStage(primaryStage);
-        Parent mainMenu = FXMLLoader.load(Graphic.class.getResource("Graphic.fxml"));
         Parent accountMenu = FXMLLoader.load(view.AccountMenu.class.getResource("AccountMenu.fxml"));
-        Parent collectionMenu = FXMLLoader.load(view.CollectionMenu.class.getResource("CollectionMenu.fxml"));
-        Parent ShopMenu = FXMLLoader.load(view.ShopMenuController.class.getResource("ShopMenu.fxml"));
-        Parent battleMap = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
-        Parent battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
-        Parent deckDetails = FXMLLoader.load(view.DeckDetails.class.getResource("DeckDetails.fxml"));
-        Parent singlePlayer = FXMLLoader.load(view.singlePlayerBattleOptions.class.getResource("singlePlayerBattleOptions.fxml"));
-        Parent multiPlayer = FXMLLoader.load(view.MultiPlayer.class.getResource("MultiPlayer.fxml"));
         primaryStage.setTitle("DUELYST");
         primaryStage.setScene(new Scene(accountMenu, 3000, 1000));
 

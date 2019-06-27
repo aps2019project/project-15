@@ -231,6 +231,7 @@ public class Collection {
         deck.hand.allCardsInDeck = deck.cards;
         Controller.currentAccount.getMainDeck().validated = true;
         view.setMainDeck();
+        deck.getHand().initializeHand();
     }
 
     public void showAllDecks() {

@@ -1,9 +1,12 @@
 package view;
 
+import controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,8 +15,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.Account;
+import model.Card;
+import model.Game;
+import model.Hand;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -26,6 +34,12 @@ public class BattleMap1 extends Application {
     public ImageView fourthCard;
     public ImageView fifthCard;
     public ImageView sixthCard;
+    public Label firstCardName;
+    public Label secondCardName;
+    public Label thirdCardName;
+    public Label fourthCardName;
+    public Label fifthCardName;
+    public Label sixthCardName;
 
     private int counter = 1;
 
@@ -45,6 +59,21 @@ public class BattleMap1 extends Application {
     public Pane block14;
     public Pane block15;
     public Pane currentPaneEntered;
+
+    public void initialize(){
+        cardsInHand();
+    }
+
+    private void cardsInHand() {
+        /*ArrayList<Card> cardsInHand = new ArrayList<>();
+        cardsInHand.addAll(Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand());
+        firstCardName.setText(cardsInHand.get(0).getName());
+        secondCardName.setText(cardsInHand.get(1).getName());
+        thirdCardName.setText(cardsInHand.get(2).getName());
+        fourthCardName.setText(cardsInHand.get(3).getName());
+        fifthCardName.setText(cardsInHand.get(4).getName());
+        sixthCardName.setText(cardsInHand.get(5).getName());*/
+    }
 
     public void changeColor(MouseEvent mouseEvent) {
         if (mouseEvent.getEventType() == MouseEvent.MOUSE_ENTERED) {
@@ -70,6 +99,7 @@ public class BattleMap1 extends Application {
     }
 
     public void endTurn(MouseEvent mouseEvent) {
+        Controller.currentGame.endTurn();
     }
 
     @Override
@@ -92,7 +122,6 @@ public class BattleMap1 extends Application {
         };
         timer.scheduleAtFixedRate(timerTask, 1, 100);
         root.getChildren().addAll(imageView);
-
         Scene scene = new Scene(root, 1600, 900);
         primaryStage.setScene(scene);
         primaryStage.show();

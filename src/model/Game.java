@@ -21,6 +21,9 @@ public class Game {
     private boolean storyMode = false;
     private View view = View.getInstance();
 
+    public Game(){
+        activeAccount = Controller.currentAccount;
+    }
     Map getMap() {
         return map;
     }
@@ -32,7 +35,6 @@ public class Game {
             map.addFlagToMap(flag);
         }
     }
-
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
     private int firstTurn;
@@ -426,7 +428,7 @@ public class Game {
         activeAccount.getMainDeck().showHand();
     }
 
-    void endTurn() {
+    public void endTurn() {
         turn++;
         for (Card card : Controller.currentAccount.getCardsInGame()) {
             card.getCurrentBlock().blockEffect();
@@ -502,7 +504,7 @@ public class Game {
 
     public void addCardsToGame(String cardName, int x, int y) {
         Card card = Card.returnCardByName(cardName);
-        if (card == null || !activeAccount.getMainDeck().hand.getCardsInHand().contains(card)) {
+        if (card == null || !activeAccount.getMainDeck().hand.returnHand().contains(card)) {
             view.invalidCardNameInGame();
             return;
         }
