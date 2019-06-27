@@ -17,12 +17,14 @@ public class Game {
     private int timeOfGame;
     public Card currentCard;
     public Item currentItem;
-    private Account activeAccount;
     private boolean storyMode = false;
     private View view = View.getInstance();
 
-    public Game(){
-        activeAccount = Controller.currentAccount;
+    public Account whoseTurn(){
+        if(Controller.currentAccount.myTurn){
+            return Controller.currentAccount;
+        }
+        return Controller.enemyAccount;
     }
     Map getMap() {
         return map;
@@ -345,7 +347,7 @@ public class Game {
     public void attack(Card myCard, Card opponentCard) throws CloneNotSupportedException {
         if (!myCard.disarmed) {
             myCard.attack(opponentCard);
-            if (activeAccount.equals(Controller.currentAccount)) {
+            if (whoseTurn().equals(Controller.currentAccount)) {
                 player1Mp -= myCard.Mp;
             } else {
                 player2Mp -= myCard.Mp;
@@ -425,7 +427,7 @@ public class Game {
     }
 
     public void showHand() {
-        activeAccount.getMainDeck().showHand();
+        whoseTurn().getMainDeck().showHand();
     }
 
     public void endTurn() {
@@ -436,19 +438,21 @@ public class Game {
         for (Card card : Controller.enemyAccount.getCardsInGame()) {
             card.getCurrentBlock().blockEffect();
         }
-        if (activeAccount.equals(Controller.currentAccount)) {
-            activeAccount = Controller.enemyAccount;
+        if (whoseTurn().equals(Controller.currentAccount)) {
+            Controller.currentAccount.myTurn = false;
+            Controller.enemyAccount.myTurn = true;
         } else {
-            activeAccount = Controller.currentAccount;
+            Controller.currentAccount.myTurn = true;
+            Controller.enemyAccount.myTurn = false;
         }
-        for (Card card : activeAccount.getCardsInGame()) {
+        for (Card card : whoseTurn().getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        if (activeAccount.getMainDeck().getItem().getItemName().equals("KingWisom")) {
-            activeAccount.getMainDeck().getItem().KingWisdom(activeAccount.getUsername());
+        if (whoseTurn().getMainDeck().getItem().getItemName().equals("KingWisom")) {
+            whoseTurn().getMainDeck().getItem().KingWisdom(whoseTurn().getUsername());
         }
-        if (activeAccount.getMainDeck().getItem().getItemName().equals("TajDanaii")) {
-            activeAccount.getMainDeck().getItem().tajeDanaii(activeAccount.getUsername());
+        if (whoseTurn().getMainDeck().getItem().getItemName().equals("TajDanaii")) {
+            whoseTurn().getMainDeck().getItem().tajeDanaii(whoseTurn().getUsername());
         }
         map.checkIfCollectibleOrFlagIsTaken();
         updateGraveYard();
@@ -470,7 +474,7 @@ public class Game {
     }
 
     private void addToMana() {
-        if (activeAccount.equals(Controller.currentAccount)) {
+        if (whoseTurn().equals(Controller.currentAccount)) {
             if (turn < 14) {
                 player1Mp = (turn / 2) + 2;
             } else {
@@ -488,7 +492,7 @@ public class Game {
     public void help() {
         view.showMyMinions();
         view.showEnemyMinion();
-        activeAccount.getMainDeck().showHand();
+        whoseTurn().getMainDeck().showHand();
     }
 
     public void useItem(Item item, int x, int y) {
@@ -504,7 +508,7 @@ public class Game {
 
     public void addCardsToGame(String cardName, int x, int y) {
         Card card = Card.returnCardByName(cardName);
-        if (card == null || !activeAccount.getMainDeck().hand.returnHand().contains(card)) {
+        if (card == null || !whoseTurn().getMainDeck().hand.returnHand().contains(card)) {
             view.invalidCardNameInGame();
             return;
         }
@@ -529,7 +533,7 @@ public class Game {
             view.invalidTarget();
             return;
         }
-        boolean whichAccount = activeAccount.equals(Controller.currentAccount);
+        boolean whichAccount = whoseTurn().equals(Controller.currentAccount);
         if (whichAccount) {
             if ((Controller.currentGame.player1Mp - card.Mp) < 0) {
                 view.notEnoughMana();
@@ -548,7 +552,7 @@ public class Game {
         }
         cardsInGame.add(card);
         block.cardMovedToBlock(card);
-        if (activeAccount.equals(Controller.currentAccount)) {
+        if (whoseTurn().equals(Controller.currentAccount)) {
             Controller.currentAccount.getMainDeck().hand.deleteFromHand(card);
             if (Controller.currentAccount.getMainDeck().getItem().getItemName().equals("ghosleTamid") && card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Item item = Controller.currentAccount.getMainDeck().getItem();
@@ -582,14 +586,14 @@ public class Game {
     private boolean checkSurroundingBlocks(int x, int y, boolean canBeEnserted) {
         Block surrondingBlock = map.getBlock(x - 1, y);
         if (surrondingBlock != null) {
-            if (!surrondingBlock.isEmpty() && activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+            if (!surrondingBlock.isEmpty() && whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
                 canBeEnserted = true;
             }
         }
         if (!canBeEnserted) {
             surrondingBlock = map.getBlock(x, y - 1);
             if (surrondingBlock != null) {
-                if (!surrondingBlock.isEmpty() && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                if (!surrondingBlock.isEmpty() && !whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
                     canBeEnserted = true;
                 }
             }
@@ -597,7 +601,7 @@ public class Game {
         if (!canBeEnserted) {
             surrondingBlock = map.getBlock(x + 1, y);
             if (surrondingBlock != null) {
-                if (surrondingBlock.isEmpty() && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                if (surrondingBlock.isEmpty() && !whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
                     canBeEnserted = true;
                 }
             }
@@ -605,7 +609,7 @@ public class Game {
         if (!canBeEnserted) {
             surrondingBlock = map.getBlock(x, y + 1);
             if (surrondingBlock != null) {
-                if (surrondingBlock.isEmpty() && !activeAccount.getCardsInGame().contains(surrondingBlock.card)) {
+                if (surrondingBlock.isEmpty() && !whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
                     canBeEnserted = true;
                 }
             }
@@ -635,11 +639,11 @@ public class Game {
     }
 
     public Account getActiveAccount() {
-        return this.activeAccount;
+        return this.whoseTurn();
     }
 
     public void showCollectibles() {
-        for (Card card : activeAccount.getCardsInGame()) {
+        for (Card card : whoseTurn().getCardsInGame()) {
             for (Collectible collectible : card.getCollectibles()) {
                 view.showCollectible(collectible);
             }

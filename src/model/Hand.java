@@ -19,9 +19,14 @@ public class Hand {
             }
         }
         allCardsInDeck.remove(hero);
-        for(index = 0; index < 6; index++) {
-            cardsInHand.add(allCardsInDeck.get(index));
-            System.out.println(cardsInHand.get(index).getName());
+        for(Card card : allCardsInDeck) {
+            if(index < 6) {
+                cardsInHand.add(card);
+                index++;
+            }
+            else {
+                break;
+            }
         }
     }
 

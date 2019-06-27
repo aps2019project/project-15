@@ -65,14 +65,14 @@ public class BattleMap1 extends Application {
     }
 
     private void cardsInHand() {
-        /*ArrayList<Card> cardsInHand = new ArrayList<>();
+        ArrayList<Card> cardsInHand = new ArrayList<>();
         cardsInHand.addAll(Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand());
         firstCardName.setText(cardsInHand.get(0).getName());
         secondCardName.setText(cardsInHand.get(1).getName());
         thirdCardName.setText(cardsInHand.get(2).getName());
         fourthCardName.setText(cardsInHand.get(3).getName());
         fifthCardName.setText(cardsInHand.get(4).getName());
-        sixthCardName.setText(cardsInHand.get(5).getName());*/
+        sixthCardName.setText(cardsInHand.get(5).getName());
     }
 
     public void changeColor(MouseEvent mouseEvent) {

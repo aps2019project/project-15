@@ -228,10 +228,9 @@ public class Collection {
             return;
         }
         Controller.currentAccount.setMainDeck(deck);
-        deck.hand.allCardsInDeck = deck.cards;
         Controller.currentAccount.getMainDeck().validated = true;
+        Controller.currentAccount.getMainDeck().getHand().initializeHand();
         view.setMainDeck();
-        deck.getHand().initializeHand();
     }
 
     public void showAllDecks() {

@@ -12,6 +12,7 @@ import model.DataCenter;
 import view.Graphic;
 import view.UI;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
@@ -50,10 +51,16 @@ public class Main extends Application {
     private static void loadAccounts() {
         try {
             YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
-            Reader reader = new FileReader("accounts.json");
-            HashMap<String, Account> accounts = yaGson.fromJson(reader, (Type) Account[].class);
-            if (accounts != null) {
-                DataCenter.getInstance().setAccounts(accounts);
+            File file = new File("Player");
+            File[] allAccounts = file.listFiles();
+            if (allAccounts != null) {
+                for (File file1 : allAccounts) {
+                    Reader reader = new FileReader(file1.getName());
+                    HashMap<String, Account> accounts = yaGson.fromJson(reader, (Type) Account[].class);
+                    if (accounts != null) {
+                        DataCenter.getInstance().getAccounts().putAll(accounts);
+                    }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

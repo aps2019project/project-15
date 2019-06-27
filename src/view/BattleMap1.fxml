@@ -143,13 +143,13 @@
                 </ImageView>
             </children>
         </HBox>
-        <HBox layoutX="306.0" layoutY="800.0" prefHeight="194.0" prefWidth="1009.0" spacing="70.0">
-            <Label fx:id="firstCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
-            <Label fx:id="secondCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
-            <Label fx:id="thirdCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
-            <Label fx:id="fourthCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
-            <Label fx:id="fifthCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1"/>
-            <Label fx:id="sixthCardName" prefHeight="50" prefWidth="173" scaleX="1.1" scaleY="1.1"/>
+        <HBox layoutX="306.0" layoutY="800.0" prefHeight="194.0" prefWidth="1009.0" spacing="90.0">
+            <Label fx:id="firstCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1" textFill="snow"/>
+            <Label fx:id="secondCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1" textFill="snow"/>
+            <Label fx:id="thirdCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1" textFill="snow"/>
+            <Label fx:id="fourthCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1" textFill="snow"/>
+            <Label fx:id="fifthCardName" prefHeight="50" prefWidth="180" scaleX="1.1" scaleY="1.1" textFill="snow"/>
+            <Label fx:id="sixthCardName" prefHeight="50" prefWidth="173" scaleX="1.1" scaleY="1.1" textFill="snow"/>
         </HBox>
         <StackPane layoutX="14.0" layoutY="710.0" prefHeight="254.0" prefWidth="271.0">
             <children>

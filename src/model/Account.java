@@ -92,6 +92,7 @@ public class Account {
         for (Card card : deck.getCards()) {
             Card mainDeckCard = card.clone();
             mainDeck.addCard(mainDeckCard);
+            mainDeck.getHand().allCardsInDeck.add(mainDeckCard);
         }
         if (deck.getItem() != null) {
             Item mainDeckItem = deck.getItem().clone();
@@ -116,16 +117,18 @@ public class Account {
 
         YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
         try {
-            Writer writer = new FileWriter("accounts.json");
-            String string = yaGson.toJson(DataCenter.getInstance().getAccounts());
-            writer.write(string);
-            writer.close();
+            for (Account account : DataCenter.getInstance().getAccounts().values()) {
+                if (account.getUsername() != null) {
+                    Writer writer = new FileWriter("Players/" + account.getUsername());
+                    String string = yaGson.toJson(account);
+                    writer.write(string);
+                    writer.close();
+                }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     boolean soldCard(Card card) {
