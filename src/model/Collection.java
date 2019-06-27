@@ -84,30 +84,32 @@ public class Collection {
         view.notFoundInCollection();
     }
 
-    public void createDeck(String name) {
+    public boolean createDeck(String name) {
         if (Controller.currentAccount.getMyCollection().myDecks() != null) {
             for (Deck item : myDecks) {
                 if (item.getName().equals(name)) {
                     view.deckAlreadyExists();
-                    return;
+                    return false;
                 }
             }
         }
         Deck deck = new Deck(name);
         myDecks.add(deck);
         view.deckCreated(deck);
+        return true;
     }
 
-    public void deleteDeck(String name) {
+    public boolean deleteDeck(String name) {
         Iterator<Deck> iter = myDecks.iterator();
         Deck deck;
         while (iter.hasNext()) {
             deck = iter.next();
             if (deck.getName().equals(name)) {
                 iter.remove();
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     private boolean addCardToDeck(Card card, String deckName) {

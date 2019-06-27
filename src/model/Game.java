@@ -18,6 +18,7 @@ public class Game {
     public Card currentCard;
     public Item currentItem;
     private Account activeAccount;
+    private boolean storyMode = false;
     private View view = View.getInstance();
 
     Map getMap() {
@@ -50,9 +51,20 @@ public class Game {
         switch (this.Mode) {
             case killOpponent:
                 setFinishedGame(killOpponentGameEnded());
+                if (storyMode) {
+                    Controller.currentGame = new Game();
+                    Controller.currentGame.storyMode = true;
+                    Controller.currentGame.setTypeOfGame(2);
+                }
                 break;
             case KeepFlag:
                 setFinishedGame(keepFlagEndGame());
+                if (storyMode) {
+                    Controller.currentGame = new Game();
+                    Controller.currentGame.storyMode = true;
+                    Controller.currentGame.setTypeOfGame(3);
+                    Controller.currentGame.addFlagsToGame(5);
+                }
                 break;
             case CollectFlags:
                 setFinishedGame(collectFlagModeEndGame());
@@ -214,12 +226,12 @@ public class Game {
     public void setTypeOfGame(int number) {
         switch (number) {
             case (0): {
-                Mode = ModeOfGame.StoryMode;
+                this.storyMode = true;
+                Mode = ModeOfGame.killOpponent;
                 break;
             }
             case (1): {
                 Mode = ModeOfGame.killOpponent;
-
                 break;
             }
             case (2): {

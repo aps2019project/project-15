@@ -48,6 +48,7 @@ public class Main extends Application {
             launch(args);
         }
         finally {
+            Account.saveAccounts();
             Controller.currentAccount.setLoggedIn(false);
             Account.saveAccounts();
         }

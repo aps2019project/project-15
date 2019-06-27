@@ -37,6 +37,7 @@ public class CollectionMenu implements Info {
     public TextArea DeckName;
     public Button submit;
     Map<String, HBox> decks = new HashMap<>();
+    Map<String, Pane> nameOfDeck = new HashMap<>();
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Parent mainMenu = FXMLLoader.load(view.CreateAccount.class.getResource("Graphic.fxml"));
@@ -139,6 +140,7 @@ public class CollectionMenu implements Info {
         background.setOpacity(0.68);
         deckInfo.getChildren().addAll(background , text);
         deckInfo.setAlignment(Pos.CENTER);
+        nameOfDeck.put(deck.getName(), deckInfo);
         return deckInfo;
     }
 
@@ -163,20 +165,26 @@ public class CollectionMenu implements Info {
 
     public void createDeck(MouseEvent mouseEvent) {
         if (entryCheck()) {
-            Controller.currentAccount.getMyCollection().createDeck(entry.getText());
-            Deck deck = Deck.returnDeckByName(entry.getText());
-            if(deck != null) {
-                HBox hBox = new HBox();
-                deckNames.getChildren().addAll(deckInfo(deck));
-                cardsInDeck.getChildren().add(hBox);
-                decks.put(deck.getName(), hBox);
+            if (Controller.currentAccount.getMyCollection().createDeck(entry.getText())) {
+                Deck deck = Deck.returnDeckByName(entry.getText());
+                if (deck != null) {
+                    HBox hBox = new HBox();
+                    deckNames.getChildren().addAll(deckInfo(deck));
+                    cardsInDeck.getChildren().add(hBox);
+                    decks.put(deck.getName(), hBox);
+                }
             }
         }
     }
 
     public void deleteDeck(MouseEvent mouseEvent) {
         if (entryCheck()) {
-            Controller.currentAccount.getMyCollection().deleteDeck(entry.getText());
+            if(Controller.currentAccount.getMyCollection().deleteDeck(entry.getText())){
+                deckNames.getChildren().remove(nameOfDeck.get(entry.getText()));
+                cardsInDeck.getChildren().remove(decks.get(entry.getText()));
+                nameOfDeck.remove(entry.getText());
+                decks.remove(entry.getText());
+            }
         }
     }
 
