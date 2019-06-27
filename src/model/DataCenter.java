@@ -55,10 +55,15 @@ public class DataCenter {
         return null;
     }
 
+    public void setAccounts(HashMap<String, Account> accounts) {
+        this.accounts = accounts;
+    }
+
     public HashMap<String, Account> getAccounts() {
         return accounts;
     }
-    public void putAccount(Account account){
+
+    public void putAccount(Account account) {
         accounts.put(account.getUsername(), account);
     }
 

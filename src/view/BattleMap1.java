@@ -4,17 +4,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.effect.*;
-import javafx.scene.effect.Effect;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.scene.effect.Effect;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -23,6 +20,13 @@ import java.util.TimerTask;
 public class BattleMap1 extends Application {
 
     public GridPane gridPane;
+    public ImageView firstCard;
+    public ImageView secondCard;
+    public ImageView thirdCard;
+    public ImageView fourthCard;
+    public ImageView fifthCard;
+    public ImageView sixthCard;
+
     private int counter = 1;
 
     public Pane block00;

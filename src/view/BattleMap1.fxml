@@ -110,32 +110,32 @@
         <Text fill="WHITE" layoutX="1636.0" layoutY="897.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="END TURN" textAlignment="CENTER" wrappingWidth="150.99999648332596" />
         <HBox layoutX="306.0" layoutY="833.0" prefHeight="194.0" prefWidth="1009.0" spacing="40.0">
             <children>
-                <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fx:id="firstCard" fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fx:id="secondCard" fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fx:id="thirdCard" fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fx:id="fourthCard" fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fx:id="fifthCard" fitHeight="165.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="180.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
+                <ImageView fx:id="sixthCard" fitHeight="180.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1" scaleY="1.1">
                     <image>
                         <Image url="@/ui/card_background.png" />
                     </image>
@@ -194,7 +194,7 @@
             <Image url="@/ui/button_primary_left.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER_RIGHT" onMouseClicked="#exit" layoutX="1571.0" layoutY="940.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="9.0" prefWidth="111.0" text="Menu" textFill="#fffafa">
+      <Label alignment="CENTER_RIGHT" layoutX="1571.0" layoutY="940.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#exit" prefHeight="9.0" prefWidth="111.0" text="Menu" textFill="#fffafa">
          <font>
             <Font size="24.0" />
          </font>

@@ -11,7 +11,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class animationActivities {
-    ArrayList<Card> cardsInGame = Controller.currentGame.getCardsInGame();
+//    ArrayList<Card> cardsInGame = Controller.currentGame.getCardsInGame();
     //public  show(cardsInGame){
 
 

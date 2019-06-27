@@ -1,3 +1,4 @@
+
 import com.gilecode.yagson.YaGson;
 import com.gilecode.yagson.YaGsonBuilder;
 import controller.Controller;
@@ -14,6 +15,7 @@ import view.UI;
 import java.io.FileReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 
 public class Main extends Application {
 
@@ -56,16 +58,12 @@ public class Main extends Application {
         try {
             YaGson yaGson = new YaGsonBuilder().setPrettyPrinting().create();
             Reader reader = new FileReader("accounts.json");
-            Account[] accounts = yaGson.fromJson(reader, (Type) Account[].class);
+            HashMap<String, Account> accounts = yaGson.fromJson(reader, (Type) Account[].class);
             if (accounts != null) {
-                for (Account account : accounts) {
-                    DataCenter.getInstance().putAccount(account);
-                    System.out.println(account.getUsername());
-                }
+                DataCenter.getInstance().setAccounts(accounts);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
