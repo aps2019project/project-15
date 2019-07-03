@@ -6,6 +6,7 @@ public class Message implements ToJson{
     private String sender;
     private String message;
     private CreateAccount createAccount;
+    private Login login;
 
     public Message(String sender, String message) {
         this.sender = sender;
