@@ -2,17 +2,14 @@ package client;
 
 import com.google.gson.Gson;
 
-public class Message {
+public class Message implements ToJson{
     private String sender;
     private String message;
+    private CreateAccount createAccount;
 
     public Message(String sender, String message) {
         this.sender = sender;
         this.message = message;
-    }
-
-    public String toJson() {
-        return new Gson().toJson(this);
     }
 
     public static Message fromJson(String string) {

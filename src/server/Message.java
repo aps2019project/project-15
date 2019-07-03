@@ -5,6 +5,8 @@ import com.google.gson.Gson;
 public class Message {
     private String sender;
     private String message;
+    private CreateAccount createAccount;
+    private Login login;
 
     public Message(String sender, String message) {
         this.sender = sender;
