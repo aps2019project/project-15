@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Account;
 import model.DataCenter;
+import server.Message;
 import server.SocketPair;
 import view.UI;
 
@@ -22,7 +23,7 @@ import java.util.Scanner;
 
 public class Main extends Application {
 
-    static ArrayList<SocketPair> sockets = new ArrayList<>();
+    private static ArrayList<SocketPair> sockets = new ArrayList<>();
     static Controller controller = new Controller();
     private int counter = 1;
 
@@ -38,14 +39,16 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         try {
-            try {
+            /*try {
                 networking();
             } catch (IOException e) {
                 e.printStackTrace();
-            }
-            loadAccounts();
-            Controller.getInstance().initEverything();
-            launch(args);
+            }*/
+            new Thread(() -> {
+                loadAccounts();
+                Controller.getInstance().initEverything();
+                launch(args);
+            }).start();
         } catch (RuntimeException ex) {
             ex.printStackTrace();
         } finally {
@@ -110,7 +113,7 @@ public class Main extends Application {
                             for (SocketPair other : sockets) {
                                 if (other.getSocket().equals(socket)) continue;
                                 synchronized (other) {
-                                    other.getFormatter().format(message + "\n");
+                                    other.getFormatter().format(new Message("server", message).toJson() + "\n");
                                     other.getFormatter().flush();
                                 }
                             }
