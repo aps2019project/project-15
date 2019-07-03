@@ -52,13 +52,15 @@ public class singlePlayerBattleOptions {
     private void goToBattlePage(){
         Parent mainMenu = null;
         try {
-            mainMenu = FXMLLoader.load(BattleMap1.class.getResource("BattleMap1.fxml"));
+            mainMenu = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
         Stage primaryStage = UI.getInstance().getPrimaryStage();
         primaryStage.setTitle("Duelyst");
-        primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
+        if (mainMenu != null) {
+            primaryStage.setScene(new Scene(mainMenu, 3000, 1000));
+        }
         primaryStage.show();
     }
 }

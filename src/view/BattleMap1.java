@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -62,7 +63,7 @@ public class BattleMap1 extends Application {
     public Pane block15;
     public Pane currentPaneEntered;
 
-    public void initialize(){
+    public void initialize() {
         cardsInHand();
         for (Node pane : gridPane.getChildren()) {
             pane.setOnMouseEntered(event -> {
@@ -77,8 +78,8 @@ public class BattleMap1 extends Application {
     }
 
     private void cardsInHand() {
-        ArrayList<Card> cardsInHand = new ArrayList<>();
-        cardsInHand.addAll(Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand());
+        ArrayList<Card> cardsInHand;
+        cardsInHand = Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand();
         firstCardName.setText(cardsInHand.get(0).getName());
         secondCardName.setText(cardsInHand.get(1).getName());
         thirdCardName.setText(cardsInHand.get(2).getName());
@@ -106,6 +107,10 @@ public class BattleMap1 extends Application {
 
     public void endTurn(MouseEvent mouseEvent) {
         Controller.currentGame.endTurn();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Switch turn");
+        alert.setContentText("Enemy turn!");
+        alert.show();
     }
 
     @Override
