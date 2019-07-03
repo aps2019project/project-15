@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.FloatMap?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1031.0"
+            prefWidth="1910.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.AccountMenu">
+    <children>
+        <ImageView fitHeight="1074.0" fitWidth="1920.0" layoutY="-4.0" nodeOrientation="INHERIT" pickOnBounds="true"
+                   preserveRatio="true" scaleY="1.5">
+            <image>
+                <Image url="@/scenes/vetruvian/bg@2x.jpg"/>
+            </image>
+            <cursor>
+                <Cursor fx:constant="S_RESIZE"/>
+            </cursor>
+            <effect>
+                <DisplacementMap>
+                    <mapData>
+                        <FloatMap/>
+                    </mapData>
+                </DisplacementMap>
+            </effect>
+        </ImageView>
+        <VBox layoutX="71.0" layoutY="105.0" prefHeight="862.0" prefWidth="224.0" spacing="40.0">
+            <children>
+                <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="100.0" prefWidth="160.0"
+                        style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Login">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Jamrul" size="22.0"/>
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="100.0" prefWidth="160.0"
+                        style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Create account">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Jamrul" size="18.0"/>
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0"
+                        style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Show leaderboard"
+                        onMouseClicked="#showLeaderBoard">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Jamrul" size="16.0"/>
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0"
+                        style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Help">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Jamrul" size="16.0"/>
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="160.0"
+                        style="-fx-background-radius: 10; -fx-background-color: lightblue;" text="Show Menu">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Jamrul" size="16.0"/>
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onMouseClicked="#exit" prefHeight="100.0" prefWidth="158.0"
+                        style="-fx-background-radius: 10; -fx-background-color: #785eb5;" text="Exit">
+                    <padding>
+                        <Insets bottom="10.0" top="10.0"/>
+                    </padding>
+                    <font>
+                        <Font name="Jamrul" size="16.0"/>
+                    </font>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </VBox>
+        <Label contentDisplay="CENTER" layoutX="691.0" layoutY="14.0" prefHeight="137.0" prefWidth="370.0"
+               text="Welcome!!! :-) " textFill="#ae1313">
+            <font>
+                <Font name="Chilanka Regular" size="60.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
