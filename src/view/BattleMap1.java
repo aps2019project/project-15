@@ -80,12 +80,20 @@ public class BattleMap1 extends Application {
     private void cardsInHand() {
         ArrayList<Card> cardsInHand;
         cardsInHand = Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand();
-        firstCardName.setText(cardsInHand.get(0).getName());
-        secondCardName.setText(cardsInHand.get(1).getName());
-        thirdCardName.setText(cardsInHand.get(2).getName());
-        fourthCardName.setText(cardsInHand.get(3).getName());
-        fifthCardName.setText(cardsInHand.get(4).getName());
-        sixthCardName.setText(cardsInHand.get(5).getName());
+       firstCardName.setText(cardsInHand.get(0).getName());
+       secondCardName.setText(cardsInHand.get(1).getName());
+      thirdCardName.setText(cardsInHand.get(2).getName());
+     fourthCardName.setText(cardsInHand.get(3).getName());
+      fifthCardName.setText(cardsInHand.get(4).getName());
+      sixthCardName.setText(cardsInHand.get(5).getName());
+
+        Image image = new Image("/unit_gifs/ShireDarande.gif");
+        firstCard.setImage(image);
+        secondCard.setImage(image);
+        thirdCard.setImage(image);
+        firstCard.setImage(image);
+        fifthCard.setImage(image);
+        sixthCard.setImage(image);
     }
 
 
@@ -116,23 +124,23 @@ public class BattleMap1 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Pane root = new Pane();
-        ImageView imageView = new ImageView();
-        Image image = new Image("/unit_gifs/boss_andromeda_breathing.gif");
-        imageView.setImage(image);
-
-        Timer timer = new Timer();
-
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                imageView.setLayoutX(counter);
-                imageView.setLayoutY(100);
-                System.out.println(counter);
-                counter++;
-            }
-        };
-        timer.scheduleAtFixedRate(timerTask, 1, 100);
-        root.getChildren().addAll(imageView);
+//        ImageView imageView = new ImageView();
+//        Image image = new Image("/unit_gifs/boss_andromeda_breathing.gif");
+//        imageView.setImage(image);
+//
+//        Timer timer = new Timer();
+//
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                imageView.setLayoutX(counter);
+//                imageView.setLayoutY(100);
+//                System.out.println(counter);
+//                counter++;
+//            }
+//        };
+//        timer.scheduleAtFixedRate(timerTask, 1, 100);
+//        root.getChildren().addAll(imageView);
         Scene scene = new Scene(root, 1600, 900);
         primaryStage.setScene(scene);
         primaryStage.show();
