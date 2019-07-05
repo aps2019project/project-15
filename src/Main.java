@@ -39,16 +39,17 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         try {
-            /*try {
-                networking();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
             new Thread(() -> {
                 loadAccounts();
                 Controller.getInstance().initEverything();
                 launch(args);
             }).start();
+            try {
+                networking();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         } catch (RuntimeException ex) {
             ex.printStackTrace();
         } finally {
