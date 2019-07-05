@@ -192,10 +192,19 @@ public class View {
     }
 
 
-    public void showLeaderBoard(Account account, int num) {
-        System.out.println(num + "-UserName : " + account.getUsername() + " -Wins : " + account.getNumOfWins());
+    public String showLeaderBoard(Account account, int num) {
+        return (num + "-UserName : " + account.getUsername() + " -Wins : " + account.getNumOfWins());
     }
 
+    public String showFullLeaderboard(){
+        StringBuilder stringBuilder = new StringBuilder();
+        int i = 1;
+        for(Account account : DataCenter.getInstance().getAccounts().values()){
+            stringBuilder.append(showLeaderBoard(account , i));
+            i++;
+        }
+        return stringBuilder.toString();
+    }
     public void allHeroDeclaration() {
         System.out.println("Heroes:");
         int i = 1;

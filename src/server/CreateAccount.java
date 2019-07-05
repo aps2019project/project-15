@@ -19,6 +19,7 @@ public class CreateAccount implements CheckAccuracy{
         }
         AccountMenu accountMenu = new AccountMenu();
         Controller.currentAccount = accountMenu.register(username, password);
+        Controller.currentMenu = new MainMenu();
         return new Gson().toJson("correct");
     }
 }
