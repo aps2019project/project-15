@@ -7,6 +7,9 @@ public class Message {
     private String message;
     private CreateAccount createAccount;
     private Login login;
+    private Enter enter;
+    private ShowLeaderboard showLeaderboard;
+    private Exit exit;
 
     public Message(String sender, String message) {
         this.sender = sender;
