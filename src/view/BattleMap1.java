@@ -86,14 +86,20 @@ public class BattleMap1 extends Application {
      fourthCardName.setText(cardsInHand.get(3).getName());
       fifthCardName.setText(cardsInHand.get(4).getName());
       sixthCardName.setText(cardsInHand.get(5).getName());
+//
+        Image image0 = new Image("/unit_gifs/"+cardsInHand.get(0).getName()+".gif");
+        Image image1 = new Image("/unit_gifs/"+cardsInHand.get(1).getName()+".gif");
+        Image image2= new Image("/unit_gifs/"+cardsInHand.get(2).getName()+".gif");
+        Image image3 = new Image("/unit_gifs/"+cardsInHand.get(3).getName()+".gif");
+        Image image4= new Image("/unit_gifs/"+cardsInHand.get(4).getName()+".gif");
+        Image image5 = new Image("/unit_gifs/"+cardsInHand.get(5).getName()+".gif");
+        firstCard.setImage(image0);
+        secondCard.setImage(image1);
+        thirdCard.setImage(image2);
+        fourthCard.setImage(image3);
+        sixthCard.setImage(image5);
+        fifthCard.setImage(image4);
 
-        Image image = new Image("/unit_gifs/ShireDarande.gif");
-        firstCard.setImage(image);
-        secondCard.setImage(image);
-        thirdCard.setImage(image);
-        firstCard.setImage(image);
-        fifthCard.setImage(image);
-        sixthCard.setImage(image);
     }
 
 
