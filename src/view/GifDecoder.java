@@ -26,7 +26,6 @@ import java.awt.image.*;
  *
  * @author Kevin Weiner, FM Software; LZW decoder adapted from John Cristy's ImageMagick.
  * @version 1.03 November 2003
- *
  */
 
 public class GifDecoder {
@@ -101,6 +100,7 @@ public class GifDecoder {
             image = im;
             delay = del;
         }
+
         public BufferedImage image;
         public int delay;
     }
@@ -122,6 +122,7 @@ public class GifDecoder {
 
     /**
      * Gets the number of frames read from file.
+     *
      * @return frame count
      */
     public int getFrameCount() {
@@ -201,14 +202,14 @@ public class GifDecoder {
                 if (iline >= ih) {
                     pass++;
                     switch (pass) {
-                        case 2 :
+                        case 2:
                             iline = 4;
                             break;
-                        case 3 :
+                        case 3:
                             iline = 2;
                             inc = 4;
                             break;
-                        case 4 :
+                        case 4:
                             iline = 1;
                             inc = 2;
                     }
@@ -262,10 +263,12 @@ public class GifDecoder {
 
     /**
      * Reads GIF image from stream
-     *
+     * <p>
      * //@param BufferedInputStream containing GIF file.
+     *
      * @return read status code (0 = no errors)
-*/    public int read(BufferedInputStream is) {
+     */
+    public int read(BufferedInputStream is) {
         init();
         if (is != null) {
             in = is;
@@ -288,8 +291,9 @@ public class GifDecoder {
 
     /**
      * Reads GIF image from stream
-     *
+     * <p>
      * //@param InputStream containing GIF file.
+     *
      * @return read status code (0 = no errors)
      */
     public int read(InputStream is) {
@@ -391,7 +395,7 @@ public class GifDecoder {
 
         datum = bits = count = first = top = pi = bi = 0;
 
-        for (i = 0; i < npix;) {
+        for (i = 0; i < npix; ) {
             if (top == 0) {
                 if (bits < code_size) {
                     //  Load bytes until there are enough bits for a code.
@@ -572,18 +576,18 @@ public class GifDecoder {
             int code = read();
             switch (code) {
 
-                case 0x2C : // image separator
+                case 0x2C: // image separator
                     readImage();
                     break;
 
-                case 0x21 : // extension
+                case 0x21: // extension
                     code = read();
                     switch (code) {
-                        case 0xf9 : // graphics control extension
+                        case 0xf9: // graphics control extension
                             readGraphicControlExt();
                             break;
 
-                        case 0xff : // application extension
+                        case 0xff: // application extension
                             readBlock();
                             String app = "";
                             for (int i = 0; i < 11; i++) {
@@ -591,24 +595,23 @@ public class GifDecoder {
                             }
                             if (app.equals("NETSCAPE2.0")) {
                                 readNetscapeExt();
-                            }
-                            else
+                            } else
                                 skip(); // don't care
                             break;
 
-                        default : // uninteresting extension
+                        default: // uninteresting extension
                             skip();
                     }
                     break;
 
-                case 0x3b : // terminator
+                case 0x3b: // terminator
                     done = true;
                     break;
 
-                case 0x00 : // bad byte, but keep going and see what happens
+                case 0x00: // bad byte, but keep going and see what happens
                     break;
 
-                default :
+                default:
                     status = STATUS_FORMAT_ERROR;
             }
         }

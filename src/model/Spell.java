@@ -130,7 +130,7 @@ public class Spell extends Card {
     }
 
     public String toString() {
-        return "name: " + this.getName() + "\n" + "id: " + this.getCardID()+ "\nprice: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
+        return "name: " + this.getName() + "\n" + "id: " + this.getCardID() + "\nprice: " + this.price + "\n" + "Mp: " + this.mp + "\n" + "range: " + this.range + "\n" + "description: " + this.description + "\n";
     }
 
     public void attack(Card card) throws CloneNotSupportedException {

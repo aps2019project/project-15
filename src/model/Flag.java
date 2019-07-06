@@ -9,7 +9,7 @@ public class Flag extends Item {
     Card card;
     private int startTurn;
 
-    public void setBlock(Block currentBlock){
+    public void setBlock(Block currentBlock) {
         this.currentBlock = currentBlock;
     }
 

@@ -21,7 +21,7 @@ public class Login {
         AccountMenu accountMenu = AccountMenu.getInstance();
         boolean ok = false;
         ok = accountMenu.loginFunction(username, password);
-        if(ok) {
+        if (ok) {
             Parent mainMenu = FXMLLoader.load(view.Graphic.class.getResource("Graphic.fxml"));
             Stage primaryStage = UI.getInstance().getPrimaryStage();
             primaryStage.setTitle("Duelyst");

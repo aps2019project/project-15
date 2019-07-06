@@ -196,15 +196,16 @@ public class View {
         return (num + "-UserName : " + account.getUsername() + " -Wins : " + account.getNumOfWins());
     }
 
-    public String showFullLeaderboard(){
+    public String showFullLeaderboard() {
         StringBuilder stringBuilder = new StringBuilder();
         int i = 1;
-        for(Account account : DataCenter.getInstance().getAccounts().values()){
-            stringBuilder.append(showLeaderBoard(account , i));
+        for (Account account : DataCenter.getInstance().getAccounts().values()) {
+            stringBuilder.append(showLeaderBoard(account, i));
             i++;
         }
         return stringBuilder.toString();
     }
+
     public void allHeroDeclaration() {
         System.out.println("Heroes:");
         int i = 1;
@@ -817,10 +818,12 @@ public class View {
     public void enterCardId() {
         alertMmessage("Enter the card's Id");
     }
-    public void flagsNumber(){
+
+    public void flagsNumber() {
         alertMmessage("enter number of flags");
     }
-    public void accountNotExists(){
+
+    public void accountNotExists() {
         alertMmessage("no account with such name exists!!!");
     }
 }

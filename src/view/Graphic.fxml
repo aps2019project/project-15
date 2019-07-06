@@ -10,7 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1884.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Graphic">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0"
+            prefWidth="1884.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view.Graphic">
     <children>
         <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -19,7 +21,8 @@
         </ImageView>
         <VBox layoutX="57.0" layoutY="225.0" prefHeight="687.0" prefWidth="199.0" spacing="100.0">
             <children>
-                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#shopMenuFunc" prefHeight="60.0" prefWidth="145.0" style="-fx-background-radius: 20;" text="Shop">
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#shopMenuFunc" prefHeight="60.0"
+                        prefWidth="145.0" style="-fx-background-radius: 20;" text="Shop">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
@@ -37,7 +40,8 @@
                         <Font name="System Bold Italic" size="22.0"/>
                     </font>
                 </Button>
-                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#battleMenuFunc" prefHeight="60.0" prefWidth="145.0" style="-fx-background-radius: 20;" text="Battle">
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#battleMenuFunc" prefHeight="60.0"
+                        prefWidth="145.0" style="-fx-background-radius: 20;" text="Battle">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
@@ -55,7 +59,8 @@
                         <Font name="System Bold Italic" size="22.0"/>
                     </font>
                 </Button>
-                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#collectionMenuFunc" prefHeight="60.0" prefWidth="145.0" style="-fx-background-radius: 20;" text="Collection">
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#collectionMenuFunc"
+                        prefHeight="60.0" prefWidth="145.0" style="-fx-background-radius: 20;" text="Collection">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
@@ -73,7 +78,8 @@
                         <Font name="System Bold Italic" size="22.0"/>
                     </font>
                 </Button>
-                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#help" prefHeight="60.0" prefWidth="145.0" style="-fx-background-radius: 20;" text="Help">
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#help" prefHeight="60.0"
+                        prefWidth="145.0" style="-fx-background-radius: 20;" text="Help">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
@@ -91,7 +97,8 @@
                         <Font name="System Bold Italic" size="22.0"/>
                     </font>
                 </Button>
-                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="60.0" prefWidth="145.0" style="-fx-background-radius: 20;" text="Quit">
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="60.0"
+                        prefWidth="145.0" style="-fx-background-radius: 20;" text="Quit">
                     <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                     </padding>
@@ -111,7 +118,8 @@
                 </Button>
             </children>
         </VBox>
-        <ImageView fitHeight="159.0" fitWidth="582.0" layoutX="636.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="159.0" fitWidth="582.0" layoutX="636.0" layoutY="58.0" pickOnBounds="true"
+                   preserveRatio="true">
             <image>
                 <Image url="@/ui/brand_duelyst.png"/>
             </image>

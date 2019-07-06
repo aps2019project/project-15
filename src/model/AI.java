@@ -12,12 +12,15 @@ public class AI extends Account {
     public void setGame(Game game) {
         this.game = game;
     }
-    public static AI getInstance(){
+
+    public static AI getInstance() {
         return ai;
     }
-    private AI(){
+
+    private AI() {
 
     }
+
     private void insertCard() {
     }
 

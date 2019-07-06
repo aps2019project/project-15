@@ -22,7 +22,7 @@ public class Graphic {
 
     public void exit(MouseEvent mouseEvent) throws IOException {
         Account.saveAccounts();
-        for(Account account: DataCenter.getInstance().getAccounts().values()){
+        for (Account account : DataCenter.getInstance().getAccounts().values()) {
             account.setLoggedIn(false);
         }
         System.out.println("you clicked exit");

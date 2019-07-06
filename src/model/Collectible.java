@@ -51,7 +51,7 @@ public class Collectible extends Item {
         ArrayList<Collectible> returns = new ArrayList<>();
         Random random = new Random();
         int num = 1;
-        if(allCollectibles.size() > 0) {
+        if (allCollectibles.size() > 0) {
             num = random.nextInt(Math.abs(allCollectibles.size()));
         }
         Collectible collectible = allCollectibles.get(Math.abs(num));
@@ -67,7 +67,8 @@ public class Collectible extends Item {
         }
         return returns;
     }
-    public static void addToCollectibles(Collectible collectible){
+
+    public static void addToCollectibles(Collectible collectible) {
         allCollectibles.add(collectible);
     }
 

@@ -23,11 +23,10 @@ public class singlePlayerBattleOptions {
         submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if(number.getText().equalsIgnoreCase("") || number.getText().equalsIgnoreCase("0")
-                || !number.getText().matches("[\\d]+")){
+                if (number.getText().equalsIgnoreCase("") || number.getText().equalsIgnoreCase("0")
+                        || !number.getText().matches("[\\d]+")) {
                     View.getInstance().flagsNumber();
-                }
-                else {
+                } else {
                     Controller.currentGame.addFlagsToGame(Integer.parseInt(number.getText()));
                     goToBattlePage();
                 }
@@ -49,7 +48,8 @@ public class singlePlayerBattleOptions {
         Controller.currentGame.setTypeOfGame(0);
         goToBattlePage();
     }
-    private void goToBattlePage(){
+
+    private void goToBattlePage() {
         Parent mainMenu = null;
         try {
             mainMenu = FXMLLoader.load(view.BattleMap1.class.getResource("BattleMap1.fxml"));

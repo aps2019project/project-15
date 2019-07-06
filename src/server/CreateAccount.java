@@ -5,13 +5,15 @@ import controller.Controller;
 import menu.AccountMenu;
 import menu.MainMenu;
 
-public class CreateAccount implements CheckAccuracy{
+public class CreateAccount implements CheckAccuracy {
     String username;
     String password;
-    public CreateAccount(String username, String password){
+
+    public CreateAccount(String username, String password) {
         this.username = username;
         this.password = password;
     }
+
     public String checkAccuracy() {
         boolean lenght = false;
         if (password.length() < 4) {

@@ -36,7 +36,7 @@ public class DeckDetails implements Info {
         for (Pane pane : deckContains) {
             if (i % 5 != 0) {
                 hBox.getChildren().add(pane);
-                if(i == deckContains.size()){
+                if (i == deckContains.size()) {
                     cardsAndItems.getChildren().add(hBox);
                 }
             } else {

@@ -28,7 +28,6 @@ public class Account {
     }
 
 
-
     public ArrayList<Card> getCardsInGame() {
         return cardsInGame;
     }

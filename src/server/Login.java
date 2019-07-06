@@ -5,10 +5,11 @@ import controller.Controller;
 import model.Account;
 import model.DataCenter;
 
-public class Login implements CheckAccuracy{
+public class Login implements CheckAccuracy {
     String username;
     String password;
-    public Login(String username, String password){
+
+    public Login(String username, String password) {
         this.username = username;
         this.password = password;
     }

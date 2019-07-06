@@ -6,14 +6,16 @@ import menu.CollectionMenu;
 import menu.MainMenu;
 import menu.ShopMenu;
 
-public class Enter implements CheckAccuracy{
+public class Enter implements CheckAccuracy {
     String message;
-    public Enter(String message){
+
+    public Enter(String message) {
         this.message = message;
     }
+
     @Override
     public String checkAccuracy() {
-        if(Controller.currentMenu.getClass().equals(MainMenu.class)) {
+        if (Controller.currentMenu.getClass().equals(MainMenu.class)) {
             switch (this.message) {
                 case "Enter Collection":
                     Controller.currentMenu = new CollectionMenu();
@@ -22,7 +24,7 @@ public class Enter implements CheckAccuracy{
                     Controller.currentMenu = new ShopMenu();
                     return new Gson().toJson("ShopMenu");
                 case "Enter Battle":
-                    if(Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated){
+                    if (Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated) {
                         return new Gson().toJson("BattleMenu");
                     }
             }

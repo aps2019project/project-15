@@ -16,7 +16,7 @@ public class Shop {
 
     private DataCenter dataCenter = DataCenter.getInstance();
 
-     ArrayList<Card> allCards = new ArrayList<>();
+    ArrayList<Card> allCards = new ArrayList<>();
     private ArrayList<Minion> allMinions = new ArrayList<>();
     private ArrayList<Spell> allSpells = new ArrayList<>();
     private ArrayList<Hero> allHeroes = new ArrayList<>();

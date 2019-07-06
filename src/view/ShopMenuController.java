@@ -21,7 +21,7 @@ import model.*;
 
 import java.io.IOException;
 
-public class ShopMenuController implements Info{
+public class ShopMenuController implements Info {
     public HBox hero;
     public HBox minion;
     public HBox spell;

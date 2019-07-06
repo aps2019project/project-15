@@ -3,6 +3,5 @@ package view;
 public class Sprite {
 
 
-
-    }
+}
 

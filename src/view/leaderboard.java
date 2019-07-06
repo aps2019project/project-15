@@ -18,7 +18,7 @@ public class leaderboard {
 
     public void setLeaderBoard() {
         int num = 1;
-        StringBuilder show  = new StringBuilder();
+        StringBuilder show = new StringBuilder();
         for (Account account : DataCenter.getInstance().getAccounts().values()) {
             show.append(num + ". UserName : " + account.getUsername() + " Wins : " + account.getNumOfWins() + "\n");
             num++;

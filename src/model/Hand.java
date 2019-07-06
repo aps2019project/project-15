@@ -18,12 +18,11 @@ public class Hand {
             }
         }
         allCardsInDeck.remove(hero);
-        for(Card card : allCardsInDeck) {
-            if(index < 6) {
+        for (Card card : allCardsInDeck) {
+            if (index < 6) {
                 cardsInHand.add(card);
                 index++;
-            }
-            else {
+            } else {
                 break;
             }
         }
@@ -37,18 +36,17 @@ public class Hand {
     }
 
     private void getNextCard() {
-        if(index < allCardsInDeck.size()){
+        if (index < allCardsInDeck.size()) {
             cardToBeAdded = allCardsInDeck.get(index);
             index++;
-        }
-        else {
+        } else {
             cardToBeAdded = null;
         }
     }
 
     public ArrayList<Card> returnHand() {
         while (cardsInHand.size() < 6) {
-            if(!addToHand()){
+            if (!addToHand()) {
                 break;
             }
         }
@@ -57,10 +55,9 @@ public class Hand {
 
     private boolean addToHand() {
         while (cardsInHand.size() < 6) {
-            if(cardToBeAdded != null) {
+            if (cardToBeAdded != null) {
                 cardsInHand.add(cardToBeAdded);
-            }
-            else {
+            } else {
                 return false;
             }
             getNextCard();

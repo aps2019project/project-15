@@ -28,7 +28,7 @@ public class MultiPlayer {
     public TextArea number;
     public Button submit;
 
-    private void goToBattlePage(){
+    private void goToBattlePage() {
         Parent mainMenu = null;
         try {
             mainMenu = FXMLLoader.load(BattleMap1.class.getResource("BattleMap1.fxml"));
@@ -58,11 +58,10 @@ public class MultiPlayer {
         submit.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if(number.getText().equalsIgnoreCase("") || number.getText().equalsIgnoreCase("0")
-                        || !number.getText().matches("[\\d]+")){
+                if (number.getText().equalsIgnoreCase("") || number.getText().equalsIgnoreCase("0")
+                        || !number.getText().matches("[\\d]+")) {
                     View.getInstance().flagsNumber();
-                }
-                else {
+                } else {
                     Controller.currentGame.addFlagsToGame(Integer.parseInt(number.getText()));
                     goToBattlePage();
                 }
@@ -71,19 +70,17 @@ public class MultiPlayer {
     }
 
     public void login(MouseEvent mouseEvent) {
-        if(username.getText().equals("")){
+        if (username.getText().equals("")) {
             View.getInstance().getSecondUsername();
-        }
-        else {
+        } else {
             Controller.enemyAccount = DataCenter.getInstance().getAccountByName(username.getText());
             if (Controller.enemyAccount == null) {
                 View.getInstance().accountNotExists();
             } else {
-                if(Controller.enemyAccount.getPassword().equals(password.getText())){
+                if (Controller.enemyAccount.getPassword().equals(password.getText())) {
                     if (Controller.currentAccount.getMainDeck() == null || !Controller.currentAccount.getMainDeck().validated) {
                         View.getInstance().notValidDeck();
-                    }
-                    else {
+                    } else {
                         lable.setVisible(false);
                         username.setVisible(false);
                         password.setVisible(false);
@@ -93,8 +90,7 @@ public class MultiPlayer {
                         mode2.setVisible(true);
                         mode3.setVisible(true);
                     }
-                }
-                else {
+                } else {
                     View.getInstance().incorrectPassword();
                 }
             }

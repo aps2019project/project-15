@@ -18,6 +18,7 @@ public class DataCenter {
     public static DataCenter getInstance() {
         return ourInstance;
     }
+
     public View view = View.getInstance();
 
 
