@@ -10,6 +10,17 @@ public class Message implements ToJson{
     private Enter enterBattle;
     private ShowLeaderboard showLeaderboard;
     private Exit exit;
+    private Sell sell;
+    private Buy buy;
+    private SearchInShop searchInShop;
+    private CreateDeck createDeck;
+    private AddToDeck addToDeck;
+    private RemoveFromDeck removeFromDeck;
+    private DeleteDeck deleteDeck;
+    private SearchInCollection searchInCollection;
+    private Validate validate;
+    private SelectDeck selectDeck;
+    private ShowDeck showDeck;
 
     public Message(String sender, String message) {
         this.sender = sender;

@@ -17,13 +17,13 @@ public class Enter implements CheckAccuracy{
             switch (this.message) {
                 case "Enter Collection":
                     Controller.currentMenu = new CollectionMenu();
-                    return new Gson().toJson("correct");
+                    return new Gson().toJson("CollectionMenu");
                 case "Enter Shop":
                     Controller.currentMenu = new ShopMenu();
-                    return new Gson().toJson("correct");
+                    return new Gson().toJson("ShopMenu");
                 case "Enter Battle":
                     if(Controller.currentAccount.getMainDeck() != null && Controller.currentAccount.getMainDeck().validated){
-                        return new Gson().toJson("correct");
+                        return new Gson().toJson("BattleMenu");
                     }
             }
             return new Gson().toJson("false");
