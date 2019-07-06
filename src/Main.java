@@ -87,6 +87,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        /*String path = "/Taylor-Davis-Pirates-Of-Caribbean-.mp3";
+        Media media = new Media(path);
+        System.out.println(media.getSource());
+        MediaPlayer mp = new MediaPlayer(media);
+        mp.play();*/
         primaryStage.setTitle("SERVER");
         Group group = new Group();
         Scene scene = new Scene(group);

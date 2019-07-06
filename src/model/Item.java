@@ -88,23 +88,15 @@ public class Item implements Cloneable {
         }
     }
 
-    public void shamshireChini(String username) {
+    void shamshireChini(String username) {
         if (username.equalsIgnoreCase(Controller.currentAccount.getUsername())) {
-            for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
-                if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
-                    Minion minion = (Minion) card;
-                    if (minion.getMinionType().equals(TypeOfCounterAttack.melee)) {
-                        minion.Ap += 5;
-                    }
-                } else if (card.getTypeOfAttack().equals(TypeOfCard.Hero)) {
-                    Hero hero = (Hero) card;
-                    if (hero.getCounterAttack().equals(TypeOfCounterAttack.melee)) {
-                        hero.Ap += 5;
-                    }
-                }
-            }
+            shamshirechiniFunction();
             return;
         }
+        shamshirechiniFunction();
+    }
+
+    private void shamshirechiniFunction() {
         for (Card card : Controller.currentAccount.getMainDeck().getCards()) {
             if (card.getTypeOfAttack().equals(TypeOfCard.Minion)) {
                 Minion minion = (Minion) card;

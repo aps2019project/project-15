@@ -20,12 +20,13 @@ public class Game {
     private boolean storyMode = false;
     private View view = View.getInstance();
 
-    public Account whoseTurn(){
-        if(Controller.currentAccount.myTurn){
+    public Account whoseTurn() {
+        if (Controller.currentAccount.myTurn) {
             return Controller.currentAccount;
         }
         return Controller.enemyAccount;
     }
+
     Map getMap() {
         return map;
     }
@@ -37,6 +38,7 @@ public class Game {
             map.addFlagToMap(flag);
         }
     }
+
     private int player1Mp = setInitialPlayer1Mp();
     private int player2Mp = setInitialPlayer2Mp();
     private int firstTurn;
@@ -448,11 +450,16 @@ public class Game {
         for (Card card : whoseTurn().getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        if (whoseTurn().getMainDeck().getItem().getItemName().equalsIgnoreCase("KingWisdom")) {
-            whoseTurn().getMainDeck().getItem().KingWisdom(whoseTurn().getUsername());
-        }
-        if (whoseTurn().getMainDeck().getItem().getItemName().equals("TajeDanaii")) {
-            whoseTurn().getMainDeck().getItem().tajeDanaii(whoseTurn().getUsername());
+        if (whoseTurn().getMainDeck().getItem() != null) {
+            if (whoseTurn().getMainDeck().getItem().getItemName().equalsIgnoreCase("KingWisdom")) {
+                whoseTurn().getMainDeck().getItem().KingWisdom(whoseTurn().getUsername());
+            }
+            if (whoseTurn().getMainDeck().getItem().getItemName().equalsIgnoreCase("TajeDanaii")) {
+                whoseTurn().getMainDeck().getItem().tajeDanaii(whoseTurn().getUsername());
+            }
+            if (whoseTurn().getMainDeck().getItem().getItemName().equalsIgnoreCase("ShamshireChini")) {
+                whoseTurn().getMainDeck().getItem().shamshireChini(whoseTurn().getUsername());
+            }
         }
         map.checkIfCollectibleOrFlagIsTaken();
         updateGraveYard();
