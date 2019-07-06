@@ -1,8 +1,9 @@
 package client;
 
-public class Exit implements ToJson{
+public class Exit implements ToJson {
     String message;
-    public Exit(){
+
+    public Exit() {
         this.message = "Exit";
     }
 }

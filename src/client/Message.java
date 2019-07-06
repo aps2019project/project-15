@@ -2,9 +2,11 @@ package client;
 
 import com.google.gson.Gson;
 
-public class Message implements ToJson{
+public class Message implements ToJson {
+
     private String sender;
     private String message;
+
     private CreateAccount createAccount;
     private Login login;
     private Enter enterBattle;

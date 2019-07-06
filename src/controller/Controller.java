@@ -33,6 +33,7 @@ public class Controller {
     private boolean exit = false;
     public static Game currentGame;
     public static File[] files = new File[10];
+
     public static Controller getInstance() {
         return controller;
     }

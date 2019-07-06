@@ -1,10 +1,11 @@
 package client;
 
-public class DeleteDeck implements ToJson{
+public class DeleteDeck implements ToJson {
     String deckName;
     String accountName;
     String message;
-    public DeleteDeck(String accountName, String deckName){
+
+    public DeleteDeck(String accountName, String deckName) {
         this.accountName = accountName;
         this.deckName = deckName;
         this.message = "Delete Deck";

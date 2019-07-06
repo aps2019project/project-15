@@ -1,8 +1,9 @@
 package client;
 
-public class ShowLeaderboard implements ToJson{
+public class ShowLeaderboard implements ToJson {
     String message;
-    public ShowLeaderboard(){
+
+    public ShowLeaderboard() {
         this.message = "Show Leaderboard";
     }
 }

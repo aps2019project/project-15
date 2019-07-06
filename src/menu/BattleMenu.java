@@ -21,7 +21,7 @@ public class BattleMenu extends Menu {
     private View view = View.getInstance();
     private Request request = new Request();
 
-    public void chooseBattleType(Game game , String command) throws InputException {
+    public void chooseBattleType(Game game, String command) throws InputException {
         if (RequestType.SINGLE_PLAYER.setMatcher(command).find()) {
             view.singlePlayerMode();
             chooseBattleMode();
@@ -30,7 +30,7 @@ public class BattleMenu extends Menu {
             while (!secondPlayerChosen) {
                 view.getSecondUsername();
                 String secondUsername = request.getNewCommand();
-                if(RequestType.EXIT.setMatcher(secondUsername).find()){
+                if (RequestType.EXIT.setMatcher(secondUsername).find()) {
                     Controller.getInstance().setExit(false);
                     return;
                 }
@@ -48,7 +48,7 @@ public class BattleMenu extends Menu {
                 }
             }
             String setMode = request.getNewCommand();
-            while (!RequestType.START_MULTIPLAYER_GAME.setMatcher(setMode).find()){
+            while (!RequestType.START_MULTIPLAYER_GAME.setMatcher(setMode).find()) {
                 System.out.println("Invalid Mode!");
                 setMode = request.getNewCommand();
             }
@@ -65,7 +65,7 @@ public class BattleMenu extends Menu {
                 } else if (mode == 3) {
                     Controller.currentGame.setMode(ModeOfGame.CollectFlags);
                     System.out.println("Collect Flags");
-                } else{
+                } else {
                     view.invalidNumber();
                 }
                 if (numOfFlags != 0) {
@@ -81,7 +81,7 @@ public class BattleMenu extends Menu {
     private void loginToSecondPlayer() {
         view.getSecondPassword();
         String password = request.getNewCommand();
-        while (!password.equals(Controller.enemyAccount.getPassword())){
+        while (!password.equals(Controller.enemyAccount.getPassword())) {
             view.rightPassword();
             password = request.getNewCommand();
         }

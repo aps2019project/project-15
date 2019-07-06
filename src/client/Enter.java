@@ -1,8 +1,9 @@
 package client;
 
-public class Enter implements ToJson{
+public class Enter implements ToJson {
     String message;
-    public Enter(String message){
+
+    public Enter(String message) {
         this.message = "Enter " + message;
     }
 }
