@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -86,11 +88,14 @@ public class BattleMap1 extends Application {
         fourthCardName.setText(cardsInHand.get(3).getName());
         fifthCardName.setText(cardsInHand.get(4).getName());
         sixthCardName.setText(cardsInHand.get(5).getName());
-    }
 
-
-    public void setCurrentPaneEntered(MouseEvent mouseEvent) {
-
+        Image image = new Image("/unit_gifs/ShireDarande.gif");
+        firstCard.setImage(image);
+        secondCard.setImage(image);
+        thirdCard.setImage(image);
+        firstCard.setImage(image);
+        fifthCard.setImage(image);
+        sixthCard.setImage(image);
     }
 
     public void exit(MouseEvent mouseEvent) throws IOException {
@@ -116,26 +121,33 @@ public class BattleMap1 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Pane root = new Pane();
-        ImageView imageView = new ImageView();
-        Image image = new Image("/unit_gifs/boss_andromeda_breathing.gif");
-        imageView.setImage(image);
-
-        Timer timer = new Timer();
-
-        TimerTask timerTask = new TimerTask() {
-            @Override
-            public void run() {
-                imageView.setLayoutX(counter);
-                imageView.setLayoutY(100);
-                System.out.println(counter);
-                counter++;
-            }
-        };
-        timer.scheduleAtFixedRate(timerTask, 1, 100);
-        root.getChildren().addAll(imageView);
+//        ImageView imageView = new ImageView();
+//        Image image = new Image("/unit_gifs/boss_andromeda_breathing.gif");
+//        imageView.setImage(image);
+//
+//        Timer timer = new Timer();
+//
+//        TimerTask timerTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                imageView.setLayoutX(counter);
+//                imageView.setLayoutY(100);
+//                System.out.println(counter);
+//                counter++;
+//            }
+//        };
+//        timer.scheduleAtFixedRate(timerTask, 1, 100);
+//        root.getChildren().addAll(imageView);
         Scene scene = new Scene(root, 1600, 900);
         primaryStage.setScene(scene);
         primaryStage.show();
 
+    }
+
+    public void pauseAlert(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Game is paused. press OK to resume.");
+        alert.setTitle("Paused!");
+        alert.show();
     }
 }

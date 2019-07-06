@@ -448,10 +448,10 @@ public class Game {
         for (Card card : whoseTurn().getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        if (whoseTurn().getMainDeck().getItem().getItemName().equals("KingWisom")) {
+        if (whoseTurn().getMainDeck().getItem().getItemName().equalsIgnoreCase("KingWisdom")) {
             whoseTurn().getMainDeck().getItem().KingWisdom(whoseTurn().getUsername());
         }
-        if (whoseTurn().getMainDeck().getItem().getItemName().equals("TajDanaii")) {
+        if (whoseTurn().getMainDeck().getItem().getItemName().equals("TajeDanaii")) {
             whoseTurn().getMainDeck().getItem().tajeDanaii(whoseTurn().getUsername());
         }
         map.checkIfCollectibleOrFlagIsTaken();
@@ -583,38 +583,38 @@ public class Game {
         }
     }
 
-    private boolean checkSurroundingBlocks(int x, int y, boolean canBeEnserted) {
+    private boolean checkSurroundingBlocks(int x, int y, boolean canBeInserted) {
         Block surrondingBlock = map.getBlock(x - 1, y);
         if (surrondingBlock != null) {
             if (!surrondingBlock.isEmpty() && whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
-                canBeEnserted = true;
+                canBeInserted = true;
             }
         }
-        if (!canBeEnserted) {
+        if (!canBeInserted) {
             surrondingBlock = map.getBlock(x, y - 1);
             if (surrondingBlock != null) {
                 if (!surrondingBlock.isEmpty() && !whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
-                    canBeEnserted = true;
+                    canBeInserted = true;
                 }
             }
         }
-        if (!canBeEnserted) {
+        if (!canBeInserted) {
             surrondingBlock = map.getBlock(x + 1, y);
             if (surrondingBlock != null) {
                 if (surrondingBlock.isEmpty() && !whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
-                    canBeEnserted = true;
+                    canBeInserted = true;
                 }
             }
         }
-        if (!canBeEnserted) {
+        if (!canBeInserted) {
             surrondingBlock = map.getBlock(x, y + 1);
             if (surrondingBlock != null) {
                 if (surrondingBlock.isEmpty() && !whoseTurn().getCardsInGame().contains(surrondingBlock.card)) {
-                    canBeEnserted = true;
+                    canBeInserted = true;
                 }
             }
         }
-        return canBeEnserted;
+        return canBeInserted;
     }
 
     public void showCard(String cardIdInGame) {
