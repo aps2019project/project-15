@@ -1,6 +1,5 @@
 package client;
 
-import com.google.gson.Gson;
 
 public class CreateAccount implements ToJson{
     String username;
