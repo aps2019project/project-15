@@ -124,7 +124,7 @@ public class Controller {
                 if (game == null) {
                     System.out.println("!!!");
                 }
-                if (game.getMode().equals(ModeOfGame.killOpponent)) {
+                if (game != null && game.getMode().equals(ModeOfGame.killOpponent)) {
                     System.out.println(game.getPlayer1Mp());
                     System.out.println(game.getPlayer2Mp());
                 }

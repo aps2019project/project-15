@@ -450,7 +450,7 @@ public class Game {
         for (Card card : whoseTurn().getCardsInGame()) {
             card.attackedThisTurn = false;
         }
-        if (whoseTurn().getMainDeck().getItem() != null) {
+        if (whoseTurn().getMainDeck() != null && whoseTurn().getMainDeck().getItem() != null) {
             if (whoseTurn().getMainDeck().getItem().getItemName().equalsIgnoreCase("KingWisdom")) {
                 whoseTurn().getMainDeck().getItem().KingWisdom(whoseTurn().getUsername());
             }
