@@ -66,23 +66,24 @@ public class Collection {
         return this.myCards().contains(card);
     }
 
-    public void searchInCollection(String name) {
+    public Object searchInCollection(String name) {
         Card card = Card.returnCardByName(name);
         if (card != null) {
             view.printCardId(card);
-            return;
+            return card;
         }
         Item item = Item.getItemByName(name);
         if (item != null) {
             view.printItemID(item);
-            return;
+            return item;
         }
         Item collectible = Collectible.returnItemName(name);
         if (collectible != null) {
             view.printCollectibleID(collectible);
-            return;
+            return collectible;
         }
         view.notFoundInCollection();
+        return null;
     }
 
     public boolean createDeck(String name) {
@@ -202,10 +203,11 @@ public class Collection {
         view.showCollectionMenu();
     }
 
-    public void validateDeck(String deckName) {
+    public boolean validateDeck(String deckName) {
         Deck deck = Deck.returnDeckByName(deckName);
         if (deck == null) {
             view.deckIsNotInCollection();
+            return false;
         } else {
             boolean ok;
             ok = deck.validateDeck();
@@ -215,23 +217,29 @@ public class Collection {
             } else {
                 view.couldNotBeValidated(deck.getName());
             }
+            return ok;
         }
     }
 
-    public void selectDeck(String deckName) throws CloneNotSupportedException {
+    public boolean selectDeck(String deckName) {
         Deck deck = Deck.returnDeckByName(deckName);
         if (deck == null) {
             view.deckIsNotInCollection();
-            return;
+            return false;
         }
         if (!deck.validateDeck()) {
             view.deckIsNotValid();
-            return;
+            return false;
         }
-        Controller.currentAccount.setMainDeck(deck);
+        try {
+            Controller.currentAccount.setMainDeck(deck);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         Controller.currentAccount.getMainDeck().validated = true;
         Controller.currentAccount.getMainDeck().getHand().initializeHand();
         view.setMainDeck();
+        return true;
     }
 
     public void showAllDecks() {

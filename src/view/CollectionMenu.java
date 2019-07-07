@@ -231,11 +231,7 @@ public class CollectionMenu implements Info {
     }
 
     public void selectDeck(MouseEvent mouseEvent) {
-        try {
-            Controller.currentAccount.getMyCollection().selectDeck(entry.getText());
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        Controller.currentAccount.getMyCollection().selectDeck(entry.getText());
     }
 
     public void removeFromDeck(MouseEvent mouseEvent) {
