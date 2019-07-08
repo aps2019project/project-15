@@ -69,7 +69,8 @@ public class Main extends Application {
                 }
                 try {
                     socket.close();
-                } catch (IOException ignored) {
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }).start();
 

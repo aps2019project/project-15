@@ -2,13 +2,17 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import server.Message;
 import server.SocketPair;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -35,7 +39,7 @@ public class Main extends Application {
     }
 
     private static void networking() throws IOException {
-        ServerSocket serverSocket = new ServerSocket(8989);
+        ServerSocket serverSocket = new ServerSocket(8000);
 
         new Thread() {
             Scanner scanner = new Scanner(System.in);
@@ -86,12 +90,20 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        /*String path = "/Taylor-Davis-Pirates-Of-Caribbean-.mp3";
-        Media media = new Media(path);
-        System.out.println(media.getSource());
-        MediaPlayer mp = new MediaPlayer(media);
-        mp.play();*/
+    public void start(Stage primaryStage) {
+
+        // the music is available only on windows
+
+        try {
+            String path = "Taylor-Davis-Pirates-Of-Caribbean-.mp3";
+            Media media = new Media(new File(path).toURI().toString());
+            System.out.println(media.getSource());
+            MediaPlayer mp = new MediaPlayer(media);
+            mp.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         primaryStage.setTitle("SERVER");
         Group group = new Group();
         Scene scene = new Scene(group);
