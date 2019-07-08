@@ -27,7 +27,7 @@
         <Button fx:id="accept" text="Submit" textFill="snow" style="-fx-background-color : indigo" prefHeight="50"
                 prefWidth="100" layoutX="75" layoutY="450" onMouseClicked="#login"/>
         <Button fx:id="exit" text="return" textFill="snow" style="-fx-background-color : indigo" prefHeight="50"
-                prefWidth="100" layoutX="75" layoutY="525" onMouseClicked="#exit"/>
+                prefWidth="130" layoutX="75" layoutY="525" onMouseClicked="#exit"/>
         <Button fx:id="mode1" text="Kill Opponent" textFill="snow" style="-fx-background-color : indigo" prefHeight="75"
                 prefWidth="200" layoutX="1600" layoutY="200" visible="false" onMouseClicked="#killOpponent"/>
         <Button fx:id="mode2" text="Get Flag" textFill="snow" style="-fx-background-color : indigo" prefHeight="75"
