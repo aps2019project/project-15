@@ -20,7 +20,7 @@ public class BattleMenu {
     }
 
     public void singlePlayer(MouseEvent mouseEvent) throws IOException {
-        Controller.enemyAccount = AI.getInstance();
+        Controller.enemyAccount = Controller.currentAccount;
         Parent mainMenu = FXMLLoader.load(view.singlePlayerBattleOptions.class.getResource("singlePlayerBattleOptions.fxml"));
         Stage primaryStage = UI.getInstance().getPrimaryStage();
         primaryStage.setTitle("Game Mode");

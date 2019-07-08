@@ -1,16 +1,20 @@
 package model;
 
+import controller.Controller;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class AI extends Account {
     private static AI ai = new AI();
     private Game game;
-    private Deck mainDeck;
     private ArrayList<Card> AICards = new ArrayList<>();
 
     public void setGame(Game game) {
         this.game = game;
+    }
+    public static void setMainDeck(){
+        AI.getInstance().getMyCollection().selectDeck("salam");
     }
 
     public static AI getInstance() {
@@ -52,9 +56,5 @@ public class AI extends Account {
 
     public ArrayList<Card> getAICards() {
         return AICards;
-    }
-
-    public Deck getMainDeck() {
-        return mainDeck;
     }
 }

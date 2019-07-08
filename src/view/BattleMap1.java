@@ -19,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.AI;
 import model.Card;
 
 import java.io.IOException;
@@ -102,6 +103,7 @@ public class BattleMap1 extends Application {
         ImageView imageView = (ImageView) imageViews.get(0);
         Image image = imageView.getImage();
         //g.drawImage(image , 0, 0, image.getWidth(), image.getHeight(), image.getWidth(),0,-image.getWidth(),image.getHeight());
+        AI.setMainDeck();
         cardsInHand();
         for (Node pane : map.getChildren()) {
             pane.setOnMouseEntered(event -> {
