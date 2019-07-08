@@ -119,12 +119,7 @@ public class BattleMap1 extends Application {
 
     private void cardsInHand() {
         ArrayList<Card> cardsInHand;
-        cardsInHand = Controller.
-                currentGame.
-                getActiveAccount().
-                getMainDeck().
-                getHand().
-                returnHand();
+        cardsInHand = Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand();
         firstCardName.setText(cardsInHand.get(0).getName());
         secondCardName.setText(cardsInHand.get(1).getName());
         thirdCardName.setText(cardsInHand.get(2).getName());

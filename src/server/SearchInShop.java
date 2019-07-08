@@ -3,7 +3,7 @@ package server;
 import com.google.gson.Gson;
 import model.Shop;
 
-public class SearchInShop implements CheckAccuracy{
+public class SearchInShop implements CheckAccuracy {
     String cardName;
     String message;
 
@@ -14,7 +14,7 @@ public class SearchInShop implements CheckAccuracy{
 
     @Override
     public String checkAccuracy() {
-        if(message.equals("Search In Shop")){
+        if (message.equals("Search In Shop")) {
             return new Gson().toJson(Shop.getInstance().search(cardName));
         }
         return new Gson().toJson("false");

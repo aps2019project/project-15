@@ -3,7 +3,7 @@ package server;
 import com.google.gson.Gson;
 import controller.Controller;
 
-public class SearchInCollection implements CheckAccuracy{
+public class SearchInCollection implements CheckAccuracy {
     String accountName;
     String cardName;
     String message;
@@ -16,7 +16,7 @@ public class SearchInCollection implements CheckAccuracy{
 
     @Override
     public String checkAccuracy() {
-        if(message.equals("Search In Collection")){
+        if (message.equals("Search In Collection")) {
             return new Gson().toJson(Controller.currentAccount.getMyCollection().searchInCollection(cardName));
         }
         return new Gson().toJson("false");

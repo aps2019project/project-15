@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import controller.Controller;
 import model.Shop;
 
-public class Sell implements CheckAccuracy{
+public class Sell implements CheckAccuracy {
     String accountName;
     String cardName;
     String message;
@@ -17,7 +17,7 @@ public class Sell implements CheckAccuracy{
 
     @Override
     public String checkAccuracy() {
-        if(message.equals("Sell")){
+        if (message.equals("Sell")) {
             return new Gson().toJson(Shop.getInstance().sell(cardName));
         }
         return new Gson().toJson("false");

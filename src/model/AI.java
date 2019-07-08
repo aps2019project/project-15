@@ -13,7 +13,8 @@ public class AI extends Account {
     public void setGame(Game game) {
         this.game = game;
     }
-    public static void setMainDeck(){
+
+    public static void setMainDeck() {
         AI.getInstance().getMyCollection().selectDeck("salam");
     }
 

@@ -18,8 +18,6 @@ import java.util.Scanner;
 public class Main extends Application {
 
     private static ArrayList<SocketPair> sockets = new ArrayList<>();
-    static Controller controller = new Controller();
-    private int counter = 1;
 
     public static void main(String[] args) {
         try {
@@ -29,7 +27,6 @@ public class Main extends Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         } catch (RuntimeException ex) {
             ex.printStackTrace();
         } finally {

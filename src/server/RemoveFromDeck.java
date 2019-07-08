@@ -3,7 +3,7 @@ package server;
 import com.google.gson.Gson;
 import controller.Controller;
 
-public class RemoveFromDeck implements CheckAccuracy{
+public class RemoveFromDeck implements CheckAccuracy {
     String accountName;
     String deckName;
     String cardName;
@@ -18,7 +18,7 @@ public class RemoveFromDeck implements CheckAccuracy{
 
     @Override
     public String checkAccuracy() {
-        if(message.equals("Remove From Deck")){
+        if (message.equals("Remove From Deck")) {
             return new Gson().toJson(Controller.currentAccount.getMyCollection().removeCardOrItemFromDeck(cardName, deckName));
         }
         return new Gson().toJson("false");

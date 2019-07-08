@@ -1,5 +1,5 @@
 package server;
 
 public interface CheckAccuracy {
-    public String checkAccuracy();
+    String checkAccuracy();
 }
