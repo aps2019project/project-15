@@ -188,6 +188,9 @@ public class BattleMap1 extends Application {
                 cardFromHand = (ImageView) imageView;
                 Card card = Card.returnCardByName("kamandarefars");
                 if (card != null) {
+                    cardFromHand.setOnDragDropped(event1 -> {
+                        System.out.println("hiiii");
+                    });
                     Controller.currentAccount.addCardInGame(card);
                 }
             });

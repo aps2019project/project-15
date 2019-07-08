@@ -12,10 +12,7 @@ import model.Account;
 import model.DataCenter;
 import view.UI;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.Reader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -38,7 +35,18 @@ public class Main extends Application {
     public static void main(String[] args) {
 
         try {
-            Socket socket = new Socket(InetAddress.getLocalHost(), 8989);
+            File file = new File(".config");
+            String ip = "localhost";
+            int port = 8000;
+
+            if (file.exists()) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+                ip = bufferedReader.readLine();
+                port = Integer.parseInt(bufferedReader.readLine());
+            }
+
+            Socket socket = new Socket(ip, port);
+
             OutputStream outputStream = socket.getOutputStream();
             Formatter formatter = new Formatter(outputStream);
 
@@ -49,6 +57,7 @@ public class Main extends Application {
                 loadAccounts();
                 Controller.getInstance().initEverything();
                 launch(args);
+                Account.saveAccounts();
             }).start();
 
             new Thread(() -> {

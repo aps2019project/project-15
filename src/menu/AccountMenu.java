@@ -21,7 +21,6 @@ public class AccountMenu extends Menu {
         account.setUsername(username);
         account.setPassword(password);
         account.setLoggedIn(true);
-
         dataCenter.getAccounts().putIfAbsent(username, account);
         view.welcome();
         // Account.saveaccount(account);
