@@ -74,7 +74,14 @@
                 <Pane fx:id="block16" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
                 <Pane fx:id="block17" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="1" />
                 <Pane fx:id="block18" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="1" />
-                <Pane fx:id="block20" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="2" />
+                <Pane fx:id="block20" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="228.0" fitWidth="284.0" layoutX="-79.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/generals/general_f2alt.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
                 <Pane fx:id="block30" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="3" />
                 <Pane fx:id="block40" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.rowIndex="4" />
                 <Pane fx:id="block21" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -96,7 +103,14 @@
                 <Pane fx:id="block46" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
                 <Pane fx:id="block36" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
                 <Pane fx:id="block27" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="2" />
-                <Pane fx:id="block28" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                <Pane fx:id="block28" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="162.0" fitWidth="245.0" layoutX="-44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/generals/general_f3@2x.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
                 <Pane fx:id="block38" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="3" />
                 <Pane fx:id="block48" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="8" GridPane.rowIndex="4" />
                 <Pane fx:id="block37" onMouseReleased="#insertCardInMap" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1f5ad1; -fx-opacity: 0.5; -fx-border-color: black;" GridPane.columnIndex="7" GridPane.rowIndex="3" />

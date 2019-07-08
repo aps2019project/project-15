@@ -2,10 +2,12 @@ package view;
 
 import controller.Controller;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -21,6 +23,7 @@ import model.Card;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Observable;
 
 public class BattleMap1 extends Application {
 
@@ -93,6 +96,12 @@ public class BattleMap1 extends Application {
 
 
     public void initialize() {
+        GraphicsContext g;
+
+        ObservableList imageViews = block28.getChildren();
+        ImageView imageView = (ImageView) imageViews.get(0);
+        Image image = imageView.getImage();
+        //g.drawImage(image , 0, 0, image.getWidth(), image.getHeight(), image.getWidth(),0,-image.getWidth(),image.getHeight());
         cardsInHand();
         for (Node pane : map.getChildren()) {
             pane.setOnMouseEntered(event -> {
@@ -108,7 +117,12 @@ public class BattleMap1 extends Application {
 
     private void cardsInHand() {
         ArrayList<Card> cardsInHand;
-        cardsInHand = Controller.currentGame.getActiveAccount().getMainDeck().getHand().returnHand();
+        cardsInHand = Controller.
+                currentGame.
+                getActiveAccount().
+                getMainDeck().
+                getHand().
+                returnHand();
         firstCardName.setText(cardsInHand.get(0).getName());
         secondCardName.setText(cardsInHand.get(1).getName());
         thirdCardName.setText(cardsInHand.get(2).getName());
@@ -188,9 +202,6 @@ public class BattleMap1 extends Application {
                 cardFromHand = (ImageView) imageView;
                 Card card = Card.returnCardByName("kamandarefars");
                 if (card != null) {
-                    cardFromHand.setOnDragDropped(event1 -> {
-                        System.out.println("hiiii");
-                    });
                     Controller.currentAccount.addCardInGame(card);
                 }
             });

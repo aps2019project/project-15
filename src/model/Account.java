@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Account {
 
     transient private View view = View.getInstance();
-    transient public boolean myTurn = true;
+    transient boolean myTurn = true;
     transient private ArrayList<Card> cardsInGame = new ArrayList<>();
     private String username;
     private String password;

@@ -63,4 +63,19 @@ public class singlePlayerBattleOptions {
         }
         primaryStage.show();
     }
+
+    public void exit(MouseEvent mouseEvent) {
+        Parent battleMenu = null;
+        try {
+            battleMenu = FXMLLoader.load(view.BattleMenu.class.getResource("BattleMenu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage primaryStage = UI.getInstance().getPrimaryStage();
+        primaryStage.setTitle("Battle menu");
+        if (battleMenu != null) {
+            primaryStage.setScene(new Scene(battleMenu, 3000, 1000));
+            primaryStage.show();
+        }
+    }
 }
